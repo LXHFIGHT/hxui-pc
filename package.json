@@ -1,0 +1,39 @@
+{
+  "name": "gdinoj",
+  "version": "0.0.1",
+  "description": "广东技术师范学院在线评测系统",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "angular": "^1.4.7"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-open": "^2.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass-china": "^2.3.1",
+    "gulp-uglify": "^2.0.1"
+  },
+  "scripts": {
+    "dev": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "null"
+  },
+  "keywords": [
+    "GDIN",
+    "Online",
+    "Judge"
+  ],
+  "author": "LXHFIGHT",
+  "license": "MIT"
+}
