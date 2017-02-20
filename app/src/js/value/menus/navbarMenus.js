@@ -10,19 +10,19 @@ var menus = angular.module('menus');
 
 module.value('navbarMenus', [
     // 从左往右排序
-    {
-        icon: 'user',
-        name: 'login',
-        show: true,
-        disabled: false,
-        func: function(){
-            alert('I am trying to login in here');
-        }
-    },
-    {
-        icon: 'user',
-        name: 'login',
-        show: true,
-        disabled: false
-    }
+    //{
+    //    icon: 'user',
+    //    name: 'login',
+    //    show: true,
+    //    disabled: false,
+    //    func: function(){
+    //        alert('I am trying to login in here');
+    //    }
+    //},
+    //{
+    //    icon: 'user',
+    //    name: 'login',
+    //    show: true,
+    //    disabled: false
+    //}
 ]);

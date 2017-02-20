@@ -1,0 +1,86 @@
+@import "variable";
+
+/*--------------------------------------------------------------------------------------*/
+/*  hxui-input 适用于全部文本输入框的自定义组件样式
+/*--------------------------------------------------------------------------------------*/
+input[type='text'].hxui-input,
+input[type='email'].hxui-input,
+input[type='number'].hxui-input,
+input[type='url'].hxui-input,
+input[type='password'].hxui-input,
+input[type='date'].hxui-input,
+select.hxui-input,
+textarea.hxui-input{
+  font-size: 15px!important;
+  line-height: 25px!important;
+  @include borderRadius($border-radius-md);
+  resize: none;
+  padding: 4px !important;
+  border: 1px solid #cccccc;
+  -webkit-transition: all   0.3s;
+  -moz-transition: all  0.3s;
+  -o-transition: all    0.3s;
+  transition: all .3s;
+}
+input[type='text'].blank,
+input[type='email'].blank,
+input[type='number'].blank,
+input[type='url'].blank,
+input[type='password'].blank,
+input[type='date'].blank,
+select.blank,
+textarea.blank{
+  border: none!important;
+  @include compatible(transition, all .4s);
+  &:hover{
+    background-color: $color-gray-light!important;
+  }
+  &:focus{
+    background-color: $color-gray!important;
+  }
+}
+select.hxui-input{
+  height: 34px;
+  background-color: transparent;
+}
+.hxui-input.required{
+  border:1px solid #d43039!important;
+
+}
+.hxui-input.required:focus{
+  -webkit-box-shadow:  0 0 4px rgba(212,48,57,.8);
+  -moz-box-shadow:  0 0 4px rgba(212,48,57,.8);
+  box-shadow:  0 0 4px rgba(212,48,57,.8);
+}
+/*  默认样式【聚焦状态】： input中 text，email，number, date样式*/
+input[type="text"].hxui-input:focus,
+input[type="email"].hxui-input:focus,
+input[type="number"].hxui-input:focus,
+textarea.hxui-input:focus,
+input[type='date'].hxui-input:focus{
+  border: 1px solid $color-main;
+}
+/*  默认样式【聚焦状态】： input中 url样式        */
+input[type="url"].hxui-input:focus, select.hxui-input:focus     {
+  border:1px solid $color-main-lighter;
+}
+/*  默认样式【聚焦状态】： input中 password样式   */
+input[type="password"].hxui-input:focus{
+  border: 1px solid red;
+}
+/*  默认样式【聚焦状态】 适用于textarea标签组件      */
+textarea.hxui-input:focus{  border: 1px solid darkgreen;    }
+
+/*  默认样式【无效状态】： input组件和textarea组件无效化的样式   */
+input[disabled]{
+  background-color: transparent; border: none!important;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+textarea[disabled]{
+  background-color: transparent;  border: 1px solid #ccc!important;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}

@@ -67,6 +67,7 @@ $height-navbar: 50px;
 }
 
 .hxui-rest {
+  border-top: 2px solid $color-main-lighter;
   @include hcalc(calc(100% - 50px));    // 50px 对应 $height-navbar
   overflow: hidden;
   width: 100%;
@@ -77,13 +78,207 @@ $height-navbar: 50px;
     width: $width-sidebar;
     overflow-x: hidden;
     border-right: 1px solid $color-gray;
-    border-top: 2px solid $color-main;
+      .group-btn-sidebar{
+      width: 100%;
+      button {
+        width: 100%;
+        height: $height-navbar;
+        background-color: $color-gray-light;
+        border-bottom: 1px solid $color-gray;
+        border-top: 1px solid $color-white;
+        &:before {
+          margin-right: $pm-sm;
+        }
+        &:hover {
+          background-color: darken($color-gray-light, 2%);
+        }
+      }
+      &.selected button{
+        background-color: lighten($color-main, 10%);
+        color: white;
+        border-top: 1px solid lighten($color-main, 20%);
+        border-bottom: 1px solid $color-main-lighter;
+      }
+    }
   }
   .hxui-main {
     height: 100%;
     display: inline-block;
     float: left;
     @include wcalc(calc(100% - 200px)); // 200px 对应 $width-sidebar
-    background-color: green;
+  }
+}
+
+
+// 列表页面样式
+.list-header, .list-footer, .list-content{
+  background-color: white;
+}
+
+.list-header, .list-footer{
+  height: $height-navbar;
+  width: 100%;
+  padding: 0 $pm-bg;
+  background-color: lighten($color-main, 55%);
+  display: block;
+}
+.list-header{
+  z-index: 1000;
+  padding: $pm-sm $pm-bg;
+  .search{
+    display: inline-block;
+    height: 100%;
+    width: auto;
+    float: right;
+    position: relative;
+    padding: 0;
+    input[type=text], input[type=email], input[type=number], input[type=tel] {
+      margin-left: $height-navbar / 4;
+      height: 100%;
+      min-width: 220px;
+      padding: 0 $height-navbar / 6;
+      background-color: rgba(255,255,255,.8);
+      border: none;
+      @include compatible(transition, all .4s);
+      &:focus{
+        border: 1px solid $color-main;
+      }
+    }
+    .icon-search{
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: $color-gray-deep;
+      line-height: $height-navbar - 2 * $pm-sm;
+      height: $height-navbar - 2 * $pm-sm;
+      width: $height-navbar - 2 * $pm-sm;
+      text-align: center;
+      @include compatible(transition, all .4s);
+      &:hover{
+        background-color: $color-main;
+        color: $color-white-blur;
+      }
+    }
+  }
+}
+.list-content{
+  &.no-footer{
+    @include hcalc(calc(100% - 50px));
+    padding: 0;
+  }
+  @include hcalc(calc(100% - 100px));
+  width: 100%;
+  top: $height-navbar;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 10;
+  padding: 0 $height-navbar;
+  table{
+    width: 100%;
+    @include hcalc(calc(100% - 200px));
+    font-size: 16px;
+    table-layout: fixed;
+    td {
+      height: $height-navbar;
+      text-align: center;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      img.canShowDetail{
+        @include compatible(transition, all .4s);
+        &:hover{
+          @include compatible(transform, scale(1.2, 1.2));
+        }
+      }
+    }
+    thead {
+      color: lighten($color-heavy, 5%);
+    }
+    tbody {
+      color: lighten($color-heavy, 10%);
+      tr:nth-child(even) {
+        background-color: lighten($color-gray-light, 1%);
+      }
+      &.hovering{
+        tr:hover{ background-color: $color-gray-light;  }
+      }
+    }
+  }
+}
+.list-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/*  导航栏样式 将ID设置为 x-pagination-upgrade */
+/*
+    适用于使用了Common分页插件样式的页面
+    Date: 2016-9-21
+    Author: LXHFIGHT
+ */
+.hxui-pagination {
+  text-align:right;
+  height: $height-navbar;
+  padding: $pm-sm 0;
+  font-size: 0;
+  select{
+    padding: 0 10px;
+    float: left;
+    height: $height-navbar - 2 * $pm-sm;
+    font-size: 14px;
+    color: #505050;
+    -webkit-border-radius: 4px;
+    border-color:#e7e7e7;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background-color: white;
+  }
+  a, span{
+    border:1px solid $color-gray-light!important;
+    background: #fff;
+    height: 100%!important;
+    line-height: $height-navbar - 2 * $pm-sm;
+    text-decoration: none!important;
+    text-align: center;
+    font-size: 16px;
+    color: #505050;
+    display: inline-block;
+  }
+  a{
+    margin-right: 0!important;
+    min-width: 30px;
+    padding:0 8px;
+    position: relative;
+    top: 1px;
+    color: darken($color-gray, 30%);
+    &:hover{
+      color: $color-heavy;
+      background-color: darken($color-gray-light, 4%);
+    }
+    &:active{
+      border: 1px solid $color-green;
+      color: $color-white;
+      background-color: $color-green;
+    }
+    &.btn-jump{
+      margin-left: 10px;
+    }
+  }
+  span{
+    width: 100px;
+    text-align: center;
+    padding:0 8px;
+    border: none;
+  }
+  input[type=text]{
+    position: relative;
+    top:-1px;
+    min-width: 50px!important;
+    width: 60px;
+    padding: 4px 10px!important;
+    margin-left: 20px;
+    border: 1px solid $color-gray-light;
+    @include borderRadius($border-radius-md);
   }
 }

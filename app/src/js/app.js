@@ -68,7 +68,7 @@ main.config(['$stateProvider','$urlRouterProvider','$httpProvider',  function($s
         }
         return str.join("&");
     };
-    $httpProvider.defaults.headers.post = {'Content-Type': 'application/x-www-form-urlencoded'    }
+    $httpProvider.defaults.headers.post = {'Content-Type': 'application/x-www-form-urlencoded'}
 }]);
 
 // 允许未登录情况下查看的页面

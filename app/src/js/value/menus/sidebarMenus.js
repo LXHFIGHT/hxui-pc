@@ -10,10 +10,14 @@ var menus = angular.module('menus');
 module.value('sidebarMenus', [
     {
         name: '用户管理',
-        state: 'enter.users'
+        state: 'enter.users',
+        icon: 'users',
+        selected: true
     },
     {
         name: '系统设置',
-        state: 'enter.system'
+        state: 'enter.system',
+        icon: 'cog',
+        selected: false
     }
 ]);

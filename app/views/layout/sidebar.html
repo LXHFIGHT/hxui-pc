@@ -1,0 +1,13 @@
+<div class="sidebar">
+    <div
+        class="group-btn-sidebar"
+        ng-repeat="menu in menus"
+        ng-class="{ true: 'selected', false: ''}[((!menu.children) && (menu.selected))]"
+    >
+        <button
+            class="first-level fa fa-{{menu.icon}}"
+            ng-click="doClick($event, menu)"
+            ng-bind="menu.name"
+        ></button>
+    </div>
+</div>
