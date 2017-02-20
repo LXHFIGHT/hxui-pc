@@ -1,0 +1,89 @@
+// hxui 组件的样式
+@import "variable";
+
+$width-sidebar: 200px;
+
+$height-navbar: 50px;
+
+.hxui-block {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.hxui-navbar {
+  height: $height-navbar;
+  width: 100%;
+  background-color: $color-gray-light;
+  .website-info,
+  .navbar-buttons {
+    padding: $pm-sm $pm-md;
+  }
+  .website-info {
+    display: inline-block;
+    height: 100%;
+    border-right: 1px solid $color-gray;
+    width: $width-sidebar;
+    img {
+      height: 100%;
+      max-width: 100%;
+      display: inline-block;
+      margin-right: $pm-sm;
+      float: left;
+    }
+    span {
+      display: inline-block;
+      height: 100%;
+      text-align: left;
+      font-size: $font-md;
+      font-weight: 900;
+      color: $color-main;
+      padding: 0;
+      line-height: $height-navbar - 2 * $pm-sm;
+      &:hover {
+        color: $color-main-lighter;
+      }
+    }
+  }
+  .navbar-buttons{
+    float: right;
+    padding: 0;
+    button {
+      background-color: $color-gray-light;
+      height: $height-navbar;
+      padding: 0 $pm-md;
+      @include compatible(transition, background-color .4s);
+      border-left: 1px solid #fff;
+      border-right: 1px solid $color-gray;
+      &:hover{
+        background-color: darken($color-gray-light, 2%);
+      }
+    }
+  }
+}
+
+.hxui-rest {
+  @include hcalc(calc(100% - 50px));    // 50px 对应 $height-navbar
+  overflow: hidden;
+  width: 100%;
+  .hxui-sidebar {
+    height: 100%;
+    display: inline-block;
+    float: left;
+    width: $width-sidebar;
+    overflow-x: hidden;
+    border-right: 1px solid $color-gray;
+    border-top: 2px solid $color-main;
+  }
+  .hxui-main {
+    height: 100%;
+    display: inline-block;
+    float: left;
+    @include wcalc(calc(100% - 200px)); // 200px 对应 $width-sidebar
+    background-color: green;
+  }
+}

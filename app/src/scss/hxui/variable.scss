@@ -2,8 +2,12 @@
 
 // 用于编写适用于整个项目的CSS属性变量
 
-// 通用行高
-$height-default: 60px;
+
+
+// 导航栏行高
+$height-navbar: 50px;
+$width-sidebar: 200px;
+
 
 // 比例
 $full: 100%;
@@ -17,22 +21,26 @@ $color-gray: #eaeaea;
 $color-gray-deep: #bbb;
 $color-heavy:   #636363;
 $color-dark:    #363636;
+
 $color-green:   #8ecc45;
 $color-green-light: rgba(179,231,148,.5);
 $color-golden: rgba(255, 205, 60,  1);
 $color-orange:  #ff6c3f;
 $color-red: #ff5a50    ;
 $color-red-light: #f99090;
-$color-blue-light: cornflowerblue!important;
-$color-blue: #284cad!important;
+$color-blue-light: cornflowerblue;
+$color-blue: #2962ad;
 
-
+$color-main: $color-blue;
+$color-main-darker: darken($color-main, 5%);
+$color-main-lighter: lighten($color-main, 5%);
 
 // 响应式布局参数
-$width-lg: 1600px;
-$width-bg: 1200px;
-$width-md: 992px;
-$width-sm: 738px;
+$width-bg-min: 1280px;
+$width-md: 1024px;
+$width-md-min: 100%;
+$width-sm: 640px;
+$width-sm-min: 100%;
 
 
 // 通用的字体标准
@@ -49,6 +57,11 @@ $line-height-md: 26px;
 $border-radius-md: 4px;
 $border-radius-bg: 8px;
 
+// padding margin 标准
+$pm-sm: 8px;
+$pm-md: 16px;
+$pm-bg: 24px;
+$pm-lg: 32px;
 
 
 // 通用阴影标准

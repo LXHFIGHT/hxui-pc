@@ -8,34 +8,32 @@
     <title>PC Manager</title>
     <link rel="shortcut icon" href=""/>
     <!-- font-awasome 图标库      -->
-    <link rel="stylesheet" href="frameworks/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css" />
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="frameworks/cropper/dist/cropper.min.css">
     <!-- 采用压缩之后的app.min.css -->
     <link rel="stylesheet" href="dist/css/app.min.css" />
 </head>
 <body ng-app="mainApp">
     <!--  采用angular-ui-route作为项目单页面应用路由机制    -->
-    <div ui-view  class="pad-index x-fulfill" >
-
+    <div ui-view  class="hxui-block" >
     </div>
-
 </body>
 
-<!-- frameworks : JS 前端框架   -->
-<script src="lib/jquery/jquery-1.10.2.min.js"></script>
+<!-- libs : JS 前端框架   -->
+<!-- in development environment -->
+<script src="./lib/angular/angular.js"></script>
+<script src="./lib/angular/angular-ui-router.min.js"></script>
+<!-- in production environment:  -->
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<!--<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>-->
+<!--<script src="http://apps.bdimg.com/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>-->
 <script src="lib/xpage/x-extends.js"></script>
 <script src="lib/xpage/x-page.js"></script>
-<script src="lib/angular/angular.js"></script>
-<!-- in production environment:
-     <script src="frameworks/angular/angular.min.js"></script>
--->
-<script src="lib/angular/angular-ui-router.min.js"></script>
-<script src="lib/angular/angular-animate.min.js"></script>
 
 <!-- 前端JS业务逻辑代码 【compressed】 -->
-<script src="dist/js/main.min.js"></script>
+<script src="./dist/js/main.min.js"></script>
+
 <script>
     function getBrowserInfo() {
         var agent = navigator.userAgent.toLowerCase() ;

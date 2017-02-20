@@ -19,21 +19,23 @@ var htmlSrc = [
                 'app/views/**/*.html'
               ],                        // HTML文件位置
 
-    indexSrc = 'app/index.html';
+    indexSrc = 'app/index.html',
 
     cssSrc = 'app/src/scss/**/*.scss',  // CSS源文件 SCSS文件
     cssDist = 'app/dist/css/',          // 编译后生成CSS文件存储位置
 
-    imgSrc = 'app/src/img/*.*',      // 图片资源存放位置
+    imgSrc = 'app/src/img/**/*.*',      // 图片资源存放位置
     imgDist = 'app/dist/img/',         // 图片资源压缩后存放的位置
 
     jsSrc = [
-                'app/src/js/app.js',
-                'app/src/js/controller/**/*.js',
-                'app/src/js/service/**/*.js',
-                'app/src/js/filter/**/*.js',
-                'app/src/js/value/**/*.js'
-            ];                          // JavaScript脚本文件 源文件所在位置
+        'app/src/js/app.js',
+        'app/src/js/config.js',
+        'app/src/js/ctrl/**/*.js',
+        'app/src/js/service/**/*.js',
+        'app/src/js/directive/**/*.js',
+        'app/src/js/flt/**/*.js',
+        'app/src/js/value/**/*.js'
+    ],                                  // JavaScript脚本文件 源文件所在位置
     jsDist = 'app/dist/js/';            // Javascript合并压缩有存放的位置
 
 /* 建立服务器并监控静态文件进行自动刷新 */
@@ -43,7 +45,7 @@ gulp.task('server', function(){
         port: 8888,
         livereload: true
     });
-    gulp.src(indexSrc).pipe(open({'uri': 'http://localhost:7777'}));
+    gulp.src(indexSrc).pipe(open({'uri': 'http://localhost:8888'}));
 });
 
 /* 监听HTML文件变化进行自动刷新 */
@@ -56,6 +58,7 @@ gulp.task('html', function(){
 gulp.task('scss', function(){
     console.log('scss precessing...');
     gulp.src(cssSrc)
+        .pipe(plumber())
         .pipe(sass())
         .pipe(concat("app.css"))
         .pipe(rename({  'suffix':'.min'  }))

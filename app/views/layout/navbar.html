@@ -1,0 +1,15 @@
+<div class="website-info">
+    <img ng-show="config.logo.show" ng-src="{{config.logo.url}}" alt="">
+    <span ng-bind="config.projectName"></span>
+</div>
+<div class="navbar-buttons">
+    <div class="group">
+        <button
+            type="button"
+            class="fa fa-{{btn.icon}}"
+            ng-repeat="btn in buttons"
+            ng-click="doClick($event, btn)" >
+            {{ btn.name }}
+        </button>
+    </div>
+</div>

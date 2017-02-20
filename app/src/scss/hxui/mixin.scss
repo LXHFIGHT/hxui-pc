@@ -8,9 +8,22 @@
 }
 
 /* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-@mixin calc($property, $expression) {
-  #{$property}: -webkit-calc(#{$expression});
-  #{$property}: calc(#{$expression});
+//@mixin calc($property, $expression) {
+//  #{$property}: -webkit-calc(#{$expression});
+//  #{$property}: -moz-calc(#{$expression});
+//  #{$property}: calc(#{$expression});
+//}
+// 宽度计算 @include wcalc(calc(100% * 2 /3 - 6rem))
+@mixin wcalc($exp) {
+  width: -moz-$exp;
+  width: -webkit-$exp;
+  width: $exp;
+}
+// 高度度计算 @include hcalc(calc(100% * 2 /3 - 6rem))
+@mixin hcalc($exp) {
+  height: -moz-$exp;
+  height: -webkit-$exp;
+  height: $exp;
 }
 
 @mixin bgColorTransition($time){
