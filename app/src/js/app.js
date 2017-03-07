@@ -12,6 +12,16 @@ main.config(['$stateProvider','$urlRouterProvider','$httpProvider',  function($s
     $urlRouterProvider.otherwise('/enter');
     $stateProvider
     // 配置主页中各个模块位置
+    .state('login',{
+        url: '/login/:state',
+        views:{
+            '':{
+                templateUrl: 'views/login/login.html',
+                controller: 'LoginCtrl'
+            }
+        }
+    })
+    // 配置主页中各个模块位置
         .state('enter',{
             url: '/enter',
             views:{
@@ -113,7 +123,11 @@ main.run(['$rootScope', '$location', '$log', '$state','globalValue', 'HttpHelper
             }
             // 判断是否是跳转到登录页面，只有跳转至非登录页面才会执行路由控制
             if(toState.name !== 'login'){
-
+                if (!StorageHelper.getValue('username')) {
+                    toState.name !== 'enter' && popTipWarningQuick('请先登录');
+                    event.preventDefault();// 取消默认跳转行为
+                    $state.go('login', { state: toState.name });
+                }
             }
         });
 

@@ -1,8 +1,8 @@
-# GdinOJ项目前端开发
+# 项目前端开发
  
 ### 1 使用框架介绍
 
-##### 1) GdinOJ项目前端（下称项目）是一个以 [*AngularJS(v1.4 链接可能需要翻墙浏览)*](https://code.angularjs.org/1.4.14/docs/api) 为MVVM框架的单页面应用，并以 **angular-ui-router** 作为前端路由管理库。
+##### 1) 项目前端（下称项目）是一个以 [*AngularJS(v1.4 链接可能需要翻墙浏览)*](https://code.angularjs.org/1.4.14/docs/api) 为MVVM框架的单页面应用，并以 **angular-ui-router** 作为前端路由管理库。
 
 ##### 2) 项目中使用了时下最流行的CSS框架--[*bootstrap(v3.5)*](http://v3.bootcss.com/),在其中添加了大量的自定义样式。为了避免直接编辑css的繁琐工作，项目以**SASS(SCSS)**作为前端css预编译语言。
 
