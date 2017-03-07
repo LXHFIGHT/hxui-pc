@@ -49,6 +49,10 @@ $height-navbar: 50px;
       }
     }
   }
+  .tips{
+    padding-left: $height-navbar;
+    color: $color-main-lighter;
+  }
   .navbar-buttons{
     float: right;
     padding: 0;
@@ -81,6 +85,7 @@ $height-navbar: 50px;
       .group-btn-sidebar{
       width: 100%;
       button {
+        font-size: $font-md;
         width: 100%;
         height: $height-navbar;
         background-color: $color-gray-light;
@@ -118,13 +123,52 @@ $height-navbar: 50px;
 .list-header, .list-footer{
   height: $height-navbar;
   width: 100%;
-  padding: 0 $pm-bg;
+  padding: $pm-sm $height-navbar;
   background-color: lighten($color-main, 55%);
   display: block;
 }
 .list-header{
   z-index: 1000;
-  padding: $pm-sm $pm-bg;
+  .title{
+    vertical-align: top;
+    display: inline-block;
+    margin-right: $pm-md;
+    height: $height-navbar - 2 * $pm-sm;
+    line-height: $height-navbar - 2 * $pm-sm + 2px;
+    color: $color-main;
+    strong {
+      color: $color-red;
+      font: {
+        size: $font-bg;
+        weight: 800;
+      }
+
+    }
+  }
+  .btn-group{
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 $pm-sm;
+    button{
+      border: 1px solid $color-main-lighter;
+      color: $color-main-lighter;
+      padding: 0 $pm-md;
+      &:first-child{
+        @include borderRadiusLeft($border-radius-md);
+      }
+      &:last-child{
+        @include borderRadiusRight($border-radius-md);
+      }
+      &.selected{
+        background-color: $color-main-lighter;
+        color: white;
+      }
+      background-color: transparent;
+      height: 100%;
+      float: left;
+    }
+  }
   .search{
     display: inline-block;
     height: 100%;
@@ -132,19 +176,25 @@ $height-navbar: 50px;
     float: right;
     position: relative;
     padding: 0;
+    margin-right: $pm-md;
     input[type=text], input[type=email], input[type=number], input[type=tel] {
-      margin-left: $height-navbar / 4;
       height: 100%;
       min-width: 220px;
       padding: 0 $height-navbar / 6;
       background-color: rgba(255,255,255,.8);
       border: none;
-      @include compatible(transition, all .4s);
+      @include compatible(transition, border .4s);
       &:focus{
         border: 1px solid $color-main;
       }
     }
-    .icon-search{
+    &.date{
+      text-align: left;
+      display: inline-block;
+      line-height: $height-navbar - $pm-sm * 2;
+      color: $color-main;
+    }
+    .icon-search, .icon-clear{
       position: absolute;
       top: 0;
       right: 0;
@@ -154,48 +204,66 @@ $height-navbar: 50px;
       width: $height-navbar - 2 * $pm-sm;
       text-align: center;
       @include compatible(transition, all .4s);
+
+    }
+    .icon-search{
       &:hover{
         background-color: $color-main;
         color: $color-white-blur;
       }
     }
+    .icon-clear{
+      background-color: $color-gray;
+      &:hover{
+        background-color: $color-red-light;
+        color: white;
+      }
+    }
   }
 }
 .list-content{
-  &.no-footer{
+  &.no-footer, &.no-header{
     @include hcalc(calc(100% - 50px));
     padding: 0;
   }
   @include hcalc(calc(100% - 100px));
   width: 100%;
-  top: $height-navbar;
   overflow-y: auto;
-  position: absolute;
-  z-index: 10;
   padding: 0 $height-navbar;
   table{
     width: 100%;
-    @include hcalc(calc(100% - 200px));
     font-size: 16px;
     table-layout: fixed;
+    border-collapse:collapse;
     td {
-      height: $height-navbar;
+      min-height: $height-navbar;
       text-align: center;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-      img.canShowDetail{
-        @include compatible(transition, all .4s);
+      padding: $pm-sm;
+      img.avatarUrl {
+        height: $height-navbar - 2 * $pm-sm;
+        width: $height-navbar - 2 * $pm-sm;
+        @include borderRadius(50% 50%);
+        background-color: $color-gray;
+      }
+      .link {
+        color: darken($color-main, 5%);
         &:hover{
-          @include compatible(transform, scale(1.2, 1.2));
+          color: $color-red;
         }
       }
     }
     thead {
       color: lighten($color-heavy, 5%);
+      background-color: #fafafa;
+      td{
+        height: $height-navbar;
+      }
     }
     tbody {
       color: lighten($color-heavy, 10%);
+      tr {
+        height: $height-navbar;
+      }
       tr:nth-child(even) {
         background-color: lighten($color-gray-light, 1%);
       }
@@ -220,7 +288,7 @@ $height-navbar: 50px;
 .hxui-pagination {
   text-align:right;
   height: $height-navbar;
-  padding: $pm-sm 0;
+  padding: 0;
   font-size: 0;
   select{
     padding: 0 10px;
@@ -237,8 +305,8 @@ $height-navbar: 50px;
   a, span{
     border:1px solid $color-gray-light!important;
     background: #fff;
-    height: 100%!important;
     line-height: $height-navbar - 2 * $pm-sm;
+    height: $height-navbar - 2 * $pm-sm;
     text-decoration: none!important;
     text-align: center;
     font-size: 16px;
@@ -268,7 +336,7 @@ $height-navbar: 50px;
   span{
     width: 100px;
     text-align: center;
-    padding:0 8px;
+    padding:0 $pm-sm;
     border: none;
   }
   input[type=text]{
@@ -279,6 +347,49 @@ $height-navbar: 50px;
     padding: 4px 10px!important;
     margin-left: 20px;
     border: 1px solid $color-gray-light;
+    @include borderRadius($border-radius-md);
+  }
+}
+
+
+.pad-login, .pad-console {
+  padding: $pm-bg;
+  border: 1px solid $color-gray;
+  @include borderRadius($border-radius-md);
+  @include boxShadow(0 $pm-sm/2 $pm-md $color-gray);
+  .row {
+    padding: $pm-sm 0;
+    text-align: center;
+    &.main-tip{
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: $color-heavy;
+    }
+  }
+  .tip {
+    color: $color-heavy;
+    font: {
+      size: $font-sm;
+      weight: 800;
+    }
+  }
+  input {
+    @include borderRadius($border-radius-md);
+    border: 1px solid $color-gray;
+    line-height: $height-navbar - 2 * $pm-sm;
+    height: $height-navbar - 2 * $pm-sm;
+    min-width: 300px;
+    padding: 0 $pm-sm;
+    @include compatible(transition, all .4s);
+    &:focus {
+      border: 1px solid lighten($color-main-lighter, 10%);
+      @include boxShadow(0 0 $pm-sm/1.2 lighten($color-main-lighter, 10%));
+    }
+  }
+  button {
+    margin-top: $pm-md;
+    width: 100%;
+    height: $height-navbar - 2 * $pm-sm;
     @include borderRadius($border-radius-md);
   }
 }

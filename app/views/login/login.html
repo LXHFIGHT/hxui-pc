@@ -1,0 +1,19 @@
+<div class="pad-login hxui-center-parent">
+    <div class="row">
+        <img class="logo-company" ng-src="{{ logoUrl }}" alt="">
+    </div>
+    <div class="row main-tip">
+        登录管理后台
+    </div>
+    <span class="tip">用户账号</span>
+    <div class="row">
+        <input type="text" class="input-username" placeholder="" ng-model="userInfo.username">
+    </div>
+    <span class="tip">用户密码</span>
+    <div class="row">
+        <input type="password" class="input-username" placeholder="" ng-model="userInfo.password" ng-keyup="keyForLogin($event)">
+    </div>
+    <div class="row">
+        <button class="hxui-button" type="button" ng-click="doLogin()">登录</button>
+    </div>
+</div>

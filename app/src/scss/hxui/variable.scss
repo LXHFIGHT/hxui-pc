@@ -23,6 +23,7 @@ $color-heavy:   #636363;
 $color-dark:    #363636;
 
 $color-green:   #8ecc45;
+$color-green-excel: #1C7243;
 $color-green-light: rgba(179,231,148,.5);
 $color-golden: rgba(255, 205, 60,  1);
 $color-orange:  #ff6c3f;
@@ -30,6 +31,36 @@ $color-red: #ff5a50    ;
 $color-red-light: #f99090;
 $color-blue-light: cornflowerblue;
 $color-blue: #2962ad;
+
+.color-green{   color:   #8ecc45;                   }
+.color-green-light{   color: rgba(179,231,148,.5);  }
+.color-golden{   color: rgba(255, 205, 60,  1);  }
+.color-orange{   color:  #ff6c3f;  }
+.color-red{   color: #ff5a50    ;  }
+.color-red-light{   color: #f99090;  }
+.color-blue-light{   color: cornflowerblue;  }
+.color-blue{   color: #2962ad;  }
+
+// 是否隐藏
+.hxui-invisible { visibility: hidden; }
+
+// 三种居中
+.hxui-center-horizontal{
+  position: absolute;
+  left: 50%;
+  @include compatible(transform, translateX(-50%));
+}
+.hxui-center-parent{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include compatible(transform, translate(-50%, -50%));
+}
+.hxui-center-vertical{
+  position: absolute;
+  top: 50%;
+  @include compatible(transform, translateY(-50%));
+}
 
 $color-main: $color-blue;
 $color-main-darker: darken($color-main, 5%);
