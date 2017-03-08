@@ -85,9 +85,9 @@ function showTipLight(msg, level, second){
     if($('.pad-poptip').length !== 0){
         $('.pad-poptip').css({'background-color':decoration.bgColor, 'color':decoration.fontColor}).html(msg).slideDown(500);
     }else{
-        var node = "<div class='x-center-horizontal pad-poptip'  style='position: absolute; padding: 0 10px; display: none; text-align: center;" +
+        var node = "<div class='hxui-center-horizontal pad-poptip'  style='position: absolute; padding: 0 10px; display: none; text-align: center;" +
             "background-color: " + decoration.bgColor +";color:" + decoration.fontColor + ";  font-size:16px; " +
-            " max-width: 80%; top: 0; margin: 0 auto; line-height:60px;  height:60px; z-index: 10000; position: absolute'>" + msg + "</div>";
+            " max-width: 80%; min-width: 40%; top: 0; margin: 0 auto; line-height:50px;  height:50px; z-index: 10000; position: absolute'>" + msg + "</div>";
         $(node).appendTo("body").slideDown(500);
     }
     timeout = setTimeout("$('.pad-poptip').fadeOut(500)", second);

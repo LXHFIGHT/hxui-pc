@@ -5,7 +5,7 @@
  *
  */
 var module = angular.module('UserController');
-module.controller('UserCtrl', ['$scope', function($scope){
+module.controller('UsersCtrl', ['$scope', 'HttpHelper', function($scope, HttpHelper){
     $scope.searchInfo = {
         page: 1,
         pagesize: 20,

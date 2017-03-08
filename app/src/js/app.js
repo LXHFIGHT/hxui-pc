@@ -84,8 +84,8 @@ main.config(['$stateProvider','$urlRouterProvider','$httpProvider',  function($s
 // 允许未登录情况下查看的页面
 var statesAllowAccess = ['register', 'index'];
 
-main.run(['$rootScope', '$location', '$log', '$state','globalValue', 'HttpHelper', 'config',
-    function($rootScope, $location,  $log, $state, globalValue, HttpHelper, config){
+main.run(['$rootScope', '$location', '$log', '$state','globalValue', 'HttpHelper', 'config', 'StorageHelper',
+    function($rootScope, $location,  $log, $state, globalValue, HttpHelper, config, StorageHelper){
         $rootScope.stateStack = [];
         $rootScope.stateParamsStack = [];
 

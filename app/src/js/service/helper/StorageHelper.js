@@ -7,7 +7,7 @@
 
 var module = angular.module('HelperService');
 
-module.factory('StorageHelper',['', function(){
+module.factory('StorageHelper',[ function(){
     return {
         setValue: function(key, value){
             var storage = window.sessionStorage;
