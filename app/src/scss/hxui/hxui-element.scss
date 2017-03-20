@@ -13,7 +13,6 @@ select.hxui-input,
 textarea.hxui-input{
   font-size: 15px!important;
   line-height: 25px!important;
-  @include borderRadius($border-radius-md);
   resize: none;
   padding: 4px !important;
   border: 1px solid #cccccc;
@@ -89,6 +88,7 @@ textarea[disabled]{
   color: darken($color-gray, 20%);
   background-color: transparent;
   font-size: 24px;
+  margin-right: $pm-md;
   @include borderRadius(50%);
   height: $height-navbar - 2 * $pm-sm;
   width: $height-navbar - 2 * $pm-sm;
@@ -100,24 +100,43 @@ textarea[disabled]{
 
 // 全局按钮样式
 .hxui-button {
-  height: 36px;
-  padding: 0 10px;
+  min-height: $height-navbar - 2 * $pm-sm;
+  padding: 0 $pm-md;
   background-color: $color-main;
-  font-size: 15px;
+  font-size: 14px;
   color: $color-white;
   @include compatible(transition, all .4s);
   &:hover {
     background-color: $color-main-lighter;
   }
 }
-.hxui-button.gray{  background-color: darken($color-gray, 10%);  }
-.hxui-button.orange{  background-color: $color-orange;  }
-.hxui-button.red{  background-color: $color-red;  }
-.hxui-button.blue{  background-color: $color-blue-light;  }
-.hxui-button.excel{
+.hxui-button.gray {  background-color: darken($color-gray, 10%);  }
+.hxui-button.orange {  background-color: $color-orange;  }
+.hxui-button.red {  background-color: $color-red;  }
+.hxui-button.blue {  background-color: $color-blue-light;  }
+.hxui-button.green { background-color: $color-green; }
+.hxui-button.excel {
   background-color: $color-green-excel;
   &:hover{
     background-color: lighten($color-green-excel, 10%);
+  }
+}
+// 以文字形式展现的按钮
+.hxui-button.plant{
+  @include borderRadius($border-radius-md);
+  @include compatible(transition, all .4s);
+  border: none;
+  background-color: transparent;
+  min-height: $height-navbar - 2 * $pm-sm;
+  color: $color-heavy;
+  &:hover{
+    background-color: $color-gray-light;
+  }
+  &.red{
+    color: $color-red;
+    &:hover{
+      background-color: lighten($color-red, 30%);
+    }
   }
 }
 
@@ -150,11 +169,34 @@ textarea[disabled]{
   }
 }
 
+.hxui-button.blank.green{
+  border: 1px solid $color-green;
+  color: $color-green;
+  &:hover{
+    color: $color-white;
+    background-color: $color-green;
+  }
+}
+
 .hxui-button.blank.orange{
   border: 1px solid $color-golden;
   color: $color-golden;
   &:hover{
     color: $color-white;
     background-color: $color-golden;
+  }
+}
+
+
+.hxui-checkbox{
+  height: 25px!important;
+  width: 25px!important;
+  border: 3px solid $color-green;
+  background-color: transparent;
+  color: $color-white;
+  @include borderRadius($border-radius-md);
+  @include compatible(transition, all .4s);
+  &.selected {
+    background-color: $color-green;
   }
 }

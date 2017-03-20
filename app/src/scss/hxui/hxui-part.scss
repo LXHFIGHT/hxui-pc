@@ -18,7 +18,7 @@ $height-navbar: 50px;
 .hxui-navbar {
   height: $height-navbar;
   width: 100%;
-  background-color: $color-gray-light;
+  background-color: $color-dark;
   .website-info,
   .navbar-buttons {
     padding: $pm-sm $pm-md;
@@ -26,7 +26,6 @@ $height-navbar: 50px;
   .website-info {
     display: inline-block;
     height: 100%;
-    border-right: 1px solid $color-gray;
     width: $width-sidebar;
     img {
       height: 100%;
@@ -38,14 +37,15 @@ $height-navbar: 50px;
     span {
       display: inline-block;
       height: 100%;
-      text-align: left;
-      font-size: $font-md;
+      text-align: center;
+      margin-left: $pm-md;
+      font-size: $font-bg;
       font-weight: 900;
-      color: $color-main;
+      color: $color-white;
       padding: 0;
       line-height: $height-navbar - 2 * $pm-sm;
       &:hover {
-        color: $color-main-lighter;
+        color: $color-gray-light;
       }
     }
   }
@@ -83,33 +83,60 @@ $height-navbar: 50px;
     overflow-x: hidden;
     border-right: 1px solid $color-gray;
       .group-btn-sidebar{
-      width: 100%;
-      button {
-        font-size: $font-md;
         width: 100%;
-        height: $height-navbar;
-        background-color: $color-gray-light;
-        border-bottom: 1px solid $color-gray;
-        border-top: 1px solid $color-white;
-        &:before {
-          margin-right: $pm-sm;
+        button {
+          font-size: $font-md;
+          width: 100%;
+          text-align: left;
+          padding-left: $pm-md;
+          height: $height-navbar;
+          background-color: darken($color-gray-light, 5%);
+          border-bottom: 1px solid darken($color-gray, 5%);
+          border-top: 1px solid $color-gray-light;
+          &.open:before{
+            @include compatible(transform, rotate(90deg));
+          }
+          &:before {
+            width: $pm-md;
+            display: inline-block;
+            vertical-align: top;
+            @include compatible(transition, all .4s);
+            @include compatible(transform-origin, 25% 55%);
+          }
+          &:hover {
+            background-color: darken($color-gray-light, 2%);
+          }
         }
-        &:hover {
-          background-color: darken($color-gray-light, 2%);
+        &.selected button{
+          background-color: lighten($color-main, 10%);
+          color: white;
+          border-top: 1px solid lighten($color-main, 20%);
+          border-bottom: 1px solid $color-main-lighter;
         }
-      }
-      &.selected button{
-        background-color: lighten($color-main, 10%);
-        color: white;
-        border-top: 1px solid lighten($color-main, 20%);
-        border-bottom: 1px solid $color-main-lighter;
-      }
+        .second-level {
+          @include compatible(transition, max-height .4s);
+          overflow-y: hidden;
+          max-height: 0;
+          &.show{
+            max-height: $height-navbar * 19;
+          }
+          button{
+            padding-left: 3 * $pm-md;
+            background-color: $color-gray-lighter;
+            border-bottom: 1px solid lighten($color-gray, 5%);
+            &.selected{
+              background-color: $color-main-lighter;
+              color: $color-gray-light;
+            }
+          }
+        }
     }
   }
   .hxui-main {
     height: 100%;
     display: inline-block;
     float: left;
+    position: relative;
     @include wcalc(calc(100% - 200px)); // 200px 对应 $width-sidebar
   }
 }
@@ -124,8 +151,14 @@ $height-navbar: 50px;
   height: $height-navbar;
   width: 100%;
   padding: $pm-sm $height-navbar;
-  background-color: lighten($color-main, 55%);
+  background-color:$color-gray-light;
   display: block;
+  button {
+    height: $height-navbar - 2 * $pm-sm;
+  }
+  &.no-color{
+    background-color: transparent;
+  }
 }
 .list-header{
   z-index: 1000;
@@ -133,9 +166,10 @@ $height-navbar: 50px;
     vertical-align: top;
     display: inline-block;
     margin-right: $pm-md;
+    font-size: $font-md;
     height: $height-navbar - 2 * $pm-sm;
     line-height: $height-navbar - 2 * $pm-sm + 2px;
-    color: $color-main;
+    color: $color-heavy;
     strong {
       color: $color-red;
       font: {
@@ -143,6 +177,38 @@ $height-navbar: 50px;
         weight: 800;
       }
 
+    }
+  }
+  .thead {
+    span {
+      color: $color-heavy;
+      float: left;
+      line-height: $height-navbar - 2 * $pm-sm - 1;
+      display: inline-block;
+      &.center{
+        text-align: center;
+      }
+    }
+  }
+  .tab-group{
+    width: 100%;
+    height: 100%;
+    text-align: justify;
+    button {
+      padding: 0 $pm-lg;
+      background-color: transparent;
+      border-bottom: 3px solid transparent;
+      @include compatible(transition, all .4s);
+      &.selected {
+        border-bottom: 3px solid $color-main;
+        &:hover {
+          background-color: lighten($color-main, 30%);
+        }
+
+      }
+      &:hover {
+        background-color: lighten($color-main, 35%);
+      }
     }
   }
   .btn-group{
@@ -226,53 +292,207 @@ $height-navbar: 50px;
     @include hcalc(calc(100% - 50px));
     padding: 0;
   }
+  &.bg{
+    padding: $height-navbar;
+  }
   @include hcalc(calc(100% - 100px));
   width: 100%;
   overflow-y: auto;
   padding: 0 $height-navbar;
-  table{
-    width: 100%;
-    font-size: 16px;
-    table-layout: fixed;
-    border-collapse:collapse;
-    td {
-      min-height: $height-navbar;
-      text-align: center;
-      padding: $pm-sm;
-      img.avatarUrl {
-        height: $height-navbar - 2 * $pm-sm;
-        width: $height-navbar - 2 * $pm-sm;
-        @include borderRadius(50% 50%);
-        background-color: $color-gray;
-      }
-      .link {
-        color: darken($color-main, 5%);
-        &:hover{
-          color: $color-red;
-        }
-      }
-    }
-    thead {
-      color: lighten($color-heavy, 5%);
-      background-color: #fafafa;
-      td{
-        height: $height-navbar;
-      }
-    }
-    tbody {
-      color: lighten($color-heavy, 10%);
-      tr {
-        height: $height-navbar;
-      }
-      tr:nth-child(even) {
-        background-color: lighten($color-gray-light, 1%);
-      }
-      &.hovering{
-        tr:hover{ background-color: $color-gray-light;  }
-      }
+  .left, .right{
+    float: left;
+    height: 100%;
+    width: 50%;
+    &.limit{
+      max-width: 700px;
     }
   }
 }
+
+table{
+  width: 100%;
+  font-size: 16px;
+  table-layout: fixed;
+  border-collapse:collapse;
+  td {
+    min-height: $height-navbar;
+    text-align: center;
+    padding: $pm-sm;
+    img.avatarUrl {
+      height: $height-navbar - 2 * $pm-sm;
+      width: $height-navbar - 2 * $pm-sm;
+      @include borderRadius(50% 50%);
+      background-color: $color-gray;
+    }
+    .link {
+      color: darken($color-main, 5%);
+      &:hover{
+        color: $color-red;
+      }
+    }
+  }
+  thead {
+    color: lighten($color-heavy, 5%);
+    background-color: #fafafa;
+    td{
+      height: $height-navbar;
+    }
+  }
+  tbody {
+    color: lighten($color-heavy, 10%);
+    tr {
+      height: $height-navbar;
+    }
+    tr:nth-child(even) {
+      background-color: lighten($color-gray-light, 1%);
+    }
+    &.hovering{
+      tr:hover{ background-color: $color-gray-light;  }
+    }
+  }
+
+
+}
+
+.hxui-row {
+  width: 100%;
+  padding: $pm-sm $pm-md;
+  line-height: $height-navbar - 2 * $pm-sm;
+  color: $color-heavy;
+  label, input[type='text'], input[type='password'], input[type='number']{
+    height: $height-navbar - 2 * $pm-sm;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  label{
+    height: $height-navbar - 2 * $pm-sm;
+    line-height: $height-navbar - 2 * $pm-sm;
+    width: 2.5 * $height-navbar;
+    color: $color-dark;
+    &.title {
+      font: {
+        size: $font-md;
+        weight: 800;
+      }
+    }
+  }
+
+  input[type='text'], input[type='number'] {
+    color: $color-heavy;
+    padding: 0 $pm-sm;
+    width: 100%;
+    border: 1px solid $color-gray;
+    @include compatible(transition, border .4s);
+    @include wcalc(calc(100% - 129px));
+    &.short {
+      @include wcalc(calc(50% - 80px));
+    }
+    &:disabled {
+      background-color: transparent;
+      border: none;
+    }
+    &:focus {
+      border: 1px solid $color-main-lighter;
+    }
+  }
+
+  div.pad-edit {
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    width: 100%;
+    @include wcalc(calc(100% - 129px));
+    &.input{
+      label {
+        width: 90px;
+      }
+      input {
+        @include wcalc(calc(100% - 100px));
+        resize: none;
+      }
+    }
+    textarea {
+      width: 100%;
+      resize: none;
+      padding: $pm-md;
+    }
+  }
+
+  .pad-image{
+    width: $width-upload-button;
+    height: $height-upload-button;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: $pm-sm;
+    margin-bottom: $pm-sm;
+    overflow-y: hidden;
+    float: left;
+    img, button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      z-index: 10;
+    }
+    button {
+      visibility: hidden;
+      opacity: .0;
+      z-index: 100;
+      background-color: rgba(0, 0, 0, .4);
+      @include compatible(transition, all .4s);
+      span {
+        color: $color-white;
+        float: left;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        text-align: center;
+        line-height: $height-upload-button;
+        &:hover {
+          background-color: rgba(255,255,255,.2);
+        }
+      }
+    }
+    &:hover {
+      button{
+        opacity: 1.0;
+        visibility: visible;
+      }
+    }
+
+  }
+
+  img, button{
+    width: 50%;
+    max-width: 220px;
+  }
+  img {
+    min-height: 220px;
+    border:0;
+    background-color: $color-gray-light;
+  }
+  button.btn-image {
+    vertical-align: top;
+    border: 2px dashed #ccc;
+    height: $height-upload-button;
+    width: $width-upload-button;
+    font-weight: 100;
+    font-size: $font-bg;
+    background-color: transparent;
+    color: #ccc;
+    float: left;
+    &:hover{
+      cursor: pointer;
+      border: 2px dashed $color-gray-deep;
+      color: $color-gray-deep;
+    }
+  }
+}
+
 .list-footer {
   position: absolute;
   bottom: 0;
@@ -293,6 +513,7 @@ $height-navbar: 50px;
   select{
     padding: 0 10px;
     float: left;
+    width: 140px;
     height: $height-navbar - 2 * $pm-sm;
     font-size: 14px;
     color: #505050;
@@ -373,6 +594,10 @@ $height-navbar: 50px;
       weight: 800;
     }
   }
+  .logo-company{
+    max-height: 2 * $height-navbar;
+    max-width: 2 * $height-navbar;
+  }
   input {
     @include borderRadius($border-radius-md);
     border: 1px solid $color-gray;
@@ -391,5 +616,46 @@ $height-navbar: 50px;
     width: 100%;
     height: $height-navbar - 2 * $pm-sm;
     @include borderRadius($border-radius-md);
+  }
+}
+
+.hxui-modal {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0, .5);
+  visibility: hidden;
+  opacity: .0;
+  @include compatible(transition, all .4s);
+  &.show{
+    visibility: visible;
+    opacity: 1.0;
+  }
+  .pad-content{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    background-color: white;
+    @include compatible(transform, translateX(-50%));
+    width: 70%;
+    padding: $pm-bg;
+    @include borderRadius($border-radius-md);
+    .btn-close{
+      background-color: transparent;
+      font-size: 1.5 * $height-navbar;
+      line-height: 1.5 * $height-navbar;
+      font-weight: 100;
+      color: white;
+      position: absolute;
+      right: -1.2 * $height-navbar;
+      top: -1.2 * $height-navbar;
+      &:hover{
+        color: $color-main-lighter;
+        cursor: pointer;
+      }
+    }
   }
 }

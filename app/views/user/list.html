@@ -74,7 +74,7 @@
             </select>
             <a class="fa fa-caret-left   {{searchInfo.page == 1 ? 'hxui-invisible' : ''}}" ng-click="requestListByPage(searchInfo.page - 1)"></a>
             <span >{{searchInfo.page}} / {{searchInfo.maxsize}}</span>
-            <a class="fa fa-caret-right  {{ (searchInfo.page == searchInfo.maxsize || searchInfo.page == 0) ? 'hxui-invisible' : ''}}" ng-click="requestListByPage(searchInfo.page + 1)"></a>
+            <a class="fa fa-caret-right  {{ (searchInfo.page == searchInfo.maxsize || searchInfo.maxsize == 0) ? 'hxui-invisible' : ''}}" ng-click="requestListByPage(searchInfo.page + 1)"></a>
             <input type="text" class="hxui-input" ng-model="searchInfo.jumpPage">
             <a class="btn-jump" ng-click="toPageOfList()">跳转</a>
         </div>

@@ -55,7 +55,7 @@ main.config(['$stateProvider','$urlRouterProvider','$httpProvider',  function($s
             url: '/user/:id',
             views: {
                 'main@enter': {
-                    template: 'views/user/detail.html',
+                    templateUrl: 'views/user/detail.html',
                     controller: 'UserCtrl'
                 }
             }

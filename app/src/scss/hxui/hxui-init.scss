@@ -1,7 +1,7 @@
 /*
  *  x_page框架定义的默认标签样式
  */
-
+@import "variable";
 /*--------------------------------------------------------------------------------------*/
 /* 设置不使用默认的聚焦框
 /*--------------------------------------------------------------------------------------*/
@@ -20,7 +20,7 @@ html, body{
     padding: 0;
     margin:0;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
     position: relative;
 }
 
@@ -53,15 +53,21 @@ button, input[type='submit'], input[type='button'], input[type='reset']{
 /*--------------------------------------------------------------------------------------*/
 input.error, textarea.error{
     font-weight: 100!important;
-    border:1px solid darkred!important;
-    color: rgba(212, 48, 57, .8)!important;
+    border:1px solid $color-red!important;
+    color: $color-red;
+    background-color: lighten($color-red, 32%)!important;
     -webkit-transition: all .4s;
     -moz-transition: all .4s;
     -ms-transition: all .4s;
     -o-transition: all .4s;
     transition: all .4s;
-    background-color: rgba(212, 48, 57, .1)!important;
-    -webkit-box-shadow:  0 0 10px  rgba(212, 48, 57, .4)!important;
-    -moz-box-shadow:  0 0 10px   rgba(212, 48, 57, .4)!important;
-    box-shadow:  0 0 10px   rgba(212, 48, 57, .4)!important;
+    @include boxShadow(0 0 $pm-sm $color-red-light);
+}
+
+
+
+.hxui-no-wrap {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }

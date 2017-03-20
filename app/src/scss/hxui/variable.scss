@@ -8,6 +8,8 @@
 $height-navbar: 50px;
 $width-sidebar: 200px;
 
+$height-upload-button: 135px;
+$width-upload-button: 216px;
 
 // 比例
 $full: 100%;
@@ -16,9 +18,10 @@ $half: 50%;
 // 通用颜色标注
 $color-white: #fdfdfd;
 $color-white-blur: rgba(255,255,255,.8);
+$color-gray-lighter: #fbfbfb;
 $color-gray-light: #f6f6f6;
 $color-gray: #eaeaea;
-$color-gray-deep: #bbb;
+$color-gray-deep: #aaa;
 $color-heavy:   #636363;
 $color-dark:    #363636;
 
@@ -62,7 +65,7 @@ $color-blue: #2962ad;
   @include compatible(transform, translateY(-50%));
 }
 
-$color-main: $color-blue;
+$color-main: rgb(106, 174, 125);
 $color-main-darker: darken($color-main, 5%);
 $color-main-lighter: lighten($color-main, 5%);
 
@@ -87,15 +90,31 @@ $line-height-md: 26px;
 // 圆角半径标准
 $border-radius-md: 4px;
 $border-radius-bg: 8px;
+.round {
+  @include borderRadius(50% 50%);
+}
+
 
 // padding margin 标准
 $pm-sm: 8px;
 $pm-md: 16px;
 $pm-bg: 24px;
 $pm-lg: 32px;
+.mt-nav {  margin-top: $height-navbar;    }
+.ml-nav {  margin-left: $height-navbar;   }
+.mr-nav {  margin-right: $height-navbar;  }
+.mb-nav {  margin-bottom: $height-navbar; }
+.mt-sm {  margin-top: $pm-sm;    }
+.ml-sm {  margin-left: $pm-sm;   }
+.mr-sm {  margin-right: $pm-sm;  }
+.mb-sm {  margin-bottom: $pm-sm; }
 
 
 // 通用阴影标准
 $shadow-md: 0 3px 6px rgba(0,0,0, .1);
 $shadow-md-dark: 0 3px 6px rgba(0,0,0, .3);
 $shadow-right-md: 3px 3px 6px rgba(0,0,0, .1);
+
+// 浮动设置
+.right { float: right; }
+.left { float: left; }
