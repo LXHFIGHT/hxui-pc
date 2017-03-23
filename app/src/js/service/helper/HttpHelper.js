@@ -83,6 +83,35 @@ service.factory('HttpHelper',['$http', '$log', 'config', 'globalValue',
                 }).error(function(data, status, header, config){
                     popTipErrorQuick(globalValue.errorMsg);
                 });
+            },
+            /**
+             * 上传文件
+             * @param options 上传对象
+             * @param options.query 上传组件的选择器 类似于 .uploader
+             * @param options.type  上传对应的文件夹 类似于  cover avatar
+             * @param callback(err, data) 上传之后的回调方法
+             */
+            uploadFile: function(options, callback){
+                var fd = new FormData();
+                var files = options.query[0].files;
+                popTipWarningQuick('文件正在上传中，请稍等');
+                if(files !== null){
+                    fd.append('image', files[0]);
+                    $http({
+                        method:'POST',
+                        url: config.serverPrefix + "/common/uploadCloud/"+ options.type,
+                        data: fd,
+                        headers: { 'Accept-Language': 'en, zh', 'Content-Type': undefined },
+                        transformRequest: angular.identity
+                    }).success(function(data) {
+                        popTipInfoQuick('图片上传成功');
+                        callback(null, data.data);
+                    }).error(function(err){
+                        popTipErrorQuick('传输出错');
+                        console.log(err);
+                        callback(err, null);
+                    });
+                }
             }
         }
     }]);

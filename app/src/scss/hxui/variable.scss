@@ -104,10 +104,26 @@ $pm-lg: 32px;
 .ml-nav {  margin-left: $height-navbar;   }
 .mr-nav {  margin-right: $height-navbar;  }
 .mb-nav {  margin-bottom: $height-navbar; }
-.mt-sm {  margin-top: $pm-sm;    }
-.ml-sm {  margin-left: $pm-sm;   }
-.mr-sm {  margin-right: $pm-sm;  }
-.mb-sm {  margin-bottom: $pm-sm; }
+.mt-sm  {  margin-top: $pm-sm;    }
+.ml-sm  {  margin-left: $pm-sm;   }
+.mr-sm  {  margin-right: $pm-sm;  }
+.mb-sm  {  margin-bottom: $pm-sm; }
+.mt-md  {  margin-top: $pm-md;    }
+.ml-md  {  margin-left: $pm-md;   }
+.mr-md  {  margin-right: $pm-md;  }
+.mb-md  {  margin-bottom: $pm-md; }
+.mt-bg  {  margin-top: $pm-bg;    }
+.ml-bg  {  margin-left: $pm-bg;   }
+.mr-bg  {  margin-right: $pm-bg;  }
+.mb-bg  {  margin-bottom: $pm-bg; }
+.mt-lg  {  margin-top: $pm-lg;    }
+.ml-lg  {  margin-left: $pm-lg;   }
+.mr-lg  {  margin-right: $pm-lg;  }
+.mb-lg  {  margin-bottom: $pm-lg; }
+.padding-sm { padding: $pm-sm;    }
+.padding-md { padding: $pm-md;    }
+.padding-bg { padding: $pm-bg;    }
+.padding-lg { padding: $pm-lg;    }
 
 
 // 通用阴影标准
