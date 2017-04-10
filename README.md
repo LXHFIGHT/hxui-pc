@@ -6,7 +6,7 @@
 
 ##### 2) 项目中使用了时下最流行的CSS框架--[*bootstrap(v3.5)*](http://v3.bootcss.com/),在其中添加了大量的自定义样式。为了避免直接编辑css的繁琐工作，项目以**SASS(SCSS)**作为前端css预编译语言。
 
-##### 3) 项目中使用了基于流形式的前端自动化管理工具--[*Gulp.js(v3.9)*](https://github.com/gulpjs/gulp)，在整个项目中，gulp在整个项目中一方面负责对业务逻辑js文件进行合并压缩，一方面将SCSS文件编译为css后合并压缩，同时负责整个项目的热更新，即不需要浏览器作刷新操作，gulp如果监听到你的代码发生变动即会修改浏览器中相关的显示效果。
+##### 3) 项目中使用了基于流形式的前端自动化管理工具--[*Gulp.js(v3.9.1)*](https://github.com/gulpjs/gulp)，在整个项目中，gulp在整个项目中一方面负责对业务逻辑js文件进行合并压缩，一方面将SCSS文件编译为css后合并压缩，同时负责整个项目的热更新，即不需要浏览器作刷新操作，gulp如果监听到你的代码发生变动即会修改浏览器中相关的显示效果。
 
 ### 2 如何开始
 
@@ -22,7 +22,15 @@
 ##### 5）等到所有npm包加载完毕之后，会发现项目中 **package.json** 同级多了一个 **node_modules** 目录，此时输入命令**gulp** 开始前端开发
        gulp
        
+### 3 目录结构
        
+##### 1) lib 目录
+
+* **js-sha1**： A simple SHA1 hash function for JavaScript supports UTF-8 encoding. [Github源码](https://github.com/emn178/js-sha1)
+* **spark-md5**： Lightning fast normal and incremental md5 for javascript. [Github源码](https://github.com/satazor/js-spark-md5)
+* **lrsjng.jquery-qrcode**: generate QR codes dynamically.  [官网介绍](https://larsjung.de/jquery-qrcode/)  
+* **xpage.js**: 自己使用和编写的js库 
+
        
        
        

@@ -69,6 +69,7 @@ service.factory('AuthHttpHelper',['$http', '$state', '$log', 'config', 'StorageH
              * @returns {*} 请求成功后的promise对象
              */
             doPost: function(path, data, headers){
+                let token = StorageHelper.getValue('token');
                 var headersBundle = {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Authorization': `Bearer ${token}`
