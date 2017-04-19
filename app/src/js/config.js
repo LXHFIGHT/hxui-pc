@@ -9,13 +9,16 @@ var module = angular.module('Config', []);
 
 // the main configuration content
 module.value('config', {
+
     serverPrefix: 'http://localhost:3000',          // 提供数据服务器位置
-    cloudStoragePrefix: 'http://localhost:3000',    // 提供文件云存储服务器位置
+
     logo: {
         url: './dist/img/logo/logo.png',         // 项目 logo 所在位置
         show: true                                 // 是否展示项目logo
     },
+
     projectName: '名片管理后台'                      // 项目名
+
 });
 
 module.factory('globalValue',[function(){
@@ -28,3 +31,4 @@ module.factory('globalValue',[function(){
         kindLists: null         // 分类列表
     }
 }]);
+
