@@ -1,13 +1,13 @@
 {
   "name": "gdinoj",
   "version": "0.0.1",
-  "description": "广东技术师范学院在线评测系统",
+  "description": "pc_quick_starter",
   "main": "app.js",
   "directories": {
     "test": "test"
   },
   "dependencies": {
-    "angular": "^1.6.2",
+    "angular": "^1.4.7",
     "gulp-sass-china": "^2.3.2"
   },
   "devDependencies": {
@@ -33,9 +33,8 @@
     "url": "null"
   },
   "keywords": [
-    "GDIN",
-    "Online",
-    "Judge"
+    "quick_starter",
+    "angular"
   ],
   "author": "LXHFIGHT",
   "license": "MIT"
