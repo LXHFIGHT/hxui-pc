@@ -16,11 +16,11 @@ let gulp = require('gulp'),
     open = require('gulp-open');
 
 let htmlSrc = [
-                'app/index.html',
+                'app/index-dev.html',
                 'app/views/**/*.html'
               ],                        // HTML文件位置
 
-    indexSrc = 'app/index.html',
+    indexSrc = 'app/index-dev.html',
 
     cssSrc = 'app/src/scss/**/*.scss',  // CSS源文件 SCSS文件
     cssDist = 'app/dist/css/',          // 编译后生成CSS文件存储位置
@@ -41,8 +41,10 @@ let htmlSrc = [
 
 /* 建立服务器并监控静态文件进行自动刷新 */
 gulp.task('server', () => {
+    // 热部署服务器将指向开发环境的首页 index-dev.html
     connect.server({
         root: 'app',
+        index: 'index-dev.html',
         port: 8888,
         livereload: true
     });
@@ -58,6 +60,17 @@ gulp.task('html', () => {
 /* 将SCSS编译成CSS后进行合并压缩 最后输出到dist/css/app.min.css中  */
 gulp.task('scss', () => {
     console.log('scss precessing...');
+
+    // 面向开发环境的scss自动化处理
+    gulp.src(cssSrc)
+        .pipe(plumber())
+        .pipe(sass())
+        .pipe(concat("app.css"))
+        .pipe(rename({  'suffix':'.dev'  }))
+        .pipe(gulp.dest(cssDist))
+        .pipe(notify({message: 'CSS Files have been compressed'}));
+
+    // 面向生产环境的scss自动化处理
     gulp.src(cssSrc)
         .pipe(plumber())
         .pipe(sass())
@@ -83,6 +96,19 @@ gulp.task('img', () => {
 /* 将Js文件合并压缩后输出到dist/js目录下 */
 gulp.task('js', () => {
     console.log('Javascript precessing...');
+    // 开发环境处理
+    gulp.src(jsSrc)
+        .pipe(plumber({}, true, function(err){
+            console.log('ERROR OCCURED:');
+            console.log(err);
+        }))
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(concat('main.js'))
+        .pipe(rename({  'suffix': '.dev'  }))
+        .pipe(gulp.dest(jsDist));
+
     gulp.src(jsSrc)
         .pipe(plumber({}, true, (err) => {
             console.log('ERROR OCCURED:');
