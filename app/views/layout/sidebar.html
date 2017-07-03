@@ -1,4 +1,8 @@
 <div class="sidebar">
+    <div class="project-info">
+        <img class="logo" ng-if="config.logo.show" ng-src="{{ config.logo.url }}" alt="">
+        <span class="text-name" ng-bind="config.projectName"></span>
+    </div>
     <div
         class="group-btn-sidebar"
         ng-repeat="menu in menus"

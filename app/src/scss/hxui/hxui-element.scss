@@ -61,7 +61,7 @@ input[type='date'].hxui-input:focus{
 }
 /*  默认样式【聚焦状态】： input中 url样式        */
 input[type="url"].hxui-input:focus, select.hxui-input:focus     {
-  border:1px solid $color-main-lighter;
+  border:1px solid $color-main-light;
 }
 /*  默认样式【聚焦状态】： input中 password样式   */
 input[type="password"].hxui-input:focus{
@@ -107,7 +107,7 @@ textarea[disabled]{
   color: $color-white;
   @include compatible(transition, all .4s);
   &:hover {
-    background-color: $color-main-lighter;
+    background-color: $color-main-light;
   }
 }
 .hxui-button.gray {  background-color: darken($color-gray, 10%);  }

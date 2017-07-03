@@ -68,6 +68,7 @@ gulp.task('scss', () => {
         .pipe(concat("app.css"))
         .pipe(rename({  'suffix':'.dev'  }))
         .pipe(gulp.dest(cssDist))
+        .pipe(connect.reload())
         .pipe(notify({message: 'CSS Files have been compressed'}));
 
     // 面向生产环境的scss自动化处理
@@ -107,6 +108,7 @@ gulp.task('js', () => {
         }))
         .pipe(concat('main.js'))
         .pipe(rename({  'suffix': '.dev'  }))
+        .pipe(connect.reload())
         .pipe(gulp.dest(jsDist));
 
     gulp.src(jsSrc)

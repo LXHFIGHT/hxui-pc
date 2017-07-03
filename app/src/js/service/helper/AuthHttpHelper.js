@@ -48,14 +48,14 @@ service.factory('AuthHttpHelper',['$http', '$state', '$log', 'config', 'StorageH
              * @returns {*} 请求成功后的promise对象
              */
             doGet: function(path, data){
-                let token = StorageHelper.getValue('token');
+                let authToken = StorageHelper.getValue('token');
                 return $http({
                     method: 'GET',
                     url: (serverPrefix + path),
                     params: data,
                     timeout: 30000,  //30秒请求超时,
                     headers: {
-                        'Authorization':  `Bearer ${token}`
+                        'Authorization':  `Bearer ${authToken}`
                     }
                 }).error(function(data, status, header, config){
                     authorizeDealer(data, status);
@@ -81,7 +81,6 @@ service.factory('AuthHttpHelper',['$http', '$state', '$log', 'config', 'StorageH
                         'Authorization': `Bearer ${token}`
                     };
                 }
-                let token = StorageHelper.getValue('token');
                 return $http({
                     method: 'POST',
                     url: (serverPrefix + path),

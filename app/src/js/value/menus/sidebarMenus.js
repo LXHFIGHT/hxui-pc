@@ -7,7 +7,7 @@
 
 var menus = angular.module('menus');
 
-module.value('sidebarMenus', [
+menus.value('sidebarMenus', [
     {
         name: '用户管理',
         state: 'enter.users',

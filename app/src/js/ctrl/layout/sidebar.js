@@ -7,8 +7,11 @@
 
 var module = angular.module('LayoutController');
 
-module.controller('SidebarCtrl', ['$scope', '$state', 'sidebarMenus',  function($scope, $state, sidebarMenus){
+module.controller('SidebarCtrl', ['$scope', '$state', 'sidebarMenus', 'config',
+    function($scope, $state, sidebarMenus, config){
     // sidebar ctrl
+    $scope.config = config;
+
     $scope.menus = sidebarMenus;
     $scope.selectedMenu = sidebarMenus[0];
     $scope.doClick = function($event, menu){

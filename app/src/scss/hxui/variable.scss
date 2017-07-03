@@ -16,12 +16,14 @@ $full: 100%;
 $half: 50%;
 
 // 通用颜色标注
+$color-main: #44b549;
+$color-main-dark: darken($color-main, 35%);
+$color-main-light: lighten($color-main, 3%);
+
 $color-white: #fdfdfd;
-$color-white-blur: rgba(255,255,255,.8);
-$color-gray-lighter: #fbfbfb;
-$color-gray-light: #f6f6f6;
-$color-gray: #eaeaea;
-$color-gray-deep: #aaa;
+$color-gray-light: #f8f8f8;
+$color-gray: #eee;
+$color-gray-deep: #bbb;
 $color-heavy:   #636363;
 $color-dark:    #363636;
 
@@ -65,9 +67,7 @@ $color-blue: #2962ad;
   @include compatible(transform, translateY(-50%));
 }
 
-$color-main: rgb(106, 174, 125);
-$color-main-darker: darken($color-main, 5%);
-$color-main-lighter: lighten($color-main, 5%);
+
 
 // 响应式布局参数
 $width-bg-min: 1280px;
@@ -78,10 +78,10 @@ $width-sm-min: 100%;
 
 
 // 通用的字体标准
-$font-sm: 13px;
-$font-md: 16px;
-$font-bg: 22px;
-$font-lg: 26px;
+$font-sm: 10px;
+$font-md: 14px;
+$font-bg: 18px;
+$font-lg: 22px;
 
 // 行高标准
 $line-height-sm: 22px;

@@ -29,10 +29,6 @@ main.config(['$stateProvider','$urlRouterProvider','$httpProvider',  function($s
                     templateUrl: 'views/layout/enter.html',
                     controller: 'IndexCtrl'
                 },
-                'navbar@enter': {
-                    templateUrl: 'views/layout/navbar.html',
-                    controller: 'NavbarCtrl'
-                },
                 'sidebar@enter': {
                     templateUrl: 'views/layout/sidebar.html',
                     controller: 'SidebarCtrl'

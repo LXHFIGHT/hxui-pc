@@ -78,8 +78,8 @@ var timeout = null;
 function showTipLight(msg, level, second){
     clearTimeout(timeout);
     var decoration = {bgColor: null, fontColor: null    };
-    if(level === 1){    decoration.bgColor = '#2dd307';decoration.fontColor = 'white'   }
-    else if(level === 2){    decoration.bgColor = '#fbad07';decoration.fontColor = 'white'  }
+    if(level === 1){    decoration.bgColor = '#8ecc45';decoration.fontColor = 'white'   }
+    else if(level === 2){    decoration.bgColor = 'rgb(255, 205, 60)';decoration.fontColor = 'white'  }
     else if(level === 3){    decoration.bgColor = '#f53631';decoration.fontColor = 'white'  }
     else    {   decoration.bgColor = "#888"; decoration.fontColor = '#f2f2f2'}
     if($('.pad-poptip').length !== 0){

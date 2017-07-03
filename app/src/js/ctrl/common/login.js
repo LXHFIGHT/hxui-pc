@@ -11,7 +11,9 @@ module.controller('LoginCtrl', ['$scope', '$state', '$stateParams', 'HttpHelper'
     function($scope, $state, $stateParams, HttpHelper, StorageHelper, config){
 
     $scope.logoUrl = config.logo.url;
+
     $scope.state = $stateParams.state || 'enter.goods';  //需要跳转的页面
+
     // 登录用户信息
     $scope.userInfo = {
         username: '',
@@ -25,21 +27,28 @@ module.controller('LoginCtrl', ['$scope', '$state', '$stateParams', 'HttpHelper'
     };
 
     // 登录操作
-    $scope.doLogin = function(){
+    $scope.doLogin = () => {
         if($scope.userInfo.username && $scope.userInfo.password){
-            var user = {
-                username: $scope.userInfo.username,
-                password: md5($scope.userInfo.password)
-            };
-            HttpHelper.doPost('/common/login', user).success(function(data){
-                if (!data.result) {
-                    popTipInfoQuick('登录成功');
-                    StorageHelper.setValue('username', $scope.userInfo.username);
-                    $state.go($scope.state);
-                } else {
-                    popTipError(data.msg);
-                }
-            })
+            // 如果是debug模式下 输入superadmin 账号和superadmin123 密码进行登录
+            if (config.isDebug && $scope.userInfo.username === 'superadmin' && $scope.userInfo.password === 'superadmin123') {
+                popTipInfoQuick('登录成功');
+                StorageHelper.setValue('username', 'superadmin');
+                $state.go($scope.state);
+            } else {
+                let user = {
+                    username: $scope.userInfo.username,
+                    password: md5($scope.userInfo.password)
+                };
+                HttpHelper.doPost('/common/login', user).success(function(data){
+                    if (!data.result) {
+                        popTipInfoQuick('登录成功');
+                        StorageHelper.setValue('username', $scope.userInfo.username);
+                        $state.go($scope.state);
+                    } else {
+                        popTipError(data.msg);
+                    }
+                })
+            }
         }else{
             popTipWarningQuick('请完善登录信息');
         }

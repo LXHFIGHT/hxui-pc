@@ -9,6 +9,7 @@ var module = angular.module('Config', []);
 
 // the main configuration content
 module.value('config', {
+    isDebug: true,
 
     serverPrefix: 'http://localhost:3000',          // 提供数据服务器位置
 
@@ -17,7 +18,7 @@ module.value('config', {
         show: true                                 // 是否展示项目logo
     },
 
-    projectName: '名片管理后台'                      // 项目名
+    projectName: '管理后台'                      // 项目名
 
 });
 
