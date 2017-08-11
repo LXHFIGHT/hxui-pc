@@ -80,15 +80,14 @@ main.config(['$stateProvider','$urlRouterProvider','$httpProvider',  function($s
 // 允许未登录情况下查看的页面
 var statesAllowAccess = ['register', 'index'];
 
-main.run(['$rootScope', '$location', '$log', '$state','globalValue', 'HttpHelper', 'config', 'StorageHelper',
-    function($rootScope, $location,  $log, $state, globalValue, HttpHelper, config, StorageHelper){
+main.run(['$rootScope', '$location', '$log', '$state','globalValue', 'HttpHelper', 'config', 'StorageHelper', 'authority',
+    function($rootScope, $location,  $log, $state, globalValue, HttpHelper, config, StorageHelper, authority){
         $rootScope.stateStack = [];
         $rootScope.stateParamsStack = [];
 
         // 定义全局变量
-        $rootScope.avatar = '';
-        $rootScope.bootstrap = [ ];
-        $rootScope.avatar = ''; // 用户全局样式
+        $rootScope.authority = authority;
+        $rootScope.config = config;
 
         $rootScope.pagesize = [
             {value: 10, text: '每页10条记录'},
@@ -108,8 +107,22 @@ main.run(['$rootScope', '$location', '$log', '$state','globalValue', 'HttpHelper
                 $state.go($rootScope.stateStack.pop(), $rootScope.stateParamsStack.pop());
             }
         };
-
-
+        // 切换移动端是否展示高级搜索栏的按钮
+        $rootScope.toggleAdvanceSearch = () => {
+            let $view = $('.hxui-advance-search');
+            $rootScope.showSidebar = false;
+            $view.hasClass('show') ?
+                $view.removeClass('show') :
+                $view.addClass('show');
+        };
+        // 跳转到指定的页面
+        $rootScope.toState = (stateName) => {
+            $state.go(stateName);
+        };
+        // 弹出正在开发中的语句
+        $rootScope.isDeveloping = ( msg = '该功能正在开发中...') => {
+            popTipWarningQuick(msg);
+        };
 
         // 路由跳转控制
         $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){

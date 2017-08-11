@@ -2,22 +2,43 @@
 
 // 用于编写适用于整个项目的CSS属性变量
 
+// 响应式相关样式 sm 表示移动设备  md 表示平板设备  bg 表示PC设备
+@media screen and (max-width: 640px) {
+  .hide-sm {
+    display: none;
+  }
+}
+@media screen and (max-width: 1024px) and (min-width: 640px) {
+  .hide-md {
+    display: none;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .hide-bg {
+    display: none;
+  }
+}
 
 
 // 导航栏行高
 $height-navbar: 50px;
-$width-sidebar: 200px;
+$height-normal: 40px;
+$height-regular: 34px;
+$width-sidebar: 180px;
 
-$height-upload-button: 135px;
-$width-upload-button: 216px;
+$height-upload-button: 120px;
+$width-upload-button: 160px;
 
 // 比例
 $full: 100%;
 $half: 50%;
 
+.width-full { width: 100%!important; }
+.width-half { width: 50%!important; }
+
 // 通用颜色标注
-$color-main: #44b549;
-$color-main-dark: darken($color-main, 35%);
+$color-main: #00B2EE;
+$color-main-dark: darken($color-main, 36%);
 $color-main-light: lighten($color-main, 3%);
 
 $color-white: #fdfdfd;
@@ -30,21 +51,41 @@ $color-dark:    #363636;
 $color-green:   #8ecc45;
 $color-green-excel: #1C7243;
 $color-green-light: rgba(179,231,148,.5);
+$color-yellow: rgba(255, 235, 90,  1);
 $color-golden: rgba(255, 205, 60,  1);
-$color-orange:  #ff6c3f;
+$color-orange:  #ff8d0a;
 $color-red: #ff5a50    ;
 $color-red-light: #f99090;
+$color-pink: #ed5871;
 $color-blue-light: cornflowerblue;
 $color-blue: #2962ad;
 
-.color-green{   color:   #8ecc45;                   }
-.color-green-light{   color: rgba(179,231,148,.5);  }
-.color-golden{   color: rgba(255, 205, 60,  1);  }
-.color-orange{   color:  #ff6c3f;  }
-.color-red{   color: #ff5a50    ;  }
-.color-red-light{   color: #f99090;  }
+.blur {
+  -webkit-filter: blur(10px); /* Chrome, Opera */
+  filter: blur(10px);
+}
+
+.color-main   {   color: $color-main!important;                   }
+.color-green  {   color: $color-green!important;                   }
+.color-golden {   color: $color-golden!important;               }
+.color-orange {   color: $color-orange;               }
+.color-red{   color: $color-red!important   ;  }
+.color-red-light{   color: $color-red-light;  }
+.color-pink {   color: $color-pink;  }
 .color-blue-light{   color: cornflowerblue;  }
-.color-blue{   color: #2962ad;  }
+.color-blue{   color: $color-blue;  }
+.color-gray{   color: $color-gray-deep!important;  }
+.color-heavy{   color: #999!important;  }
+.color-dark{   color: #464646!important;  }
+
+.bg-green      { background-color:   #8ecc45;                }
+.bg-golden     { background-color: rgba(255, 205, 60,  1);   }
+.bg-orange     { background-color:  #ff6c3f;                 }
+.bg-red        { background-color: #ff5a50;                  }
+.bg-red-light  { background-color: #f99090;                  }
+.bg-blue-light { background-color: cornflowerblue;           }
+.bg-blue       { background-color: #2962ad;                  }
+.bg-gray-light { background-color: $color-gray-light;        }
 
 // 是否隐藏
 .hxui-invisible { visibility: hidden; }
@@ -80,7 +121,7 @@ $width-sm-min: 100%;
 // 通用的字体标准
 $font-sm: 10px;
 $font-md: 14px;
-$font-bg: 18px;
+$font-bg: 17px;
 $font-lg: 22px;
 
 // 行高标准
@@ -125,12 +166,15 @@ $pm-lg: 32px;
 .padding-bg { padding: $pm-bg;    }
 .padding-lg { padding: $pm-lg;    }
 
-
 // 通用阴影标准
 $shadow-md: 0 3px 6px rgba(0,0,0, .1);
 $shadow-md-dark: 0 3px 6px rgba(0,0,0, .3);
 $shadow-right-md: 3px 3px 6px rgba(0,0,0, .1);
 
+.hidden { display: none;  }
+.invisible { visibility: hidden; }
+
 // 浮动设置
 .right { float: right; }
 .left { float: left; }
+.clear { clear:both; }

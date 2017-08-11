@@ -70,6 +70,8 @@ input[type="password"].hxui-input:focus{
 /*  默认样式【聚焦状态】 适用于textarea标签组件      */
 textarea.hxui-input:focus{  border: 1px solid darkgreen;    }
 
+
+
 /*  默认样式【无效状态】： input组件和textarea组件无效化的样式   */
 input[disabled]{
   background-color: transparent; border: none!important;
@@ -98,8 +100,21 @@ textarea[disabled]{
   }
 }
 
+// 头像组件
+.hxui-avatar {
+  height: $height-normal;
+  width: $height-normal;
+  @include borderRadius(50% 50%);
+}
+.hxui-cover-img {
+  max-height: $height-upload-button;
+  max-width: $width-upload-button;
+  @include borderRadius($border-radius-md);
+}
+
 // 全局按钮样式
 .hxui-button {
+  @include borderRadius($border-radius-md);
   min-height: $height-navbar - 2 * $pm-sm;
   padding: 0 $pm-md;
   background-color: $color-main;
@@ -107,14 +122,42 @@ textarea[disabled]{
   color: $color-white;
   @include compatible(transition, all .4s);
   &:hover {
-    background-color: $color-main-light;
+     background-color: $color-main-light;
+  }
+  &:disabled {
+     background-color: $color-gray-deep!important;
   }
 }
-.hxui-button.gray {  background-color: darken($color-gray, 10%);  }
-.hxui-button.orange {  background-color: $color-orange;  }
-.hxui-button.red {  background-color: $color-red;  }
-.hxui-button.blue {  background-color: $color-blue-light;  }
-.hxui-button.green { background-color: $color-green; }
+.hxui-button.gray {
+  background-color: darken($color-gray, 14%);
+  &:hover {
+    background-color: darken($color-gray, 18%);
+  }
+}
+.hxui-button.orange {
+  background-color: $color-orange;
+  &:hover{
+    background-color: lighten($color-orange, 10%);
+  }
+}
+.hxui-button.red {
+  background-color: $color-red;
+  &:hover{
+    background-color: lighten($color-red, 10%);
+  }
+}
+.hxui-button.blue {
+  background-color: $color-blue-light;
+  &:hover{
+    background-color: lighten($color-blue-light, 10%);
+  }
+}
+.hxui-button.green {
+  background-color: $color-green;
+  &:hover{
+    background-color: lighten($color-green, 10%);
+  }
+}
 .hxui-button.excel {
   background-color: $color-green-excel;
   &:hover{
@@ -161,11 +204,11 @@ textarea[disabled]{
 }
 
 .hxui-button.blank.gray{
-  border: 1px solid $color-gray-deep;
-  color: $color-gray-deep;
+  border: 1px solid #aaa;
+  color: #aaa;
   &:hover{
     color: $color-white;
-    background-color: $color-gray-deep;
+    background-color: #aaa;
   }
 }
 
@@ -178,7 +221,7 @@ textarea[disabled]{
   }
 }
 
-.hxui-button.blank.orange{
+.hxui-button.blank.golden{
   border: 1px solid $color-golden;
   color: $color-golden;
   &:hover{
@@ -187,6 +230,14 @@ textarea[disabled]{
   }
 }
 
+.hxui-button.blank.orange{
+  border: 1px solid $color-orange;
+  color: $color-orange;
+  &:hover{
+    color: $color-white;
+    background-color: $color-orange;
+  }
+}
 
 .hxui-checkbox{
   height: 25px!important;
@@ -199,4 +250,57 @@ textarea[disabled]{
   &.selected {
     background-color: $color-green;
   }
+}
+
+// xpage.js 中组件需要样式
+.pad-poptip {
+  position: absolute;
+  padding: 0 $pm-md;
+  text-align: center;
+  font-size:16px;
+  top: -1 * $height-navbar;
+  margin: 0 auto;
+  line-height: $height-navbar;
+  height: $height-navbar;
+  min-width: 30%;
+  max-width: 60%;
+  z-index: 10000;
+  opacity: .0;
+  color: #f2f2f2;
+  @include centerHorizontal();
+  @include boxShadow(0 5px 30px -2px rgba(0,0,0,.5));
+  @include borderRadius($border-radius-md);
+  @include compatible(transition, all .4s);
+  &.success {
+    background-color: $color-green;
+  }
+  &.warn {
+    background-color: $color-orange;
+  }
+  &.error {
+    background-color: $color-red;
+  }
+  &.default {
+     background-color:#aaa;
+  }
+  &.show {
+    opacity: 1.0;
+    top: $pm-md;
+    @include boxShadow(0 5px 20px -10px rgba(0,0,0,.8));
+  }
+}
+
+// 选择日期控件样式：
+.datepicker {
+  z-index: 1000;
+}
+
+@media screen and (max-width: 640px){
+   .pad-poptip {
+     width: 95%;
+     max-width: 95%;
+     &.show {
+      top: 8px;
+     }
+   }
 }

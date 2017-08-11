@@ -1,9 +1,70 @@
 // hxui 组件的样式
 @import "variable";
 
-$width-sidebar: 200px;
-
-$height-navbar: 50px;
+// 登录注册模块样式
+.pad-login, .pad-register {
+  top: 70%!important;
+  opacity: .0;
+  visibility: hidden;
+  border: 1px solid $color-gray;
+  @include compatible(transition, all .4s);
+  @include borderRadius($border-radius-md);
+  @include boxShadow(0 $pm-sm*2 $pm-md*2  -13px rgba(0,0,0,.3));
+  .row {
+    padding: $pm-sm 0;
+    text-align: center;
+    &.main-tip{
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: $color-heavy;
+    }
+  }
+  .tip {
+    color: $color-heavy;
+    font: {
+      size: $font-sm;
+      weight: 800;
+    }
+  }
+  .logo-company{
+    height: 2 * $height-navbar;
+    width: 2 * $height-navbar;
+    border: 1px solid $color-gray;
+    @include borderRadius(50% 50%);
+  }
+  input {
+    @include borderRadius($border-radius-md);
+    border: 1px solid $color-gray;
+    line-height: $height-navbar - 2 * $pm-sm;
+    height: $height-navbar - 2 * $pm-sm;
+    padding: 0 $pm-sm;
+    width: 100%;
+    @include compatible(transition, all .4s);
+    &:focus {
+      border: 1px solid lighten($color-main-light, 10%);
+    }
+  }
+  .btn-main {
+    margin-top: $pm-md;
+    width: 100%;
+    height: $height-navbar - 2 * $pm-sm;
+    @include borderRadius($border-radius-md);
+  }
+  .btn-sub {
+    margin-top: $pm-md;
+    width: 100%;
+    height: $height-navbar - 2 * $pm-sm;
+    @include borderRadius($border-radius-md);
+    background-color: transparent;
+    color: $color-main;
+    cursor: pointer!important;
+  }
+  &.show {
+    visibility: visible;
+    top: 50%!important;
+    opacity: 1.0;
+  }
+}
 
 .hxui-block {
   height: 100%;
@@ -13,6 +74,138 @@ $height-navbar: 50px;
   position: relative;
   top: 0;
   left: 0;
+  overflow: hidden;
+  .hxui-sidebar {
+    height: 100%;
+    display: inline-block;
+    float: left;
+    position: relative;
+    width: $width-sidebar;
+    overflow-x: hidden;
+    background-color: $color-main-dark;
+    .sidebar {
+      height: 100%;
+      display: block;
+    }
+    .project-info {
+      padding: $pm-bg 0;
+      text-align: center;
+      img.logo {
+        margin-bottom: $pm-sm;
+        height: $height-navbar * 1.5;
+        width: $height-navbar * 1.5;
+        @include borderRadius(50% 50%);
+      }
+      span.text-name {
+        display: block;
+        width: 100%;
+        color: rgba(255,255,255,.8);
+        font-size: $font-md;
+      }
+    }
+    .sidebar-buttons {
+      @include hcalc(calc(100% - 156px));
+      display: block;
+    }
+    .group-btn-sidebar{
+      width: 100%;
+      button {
+        font-size: 13px;
+        width: 100%;
+        text-align: left;
+        padding-left: $pm-md;
+        height: 42px;
+        color: $color-gray-light;
+        background-color: rgba(255,255,255, .1);
+        @include compatible(transition, .4s);
+        &.open:before{
+          @include compatible(transform, rotate(90deg));
+        }
+        &:before {
+          text-align: center;
+          width: $pm-md;
+          display: inline-block;
+          vertical-align: top;
+          margin-right: $pm-md;
+          @include compatible(transition, all .4s);
+          @include compatible(transform-origin, 25% 55%);
+        }
+        &:hover {
+          background-color: $color-main;
+        }
+      }
+      &.selected button{
+        background-color: rgba(255,255,255, .3);
+        color: white;
+        &:hover {
+          background-color: $color-main-light;
+        }
+      }
+      .second-level {
+        @include compatible(transition, max-height .4s);
+        overflow-y: hidden;
+        max-height: 0;
+        &.show{
+          max-height: $height-navbar * 19;
+        }
+        button{
+          padding-left: 3 * $pm-md;
+          background-color: $color-gray-light;
+          border-bottom: 1px solid lighten($color-gray, 5%);
+          &.selected{
+            background-color: $color-main-light;
+            color: $color-gray-light;
+          }
+        }
+      }
+    }
+    .footer-btn-sidebar {
+      display: block;
+      margin-top: $pm-bg;
+      width: 100%;
+      line-height: $height-navbar;
+      text-align: center;
+      button {
+        height: $height-regular;
+        min-width: $height-regular;
+        font-size: $font-md;
+        overflow: hidden;
+        padding: 0 $pm-sm;
+        background-color: transparent;
+        color: rgba(255,255,255,.5);
+        @include borderRadius($border-radius-md);
+        @include compatible(transition, all .4s);
+        &:hover {
+          background-color: rgba(255,255,255,.2);
+          color: rgba(255,255,255, 1.0);
+          &.fa-sign-out:after {
+            content: " 退出登录"
+          }
+          &.fa-user:after {
+            content: " 账户设置"
+          }
+        }
+
+      }
+    }
+    .version {
+      display: block;
+      height: 50px;
+      width: 100%;
+      line-height: $height-navbar;
+      text-align: center;
+      color: rgba(255,255,255,.3);
+      font-size: $font-sm;
+    }
+  }
+  .hxui-main {
+    height: 100%;
+    border-top: 3px solid #00bdfd;
+    display: inline-block;
+    float: left;
+    position: relative;
+    @include wcalc(calc(100% - 180px)); // 200px 对应 $width-sidebar
+  }
 }
 
 .hxui-navbar {
@@ -70,105 +263,14 @@ $height-navbar: 50px;
   }
 }
 
-.hxui-block {
-  border-top: 2px solid $color-main-light;
-  overflow: hidden;
-  width: 100%;
-  .hxui-sidebar {
-    height: 100%;
-    display: inline-block;
-    float: left;
-    width: $width-sidebar;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background-color: $color-main-dark;
-    border-right: 1px solid $color-gray;
-    .project-info {
-      padding: $pm-bg 0;
-      text-align: center;
-      img.logo {
-        height: $height-navbar * 1.5;
-        width: $height-navbar * 1.5;
-        @include borderRadius(50% 50%);
-      }
-      span.text-name {
-        display: block;
-        width: 100%;
-        color: rgba(255,255,255,.8);
-        font-size: $font-md;
-      }
-    }
-    .group-btn-sidebar{
-      width: 100%;
-      button {
-        font-size: $font-md;
-        width: 100%;
-        text-align: left;
-        padding-left: $pm-md;
-        height: $height-navbar;
-        color: $color-gray-light;
-        background-color: rgba(255,255,255, .1);
-        @include compatible(transition, .4s);
-        &.open:before{
-          @include compatible(transform, rotate(90deg));
-        }
-        &:before {
-          width: $pm-md;
-          display: inline-block;
-          vertical-align: top;
-          margin-right: $pm-md;
-          @include compatible(transition, all .4s);
-          @include compatible(transform-origin, 25% 55%);
-        }
-        &:hover {
-          background-color: $color-main;
-        }
-      }
-      &.selected button{
-        background-color: rgba(255,255,255, .3);
-        color: white;
-        &:hover {
-          background-color: $color-main-light;
-        }
-      }
-      .second-level {
-        @include compatible(transition, max-height .4s);
-        overflow-y: hidden;
-        max-height: 0;
-        &.show{
-          max-height: $height-navbar * 19;
-        }
-        button{
-          padding-left: 3 * $pm-md;
-          background-color: $color-gray-light;
-          border-bottom: 1px solid lighten($color-gray, 5%);
-          &.selected{
-            background-color: $color-main-light;
-            color: $color-gray-light;
-          }
-        }
-      }
-  }
-  }
-  .hxui-main {
-    height: 100%;
-    display: inline-block;
-    float: left;
-    position: relative;
-    @include wcalc(calc(100% - 200px)); // 200px 对应 $width-sidebar
-  }
-}
-
-
 // 列表页面样式
 .list-header, .list-footer, .list-content{
   background-color: white;
 }
-
 .list-header, .list-footer{
   height: $height-navbar;
   width: 100%;
-  padding: $pm-sm $height-navbar;
+  padding: $pm-sm $pm-md;
   background-color:$color-gray-light;
   display: block;
   button {
@@ -180,31 +282,21 @@ $height-navbar: 50px;
 }
 .list-header{
   z-index: 1000;
+  position: relative;
+  border-bottom: 1px solid $color-gray;
   .title{
     vertical-align: top;
     display: inline-block;
     margin-right: $pm-md;
     font-size: $font-md;
     height: $height-navbar - 2 * $pm-sm;
-    line-height: $height-navbar - 2 * $pm-sm + 2px;
+    line-height: $height-regular;
     color: $color-heavy;
     strong {
-      color: $color-red;
+      color: $color-main;
       font: {
         size: $font-bg;
         weight: 800;
-      }
-
-    }
-  }
-  .thead {
-    span {
-      color: $color-heavy;
-      float: left;
-      line-height: $height-navbar - 2 * $pm-sm - 1;
-      display: inline-block;
-      &.center{
-        text-align: center;
       }
     }
   }
@@ -255,21 +347,36 @@ $height-navbar: 50px;
   }
   .search{
     display: inline-block;
-    height: 100%;
     width: auto;
     float: right;
     position: relative;
     padding: 0;
+    height: $height-regular;
     margin-right: $pm-md;
-    input[type=text], input[type=email], input[type=number], input[type=tel] {
+    input[type=text], input[type=email], input[type=number], input[type=tel], select {
       height: 100%;
-      min-width: 220px;
+      min-width: 200px;
       padding: 0 $height-navbar / 6;
       background-color: rgba(255,255,255,.8);
       border: none;
+
       @include compatible(transition, border .4s);
       &:focus{
         border: 1px solid $color-main;
+      }
+    }
+    select {
+      min-width: 150px;
+      border-radius: 0!important;
+      -webkit-border-radius: 0!important;
+    }
+    &.button-group {
+      float: none!important;
+      @include centerVertical;
+      margin-left: $pm-sm;
+      button {
+        min-width: $pm-bg;
+        padding: 0 $pm-sm;
       }
     }
     &.date{
@@ -303,12 +410,51 @@ $height-navbar: 50px;
         color: white;
       }
     }
+    // 日期选择器
+    .pad-datepicker {
+      height: $height-regular;
+      position: relative;
+      margin: 0;
+      input {
+        border: 1px solid $color-gray;
+      }
+      &.focus {
+        .add-on {
+          color: $color-main;
+        }
+      }
+      .add-on {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 34px;
+        height: 34px;
+        text-align: center;
+        line-height: $height-regular;
+        color: $color-gray-deep;
+        &+.add-on {
+          right: 21px;
+        }
+        &.btn-clear:hover {
+          color: $color-red-light;
+        }
+      }
+    }
+  }
+  .btn-right {
+    height: $height-regular;
+    width: $height-regular;
+    background-color: transparent;
+    color: $color-main;
+    padding: 0;
+    float: right;
   }
 }
+
 .list-content{
+  padding: $pm-md;
   &.no-footer, &.no-header{
     @include hcalc(calc(100% - 50px));
-    padding: 0;
   }
   &.bg{
     padding: $height-navbar;
@@ -316,206 +462,532 @@ $height-navbar: 50px;
   @include hcalc(calc(100% - 100px));
   width: 100%;
   overflow-y: auto;
-  padding: 0;
-  .left, .right{
-    float: left;
-    height: 100%;
-    width: 50%;
-    &.limit{
-      max-width: 700px;
-    }
-  }
-}
 
-table{
-  width: 100%;
-  font-size: 16px;
-  table-layout: fixed;
-  border-collapse:collapse;
-  td {
-    min-height: $height-navbar;
-    text-align: center;
-    padding: $pm-sm;
-    img.avatarUrl {
-      height: $height-navbar - 2 * $pm-sm;
-      width: $height-navbar - 2 * $pm-sm;
-      @include borderRadius(50% 50%);
-      background-color: $color-gray;
-    }
-    .link {
-      color: darken($color-main, 5%);
-      &:hover{
-        color: $color-red;
+  .hxui-detail-block {
+    border: 1px solid $color-gray;
+    position: relative;
+    padding: ($height-normal) $pm-md $pm-md;
+    margin-bottom: $pm-md;
+    header {
+      top: 0;
+      left: 0;
+      width: 100%;
+      font-size: $font-md;
+      line-height: $height-normal;
+      height: $height-normal;
+      padding: 0 $pm-md;
+      color: $color-heavy;
+      background-color: $color-gray-light;
+      position: absolute;
+      border-bottom: 1px solid $color-gray;
+      small {
+        font-size: $font-md;
+        color: $color-gray-deep;
+        margin-left: $pm-sm;
+      }
+      button {
+        min-height: $height-normal - $pm-sm;
+        margin-left: $pm-sm;
       }
     }
   }
-  thead {
-    color: lighten($color-heavy, 5%);
-    background-color: #fafafa;
-    td{
-      height: $height-navbar;
-    }
-  }
-  tbody {
-    color: lighten($color-heavy, 10%);
-    tr {
-      height: $height-navbar;
-    }
-    tr:nth-child(even) {
-      background-color: lighten($color-gray-light, 1%);
-    }
-    &.hovering{
-      tr:hover{ background-color: $color-gray-light;  }
-    }
+  .hxui-pad-left {
+    float: left;
+    width: 50%;
+    padding-right: $pm-sm;
   }
 
+  .hxui-pad-right {
+    float: right;
+    width: 50%;
+    padding-left: $pm-sm;
+  }
 
+  table{
+    width: 100%;
+    font-size: 13px;
+    table-layout: fixed;
+    border-collapse:collapse;
+    td {
+      min-height: $height-navbar;
+      text-align: center;
+      padding: $pm-sm $pm-sm;
+      font-size: 13px;
+      word-break: break-all;
+      border: 1px solid $color-gray;
+      img.avatarUrl {
+        height: $height-navbar - 2 * $pm-sm;
+        width: $height-navbar - 2 * $pm-sm;
+        @include borderRadius(50% 50%);
+        background-color: $color-gray;
+      }
+      .link {
+        color: darken($color-main, 5%);
+        &:hover{
+          color: $color-red;
+        }
+      }
+      &.empty {
+        height: $height-navbar * 4;
+        line-height: $height-navbar * 4;
+        font-size: $font-bg;
+        background-color: $color-gray-light;
+        color: $color-heavy;
+      }
+      &.td-img-cover {
+        font-size: 0;
+        img {
+          height: $height-upload-button;
+          width: $width-upload-button;
+          @include borderRadius($border-radius-md);
+        }
+      }
+      &.td-img-avatar {
+        font-size: 0;
+        img {
+          height: $height-normal;
+          width: $height-normal;
+          @include borderRadius(50% 50%);
+        }
+      }
+      &.td-justify {
+        text-align: justify;
+      }
+      button {
+        padding: 0 $pm-sm;
+        height: $height-regular - $pm-sm / 2;
+        min-height: $height-regular - $pm-sm / 2;
+        font: {
+          weight: 500;
+        }
+        &.standard {
+          min-width: 90px;
+          margin-bottom: $pm-sm/2;
+        }
+        &.smart {
+          &:before {
+            margin-right: $pm-sm;
+          }
+          overflow-x: hidden;
+          width: 29px;
+          white-space: nowrap;
+          @include compatible(transition, width .2s);
+          &:hover {
+            width: 100px;
+          }
+        }
+      }
+    }
+    thead {
+      color: lighten($color-heavy, 5%);
+      background-color: #fafafa;
+      border-bottom: 2px solid $color-gray;
+      td{
+        height: $height-normal;
+      }
+    }
+    tbody {
+      color: lighten($color-heavy, 10%);
+      tr {
+        height: $height-navbar;
+      }
+      tr:nth-child(even) {
+        background-color: $color-gray-light;
+      }
+      &.hovering{
+        tr:hover{ background-color: $color-gray-light;  }
+      }
+    }
+  }
+}
+.list-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid $color-gray;
 }
 
+/*
+  hxui表单行模块： 包含label和内容（.pad-edit）
+  Date: 2017-8-2
+  Author: LXHFIGHT
+ */
 .hxui-row {
   width: 100%;
   padding: $pm-sm $pm-md;
   line-height: $height-navbar - 2 * $pm-sm;
-  color: $color-heavy;
-  label, input[type='text'], input[type='password'], input[type='number']{
-    height: $height-navbar - 2 * $pm-sm;
-    display: inline-block;
-    vertical-align: top;
+  color: $color-dark;
+
+  // 无内边距样式
+  &.null {
+    padding: 0 ;
   }
 
+  // 居中样式
+  &.center { text-align: center; }
+
+  label, input{
+    height: $height-regular;
+    display: inline-block;
+    vertical-align: top;
+    font-size: $font-md;
+    @include borderRadius($border-radius-md);
+  }
+
+  // 左侧表单内容文案
   label{
-    height: $height-navbar - 2 * $pm-sm;
-    line-height: $height-navbar - 2 * $pm-sm;
-    width: 2.5 * $height-navbar;
-    color: $color-dark;
+    line-height: $height-regular;
+    width: 120px;
+    color: $color-heavy;
+    vertical-align: top;
     &.title {
       font: {
         size: $font-md;
         weight: 800;
       }
     }
+    .tip {
+      color: $color-main;
+      font-size: $font-sm;
+      line-height: $height-regular;
+    }
   }
 
-  input[type='text'], input[type='number'] {
-    color: $color-heavy;
-    padding: 0 $pm-sm;
+  // hxui行中文本编辑组件、选择组件的默认样式
+  input, textarea, select {
     width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    @include compatible(transition, all .4s);
     border: 1px solid $color-gray;
-    @include compatible(transition, border .4s);
-    @include wcalc(calc(100% - 129px));
+    line-height: $height-regular;
+    height: $height-regular;
+    padding: 0 $pm-sm;
+    background-color: transparent;
     &.short {
-      @include wcalc(calc(50% - 80px));
-    }
-    &:disabled {
-      background-color: transparent;
-      border: none;
+      width: 45%;
     }
     &:focus {
-      border: 1px solid $color-main-light;
+      border: 1px solid $color-main;
+    }
+    &:disabled {
+      border: none!important;
+      background-color: $color-gray-light;
     }
   }
 
+  // 地图模块
+  .map {
+    display: inline-block;
+    height: 280px;
+    @include wcalc(calc(45% - 58px));
+    background-color: $color-gray-light;
+    @include borderRadius($border-radius-md);
+  }
+
+  // 富文本模块
+  div.pad-rich-editor {
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    width: 100%;
+    vertical-align: top;
+    @include wcalc(calc(100% - 130px));
+    .rich-editor  {
+      height: 389px;
+      border: 1px solid $color-gray;
+      padding: $pm-md;
+      @include borderRadius($border-radius-md);
+      overflow-x: hidden;
+      overflow-y: auto;
+      p {
+        margin: 0;
+      }
+    }
+
+    .btn-to-edit {
+      position: absolute;
+      top: $pm-sm;
+      right: $pm-sm;
+    }
+  }
+
+  // 右侧区域
   div.pad-edit {
     display: inline-block;
     position: relative;
     padding: 0;
     width: 100%;
-    @include wcalc(calc(100% - 129px));
-    &.input{
-      label {
-        width: 90px;
-      }
-      input {
-        @include wcalc(calc(100% - 100px));
-        resize: none;
-      }
-    }
-    textarea {
-      width: 100%;
-      resize: none;
-      padding: $pm-md;
-    }
-  }
-
-  .pad-image{
-    width: $width-upload-button;
-    height: $height-upload-button;
-    position: relative;
-    display: inline-block;
     vertical-align: top;
-    margin-right: $pm-sm;
-    margin-bottom: $pm-sm;
-    overflow-y: hidden;
-    float: left;
-    img, button {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      min-height: 100%;
-      z-index: 10;
+
+    @include wcalc(calc(100% - 130px));
+
+    &.short {
+      width: 200px;
     }
-    button {
-      visibility: hidden;
-      opacity: .0;
-      z-index: 100;
-      background-color: rgba(0, 0, 0, .4);
-      @include compatible(transition, all .4s);
-      span {
-        color: $color-white;
-        float: left;
-        width: 100%;
-        height: 100%;
-        display: inline-block;
-        text-align: center;
-        line-height: $height-upload-button;
-        &:hover {
-          background-color: rgba(255,255,255,.2);
+
+    $height-switch: 25px;
+    $width-switch: 55px;
+    $padding-switch: 5px;
+
+    .switch {
+      top: 5px;
+      height: $height-switch;
+      width: $width-switch;
+      display: inline-block;
+      background-color: $color-gray;
+      position: relative;
+      @include borderRadius($height-regular/2 $height-regular/2);
+      @include compatible(transition, background-color .2s);
+      &:before {
+        content: "";
+        @include compatible(transition, left .2s);
+        background-color: white;
+        height: $height-switch - $pm-sm;
+        width: $height-switch - $pm-sm;
+        top: $pm-sm / 2;
+        position: absolute;
+        @include borderRadius(50% 50%);
+        left: $padding-switch;
+      }
+      &.off {
+        background-color: $color-red;
+        &:before {
+          left: $padding-switch;
+        }
+      }
+      &.on {
+        background-color: $color-green;
+        &:before {
+          left: $width-switch - $height-regular + 13px;
         }
       }
     }
-    &:hover {
-      button{
-        opacity: 1.0;
-        visibility: visible;
+
+    button {
+      height: $height-regular;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      display: inline-block;
+      @include compatible(transition, all .4s);
+      border: 1px solid $color-gray;
+      line-height: $height-regular;
+      height: $height-regular;
+      padding: 0 $pm-sm;
+      background-color: white;
+      font-size: $font-md;
+      resize: none;
+      &.short {
+        width: 45%;
+      }
+      &:focus {
+        border: 1px solid $color-main;
+      }
+      &:disabled {
+        border: none !important;
+        background-color: $color-gray-light;
       }
     }
 
-  }
+    input {
+      height: $height-regular!important;
+    }
 
-  img, button{
-    width: 50%;
-    max-width: 220px;
-  }
-  img {
-    min-height: 220px;
-    border:0;
-    background-color: $color-gray-light;
-  }
-  button.btn-image {
-    vertical-align: top;
-    border: 2px dashed #ccc;
-    height: $height-upload-button;
-    width: $width-upload-button;
-    font-weight: 100;
-    font-size: $font-bg;
-    background-color: transparent;
-    color: #ccc;
-    float: left;
-    &:hover{
-      cursor: pointer;
+    span {
+      padding-left: $pm-sm;
+      font-size: $font-md;
+      width: 100%;
+      height: $height-regular;
+      display: block;
+      @include borderRadius($border-radius-md);
+      &.border {
+        border: 1px solid $color-gray;
+      }
+      &.disabled {
+        border: 1px solid $color-gray-light;
+        background-color: $color-gray-light;
+      }
+      &.tip {
+        font: {
+          size: $font-sm;
+          weight: 300;
+        }
+        color: $color-gray-deep;
+        line-height:  $font-sm;
+        height:  $font-sm;
+        margin-top: $pm-sm;
+      }
+    }
+
+
+
+    input[type='file'] {
+      position: absolute;
+      visibility: hidden;
+    }
+
+    .pad-dropdown {
+      position: absolute;
+      top: $height-regular + $pm-sm;
+      left: 0;
+      width: 100%;
+      padding: $pm-md;
+      z-index: 123;
+      display: inline-block;
+      background-color: white;
+      opacity: .0;
+      visibility: hidden;
+      @include boxShadow(0 5px 20px -6px rgba(0,0,0,.3));
+      @include compatible(transition, all .4s);
+      &.show {
+        visibility: visible;
+        opacity: 1.0;
+      }
+    }
+
+    .pad-tags {
+      width: 100%;
+      padding: 0;
+      display: block;
+      min-height: $height-navbar/2;
+      .tag {
+        padding: 0 0 0 $pm-md;
+        height: $height-navbar/2;
+        line-height: $height-navbar/2;
+        background-color: $color-main;
+        display: inline-block;
+        font: {
+          size: $font-sm;
+          weight: 300;
+        }
+        color: white;
+        margin: 0 $pm-sm/2 $pm-sm 0;
+        @include borderRadius($height-navbar/2 $height-navbar/2);
+        span{
+          width: auto;
+          display: inline-block;
+          height: $height-navbar/2;
+          line-height: $height-navbar/2;
+          margin-right: $pm-sm;
+          font-size: $font-sm;
+        }
+        .btn-remove {
+          color: $color-white;
+          width: $height-navbar/2;
+          height: $height-navbar/2;
+          display: inline-block;
+          font-size: $font-bg;
+          font-weight: 100;
+          float: right;
+          background-color: transparent;
+          &:hover {
+            color: $color-red;
+          }
+        }
+      }
+    }
+
+    .for-image {
+      height: $height-upload-button;
+      display: inline-block;
+      overflow: hidden;
+      position: relative;
+
+      img { margin-right: 0; }
+
+      .dot {
+        position: absolute;
+        right: 8px;
+        top: 4px;
+        cursor: default;
+        display: block;
+        height: $pm-bg;
+        line-height: $pm-bg;
+        padding: 0 $pm-sm/2;
+        font-size: 10px;
+        @include borderRadius($border-radius-md);
+        background-color: $color-gray-deep;
+        color: $color-white;
+        &:hover {
+          background-color: darken($color-gray-deep, 2%);
+        }
+        &.clear {
+          background-color: $color-main;
+          color: white;
+          &:hover {
+            background-color: darken($color-main, 2%);
+          }
+        }
+      }
+
+      .empty-image {
+        height: $height-upload-button;
+        width: $width-upload-button;
+        line-height: $height-upload-button;
+        text-align: center;
+        background-color: $color-gray-light;
+        color: $color-gray-deep;
+        @include borderRadius($border-radius-md);
+        font-size: $font-bg;
+        padding: 0;
+      }
+
+      &.preview {
+        &:after {
+          content: '查看大图';
+          color: white;
+          background-color: rgba(0,0,0,.6);
+          visibility: hidden;
+          opacity: .0;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          font-weight: 200;
+          line-height: $height-upload-button;
+          text-align: center;
+          @include borderRadius($border-radius-md);
+          @include compatible(transition, all .4s);
+        }
+      }
+      &.preview:hover {
+        &:after {
+          opacity: 1.0;
+          visibility: visible;
+        }
+      }
+    }
+
+    img {
+      height: $height-upload-button;
+      margin: 0 $pm-sm/2 0 0;
+      border: 1px solid $color-gray;
+      @include borderRadius($border-radius-md);
+      @include compatible(transition, all .4s);
+    }
+
+    .btn-upload-image {
+      padding: 0;
+      vertical-align: top;
+      height: $height-upload-button;
+      width: $width-upload-button;
       border: 2px dashed $color-gray-deep;
       color: $color-gray-deep;
+      font-size: $font-bg;
+      line-height: $height-upload-button;
+      text-align: center;
+      background-color: transparent;
+      &:hover {
+        color: $color-heavy;
+        border: 2px dashed $color-heavy;
+      }
     }
   }
 }
 
-.list-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
 
 /*  导航栏样式 将ID设置为 x-pagination-upgrade */
 /*
@@ -525,7 +997,7 @@ table{
  */
 .hxui-pagination {
   text-align:right;
-  height: $height-navbar;
+  height: $height-regular;
   padding: 0;
   font-size: 0;
   select{
@@ -557,16 +1029,15 @@ table{
     min-width: 30px;
     padding:0 8px;
     position: relative;
-    top: 1px;
     color: darken($color-gray, 30%);
     &:hover{
       color: $color-heavy;
       background-color: darken($color-gray-light, 4%);
     }
     &:active{
-      border: 1px solid $color-green;
+      border: 1px solid $color-main;
       color: $color-white;
-      background-color: $color-green;
+      background-color: $color-main;
     }
     &.btn-jump{
       margin-left: 10px;
@@ -582,8 +1053,9 @@ table{
     position: relative;
     top:-1px;
     min-width: 50px!important;
+    height: $height-regular;
     width: 60px;
-    padding: 4px 10px!important;
+    padding: 0 10px!important;
     margin-left: 20px;
     border: 1px solid $color-gray-light;
     @include borderRadius($border-radius-md);
@@ -591,60 +1063,33 @@ table{
 }
 
 
-.pad-login, .pad-console {
-  padding: $pm-bg;
-  border: 1px solid $color-gray;
-  @include borderRadius($border-radius-md);
-  @include boxShadow(0 $pm-sm/2 $pm-md $color-gray);
-  .row {
-    padding: $pm-sm 0;
-    text-align: center;
-    &.main-tip{
-      font-size: 20px;
-      margin-bottom: 20px;
-      color: $color-heavy;
-    }
-  }
-  .tip {
-    color: $color-heavy;
-    font: {
-      size: $font-sm;
-      weight: 800;
-    }
-  }
-  .logo-company{
-    max-height: 2 * $height-navbar;
-    max-width: 2 * $height-navbar;
-  }
-  input {
-    @include borderRadius($border-radius-md);
-    border: 1px solid $color-gray;
-    line-height: $height-navbar - 2 * $pm-sm;
-    height: $height-navbar - 2 * $pm-sm;
-    min-width: 300px;
-    padding: 0 $pm-sm;
-    @include compatible(transition, all .4s);
-    &:focus {
-      border: 1px solid lighten($color-main-light, 10%);
-      @include boxShadow(0 0 $pm-sm/1.2 lighten($color-main-light, 10%));
-    }
-  }
-  button {
-    margin-top: $pm-md;
-    width: 100%;
-    height: $height-navbar - 2 * $pm-sm;
-    @include borderRadius($border-radius-md);
+// 空内容容器模块样式
+.hxui-emptyset {
+  height: 100%;
+  width: 100%;
+  display: block;
+  left: 0;
+  top: 0;
+  line-height: 300px;
+  text-align: center;
+  position: relative;
+  background-color: $color-gray-light;
+  color: $color-gray-deep;
+  font: {
+    size: 30px;
+    weight: 900;
   }
 }
 
-.hxui-modal {
+// 模态框样式
+.hxui-modal, .hxui-image-modal {
   position: absolute;
   z-index: 1000;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0,0,0, .5);
+  background-color: rgba(0,0,0, .7);
   visibility: hidden;
   opacity: .0;
   @include compatible(transition, all .4s);
@@ -654,13 +1099,61 @@ table{
   }
   .pad-content{
     position: absolute;
-    top: 10%;
+    top: 15%;
     left: 50%;
     background-color: white;
     @include compatible(transform, translateX(-50%));
-    width: 70%;
-    padding: $pm-bg;
+    width: 60%;
+    min-width: 300px;
+    padding: $pm-md;
     @include borderRadius($border-radius-md);
+    header {
+      line-height: $height-normal;
+      height: $height-normal;
+      border-left: 3px solid $color-main;
+      padding-left: $pm-md;
+      margin-bottom: $pm-md;
+    }
+    .btn-close-modal {
+      position: absolute;
+      top: $pm-md;
+      right: $pm-md;
+      height: $height-regular;
+      width: $height-regular;
+      font-size: 18px;
+      font-weight: 200;
+      padding: 0;
+      color: $color-gray-deep;
+      background-color: transparent;
+      border: none;
+      @include borderRadius($border-radius-md);
+      &:hover {
+        background-color: $color-red;
+        color: white;
+      }
+    }
+    footer {
+      text-align: center;
+      margin-top: $pm-md;
+      background-color: $color-gray-light;
+      padding: $pm-md;
+      @include borderRadius($border-radius-md);
+      button {
+        min-width: 100px;
+      }
+    }
+    .map {
+      min-height: 400px;
+      @include borderRadius($border-radius-md);
+    }
+    .main-textarea {
+      padding: $pm-md;
+      font-size: 14px;
+      width: 100%;
+      border: 1px solid $color-gray-light;
+      @include borderRadius($border-radius-md);
+      resize: none;
+    }
     .btn-close{
       background-color: transparent;
       font-size: 1.5 * $height-navbar;
@@ -674,6 +1167,412 @@ table{
         color: $color-main-light;
         cursor: pointer;
       }
+    }
+  }
+  &.sm {
+    .pad-content {
+      max-width: 500px;
+      min-width: 300px;
+    }
+  }
+}
+
+// 图片预览组件模态框
+.hxui-image-modal {
+  text-align: center;
+  img {
+    max-height: 100%;
+    max-width: 100%;
+    @include centerInParent;
+  }
+  button.btn-quit-preview {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    @include compatible(transform, translateX(-50%));
+    @include compatible(transition, all .2s);
+    height: $height-normal;
+    background-color: $color-white;
+    @include borderRadius(20px 20px);
+    @include boxShadow(0 5px 15px rgba(0,0,0,.4));
+    width: 160px;
+    &:hover {
+      background-color: $color-main;
+      color: white;
+    }
+  }
+}
+
+/* tooltip用法：
+   第一步：需要添加的组件的类添加 hxui-tooltip-bottom
+   第二步：添加aria-label属性，放入要显示的问题本内容
+   注意： 1. 注意父组件是否设置overflow: hidden
+         2. 适用于支持 :before和 :after CSS3样式的浏览器 （>IE8）
+         3. 如果组件使用了font-icon 会被覆盖  建议在组件内容添加一个span标签承载font-icon
+   Date: 2017-8-2
+   Author: LXHFIGHT
+ */
+.hxui-tooltip-bottom {
+  position: relative;
+  &:hover {
+    &:before, &:after {
+      visibility: visible;
+    }
+  }
+  &:before, &:after {
+    visibility: hidden;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: 100%;
+    margin-top: 6px;
+    left: 50%;
+    @include compatible(transform, translateX(-50%));
+    border-bottom: 7px solid $color-dark;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    z-index: 9999;
+  }
+  &:after {
+    content: attr(aria-label);
+    position: absolute;
+    display: block;
+    font: {
+      size: $font-sm;
+      weight: 300;
+    }
+    top: 100%;
+    left: 50%;
+    z-index: 9998;
+    min-width: 150px;
+    border: none;
+    @include compatible(transform, translateX(-50%));
+    margin-top: 12px;
+    color: $color-gray-light;
+    background-color: $color-dark;
+    padding: $pm-sm/2 $pm-sm;
+    @include borderRadius(20px);
+    @include boxShadow(0 6px 12px -4px rgba(0,0,0,.4));
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .hxui-block {
+    .hxui-sidebar {
+      position: absolute!important;
+      left: -100%;
+      z-index: 1200;
+      overflow-y: hidden;
+      overflow-x: auto;
+      @include compatible(transition, left .4s);
+      &.show {
+        left: 0;
+      }
+      .project-info {
+        padding: $pm-sm + 4px;
+        .logo {
+          height: $height-regular!important;
+          width: $height-regular!important;
+        }
+      }
+      .sidebar-buttons {
+        @include hcalc(calc(100% - 91px));
+        display: block;
+        overflow-y: auto;
+        overflow-x: hidden;
+        .footer-btn-sidebar {
+          height: $height-normal;
+          margin-top: $pm-sm;
+        }
+        .version {
+          height: $height-normal;
+          margin-bottom: $pm-md;
+        }
+      }
+    }
+    .hxui-main {
+      width: 100%!important;
+      left: 0;
+    }
+  }
+  .hxui-advance-search {
+    position: absolute;
+    left: 0;
+    top: $height-normal;
+    opacity: .0;
+    visibility: hidden;
+    @include boxShadow(0 5px 15px -5px rgba(0,0,0,.4));
+    &.show {
+      opacity: 1.0;
+      visibility: visible;
+    }
+    .hxui-row {
+      border: none;
+      .pad-edit {
+        width: 100%!important;
+        margin-right: 0!important;
+      }
+      label {
+        width: 100px;
+        padding-left: $pm-sm;
+      }
+      .search {
+        margin: 0;
+        width: 100%;
+        .pad-datepicker {
+          width: 100%!important;
+        }
+        input.input-select-date {
+          //width: 100%!important;
+        }
+      }
+    }
+  }
+  .btn-show-sidebar {
+    display: block;
+    position: absolute;
+    top: $pm-sm + 3px;
+    left: $pm-sm;
+    padding: 0;
+    height: $height-regular;
+    width: $height-regular;
+    z-index: 1200;
+    @include borderRadius($border-radius-md);
+    color: $color-main;
+    background-color: transparent;
+    &.show {
+      color: white;
+    }
+  }
+  .list-header{
+    padding: $pm-sm!important;
+    .hxui-goback-button {
+      left: $height-normal;
+      position: relative;
+      padding: 0;
+      top: -1px;
+      border: none;
+    }
+    button.hxui-button {
+      padding: 0 $pm-sm!important;
+      width: auto!important;
+      min-width: $height-regular - $pm-sm/2!important;
+    }
+    .title {
+      margin-left: $height-regular + $pm-sm;
+      margin-right: $pm-sm;
+      & + .title {
+        margin-left: $pm-sm;
+      }
+    }
+  }
+  .list-content {
+    overflow-x: auto;
+    padding: $pm-sm 0!important;
+    .hxui-pad-left, .hxui-pad-right {
+      width: 100%!important;
+    }
+    table {
+      table-layout: auto !important;
+      td {
+        button {
+          min-width: 85px!important;
+        }
+        &.td-img-cover img{
+          height: 80px;
+          width: auto;
+        }
+        &.sm {
+          min-width: 75px;
+        }
+        &.md {
+          min-width: 125px;
+        }
+        &.bg {
+          min-width: 196px;
+        }
+        &.lg {
+          min-width: 240px;
+        }
+      }
+    }
+    .hxui-pad-left, .hxui-pad-right {
+      padding: 0;
+    }
+    .hxui-detail-block {
+      padding-left: $pm-sm;
+      padding-right: 0;
+      padding-bottom: 0;
+      @include boxShadow(0 10px 15px -10px rgba(0,0,0,.1));
+      header:first-child {
+        padding-left: $pm-sm;
+      }
+      .hxui-row:nth-last-child(1) {
+        border: none;
+      }
+    }
+
+  }
+  .hxui-row {
+    border-bottom: 1px solid $color-gray;
+    padding: $pm-sm/2 $pm-sm $pm-sm/2 0!important;
+    label { width: 100px; }
+    margin: 0!important;
+    .pad-edit {
+      @include wcalc(calc(100% - 110px));
+      input, select, textarea {
+        border: none!important;
+        &:hover {
+          border: none;
+        }
+      }
+      input, textarea {
+        padding-left: $pm-sm/2!important;
+      }
+      select {
+        padding-left: 0!important;
+      }
+      padding-left: $pm-sm/2!important;
+      &.for-switch {
+        width: 150px !important;
+      }
+      &.one-line {
+        width: 100%!important;
+        padding-left: 0!important;
+        padding-right: $pm-sm!important;
+      }
+      .for-image {
+        height: auto!important;
+        display: block!important;
+        .preview {
+          height: auto!important;
+        }
+        img {
+          width: 100%!important;
+          height: auto!important;
+        }
+        &+button {
+          margin-bottom: $pm-sm;
+        }
+      }
+      button.btn-upload-image {
+        height: $height-navbar * 1.5 ;
+        line-height: $height-navbar * 1.5;
+        width: 100%;
+      }
+      // 单位
+      .degree {
+        color: $color-gray-deep;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: inline-block;
+        width: auto;
+      }
+    }
+    .pad-rich-editor {
+      width: 100%!important;
+      .rich-editor {
+        border: none!important;
+      }
+    }
+    #map-preview {
+      margin-left: 0;
+      margin-bottom: $pm-sm;
+      width: 100%;
+    }
+  }
+  .list-footer {
+    padding: $pm-sm!important;
+    .hxui-pagination {
+      .fa-caret-left, .fa-caret-left+span, .fa-caret-right {
+        float: left;
+      }
+    }
+  }
+  .hxui-pagination {
+    select {
+      display: none;
+    }
+  }
+  .pad-login, .pad-register {
+    width: 95%;
+    padding: $pm-sm $pm-md;
+    border: none;
+    .tip {
+      font-size: 14px;
+    }
+    @include boxShadow(none);
+    .btn-sub, .btn-main {
+      margin-top: $pm-sm;
+    }
+    .logo-company {
+      height: $height-navbar;
+      width: $height-navbar;
+    }
+  }
+  .hxui-modal {
+    z-index: 1300;
+    .pad-content {
+      width: 95%;
+      padding: $pm-sm;
+      header {
+        font-size: $font-md;
+        height: $height-regular;
+        line-height: $height-regular;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .list-content {
+    overflow-x: auto;
+    table {
+      table-layout: auto !important;
+      td {
+        min-width: 150px;
+      }
+    }
+  }
+  .btn-show-sidebar {
+    display: none;
+  }
+  .pad-login, .pad-register {
+    width: 360px;
+    padding: $pm-md;
+  }
+  // 高级搜索栏
+  .hxui-advance-search{
+    padding-bottom: 0;
+    .hxui-row {
+      margin-bottom: $pm-sm;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .list-content{
+    overflow-x: hidden;
+    table {
+      table-layout: fixed !important;
+    }
+  }
+  .btn-show-sidebar {
+    display: none;
+  }
+  .pad-login, .pad-register {
+    width: 360px;
+    padding: $pm-bg;
+  }
+  // 高级搜索栏
+  .hxui-advance-search{
+    padding-bottom: 0;
+    .hxui-row {
+      margin-bottom: $pm-sm;
     }
   }
 }

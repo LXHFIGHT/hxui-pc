@@ -5,8 +5,10 @@
  *      Index controller
  */
 
-var module = angular.module('LayoutController');
+let indexModule = angular.module('LayoutController');
 
-module.controller('IndexCtrl', ['$scope', function($scope){
-
+indexModule.controller('IndexCtrl', ['$scope', '$rootScope', function($scope, $rootScope){
+    $scope.toggleSidebar = () => {
+        $rootScope.showSidebar = ! $rootScope.showSidebar;
+    };
 }]);

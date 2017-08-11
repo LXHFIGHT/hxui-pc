@@ -5,6 +5,7 @@
  *  the main value module
  */
 
-var module = angular.module('MainValue', ['menus']);
+let mainValueModule = angular.module('MainValue', ['menus', 'factories']);
 
-var menus = angular.module('menus', []);
+let menus = angular.module('menus', []);
+let factories = angular.module('factories', []);

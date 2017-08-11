@@ -3,15 +3,26 @@
         <img class="logo" ng-if="config.logo.show" ng-src="{{ config.logo.url }}" alt="">
         <span class="text-name" ng-bind="config.projectName"></span>
     </div>
-    <div
-        class="group-btn-sidebar"
-        ng-repeat="menu in menus"
-        ng-class="{ true: 'selected', false: ''}[((!menu.children) && (menu.selected))]"
-    >
-        <button
-            class="first-level fa fa-{{menu.icon}}"
-            ng-click="doClick($event, menu)"
-            ng-bind="menu.name"
-        ></button>
+    <div class="sidebar-buttons">
+        <div
+            class="group-btn-sidebar"
+            ng-repeat="menu in menus"
+            ng-class="{ true: 'selected', false: ''}[((!menu.children) && (menu.selected))]"
+        >
+            <button
+                    class="first-level fa fa-{{menu.icon}}"
+                    ng-if="authority.withRole(menu.role)"
+                    ng-click="doClick($event, menu)"
+                    ng-bind="menu.name"
+            ></button>
+        </div>
+
+        <div class="footer-btn-sidebar">
+            <!--<button class="fa fa-user" ng-click="toUserInfo()"></button>-->
+            <button class="fa fa-sign-out" ng-click="doLogout()"></button>
+        </div>
+
+        <div class="version" ng-bind="config.projectVersion">
+        </div>
     </div>
 </div>

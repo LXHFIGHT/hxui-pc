@@ -64,3 +64,22 @@
   -moz-box-shadow: $value ;
   box-shadow: $value  ;
 }
+
+
+@mixin centerInParent() {
+  top: 50%;
+  left: 50%;
+  position: absolute!important;
+  @include compatible(transform, translate(-50%, -50%));
+}
+
+@mixin centerVertical() {
+  top: 50%;
+  position: absolute!important;
+  @include compatible(transform, translateY(-50%));
+}
+
+@mixin centerHorizontal() {
+  left: 50%;
+  @include compatible(transform, translateX(-50%));
+}

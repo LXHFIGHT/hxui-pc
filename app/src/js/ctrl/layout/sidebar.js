@@ -2,18 +2,27 @@
  * Created by LXHFIGHT on 2017/2/19 22:59.
  * Email: lxhfight51@outlook.com
  * Description:
- *  navbar controller
+ *  sidebar controller
  */
 
-var module = angular.module('LayoutController');
+let sidebarModule = angular.module('LayoutController');
 
-module.controller('SidebarCtrl', ['$scope', '$state', 'sidebarMenus', 'config',
-    function($scope, $state, sidebarMenus, config){
+sidebarModule.controller('SidebarCtrl', ['$scope', '$state', 'sidebarMenus', 'config', 'StorageHelper',
+    function($scope, $state, sidebarMenus, config, StorageHelper){
     // sidebar ctrl
     $scope.config = config;
 
+    $scope.doLogout = () => {
+        StorageHelper.clearValue('token');
+        StorageHelper.clearValue('role');
+        StorageHelper.clearValue('station_id');
+        $state.go('login', { state: '' });
+    };
+
     $scope.menus = sidebarMenus;
+
     $scope.selectedMenu = sidebarMenus[0];
+
     $scope.doClick = function($event, menu){
         var $view = $($event.currentTarget);
         if( !menu.selected ){

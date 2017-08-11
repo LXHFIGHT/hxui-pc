@@ -1,7 +1,15 @@
 <div class="hxui-block">
-    <div class="hxui-sidebar" ui-view="sidebar">
+    <div class="hxui-sidebar"
+         ng-class="{true: 'show', false: ''}[showSidebar]"
+         ui-view="sidebar">
 
     </div>
+
+    <button class="btn-show-sidebar fa fa-list"
+            ng-class="{true: 'show', false: ''}[showSidebar]"
+            ng-click="toggleSidebar()"
+    ></button>
+
     <div class="hxui-main" ui-view="main">
 
     </div>

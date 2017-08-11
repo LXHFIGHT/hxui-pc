@@ -9,6 +9,7 @@ var module = angular.module('HelperService');
 
 module.factory('StorageHelper',[ function(){
     return {
+        KEY_APPOINTMENT_SEARCH_INFO: 'KEY_APPOINTMENT_SEARCH_INFO',
         setValue: function(key, value){
             var storage = window.sessionStorage;
             storage.setItem(key, value);

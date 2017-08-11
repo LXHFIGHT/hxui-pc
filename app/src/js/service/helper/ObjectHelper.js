@@ -14,6 +14,25 @@ module.factory('ObjectHelper', [function(){
         let day = date.getDate();
         return `${date.getFullYear()}-${month < 10 ? '0' + month : month}-${ day < 10 ? '0' + day : day}`;
     };
+
+    let getDatetime = (timestamp) => {
+        let date = new Date(timestamp);
+        let year = date.getFullYear(),
+            month = date.getMonth() + 1,
+            day = date.getDate() >= 10 ? date.getDate() : ('0' + date.getDate()),
+            hour = date.getHours() >= 10 ? date.getHours() : ('0' + date.getHours()),
+            minute = date.getMinutes() >= 10 ? date.getMinutes() : ('0' + date.getMinutes()),
+            second = date.getSeconds() >= 10 ? date.getSeconds() : ('0' + date.getSeconds());
+        return `${ year }-${ month >= 10 ? month : ('0' + month) }-${ day } ${ hour }:${ minute }:${ second }`;
+    };
+
+    let getCity = (str) => {
+        if(typeof str === 'string' && str.indexOf('市') !== -1) {
+            return str.substr(0, str.indexOf('市')) + '市';
+        }
+        return null;
+    };
+
     return {
         /**
          * 通过开始时间和结束时间段生成对应的数组
@@ -36,7 +55,13 @@ module.factory('ObjectHelper', [function(){
             }
             return array;
         },
-        getDate: getDate,
+
+        getDate,
+
+        getDatetime,
+
+        getCity,
+
         /**
          * 比较两个日期之间相差多少天
          * @param date1 日期一
@@ -90,6 +115,42 @@ module.factory('ObjectHelper', [function(){
             return true;
         },
 
+        doSelect: (array, name, param = 'selected') => {
+            if (Object.prototype.toString.call(array) === '[object Array]'){
+                for(let item of array) {
+                    (name.indexOf(item.name) !== -1) ?
+                        item[param] = true :
+                        item[param] = false;
+                }
+            } else {
+                console.log('doSelect方法第一个参数类型需要为数组对象');
+            }
+        },
+
+        /**
+         * 判断一个对象中是否存在非空的参数 如果有返回true 没有返回false
+         * @param obj
+         * @returns {boolean}
+         */
+        hasNone: (obj) => {
+            if (Object.prototype.toString.call(obj) === '[object Object]') {
+                let result = false;
+                for (let param in obj) {
+                    if (!obj[param]) {
+                        result = true;
+                    }
+                }
+                return result;
+            } else {
+                console.log('调用ObjectHelper.hasNone要求传入的参数为 JS对象');
+                return true;
+            }
+        },
+
+        isEmail: (str) => {
+            let regExp = /\w@\w*\.\w/;
+            return regExp.test(str);
+        },
 
         /**
          * 获取随机字符串

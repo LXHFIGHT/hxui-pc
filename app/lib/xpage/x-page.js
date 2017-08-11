@@ -2,40 +2,15 @@
  * Created by LXHFIGHT on 15/12/27.
  */
 
-
-function deleteItem(array, item){
-    var i = 0;
-    for(i = 0; i < array.length; i++){
-        if(array[i] === item){
-            array.splice(i, 1);
-        }
-    }
-}
-
-String.prototype.resetString = String.prototype.resetString || function(){
-    var msg = this.replace(/&quot;/g, '\"')
-        .replace(/&nbsp;/g, ' ')
-        .replace(/&rsquo;/g, '\'')
-        .replace(/&lt;/g, '<')
-        .replace(/&gt;/g, '>')
-        .replace(/&le;/g, '≤')
-        .replace(/&ge;/g, '≥');
-    return msg;
-};
-function resetString(msg){
-    var string = msg.replace([/&quot;/g, /&nbsp;/g, /&rsquo;/g, /&lt;/g, /&gt;/g, /&le;/g, /&ge;/g],
-                                ["\"", " ", "\'", "<", ">", "≤", "≥"]);
-    return string;
-}
-
 /**
- * 弹出确定框 0.1.2
+ * 弹出确定框 0.2.2
  * @param msg  弹出消息, 支持传入HTML
  * @param confirmEvent 点击确定键触发事件， 不需要使弹出框消失，该方法中已带有
  * 前置： 引入Bootstrap.css, Bootstrap.js 和 jquery.js
  */
 function confirmModel(msg, confirmEvent) {
-    $('#confirmModal button#btn_confirm').unbind('click');
+    var $confirmModal = $('#confirmModal button#btn_confirm');
+    $confirmModal.unbind('click');
     <!-- 点击删除按钮后跳出的选择模态框-->
     if ($('.confirmModal').length > 0) {
         $('#confirmModal .text-message').html(msg);
@@ -62,10 +37,9 @@ function confirmModel(msg, confirmEvent) {
             $('#deleteModal').modal('hide');
         })
     }
-    $('#confirmModal button#btn_confirm').click(function () {
+    $confirmModal.click(function () {
         confirmEvent();
         $('#confirmModal').modal('hide');
-
     })
 }
 
@@ -77,20 +51,30 @@ function confirmModel(msg, confirmEvent) {
 var timeout = null;
 function showTipLight(msg, level, second){
     clearTimeout(timeout);
-    var decoration = {bgColor: null, fontColor: null    };
-    if(level === 1){    decoration.bgColor = '#8ecc45';decoration.fontColor = 'white'   }
-    else if(level === 2){    decoration.bgColor = 'rgb(255, 205, 60)';decoration.fontColor = 'white'  }
-    else if(level === 3){    decoration.bgColor = '#f53631';decoration.fontColor = 'white'  }
-    else    {   decoration.bgColor = "#888"; decoration.fontColor = '#f2f2f2'}
-    if($('.pad-poptip').length !== 0){
-        $('.pad-poptip').css({'background-color':decoration.bgColor, 'color':decoration.fontColor}).html(msg).slideDown(500);
-    }else{
-        var node = "<div class='hxui-center-horizontal pad-poptip'  style='position: absolute; padding: 0 10px; display: none; text-align: center;" +
-            "background-color: " + decoration.bgColor +";color:" + decoration.fontColor + ";  font-size:16px; " +
-            " max-width: 80%; min-width: 40%; top: 0; margin: 0 auto; line-height:50px;  height:50px; z-index: 10000; position: absolute'>" + msg + "</div>";
-        $(node).appendTo("body").slideDown(500);
+    var msg = msg || '-';
+    var className = 'default';
+    if(level === 1){
+        className = 'success';
     }
-    timeout = setTimeout("$('.pad-poptip').fadeOut(500)", second);
+    else if(level === 2){
+        className = 'warn';
+    }
+    else if(level === 3){
+        className = 'error';
+    }
+
+    if ($('.pad-poptip').length !== 0) {
+        $('.pad-poptip').attr('class', 'pad-poptip ' + className).text(msg).addClass('show');
+    } else {
+        var node = "<div class='pad-poptip " + className + "'  >" + msg + "</div>";
+        $(node).appendTo('body');
+        setTimeout(function(){
+            $('.pad-poptip').addClass('show');
+        }, 100);
+    }
+    timeout = setTimeout(function() {
+        $('.pad-poptip').removeClass('show');
+    }, second);
 }
 //  通知级别的弹出提示
 function popTipInfo(msg)        {   showTipLight(msg, 1, 3000);      }
@@ -104,6 +88,8 @@ function popTipErrorQuick(msg)   {   showTipLight(msg, 3, 1500);     }
 //  随便的弹出提示
 function popTipNormal(msg)  {   showTipLight(msg, -1,3000);          }
 function popTipNormalQuick(msg)  {   showTipLight(msg, -1,1500);     }
+
+
 
 /**
  * 弹出对话框按钮方法
@@ -137,3 +123,48 @@ var showDialog = function(options){
     //    });
     //}
 };
+
+(function($, window){
+
+    window.HXUI = {
+        smartValidate: function() {
+            var components = $('[required]');
+            var result = true;
+
+            components.unbind('focus').focus(function() {
+                $(this).removeClass('error');
+            });
+
+            for(let i = 0; i < components.length; i++) {
+                let $view = $(components[i]);
+                console.log(!!$view.val());
+                if (!$view.val()) {
+                    result = false;
+                    $view.addClass('error');
+                }
+            }
+            return result;
+        },
+        // 预览大图接口
+        previewImage: function(iconUrl) {
+            if ($('.hxui-image-modal').length !== 0) {
+                $('.hxui-image-modal').addClass('show');
+                $('.hxui-image-modal img').attr('src', iconUrl);
+            } else {
+                var node = "<div class='hxui-image-modal'>" +
+                           "    <img src='" + iconUrl + "' alt='image' />" +
+                           "    <button class='btn-quit-preview'>退出预览</button>" +
+                           "</div>";
+                $(node).appendTo('body');
+                $('body').on('click', '.hxui-image-modal', function(){
+                    $('.hxui-image-modal').removeClass('show');
+                });
+                var timer = setTimeout(function() {
+                    $('.hxui-image-modal').addClass('show');
+                    clearTimeout(timer);
+                }, 100);
+            }
+        }
+    };
+
+}(jQuery, window));
