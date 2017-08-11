@@ -13,6 +13,9 @@ module.controller('UsersCtrl', ['$scope', 'HttpHelper', function($scope, HttpHel
         jumpPage: 0
         //content: ''
     };
+
+    $scope.list = [];
+
     // 获取用户列表方法
     $scope.requestList = function(){
         HttpHelper.doGet('/wallpaper/list', $scope.searchInfo).success(function(data){

@@ -17,20 +17,23 @@
         </div>
     </div>
     <div class="list-content">
-        <table>
+        <div class="hxui-emptyset" ng-if="list.length === 0">
+            暂无用户
+        </div>
+        <table ng-if="list.length !== 0">
             <thead>
-            <tr>
-                <td width="5">用户ID</td>
-                <td width="8">缩略图</td>
-                <td width="23">壁纸名</td>
-                <td width="12">分辨率</td>
-                <td width="10">大小</td>
-                <td width="18">标签</td>
-                <td width="6">下载</td>
-                <td width="6">收藏</td>
-                <td width="6">设置</td>
-                <td width="18">操作</td>
-            </tr>
+                <tr>
+                    <td class="md" width="5">用户ID</td>
+                    <td class="md" width="8">缩略图</td>
+                    <td class="bg" width="23">壁纸名</td>
+                    <td class="sm" width="12">分辨率</td>
+                    <td class="sm" width="10">大小</td>
+                    <td class="md" width="18">标签</td>
+                    <td class="sm" width="6">下载</td>
+                    <td class="sm" width="6">收藏</td>
+                    <td class="md" width="6">设置</td>
+                    <td class="md" width="18">操作</td>
+                </tr>
             </thead>
             <tbody>
             <tr ng-repeat="item in list">
