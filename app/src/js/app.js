@@ -9,6 +9,7 @@ var main = angular.module('mainApp', [ 'ui.router', 'MainController', 'MainDirec
 
 // 路由配置
 main.config(['$stateProvider','$urlRouterProvider','$httpProvider',  function($stateProvider, $urlRouterProvider, $httpProvider ){
+    $urlRouterProvider.when('', '/login/');
     $urlRouterProvider.otherwise('/enter');
     $stateProvider
     // 配置主页中各个模块位置
