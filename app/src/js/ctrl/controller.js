@@ -5,9 +5,9 @@
  *  the main controller module
  */
 
-var module = angular.module('MainController', ['LayoutController', 'UserController', 'CommonController', 'SystemController']);
+var module = angular.module('MainController', ['LayoutController', 'ListController', 'CommonController', 'SystemController']);
 
 var layout = angular.module('LayoutController', []);
-var user = angular.module('UserController', []);
+var list = angular.module('ListController', []);
 var common = angular.module('CommonController', []);
 var system = angular.module('SystemController', []);

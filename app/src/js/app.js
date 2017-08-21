@@ -39,12 +39,12 @@ main.config(['$stateProvider','$urlRouterProvider','$httpProvider',  function($s
                 }
             }
         })
-        .state('enter.users', {
-            url: '/user/list',
+        .state('enter.list', {
+            url: '/list/layout',
             views: {
                 'main@enter': {
-                    templateUrl: 'views/user/list.html',
-                    controller: 'UsersCtrl'
+                    templateUrl: 'views/list/list.html',
+                    controller: 'ListCtrl'
                 }
             }
         })

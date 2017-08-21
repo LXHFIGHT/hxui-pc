@@ -4,14 +4,12 @@
  * Description:
  *
  */
-var module = angular.module('UserController');
-module.controller('UsersCtrl', ['$scope', 'HttpHelper', function($scope, HttpHelper){
+var module = angular.module('ListController');
+module.controller('ListCtrl', ['$scope', 'HttpHelper', function($scope, HttpHelper){
     $scope.searchInfo = {
         page: 1,
         pagesize: 20,
-        maxsize: 0,
-        jumpPage: 0
-        //content: ''
+        maxsize: 0
     };
 
     $scope.list = [];
@@ -19,10 +17,12 @@ module.controller('UsersCtrl', ['$scope', 'HttpHelper', function($scope, HttpHel
     // 获取用户列表方法
     $scope.requestList = function(){
         HttpHelper.doGet('/wallpaper/list', $scope.searchInfo).success(function(data){
-            if(!data.result){
-                $scope.searchInfo.maxsize = data.data.maxsize;
-                $scope.list = data.data.list;
-            }
+            HttpHelper.responseHandler(data,
+                (res) => {
+                    // 请求成功时处理
+                }, (err) => {
+                    // 请求失败时处理
+                })
         })
     };
     // 分页必备方法 requestListByPage 上下翻页的方法 toPageOfList 跳转指定页面方法

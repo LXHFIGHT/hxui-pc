@@ -128,15 +128,13 @@ var showDialog = function(options){
 
     window.HXUI = {
         /**
-         * 对当前页面的表单进行验证，可添加以下属性:
-         * required 设置该项为必填项
-         * data-type
-         *      bank_number  限制16位和19位的数字
+         * 智能判断表单组件是否为必填或者银行卡
+         * @param query 需要限制的组件选择字符串
          * @returns {boolean}
          */
-        smartValidate: function() {
-            var components = $('[required]');
-            var bankNumbers = $('[data-type="bank_number"]');
+        smartValidate: function(query) {
+            var components = $(query ? (query + ' [required]') : '[required]');
+            var bankNumbers = $(query ? (query + '[data-type="bank_number"]') : '[required]');
             var result = true;
             var $view = null;
 
@@ -177,6 +175,7 @@ var showDialog = function(options){
 
             return result;
         },
+
         // 预览大图接口
         previewImage: function(currentUrl, urls) {
 
@@ -253,6 +252,8 @@ var showDialog = function(options){
                     $('.hxui-image-modal').removeClass('show');
                 });
         }
+
     };
 
 }(jQuery, window));
+

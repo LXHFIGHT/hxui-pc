@@ -75,6 +75,8 @@
   top: 0;
   left: 0;
   overflow: hidden;
+
+  // 左侧侧边栏样式
   .hxui-sidebar {
     height: 100%;
     display: inline-block;
@@ -198,6 +200,8 @@
       font-size: $font-sm;
     }
   }
+
+  // 右侧内容栏样式
   .hxui-main {
     height: 100%;
     border-top: 3px solid #00bdfd;
@@ -208,65 +212,11 @@
   }
 }
 
-.hxui-navbar {
-  height: $height-navbar;
-  width: 100%;
-  background-color: $color-dark;
-  .website-info,
-  .navbar-buttons {
-    padding: $pm-sm $pm-md;
-  }
-  .website-info {
-    display: inline-block;
-    height: 100%;
-    width: $width-sidebar;
-    img {
-      height: 100%;
-      max-width: 100%;
-      display: inline-block;
-      margin-right: $pm-sm;
-      float: left;
-    }
-    span {
-      display: inline-block;
-      height: 100%;
-      text-align: center;
-      margin-left: $pm-md;
-      font-size: $font-bg;
-      font-weight: 900;
-      color: $color-white;
-      padding: 0;
-      line-height: $height-navbar - 2 * $pm-sm;
-      &:hover {
-        color: $color-gray-light;
-      }
-    }
-  }
-  .tips{
-    padding-left: $height-navbar;
-    color: $color-main-light;
-  }
-  .navbar-buttons{
-    float: right;
-    padding: 0;
-    button {
-      background-color: $color-gray-light;
-      height: $height-navbar;
-      padding: 0 $pm-md;
-      @include compatible(transition, background-color .4s);
-      border-left: 1px solid #fff;
-      border-right: 1px solid $color-gray;
-      &:hover{
-        background-color: darken($color-gray-light, 2%);
-      }
-    }
-  }
-}
-
 // 列表页面样式
 .list-header, .list-footer, .list-content{
   background-color: white;
 }
+
 .list-header, .list-footer{
   height: $height-navbar;
   width: 100%;
@@ -280,6 +230,7 @@
     background-color: transparent;
   }
 }
+
 .list-header{
   z-index: 1000;
   position: relative;
@@ -395,7 +346,6 @@
       width: $height-navbar - 2 * $pm-sm;
       text-align: center;
       @include compatible(transition, all .4s);
-
     }
     .icon-search{
       &:hover{
@@ -463,45 +413,7 @@
   width: 100%;
   overflow-y: auto;
 
-  .hxui-detail-block {
-    border: 1px solid $color-gray;
-    position: relative;
-    padding: ($height-normal) $pm-md $pm-md;
-    margin-bottom: $pm-md;
-    header {
-      top: 0;
-      left: 0;
-      width: 100%;
-      font-size: $font-md;
-      line-height: $height-normal;
-      height: $height-normal;
-      padding: 0 $pm-md;
-      color: $color-heavy;
-      background-color: $color-gray-light;
-      position: absolute;
-      border-bottom: 1px solid $color-gray;
-      small {
-        font-size: $font-md;
-        color: $color-gray-deep;
-        margin-left: $pm-sm;
-      }
-      button {
-        min-height: $height-normal - $pm-sm;
-        margin-left: $pm-sm;
-      }
-    }
-  }
-  .hxui-pad-left {
-    float: left;
-    width: 50%;
-    padding-right: $pm-sm;
-  }
 
-  .hxui-pad-right {
-    float: right;
-    width: 50%;
-    padding-left: $pm-sm;
-  }
 
   table{
     width: 100%;
@@ -607,10 +519,58 @@
   border-top: 1px solid $color-gray;
 }
 
+/**
+ *  HXUI详情模块样式
+ *  通过组合 hxui-row 构建管理后台具有交互性的表单页面
+ */
+.hxui-detail-block {
+  border: 1px solid $color-gray;
+  position: relative;
+  padding: ($height-normal) $pm-md $pm-md;
+  margin-bottom: $pm-md;
+  header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: $font-md;
+    line-height: $height-normal;
+    height: $height-normal;
+    padding: 0 $pm-md;
+    color: $color-heavy;
+    background-color: $color-gray-light;
+    position: absolute;
+    border-bottom: 1px solid $color-gray;
+    small {
+      font-size: $font-md;
+      color: $color-gray-deep;
+      margin-left: $pm-sm;
+    }
+    button {
+      min-height: $height-normal - $pm-sm;
+      margin-left: $pm-sm;
+    }
+  }
+}
+// 左板块
+.hxui-pad-left {
+  float: left;
+  width: 50%;
+  padding-right: $pm-sm;
+}
+// 右板块
+.hxui-pad-right {
+  float: right;
+  width: 50%;
+  padding-left: $pm-sm;
+}
+
 /*
-  hxui表单行模块： 包含label和内容（.pad-edit）
-  Date: 2017-8-2
-  Author: LXHFIGHT
+  hxui表单行模块: 标签为label元素 和 编辑区域内容为.pad-edit的 div 元素
+  hxui-row 包含自身多种扩展样式 以及 其pad-edit中定义了多种元素的默认样式
+  * 自身样式：
+    .null     无内边距
+    .center   内部组件居中
+  Date: 2017-08-02
  */
 .hxui-row {
   width: 100%;
@@ -619,19 +579,15 @@
   color: $color-dark;
 
   // 无内边距样式
-  &.null {
-    padding: 0 ;
-  }
-
+  &.null {  padding: 0!important; }
   // 居中样式
   &.center { text-align: center; }
 
-  label, input{
-    height: $height-regular;
+  label, .pad-edit{
+    min-height: $height-regular;
     display: inline-block;
-    vertical-align: top;
     font-size: $font-md;
-    @include borderRadius($border-radius-md);
+    vertical-align: top;
   }
 
   // 左侧表单内容文案
@@ -639,7 +595,6 @@
     line-height: $height-regular;
     width: 120px;
     color: $color-heavy;
-    vertical-align: top;
     &.title {
       font: {
         size: $font-md;
@@ -653,28 +608,7 @@
     }
   }
 
-  // hxui行中文本编辑组件、选择组件的默认样式
-  input, textarea, select {
-    width: 100%;
-    display: inline-block;
-    vertical-align: top;
-    @include compatible(transition, all .4s);
-    border: 1px solid $color-gray;
-    line-height: $height-regular;
-    height: $height-regular;
-    padding: 0 $pm-sm;
-    background-color: transparent;
-    &.short {
-      width: 45%;
-    }
-    &:focus {
-      border: 1px solid $color-main;
-    }
-    &:disabled {
-      border: none!important;
-      background-color: $color-gray-light;
-    }
-  }
+
 
   // 地图模块
   .map {
@@ -719,17 +653,16 @@
     padding: 0;
     width: 100%;
     vertical-align: top;
-
     @include wcalc(calc(100% - 130px));
 
-    &.short {
-      width: 200px;
-    }
+    // 缩小规格
+    &.short {  width: 200px;  }
 
     $height-switch: 25px;
     $width-switch: 55px;
     $padding-switch: 5px;
 
+    // 开关样式
     .switch {
       top: 5px;
       height: $height-switch;
@@ -764,10 +697,7 @@
       }
     }
 
-    button {
-      height: $height-regular;
-    }
-
+    // 文本编辑组件、选择组件的默认样式
     input, textarea, select {
       width: 100%;
       display: inline-block;
@@ -791,11 +721,8 @@
       }
     }
 
-    input {
-      height: $height-regular!important;
-    }
-
-    span {
+    // 不可编辑文本组件样式
+    .text {
       padding-left: $pm-sm;
       font-size: $font-md;
       width: 100%;
@@ -821,9 +748,7 @@
       }
     }
 
-
-
-    input[type='file'] {
+    input [type='file'] {
       position: absolute;
       visibility: hidden;
     }
@@ -847,6 +772,7 @@
       }
     }
 
+    // 标签库样式
     .pad-tags {
       width: 100%;
       padding: 0;
@@ -889,6 +815,7 @@
       }
     }
 
+    // 图片缩略图预览组件样式
     .for-image {
       height: $height-upload-button;
       display: inline-block;
@@ -922,6 +849,7 @@
         }
       }
 
+      // 暂无图片样式
       .empty-image {
         height: $height-upload-button;
         width: $width-upload-button;
@@ -934,6 +862,7 @@
         padding: 0;
       }
 
+      // 支持预览效果的图片缩略图样式
       &.preview {
         &:after {
           content: '查看大图';
@@ -988,12 +917,13 @@
   }
 }
 
-
-/*  导航栏样式 将ID设置为 x-pagination-upgrade */
-/*
+/*  导航栏样式 将ID设置为 hxui-pagination
+    2.0版 分页组件,
+    在原有带有分页组件和上一页下一页按钮的基础上：
+    - 去除了页数选择按钮集合，以及首页和末页按钮，
+    + 添加了展示当前页的span元素，跳转页数文本输入框和跳转按钮
     适用于使用了Common分页插件样式的页面
-    Date: 2016-9-21
-    Author: LXHFIGHT
+    Date: 2016-09-21
  */
 .hxui-pagination {
   text-align:right;
@@ -1062,7 +992,6 @@
   }
 }
 
-
 // 空内容容器模块样式
 .hxui-emptyset {
   height: 100%;
@@ -1078,184 +1007,6 @@
   font: {
     size: 30px;
     weight: 900;
-  }
-}
-
-// 模态框样式
-.hxui-modal, .hxui-image-modal {
-  position: absolute;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0,0,0, .7);
-  visibility: hidden;
-  opacity: .0;
-  @include compatible(transition, all .4s);
-  &.show{
-    visibility: visible;
-    opacity: 1.0;
-  }
-  .pad-content{
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    background-color: white;
-    @include compatible(transform, translateX(-50%));
-    width: 60%;
-    min-width: 300px;
-    padding: $pm-md;
-    @include borderRadius($border-radius-md);
-    header {
-      line-height: $height-normal;
-      height: $height-normal;
-      border-left: 3px solid $color-main;
-      padding-left: $pm-md;
-      margin-bottom: $pm-md;
-    }
-    .btn-close-modal {
-      position: absolute;
-      top: $pm-md;
-      right: $pm-md;
-      height: $height-regular;
-      width: $height-regular;
-      font-size: 18px;
-      font-weight: 200;
-      padding: 0;
-      color: $color-gray-deep;
-      background-color: transparent;
-      border: none;
-      @include borderRadius($border-radius-md);
-      &:hover {
-        background-color: $color-red;
-        color: white;
-      }
-    }
-    footer {
-      text-align: center;
-      margin-top: $pm-md;
-      background-color: $color-gray-light;
-      padding: $pm-md;
-      @include borderRadius($border-radius-md);
-      button {
-        min-width: 100px;
-      }
-    }
-    .map {
-      min-height: 400px;
-      @include borderRadius($border-radius-md);
-    }
-    .main-textarea {
-      padding: $pm-md;
-      font-size: 14px;
-      width: 100%;
-      border: 1px solid $color-gray-light;
-      @include borderRadius($border-radius-md);
-      resize: none;
-    }
-    .btn-close{
-      background-color: transparent;
-      font-size: 1.5 * $height-navbar;
-      line-height: 1.5 * $height-navbar;
-      font-weight: 100;
-      color: white;
-      position: absolute;
-      right: -1.2 * $height-navbar;
-      top: -1.2 * $height-navbar;
-      &:hover{
-        color: $color-main-light;
-        cursor: pointer;
-      }
-    }
-  }
-  &.sm {
-    .pad-content {
-      max-width: 500px;
-      min-width: 300px;
-    }
-  }
-}
-
-// 图片预览组件模态框
-.hxui-image-modal {
-  text-align: center;
-  img {
-    max-height: 100%;
-    max-width: 100%;
-    @include centerInParent;
-  }
-  button.btn-quit-preview {
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    @include compatible(transform, translateX(-50%));
-    @include compatible(transition, all .2s);
-    height: $height-normal;
-    background-color: $color-white;
-    @include borderRadius(20px 20px);
-    @include boxShadow(0 5px 15px rgba(0,0,0,.4));
-    width: 160px;
-    &:hover {
-      background-color: $color-main;
-      color: white;
-    }
-  }
-}
-
-/* tooltip用法：
-   第一步：需要添加的组件的类添加 hxui-tooltip-bottom
-   第二步：添加aria-label属性，放入要显示的问题本内容
-   注意： 1. 注意父组件是否设置overflow: hidden
-         2. 适用于支持 :before和 :after CSS3样式的浏览器 （>IE8）
-         3. 如果组件使用了font-icon 会被覆盖  建议在组件内容添加一个span标签承载font-icon
-   Date: 2017-8-2
-   Author: LXHFIGHT
- */
-.hxui-tooltip-bottom {
-  position: relative;
-  &:hover {
-    &:before, &:after {
-      visibility: visible;
-    }
-  }
-  &:before, &:after {
-    visibility: hidden;
-  }
-  &:before {
-    content: "";
-    position: absolute;
-    height: 0;
-    width: 0;
-    top: 100%;
-    margin-top: 6px;
-    left: 50%;
-    @include compatible(transform, translateX(-50%));
-    border-bottom: 7px solid $color-dark;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    z-index: 9999;
-  }
-  &:after {
-    content: attr(aria-label);
-    position: absolute;
-    display: block;
-    font: {
-      size: $font-sm;
-      weight: 300;
-    }
-    top: 100%;
-    left: 50%;
-    z-index: 9998;
-    min-width: 150px;
-    border: none;
-    @include compatible(transform, translateX(-50%));
-    margin-top: 12px;
-    color: $color-gray-light;
-    background-color: $color-dark;
-    padding: $pm-sm/2 $pm-sm;
-    @include borderRadius(20px);
-    @include boxShadow(0 6px 12px -4px rgba(0,0,0,.4));
   }
 }
 
@@ -1347,75 +1098,6 @@
       color: white;
     }
   }
-  .list-header{
-    padding: $pm-sm!important;
-    .hxui-goback-button {
-      left: $height-normal;
-      position: relative;
-      padding: 0;
-      top: -1px;
-      border: none;
-    }
-    button.hxui-button {
-      padding: 0 $pm-sm!important;
-      width: auto!important;
-      min-width: $height-regular - $pm-sm/2!important;
-    }
-    .title {
-      margin-left: $height-regular + $pm-sm;
-      margin-right: $pm-sm;
-      & + .title {
-        margin-left: $pm-sm;
-      }
-    }
-  }
-  .list-content {
-    overflow-x: auto;
-    padding: $pm-sm 0!important;
-    .hxui-pad-left, .hxui-pad-right {
-      width: 100%!important;
-    }
-    table {
-      table-layout: auto !important;
-      td {
-        button {
-          min-width: 85px!important;
-        }
-        &.td-img-cover img{
-          height: 80px;
-          width: auto;
-        }
-        &.sm {
-          min-width: 75px;
-        }
-        &.md {
-          min-width: 125px;
-        }
-        &.bg {
-          min-width: 196px;
-        }
-        &.lg {
-          min-width: 240px;
-        }
-      }
-    }
-    .hxui-pad-left, .hxui-pad-right {
-      padding: 0;
-    }
-    .hxui-detail-block {
-      padding-left: $pm-sm;
-      padding-right: 0;
-      padding-bottom: 0;
-      @include boxShadow(0 10px 15px -10px rgba(0,0,0,.1));
-      header:first-child {
-        padding-left: $pm-sm;
-      }
-      .hxui-row:nth-last-child(1) {
-        border: none;
-      }
-    }
-
-  }
   .hxui-row {
     border-bottom: 1px solid $color-gray;
     padding: $pm-sm/2 $pm-sm $pm-sm/2 0!important;
@@ -1485,6 +1167,75 @@
       width: 100%;
     }
   }
+  .list-header{
+    padding: $pm-sm!important;
+    .hxui-goback-button {
+      left: $height-normal;
+      position: relative;
+      padding: 0;
+      top: -1px;
+      border: none;
+    }
+    button.hxui-button {
+      padding: 0 $pm-sm!important;
+      width: auto!important;
+      min-width: $height-regular - $pm-sm/2!important;
+    }
+    .title {
+      margin-left: $height-regular + $pm-sm;
+      margin-right: $pm-sm;
+      & + .title {
+        margin-left: $pm-sm;
+      }
+    }
+  }
+  .list-content {
+    overflow-x: auto;
+    padding: $pm-sm 0!important;
+    .hxui-pad-left, .hxui-pad-right {
+      width: 100%!important;
+    }
+    table {
+      table-layout: auto !important;
+      td {
+        button {
+          min-width: 85px!important;
+        }
+        &.td-img-cover img{
+          height: 80px;
+          width: auto;
+        }
+        &.sm {
+          min-width: 75px;
+        }
+        &.md {
+          min-width: 125px;
+        }
+        &.bg {
+          min-width: 196px;
+        }
+        &.lg {
+          min-width: 240px;
+        }
+      }
+    }
+    .hxui-pad-left, .hxui-pad-right {
+      padding: 0;
+    }
+    .hxui-detail-block {
+      padding-left: $pm-sm;
+      padding-right: 0;
+      padding-bottom: 0;
+      @include boxShadow(0 10px 15px -10px rgba(0,0,0,.1));
+      header:first-child {
+        padding-left: $pm-sm;
+      }
+      .hxui-row:nth-last-child(1) {
+        border: none;
+      }
+    }
+
+  }
   .list-footer {
     padding: $pm-sm!important;
     .hxui-pagination {
@@ -1512,18 +1263,6 @@
     .logo-company {
       height: $height-navbar;
       width: $height-navbar;
-    }
-  }
-  .hxui-modal {
-    z-index: 1300;
-    .pad-content {
-      width: 95%;
-      padding: $pm-sm;
-      header {
-        font-size: $font-md;
-        height: $height-regular;
-        line-height: $height-regular;
-      }
     }
   }
 }

@@ -19,7 +19,6 @@ module.value('config', {
     },
     projectVersion: 'V 0.0.1 DEV',
     projectName: 'HXUI Admin',                      // 项目名
-
     subject: '',                // 系统围绕的主业务名，  类似于 酒店，车检所之类的
     loginTitle: '登录管理后台',   // 登录页面标题
 });

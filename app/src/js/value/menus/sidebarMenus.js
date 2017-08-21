@@ -9,9 +9,9 @@ var menus = angular.module('menus');
 
 menus.value('sidebarMenus', [
     {
-        name: '用户管理',
-        state: 'enter.users',
-        icon: 'users',
+        name: '列表页面',
+        state: 'enter.list',
+        icon: 'list',
         role: '*',
         selected: true
     },

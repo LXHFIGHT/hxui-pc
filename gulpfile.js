@@ -16,9 +16,9 @@ let gulp = require('gulp'),
     open = require('gulp-open');
 
 let htmlSrc = [
-                'app/index-dev.html',
-                'app/views/**/*.html'
-              ],                        // HTML文件位置
+        'app/index-dev.html',
+        'app/views/**/*.html'
+    ],                        // HTML文件位置
 
     indexSrc = 'app/index-dev.html',
 
@@ -45,10 +45,10 @@ gulp.task('server', () => {
     connect.server({
         root: 'app',
         index: 'index-dev.html',
-        port: 8888,
+        port: 9292,
         livereload: true
     });
-    gulp.src(indexSrc).pipe(open({'uri': 'http://localhost:8888'}));
+    gulp.src(indexSrc).pipe(open({'uri': 'http://localhost:9292'}));
 });
 
 /* 监听HTML文件变化进行自动刷新 */
