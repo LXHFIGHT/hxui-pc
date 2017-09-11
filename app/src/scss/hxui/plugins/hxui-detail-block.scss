@@ -1,0 +1,65 @@
+/**
+ *  HXUI详情模块样式
+ *  通过组合 hxui-row 构建管理后台具有交互性的表单页面
+ */
+
+@import "./../variable";
+
+.hxui-detail-block {
+  border: 1px solid $color-gray;
+  position: relative;
+  padding: ($height-normal) $pm-md $pm-md;
+  margin-bottom: $pm-md;
+  header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: $font-md;
+    line-height: $height-normal;
+    height: $height-normal;
+    padding: 0 $pm-md;
+    color: $color-heavy;
+    background-color: $color-gray-light;
+    position: absolute;
+    border-bottom: 1px solid $color-gray;
+    small {
+      font-size: $font-md;
+      color: $color-gray-deep;
+      margin-left: $pm-sm;
+    }
+    button {
+      min-height: $height-normal - $pm-sm;
+      margin-left: $pm-sm;
+    }
+  }
+}
+// 左板块
+.hxui-pad-left {
+  float: left;
+  width: 50%;
+  padding-right: $pm-sm;
+}
+// 右板块
+.hxui-pad-right {
+  float: right;
+  width: 50%;
+  padding-left: $pm-sm;
+}
+
+@media screen and (max-width: 640px) {
+  .hxui-detail-block {
+    padding-left: $pm-sm;
+    padding-right: 0;
+    padding-bottom: 0;
+    @include boxShadow(0 10px 15px -10px rgba(0,0,0,.1));
+    header:first-child {
+      padding-left: $pm-sm;
+    }
+    .hxui-row:nth-last-child(1) {
+      border: none;
+    }
+  }
+  .hxui-pad-left, .hxui-pad-right {
+    padding: 0;
+  }
+}

@@ -130,6 +130,10 @@ service.factory('HttpHelper',['$http', '$log', 'config', 'globalValue', 'Storage
                 let fd = new FormData();
                 let files = options.query[0].files;
                 let token = StorageHelper.getValue('token');
+                if (files.length === 0) {
+                    popTipWarningQuick('请选择图片');
+                    return;
+                }
                 popTipWarningQuick('文件正在上传中，请稍等');
                 if(files !== null){
                     fd.append('image', files[0]);
@@ -162,6 +166,10 @@ service.factory('HttpHelper',['$http', '$log', 'config', 'globalValue', 'Storage
                 let fd = new FormData();
                 let files = options.query[0].files;
                 options.paramName = options.paramName || 'file';
+                if (files.length === 0) {
+                    popTipWarningQuick('请选择图片');
+                    return;
+                }
                 popTipWarningQuick('文件正在上传中，请稍等');
                 if(files !== null){
                     for (let i = 0; i < files.length; i++ ) {

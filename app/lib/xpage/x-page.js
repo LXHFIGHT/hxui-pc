@@ -133,8 +133,8 @@ var showDialog = function(options){
          * @returns {boolean}
          */
         smartValidate: function(query) {
-            var components = $(query ? (query + ' [required]') : '[required]');
-            var bankNumbers = $(query ? (query + '[data-type="bank_number"]') : '[required]');
+            var components =  $(query ? (query + ' [required]') : '[required]');
+            var bankNumbers = $(query ? (query + ' [data-type="bank_number"]') : '[data-type="bank_number"]');
             var result = true;
             var $view = null;
 
