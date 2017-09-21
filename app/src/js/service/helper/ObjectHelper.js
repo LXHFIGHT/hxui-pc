@@ -5,9 +5,9 @@
  *  对象工具方法
  */
 
-var module = angular.module('HelperService');
+let ObjectHelper = angular.module('HelperService');
 
-module.factory('ObjectHelper', [function(){
+ObjectHelper.factory('ObjectHelper', [function(){
     let getDate = (timestamp) => {
         let date = new Date(timestamp);
         let month = date.getMonth() + 1;

@@ -15,6 +15,8 @@ let gulp = require('gulp'),
     connect = require('gulp-connect'),
     open = require('gulp-open');
 
+let port = 8888;
+
 let htmlSrc = [
         'app/index-dev.html',
         'app/views/**/*.html'
@@ -31,11 +33,15 @@ let htmlSrc = [
     jsSrc = [
         'app/src/js/app.js',
         'app/src/js/config.js',
-        'app/src/js/ctrl/**/*.js',
+        'app/src/js/ctrl/controller.js',
+        'app/src/js/service/service.js',
+        'app/src/js/value/value.js',
+
         'app/src/js/service/**/*.js',
         'app/src/js/directive/**/*.js',
         'app/src/js/flt/**/*.js',
-        'app/src/js/value/**/*.js'
+        'app/src/js/value/**/*.js',
+        'app/src/views/**/*.js',
     ],                                  // JavaScript脚本文件 源文件所在位置
     jsDist = 'app/dist/js/';            // Javascript合并压缩有存放的位置
 
@@ -45,10 +51,10 @@ gulp.task('server', () => {
     connect.server({
         root: 'app',
         index: 'index-dev.html',
-        port: 9292,
+        port,
         livereload: true
     });
-    gulp.src(indexSrc).pipe(open({'uri': 'http://localhost:9292'}));
+    gulp.src(indexSrc).pipe(open({'uri': `http://localhost:${port}`}));
 });
 
 /* 监听HTML文件变化进行自动刷新 */

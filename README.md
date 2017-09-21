@@ -31,6 +31,12 @@
 * **lrsjng.jquery-qrcode**: generate QR codes dynamically.  [官网介绍](https://larsjung.de/jquery-qrcode/)  
 * **xpage.js**: 自己使用和编写的js库 
 
+##### 2) views 目录
+
+* **home**： home目录将包括HXUI官网页面，分为首页，文档（主要为样式介绍和插件介绍），下载页面和关于页面
+* **admin**： pc_quick_starter项目核心模块--HXUI-admin， 一个可供项目快速套用的管理后台（前端），用于存放结合[angularJS（v1.4）](https://code.angularjs.org/1.4.14/docs/api)并且有进行有效排版的页面，如*列表展示页面*和**表单详情页面**
+
+
        
        
        
