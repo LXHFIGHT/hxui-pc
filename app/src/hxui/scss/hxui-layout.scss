@@ -1,0 +1,20 @@
+// hxui 的布局实现
+@import "scss/variable";
+@media only screen and (max-width: $width-sm) {
+  .hxui-container{
+    width: $width-sm-min;
+    padding: $pm-md;
+  }
+}
+@media only screen and (max-width: $width-md) and (min-width: $width-sm + 1) {
+  .hxui-container {
+    width: $width-md-min;
+    padding: $pm-bg;
+  }
+}
+@media only screen and (min-width: $width-md + 1) {
+  .hxui-container {
+    width: $width-md-min;
+    padding: $pm-bg;
+  }
+}

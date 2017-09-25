@@ -5,68 +5,49 @@
  *  The main angular.js(v 1.4) configuration of the project
  */
 
-var main = angular.module('mainApp', [ 'ui.router', 'MainController', 'MainDirective', 'MainFilter', 'MainService', 'MainValue', 'Config']);
+var main = angular.module('mainApp', [ 'ui.router', 'MainController', 'MainFilter', 'MainService', 'MainValue', 'Config']);
 
 // 路由配置
 main.config(['$stateProvider','$urlRouterProvider','$httpProvider',  function($stateProvider, $urlRouterProvider, $httpProvider ){
-    $urlRouterProvider.when('', '/login/');
+    $urlRouterProvider.when('', '/home');
     $urlRouterProvider.otherwise('/enter');
     $stateProvider
-    // 配置主页中各个模块位置
-    .state('login',{
-        url: '/login/:state',
-        views:{
-            '':{
-                templateUrl: 'views/login/login.html',
-                controller: 'LoginCtrl'
+        .state('home', {
+            url: '/home',
+            views: {
+                '': {
+                    templateUrl: 'src/views/hxui/home/home.html',
+                    controller: 'HomeCtrl'
+                }
             }
-        }
-    })
-    // 配置主页中各个模块位置
+        })
+        // 配置主页中各个模块位置
+        .state('login',{
+            url: '/login/:state',
+            views:{
+                '':{
+                    templateUrl: 'src/views/login/login.html',
+                    controller: 'LoginCtrl'
+                }
+            }
+        })
+        // 配置主页中各个模块位置
         .state('enter',{
             url: '/enter',
             views:{
                 '':{
-                    templateUrl: 'views/layout/enter.html',
+                    templateUrl: 'src/views/layout/enter/enter.html',
                     controller: 'IndexCtrl'
                 },
                 'sidebar@enter': {
-                    templateUrl: 'views/layout/sidebar.html',
+                    templateUrl: 'src/views/layout/sidebar/sidebar.html',
                     controller: 'SidebarCtrl'
                 },
-                'main@enter':{
+                'main@enter': {
 
                 }
             }
-        })
-        .state('enter.list', {
-            url: '/list/layout',
-            views: {
-                'main@enter': {
-                    templateUrl: 'views/list/list.html',
-                    controller: 'ListCtrl'
-                }
-            }
-        })
-        .state('enter.user', {
-            url: '/user/:id',
-            views: {
-                'main@enter': {
-                    templateUrl: 'views/user/detail.html',
-                    controller: 'UserCtrl'
-                }
-            }
-        })
-        .state('enter.system', {
-            url: '/system',
-            views: {
-                'main@enter': {
-                    templateUrl: 'views/system/detail.html',
-                    controller: 'SystemCtrl'
-                }
-            }
-        })
-    ;
+        });
 
     $httpProvider.defaults.transformRequest = function(obj){
         var str = [];
@@ -78,11 +59,8 @@ main.config(['$stateProvider','$urlRouterProvider','$httpProvider',  function($s
     $httpProvider.defaults.headers.post = {'Content-Type': 'application/x-www-form-urlencoded'}
 }]);
 
-// 允许未登录情况下查看的页面
-var statesAllowAccess = ['register', 'index'];
-
 main.run(['$rootScope', '$location', '$log', '$state','globalValue', 'HttpHelper', 'config', 'StorageHelper', 'authority',
-    function($rootScope, $location,  $log, $state, globalValue, HttpHelper, config, StorageHelper, authority){
+    ($rootScope, $location,  $log, $state, globalValue, HttpHelper, config, StorageHelper, authority) => {
         $rootScope.stateStack = [];
         $rootScope.stateParamsStack = [];
 

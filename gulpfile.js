@@ -24,7 +24,10 @@ let htmlSrc = [
 
     indexSrc = 'app/index-dev.html',
 
-    cssSrc = 'app/src/scss/**/*.scss',  // CSS源文件 SCSS文件
+    cssSrc = [
+        'app/src/scss/**/*.scss',
+        'app/src/views/**/*.scss'
+    ],  // CSS源文件 SCSS文件
     cssDist = 'app/dist/css/',          // 编译后生成CSS文件存储位置
 
     imgSrc = 'app/src/img/**/*.*',      // 图片资源存放位置
@@ -33,15 +36,13 @@ let htmlSrc = [
     jsSrc = [
         'app/src/js/app.js',
         'app/src/js/config.js',
-        'app/src/js/ctrl/controller.js',
+        'app/src/js/controller.js',
         'app/src/js/service/service.js',
         'app/src/js/value/value.js',
-
         'app/src/js/service/**/*.js',
-        'app/src/js/directive/**/*.js',
         'app/src/js/flt/**/*.js',
         'app/src/js/value/**/*.js',
-        'app/src/views/**/*.js',
+        'app/src/views/**/*.js'
     ],                                  // JavaScript脚本文件 源文件所在位置
     jsDist = 'app/dist/js/';            // Javascript合并压缩有存放的位置
 

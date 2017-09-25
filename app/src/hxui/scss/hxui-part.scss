@@ -1,0 +1,756 @@
+// hxui 组件的样式
+@import "scss/variable";
+
+.hxui-block {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+
+  // 左侧侧边栏样式
+  .hxui-sidebar {
+    height: 100%;
+    display: inline-block;
+    float: left;
+    position: relative;
+    width: $width-sidebar;
+    overflow-x: hidden;
+    background-color: $color-main-dark;
+    .sidebar {
+      height: 100%;
+      display: block;
+    }
+    .project-info {
+      padding: $pm-bg 0;
+      text-align: center;
+      img.logo {
+        margin-bottom: $pm-sm;
+        height: $height-navbar * 1.5;
+        width: $height-navbar * 1.5;
+        @include borderRadius(50% 50%);
+      }
+      span.text-name {
+        display: block;
+        width: 100%;
+        color: rgba(255,255,255,.8);
+        font-size: $font-md;
+      }
+    }
+    .sidebar-buttons {
+      @include hcalc(calc(100% - 156px));
+      display: block;
+    }
+    .group-btn-sidebar{
+      width: 100%;
+      button {
+        font-size: 13px;
+        width: 100%;
+        text-align: left;
+        padding-left: $pm-md;
+        height: 42px;
+        color: $color-gray-light;
+        background-color: rgba(255,255,255, .1);
+        @include compatible(transition, .4s);
+        &.open:before{
+          @include compatible(transform, rotate(90deg));
+        }
+        &:before {
+          text-align: center;
+          width: $pm-md;
+          display: inline-block;
+          vertical-align: top;
+          margin-right: $pm-md;
+          @include compatible(transition, all .4s);
+          @include compatible(transform-origin, 25% 55%);
+        }
+        &:hover {
+          background-color: $color-main;
+        }
+      }
+      &.selected button{
+        background-color: rgba(255,255,255, .3);
+        color: white;
+        &:hover {
+          background-color: $color-main-light;
+        }
+      }
+      .second-level {
+        @include compatible(transition, max-height .4s);
+        overflow-y: hidden;
+        max-height: 0;
+        &.show{
+          max-height: $height-navbar * 19;
+        }
+        button{
+          padding-left: 3 * $pm-md;
+          background-color: $color-gray-light;
+          border-bottom: 1px solid lighten($color-gray, 5%);
+          &.selected{
+            background-color: $color-main-light;
+            color: $color-gray-light;
+          }
+        }
+      }
+    }
+    .footer-btn-sidebar {
+      display: block;
+      margin-top: $pm-bg;
+      width: 100%;
+      line-height: $height-navbar;
+      text-align: center;
+      button {
+        height: $height-regular;
+        min-width: $height-regular;
+        font-size: $font-md;
+        overflow: hidden;
+        padding: 0 $pm-sm;
+        background-color: transparent;
+        color: rgba(255,255,255,.5);
+        @include borderRadius($border-radius-md);
+        @include compatible(transition, all .4s);
+        &:hover {
+          background-color: rgba(255,255,255,.2);
+          color: rgba(255,255,255, 1.0);
+          &.fa-sign-out:after {
+            content: " 退出登录"
+          }
+          &.fa-user:after {
+            content: " 账户设置"
+          }
+        }
+
+      }
+    }
+    .version {
+      display: block;
+      height: 50px;
+      width: 100%;
+      line-height: $height-navbar;
+      text-align: center;
+      color: rgba(255,255,255,.3);
+      font-size: $font-sm;
+    }
+  }
+
+  // 右侧内容栏样式
+  .hxui-main {
+    height: 100%;
+    border-top: 3px solid #00bdfd;
+    display: inline-block;
+    float: left;
+    position: relative;
+    @include wcalc(calc(100% - 180px)); // 200px 对应 $width-sidebar
+  }
+}
+
+// 列表页面样式
+.list-header, .list-footer, .list-content{
+  background-color: white;
+}
+
+.list-header, .list-footer{
+  height: $height-navbar;
+  width: 100%;
+  padding: $pm-sm $pm-md;
+  background-color:$color-gray-light;
+  display: block;
+  button {
+    height: $height-navbar - 2 * $pm-sm;
+  }
+  &.no-color{
+    background-color: transparent;
+  }
+}
+
+.list-header{
+  z-index: 1000;
+  position: relative;
+  border-bottom: 1px solid $color-gray;
+  .title{
+    vertical-align: top;
+    display: inline-block;
+    margin-right: $pm-md;
+    font-size: $font-md;
+    height: $height-navbar - 2 * $pm-sm;
+    line-height: $height-regular;
+    color: $color-heavy;
+    strong {
+      color: $color-main;
+      font: {
+        size: $font-bg;
+        weight: 800;
+      }
+    }
+  }
+  .tab-group{
+    width: 100%;
+    height: 100%;
+    text-align: justify;
+    button {
+      padding: 0 $pm-lg;
+      background-color: transparent;
+      border-bottom: 3px solid transparent;
+      @include compatible(transition, all .4s);
+      &.selected {
+        border-bottom: 3px solid $color-main;
+        &:hover {
+          background-color: lighten($color-main, 30%);
+        }
+
+      }
+      &:hover {
+        background-color: lighten($color-main, 35%);
+      }
+    }
+  }
+  .btn-group{
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 $pm-sm;
+    button{
+      border: 1px solid $color-main-light;
+      color: $color-main-light;
+      padding: 0 $pm-md;
+      &:first-child{
+        @include borderRadiusLeft($border-radius-md);
+      }
+      &:last-child{
+        @include borderRadiusRight($border-radius-md);
+      }
+      &.selected{
+        background-color: $color-main-light;
+        color: white;
+      }
+      background-color: transparent;
+      height: 100%;
+      float: left;
+    }
+  }
+  .search{
+    display: inline-block;
+    width: auto;
+    float: right;
+    position: relative;
+    padding: 0;
+    height: $height-regular;
+    margin-right: $pm-md;
+    input[type=text], input[type=email], input[type=number], input[type=tel], select {
+      height: 100%;
+      min-width: 200px;
+      padding: 0 $height-navbar / 6;
+      background-color: rgba(255,255,255,.8);
+      border: none;
+
+      @include compatible(transition, border .4s);
+      &:focus{
+        border: 1px solid $color-main;
+      }
+    }
+    select {
+      min-width: 150px;
+      border-radius: 0!important;
+      -webkit-border-radius: 0!important;
+    }
+    &.button-group {
+      float: none!important;
+      @include centerVertical;
+      margin-left: $pm-sm;
+      button {
+        min-width: $pm-bg;
+        padding: 0 $pm-sm;
+      }
+    }
+    &.date{
+      text-align: left;
+      display: inline-block;
+      line-height: $height-navbar - $pm-sm * 2;
+      color: $color-main;
+    }
+    .icon-search, .icon-clear{
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: $color-gray-deep;
+      line-height: $height-navbar - 2 * $pm-sm;
+      height: $height-navbar - 2 * $pm-sm;
+      width: $height-navbar - 2 * $pm-sm;
+      text-align: center;
+      @include compatible(transition, all .4s);
+    }
+    .icon-search{
+      &:hover{
+        background-color: $color-main;
+        color: rgba(255,255,255,.8);
+      }
+    }
+    .icon-clear{
+      background-color: $color-gray;
+      &:hover{
+        background-color: $color-red-light;
+        color: white;
+      }
+    }
+    // 日期选择器
+    .pad-datepicker {
+      height: $height-regular;
+      position: relative;
+      margin: 0;
+      input {
+        border: 1px solid $color-gray;
+      }
+      &.focus {
+        .add-on {
+          color: $color-main;
+        }
+      }
+      .add-on {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 34px;
+        height: 34px;
+        text-align: center;
+        line-height: $height-regular;
+        color: $color-gray-deep;
+        &+.add-on {
+          right: 21px;
+        }
+        &.btn-clear:hover {
+          color: $color-red-light;
+        }
+      }
+    }
+  }
+  .btn-right {
+    height: $height-regular;
+    width: $height-regular;
+    background-color: transparent;
+    color: $color-main;
+    padding: 0;
+    float: right;
+  }
+}
+
+.list-content{
+  padding: $pm-md;
+  &.no-footer, &.no-header{
+    @include hcalc(calc(100% - 50px));
+  }
+  &.bg{
+    padding: $height-navbar;
+  }
+  @include hcalc(calc(100% - 100px));
+  width: 100%;
+  overflow-y: auto;
+
+
+
+  table{
+    width: 100%;
+    font-size: 13px;
+    table-layout: fixed;
+    border-collapse:collapse;
+    td {
+      min-height: $height-navbar;
+      text-align: center;
+      padding: $pm-sm $pm-sm;
+      font-size: 13px;
+      word-break: break-all;
+      border: 1px solid $color-gray;
+      img.avatarUrl {
+        height: $height-navbar - 2 * $pm-sm;
+        width: $height-navbar - 2 * $pm-sm;
+        @include borderRadius(50% 50%);
+        background-color: $color-gray;
+      }
+      .link {
+        color: darken($color-main, 5%);
+        &:hover{
+          color: $color-red;
+        }
+      }
+      &.empty {
+        height: $height-navbar * 4;
+        line-height: $height-navbar * 4;
+        font-size: $font-bg;
+        background-color: $color-gray-light;
+        color: $color-heavy;
+      }
+      &.td-img-cover {
+        font-size: 0;
+        img {
+          height: $height-upload-button;
+          width: $width-upload-button;
+          @include borderRadius($border-radius-md);
+        }
+      }
+      &.td-img-avatar {
+        font-size: 0;
+        img {
+          height: $height-normal;
+          width: $height-normal;
+          @include borderRadius(50% 50%);
+        }
+      }
+      &.td-justify {
+        text-align: justify;
+      }
+      button {
+        padding: 0 $pm-sm;
+        height: $height-regular - $pm-sm / 2;
+        min-height: $height-regular - $pm-sm / 2;
+        font: {
+          weight: 500;
+        }
+        &.standard {
+          min-width: 90px;
+          margin-bottom: $pm-sm/2;
+        }
+        &.smart {
+          &:before {
+            margin-right: $pm-sm;
+          }
+          overflow-x: hidden;
+          width: 29px;
+          white-space: nowrap;
+          @include compatible(transition, width .2s);
+          &:hover {
+            width: 100px;
+          }
+        }
+      }
+    }
+    thead {
+      color: lighten($color-heavy, 5%);
+      background-color: #fafafa;
+      border-bottom: 2px solid $color-gray;
+      td{
+        height: $height-normal;
+      }
+    }
+    tbody {
+      color: lighten($color-heavy, 10%);
+      tr {
+        height: $height-navbar;
+      }
+      tr:nth-child(even) {
+        background-color: $color-gray-light;
+      }
+      &.hovering{
+        tr:hover{ background-color: $color-gray-light;  }
+      }
+    }
+  }
+}
+.list-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid $color-gray;
+}
+
+
+
+/*  导航栏样式 将ID设置为 hxui-pagination
+    2.0版 分页组件,
+    在原有带有分页组件和上一页下一页按钮的基础上：
+    - 去除了页数选择按钮集合，以及首页和末页按钮，
+    + 添加了展示当前页的span元素，跳转页数文本输入框和跳转按钮
+    适用于使用了Common分页插件样式的页面
+    Date: 2016-09-21
+ */
+.hxui-pagination {
+  text-align:right;
+  height: $height-regular;
+  padding: 0;
+  font-size: 0;
+  select{
+    padding: 0 10px;
+    float: left;
+    width: 140px;
+    height: $height-navbar - 2 * $pm-sm;
+    font-size: 14px;
+    color: #505050;
+    -webkit-border-radius: 4px;
+    border-color:#e7e7e7;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background-color: white;
+  }
+  a, span{
+    border:1px solid $color-gray-light!important;
+    background: #fff;
+    line-height: $height-navbar - 2 * $pm-sm;
+    height: $height-navbar - 2 * $pm-sm;
+    text-decoration: none!important;
+    text-align: center;
+    font-size: 16px;
+    color: #505050;
+    display: inline-block;
+  }
+  a{
+    margin-right: 0!important;
+    min-width: 30px;
+    padding:0 8px;
+    position: relative;
+    color: darken($color-gray, 30%);
+    &:hover{
+      color: $color-heavy;
+      background-color: darken($color-gray-light, 4%);
+    }
+    &:active{
+      border: 1px solid $color-main;
+      color: $color-white;
+      background-color: $color-main;
+    }
+    &.btn-jump{
+      margin-left: 10px;
+    }
+  }
+  span{
+    width: 100px;
+    text-align: center;
+    padding:0 $pm-sm;
+    border: none;
+  }
+  input[type=text]{
+    position: relative;
+    top:-1px;
+    font-size: 14px;
+    min-width: 50px!important;
+    height: $height-regular;
+    width: 60px;
+    padding: 0 10px!important;
+    margin-left: 20px;
+    border: 1px solid $color-gray-light;
+    @include borderRadius($border-radius-md);
+  }
+}
+
+// 空内容容器模块样式
+.hxui-emptyset {
+  height: 100%;
+  width: 100%;
+  display: block;
+  left: 0;
+  top: 0;
+  line-height: 300px;
+  text-align: center;
+  position: relative;
+  background-color: $color-gray-light;
+  color: $color-gray-deep;
+  font: {
+    size: 30px;
+    weight: 900;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .hxui-block {
+    .hxui-sidebar {
+      position: absolute!important;
+      left: -100%;
+      z-index: 1200;
+      overflow-y: hidden;
+      overflow-x: auto;
+      @include compatible(transition, left .4s);
+      &.show {
+        left: 0;
+      }
+      .project-info {
+        padding: $pm-sm + 4px;
+        .logo {
+          height: $height-regular!important;
+          width: $height-regular!important;
+        }
+      }
+      .sidebar-buttons {
+        @include hcalc(calc(100% - 91px));
+        display: block;
+        overflow-y: auto;
+        overflow-x: hidden;
+        .footer-btn-sidebar {
+          height: $height-normal;
+          margin-top: $pm-sm;
+        }
+        .version {
+          height: $height-normal;
+          margin-bottom: $pm-md;
+        }
+      }
+    }
+    .hxui-main {
+      width: 100%!important;
+      left: 0;
+    }
+  }
+  .hxui-advance-search {
+    position: absolute;
+    left: 0;
+    top: $height-normal;
+    opacity: .0;
+    visibility: hidden;
+    @include boxShadow(0 5px 15px -5px rgba(0,0,0,.4));
+    &.show {
+      opacity: 1.0;
+      visibility: visible;
+    }
+    .hxui-row {
+      border: none;
+      .pad-edit {
+        width: 100%!important;
+        margin-right: 0!important;
+      }
+      label {
+        width: 100px;
+        padding-left: $pm-sm;
+      }
+      .search {
+        margin: 0;
+        width: 100%;
+        .pad-datepicker {
+          width: 100%!important;
+        }
+        input.input-select-date {
+          //width: 100%!important;
+        }
+      }
+    }
+  }
+  .btn-show-sidebar {
+    display: block;
+    position: absolute;
+    top: $pm-sm + 3px;
+    left: $pm-sm;
+    padding: 0;
+    height: $height-regular;
+    width: $height-regular;
+    z-index: 1200;
+    @include borderRadius($border-radius-md);
+    color: $color-main;
+    background-color: transparent;
+    &.show {
+      color: white;
+    }
+  }
+  .list-header{
+    padding: $pm-sm!important;
+    .hxui-goback-button {
+      left: $height-normal;
+      position: relative;
+      padding: 0;
+      top: -1px;
+      border: none;
+    }
+    button.hxui-button {
+      padding: 0 $pm-sm!important;
+      width: auto!important;
+      min-width: $height-regular - $pm-sm/2!important;
+    }
+    .title {
+      margin-left: $height-regular + $pm-sm;
+      margin-right: $pm-sm;
+      & + .title {
+        margin-left: $pm-sm;
+      }
+    }
+  }
+  .list-content {
+    overflow-x: auto;
+    padding: $pm-sm 0!important;
+    .hxui-pad-left, .hxui-pad-right {
+      width: 100%!important;
+    }
+    table {
+      table-layout: auto !important;
+      td {
+        button {
+          min-width: 85px!important;
+        }
+        &.td-img-cover img{
+          height: 80px;
+          width: auto;
+        }
+        &.sm {
+          min-width: 75px;
+        }
+        &.md {
+          min-width: 125px;
+        }
+        &.bg {
+          min-width: 196px;
+        }
+        &.lg {
+          min-width: 240px;
+        }
+      }
+    }
+  }
+  .list-footer {
+    padding: $pm-sm!important;
+    .hxui-pagination {
+      .fa-caret-left, .fa-caret-left+span, .fa-caret-right {
+        float: left;
+      }
+    }
+  }
+  .hxui-pagination {
+    select {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .list-content {
+    overflow-x: auto;
+    table {
+      table-layout: auto !important;
+      td {
+        min-width: 150px;
+      }
+    }
+  }
+  .btn-show-sidebar {
+    display: none;
+  }
+  .pad-login, .pad-register {
+    width: 360px;
+    padding: $pm-md;
+  }
+  // 高级搜索栏
+  .hxui-advance-search{
+    padding-bottom: 0;
+    .hxui-row {
+      margin-bottom: $pm-sm;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .list-content{
+    overflow-x: hidden;
+    table {
+      table-layout: fixed !important;
+    }
+  }
+  .btn-show-sidebar {
+    display: none;
+  }
+  .pad-login, .pad-register {
+    width: 360px;
+    padding: $pm-bg;
+  }
+  // 高级搜索栏
+  .hxui-advance-search{
+    padding-bottom: 0;
+    .hxui-row {
+      margin-bottom: $pm-sm;
+    }
+  }
+}
