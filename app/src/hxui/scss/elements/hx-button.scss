@@ -1,8 +1,11 @@
-@import "../scss/variable";
-// 全局按钮样式
+@import "./../variable";
+
+/**
+    全局按钮样式
+ */
 
 // 实心按钮
-.hxui-button {
+.hx-button {
   @include borderRadius($border-radius-md);
   height: $height-regular;
   padding: 0 $pm-sm;
@@ -73,7 +76,7 @@
 }
 
 // 空心按钮
-.hxui-button.blank{
+.hx-button.blank{
   border: 1px solid $color-main;
   background-color: $color-white;
   color: $color-main;
@@ -125,10 +128,10 @@
 }
 
 // 按钮尺寸
-.hxui-button.sm {
+.hx-button.sm {
   height: $height-navbar/2;
 }
-.hxui-button.bg {
+.hx-button.bg {
   height: $height-normal;
 }
 

@@ -127,54 +127,7 @@ var showDialog = function(options){
 (function($, window){
 
     window.HXUI = {
-        /**
-         * 智能判断表单组件是否为必填或者银行卡
-         * @param query 需要限制的组件选择字符串
-         * @returns {boolean}
-         */
-        smartValidate: function(query) {
-            var components =  $(query ? (query + ' [required]') : '[required]');
-            var bankNumbers = $(query ? (query + ' [data-type="bank_number"]') : '[data-type="bank_number"]');
-            var result = true;
-            var $view = null;
 
-            components.unbind('focus').focus(function() {
-                $(this).removeClass('error');
-            });
-
-            for(var i = 0; i < components.length; i++) {
-                $view = $(components[i]);
-                if (!$view.val()) {
-                    result = false;
-                    $view.addClass('error');
-                }
-            }
-            if (!result) {
-                popTipWarningQuick('请完善所有信息');
-                return result;
-            }
-
-            for (var i = 0; i < bankNumbers.length; i++) {
-                $view = $(bankNumbers[i]);
-                var val = $(bankNumbers[i]).val();
-                if (isNaN(val)) {
-                    result = false;
-                    $view.addClass('error');
-                } else {
-                    if (val.length !== 16 && val.length !== 19 ) {
-                        result = false;
-                        $view.addClass('error');
-                    }
-                }
-            }
-
-            if (!result) {
-                popTipWarningQuick('银行卡号要求16位或19位数字');
-                return result;
-            }
-
-            return result;
-        },
 
         // 预览大图接口
         previewImage: function(currentUrl, urls) {
@@ -189,9 +142,9 @@ var showDialog = function(options){
                 }
             }
 
-            if ($('.hxui-image-modal').length !== 0) {
-                $('.hxui-image-modal').addClass('show');
-                $('.hxui-image-modal img').attr('src', currentUrl);
+            if ($('.hx-image-modal').length !== 0) {
+                $('.hx-image-modal').addClass('show');
+                $('.hx-image-modal img').attr('src', currentUrl);
                 $('.btn-to-last').unbind().bind('click', function(){
                     if (index === 0) {
                         popTipWarningQuick('没有上一张了');
@@ -211,7 +164,7 @@ var showDialog = function(options){
                     }
                 });
             } else {
-                var node = "<div class='hxui-image-modal'>" +
+                var node = "<div class='hx-image-modal'>" +
                     "    <img class='modal-image-preview' src='" + currentUrl + "' alt='image' />" +
                     "    <button class='btn-to-last fa fa-angle-left'></button>" +
                     "    <button class='btn-to-next fa fa-angle-right'></button>" +
@@ -219,7 +172,7 @@ var showDialog = function(options){
                     "</div>";
                 $(node).appendTo('body');
                 var timer = setTimeout(function() {
-                    $('.hxui-image-modal').addClass('show');
+                    $('.hx-image-modal').addClass('show');
                     $('.btn-to-last').unbind().bind('click', function(){
                         if (index === 0) {
                             popTipWarningQuick('没有上一张了');
@@ -242,14 +195,14 @@ var showDialog = function(options){
                 }, 100);
             }
             $('body')
-                .on('click', '.hxui-image-modal', function(){
+                .on('click', '.hx-image-modal', function(){
                     var className = event.target.getAttribute('class');
-                    if(className.indexOf('hxui-image-modal') !== -1) {
-                        $('.hxui-image-modal').removeClass('show');
+                    if(className.indexOf('hx-image-modal') !== -1) {
+                        $('.hx-image-modal').removeClass('show');
                     }
                 })
                 .on('click', '.btn-quit-preview', function() {
-                    $('.hxui-image-modal').removeClass('show');
+                    $('.hx-image-modal').removeClass('show');
                 });
         }
 

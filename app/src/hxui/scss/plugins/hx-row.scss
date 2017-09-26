@@ -1,16 +1,16 @@
 /*
-  hxui表单行模块: 标签为label元素 和 编辑区域内容为.pad-edit的 div 元素
-  hxui-row 包含自身多种扩展样式 以及 其pad-edit中定义了多种元素的默认样式
+  hx表单行模块: 标签为label元素 和 编辑区域内容为.pad-edit的 div 元素
+  hx-row 包含自身多种扩展样式 以及 其pad-edit中定义了多种元素的默认样式
   * 自身样式：
     .null     无内边距
     .center   内部组件居中
    Date: 2017-08-02
  */
 
-@import "../scss/variable";
+@import "./../variable";
 
 
-.hxui-row {
+.hx-row {
   width: 100%;
   padding: $pm-sm $pm-md;
   line-height: $height-navbar - 2 * $pm-sm;
@@ -354,7 +354,7 @@
 }
 
 @media screen and (max-width: 640px) {
-  .hxui-row {
+  .hx-row {
     border-bottom: 1px solid $color-gray;
     padding: $pm-sm/2 $pm-sm $pm-sm/2 0!important;
     label { width: 100px; }

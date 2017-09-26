@@ -19,16 +19,16 @@ let port = 8888;
 
 let htmlSrc = [
         'app/index-dev.html',
-        'app/views/**/*.html'
+        'app/src/views/**/*.html'
     ],                        // HTML文件位置
 
     indexSrc = 'app/index-dev.html',
 
-    cssSrc = [
-        'app/src/scss/**/*.scss',
-        'app/src/views/**/*.scss'
-    ],  // CSS源文件 SCSS文件
+    cssSrc = 'app/src/views/**/*.scss',  // CSS源文件 SCSS文件
     cssDist = 'app/dist/css/',          // 编译后生成CSS文件存储位置
+
+    hxuiCssSrc = 'app/src/hxui/scss/**/*.scss',  // HXUI 库 SCSS 文件
+    hxuiCssDist = 'app/dist/hxui/css/',     // HXUI 库 CSS 目标文件存储位置
 
     imgSrc = 'app/src/img/**/*.*',      // 图片资源存放位置
     imgDist = 'app/dist/img/',         // 图片资源压缩后存放的位置
@@ -44,7 +44,10 @@ let htmlSrc = [
         'app/src/js/value/**/*.js',
         'app/src/views/**/*.js'
     ],                                  // JavaScript脚本文件 源文件所在位置
-    jsDist = 'app/dist/js/';            // Javascript合并压缩有存放的位置
+    jsDist = 'app/dist/js/',           // Javascript合并压缩有存放的位置
+
+    hxuiJsSrc  = 'app/src/hxui/es6/**/*.js', // HXUI 库 Javascript 文件
+    hxuiJsDist = 'app/dist/hxui/js/';       // HXUI 库 JavaScript 存储位置
 
 /* 建立服务器并监控静态文件进行自动刷新 */
 gulp.task('server', () => {
@@ -68,6 +71,29 @@ gulp.task('html', () => {
 gulp.task('scss', () => {
     console.log('scss precessing...');
 
+    // HXUI 面向开发环境的scss自动化处理
+    gulp.src(hxuiCssSrc)
+        .pipe(plumber())
+        .pipe(sass())
+        .pipe(concat("hxui.css"))
+        .pipe(rename({  'suffix':'.dev'  }))
+        .pipe(gulp.dest(hxuiCssDist))
+        .pipe(connect.reload())
+        .pipe(notify({message: 'HXUI DEV CSS Files have been compressed'}));
+
+    // HXUI 面向生产环境的scss自动化处理
+    gulp.src(hxuiCssSrc)
+        .pipe(plumber())
+        .pipe(sass())
+        .pipe(concat("hxui.css"))
+        .pipe(rename({  'suffix':'.min'  }))
+        .pipe(cleanCSS({ debug: true }, (details) => {
+            console.log(`${details.name} is compressed from [ ${details.stats.originalSize}B ] to [ ${details.stats.minifiedSize}B ]'`);
+        }))
+        .pipe(gulp.dest(hxuiCssDist))
+        .pipe(connect.reload())
+        .pipe(notify({message: 'HXUI DEV CSS Files have been compressed'}));
+
     // 面向开发环境的scss自动化处理
     gulp.src(cssSrc)
         .pipe(plumber())
@@ -76,7 +102,7 @@ gulp.task('scss', () => {
         .pipe(rename({  'suffix':'.dev'  }))
         .pipe(gulp.dest(cssDist))
         .pipe(connect.reload())
-        .pipe(notify({message: 'CSS Files have been compressed'}));
+        .pipe(notify({message: 'CUSTOMER CSS Files have been compressed'}));
 
     // 面向生产环境的scss自动化处理
     gulp.src(cssSrc)
@@ -89,7 +115,7 @@ gulp.task('scss', () => {
         }))
         .pipe(gulp.dest(cssDist))
         .pipe(connect.reload())
-        .pipe(notify({message: 'CSS Files have been compressed'}));
+        .pipe(notify({message: 'CUSTOMER CSS Files have been compressed'}));
 });
 
 /* 将图片压缩之后输出达到dist/img目录下  */
@@ -104,6 +130,37 @@ gulp.task('img', () => {
 /* 将Js文件合并压缩后输出到dist/js目录下 */
 gulp.task('js', () => {
     console.log('Javascript precessing...');
+
+    // 开发环境处理
+    gulp.src(hxuiJsSrc)
+        .pipe(plumber({}, true, function(err){
+            console.log('ERROR OCCURED:');
+            console.log(err);
+        }))
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(concat('hxui.js'))
+        .pipe(rename({  'suffix': '.dev'  }))
+        .pipe(connect.reload())
+        .pipe(gulp.dest(hxuiJsDist));
+
+    // 生产环境
+    gulp.src(hxuiJsSrc)
+        .pipe(plumber({}, true, (err) => {
+            console.log('ERROR OCCURED:');
+            console.log(err);
+        }))
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(concat('hxui.js'))
+        .pipe(rename({  'suffix': '.min'  }))
+        .pipe(uglify())
+        .pipe(gulp.dest(hxuiJsDist))
+        .pipe(connect.reload())
+        .pipe(notify({message: 'js Files have been compressed'}));
+
     // 开发环境处理
     gulp.src(jsSrc)
         .pipe(plumber({}, true, function(err){
@@ -118,6 +175,7 @@ gulp.task('js', () => {
         .pipe(connect.reload())
         .pipe(gulp.dest(jsDist));
 
+    // 生产环境
     gulp.src(jsSrc)
         .pipe(plumber({}, true, (err) => {
             console.log('ERROR OCCURED:');

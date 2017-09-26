@@ -1,7 +1,7 @@
 /*
  *  x_page框架定义的默认标签样式
  */
-@import "scss/variable";
+@import "./variable";
 /*--------------------------------------------------------------------------------------*/
 /* 设置不使用默认的聚焦框
 /*--------------------------------------------------------------------------------------*/
@@ -93,7 +93,7 @@ input.error, textarea.error{
 
 
 
-.hxui-no-wrap {
+.hx-no-wrap {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;

@@ -1,0 +1,40 @@
+@import "./../variable";
+
+.hx-article {
+  h1 {
+    line-height: $height-navbar;
+    border-bottom: 1px solid $color-gray;
+    margin: 0 0 $pm-md 0;
+  }
+  h2, h3, h4, h5, h6 {
+    margin: 0 0 $pm-sm 0;
+  }
+  h2 {
+    line-height: $height-navbar;
+  }
+  h3, h4 {
+    font-weight: 400;
+    line-height: $height-regular;
+  }
+  h6, h5 {
+    line-height: $height-navbar / 2;
+    color: $color-heavy;
+  }
+  strong {
+    padding: 2px $pm-sm;
+    font-weight: 600;
+    color: $color-main;
+    background-color: $color-gray;
+    @include borderRadius($border-radius-md);
+  }
+  section {
+    margin-bottom: $pm-md;
+    padding: $pm-md;
+    background-color: white;
+    @include boxShadow(0 10px 20px -10px rgba(0,0,0,.1));
+  }
+  header {
+    line-height: $height-normal;
+    color: $color-heavy;
+  }
+}

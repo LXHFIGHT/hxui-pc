@@ -1,16 +1,17 @@
-@import "scss/variable";
+@import "./variable";
 
 /*--------------------------------------------------------------------------------------*/
-/*  hxui-input 适用于全部文本输入框的自定义组件样式
+/*  hx-input 适用于全部文本输入框的自定义组件样式
 /*--------------------------------------------------------------------------------------*/
-input[type='text'].hxui-input,
-input[type='email'].hxui-input,
-input[type='number'].hxui-input,
-input[type='url'].hxui-input,
-input[type='password'].hxui-input,
-input[type='date'].hxui-input,
-select.hxui-input,
-textarea.hxui-input{
+input[type='text'].hx-input,
+input[type='email'].hx-input,
+input[type='number'].hx-input,
+input[type='url'].hx-input,
+input[type='password'].hx-input,
+input[type='date'].hx-input,
+select.hx-input,
+textarea.hx-input{
+  position: relative;
   font-size: 15px!important;
   line-height: 25px!important;
   resize: none;
@@ -38,37 +39,37 @@ textarea.blank{
     background-color: $color-gray!important;
   }
 }
-select.hxui-input{
+select.hx-input{
   height: 34px;
   background-color: transparent;
 }
-.hxui-input.required{
+.hx-input.required{
   border:1px solid #d43039!important;
 
 }
-.hxui-input.required:focus{
+.hx-input.required:focus{
   -webkit-box-shadow:  0 0 4px rgba(212,48,57,.8);
   -moz-box-shadow:  0 0 4px rgba(212,48,57,.8);
   box-shadow:  0 0 4px rgba(212,48,57,.8);
 }
 /*  默认样式【聚焦状态】： input中 text，email，number, date样式*/
-input[type="text"].hxui-input:focus,
-input[type="email"].hxui-input:focus,
-input[type="number"].hxui-input:focus,
-textarea.hxui-input:focus,
-input[type='date'].hxui-input:focus{
+input[type="text"].hx-input:focus,
+input[type="email"].hx-input:focus,
+input[type="number"].hx-input:focus,
+textarea.hx-input:focus,
+input[type='date'].hx-input:focus{
   border: 1px solid $color-main;
 }
 /*  默认样式【聚焦状态】： input中 url样式        */
-input[type="url"].hxui-input:focus, select.hxui-input:focus     {
+input[type="url"].hx-input:focus, select.hx-input:focus     {
   border:1px solid $color-main-light;
 }
 /*  默认样式【聚焦状态】： input中 password样式   */
-input[type="password"].hxui-input:focus{
+input[type="password"].hx-input:focus{
   border: 1px solid red;
 }
 /*  默认样式【聚焦状态】 适用于textarea标签组件      */
-textarea.hxui-input:focus{  border: 1px solid darkgreen;    }
+textarea.hx-input:focus{  border: 1px solid darkgreen;    }
 
 
 
@@ -85,7 +86,7 @@ textarea[disabled]{
   -moz-border-radius: 0;
   border-radius: 0;
 }
-.hxui-goback-button{
+.hx-goback-button{
   border: 2px solid darken($color-gray, 20%);
   color: darken($color-gray, 20%);
   background-color: transparent;
@@ -101,12 +102,12 @@ textarea[disabled]{
 }
 
 // 头像组件
-.hxui-avatar {
+.hx-avatar {
   height: $height-normal;
   width: $height-normal;
   @include borderRadius(50% 50%);
 }
-.hxui-cover-img {
+.hx-cover-img {
   max-height: $height-upload-button;
   max-width: $width-upload-button;
   @include borderRadius($border-radius-md);
@@ -114,7 +115,7 @@ textarea[disabled]{
 
 
 
-.hxui-checkbox{
+.hx-checkbox{
   height: 25px!important;
   width: 25px!important;
   border: 3px solid $color-green;

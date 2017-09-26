@@ -1,11 +1,11 @@
 /**
- *  HXUI详情模块样式
- *  通过组合 hxui-row 构建管理后台具有交互性的表单页面
+ *  hx详情模块样式
+ *  通过组合 hx-row 构建管理后台具有交互性的表单页面
  */
 
-@import "../scss/variable";
+@import "./../variable";
 
-.hxui-detail-block {
+.hx-detail-block {
   border: 1px solid $color-gray;
   position: relative;
   padding: ($height-normal) $pm-md $pm-md;
@@ -34,20 +34,20 @@
   }
 }
 // 左板块
-.hxui-pad-left {
+.hx-pad-left {
   float: left;
   width: 50%;
   padding-right: $pm-sm;
 }
 // 右板块
-.hxui-pad-right {
+.hx-pad-right {
   float: right;
   width: 50%;
   padding-left: $pm-sm;
 }
 
 @media screen and (max-width: 640px) {
-  .hxui-detail-block {
+  .hx-detail-block {
     padding-left: $pm-sm;
     padding-right: 0;
     padding-bottom: 0;
@@ -55,11 +55,11 @@
     header:first-child {
       padding-left: $pm-sm;
     }
-    .hxui-row:nth-last-child(1) {
+    .hx-row:nth-last-child(1) {
       border: none;
     }
   }
-  .hxui-pad-left, .hxui-pad-right {
+  .hx-pad-left, .hx-pad-right {
     padding: 0;
   }
 }

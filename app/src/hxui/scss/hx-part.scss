@@ -1,7 +1,7 @@
-// hxui 组件的样式
-@import "scss/variable";
+// hx 组件的样式
+@import "./variable";
 
-.hxui-block {
+.hx-block {
   height: 100%;
   width: 100%;
   padding: 0;
@@ -12,7 +12,7 @@
   overflow: hidden;
 
   // 左侧侧边栏样式
-  .hxui-sidebar {
+  .hx-sidebar {
     height: 100%;
     display: inline-block;
     float: left;
@@ -137,7 +137,7 @@
   }
 
   // 右侧内容栏样式
-  .hxui-main {
+  .hx-main {
     height: 100%;
     border-top: 3px solid #00bdfd;
     display: inline-block;
@@ -348,8 +348,6 @@
   width: 100%;
   overflow-y: auto;
 
-
-
   table{
     width: 100%;
     font-size: 13px;
@@ -456,7 +454,7 @@
 
 
 
-/*  导航栏样式 将ID设置为 hxui-pagination
+/*  导航栏样式 将ID设置为 hx-pagination
     2.0版 分页组件,
     在原有带有分页组件和上一页下一页按钮的基础上：
     - 去除了页数选择按钮集合，以及首页和末页按钮，
@@ -464,7 +462,7 @@
     适用于使用了Common分页插件样式的页面
     Date: 2016-09-21
  */
-.hxui-pagination {
+.hx-pagination {
   text-align:right;
   height: $height-regular;
   padding: 0;
@@ -533,7 +531,7 @@
 }
 
 // 空内容容器模块样式
-.hxui-emptyset {
+.hx-emptyset {
   height: 100%;
   width: 100%;
   display: block;
@@ -551,8 +549,8 @@
 }
 
 @media screen and (max-width: 640px) {
-  .hxui-block {
-    .hxui-sidebar {
+  .hx-block {
+    .hx-sidebar {
       position: absolute!important;
       left: -100%;
       z-index: 1200;
@@ -584,12 +582,12 @@
         }
       }
     }
-    .hxui-main {
+    .hx-main {
       width: 100%!important;
       left: 0;
     }
   }
-  .hxui-advance-search {
+  .hx-advance-search {
     position: absolute;
     left: 0;
     top: $height-normal;
@@ -600,7 +598,7 @@
       opacity: 1.0;
       visibility: visible;
     }
-    .hxui-row {
+    .hx-row {
       border: none;
       .pad-edit {
         width: 100%!important;
@@ -640,14 +638,14 @@
   }
   .list-header{
     padding: $pm-sm!important;
-    .hxui-goback-button {
+    .hx-goback-button {
       left: $height-normal;
       position: relative;
       padding: 0;
       top: -1px;
       border: none;
     }
-    button.hxui-button {
+    button.hx-button {
       padding: 0 $pm-sm!important;
       width: auto!important;
       min-width: $height-regular - $pm-sm/2!important;
@@ -663,7 +661,7 @@
   .list-content {
     overflow-x: auto;
     padding: $pm-sm 0!important;
-    .hxui-pad-left, .hxui-pad-right {
+    .hx-pad-left, .hx-pad-right {
       width: 100%!important;
     }
     table {
@@ -693,13 +691,13 @@
   }
   .list-footer {
     padding: $pm-sm!important;
-    .hxui-pagination {
+    .hx-pagination {
       .fa-caret-left, .fa-caret-left+span, .fa-caret-right {
         float: left;
       }
     }
   }
-  .hxui-pagination {
+  .hx-pagination {
     select {
       display: none;
     }
@@ -724,9 +722,9 @@
     padding: $pm-md;
   }
   // 高级搜索栏
-  .hxui-advance-search{
+  .hx-advance-search{
     padding-bottom: 0;
-    .hxui-row {
+    .hx-row {
       margin-bottom: $pm-sm;
     }
   }
@@ -747,9 +745,9 @@
     padding: $pm-bg;
   }
   // 高级搜索栏
-  .hxui-advance-search{
+  .hx-advance-search{
     padding-bottom: 0;
-    .hxui-row {
+    .hx-row {
       margin-bottom: $pm-sm;
     }
   }

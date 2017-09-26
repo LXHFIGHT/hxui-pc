@@ -1,8 +1,46 @@
 @import "../../../hxui/scss/variable";
+
 .home-title {
+  text-align: center;
   color: $color-heavy;
   font: {
-    size: $font-bg;
+    size: $height-normal;
     weight: 600;
+  }
+
+  .pad-jump-options {
+    text-align: center;
+    font-size: 0;
+    padding: 0;
+    margin: $height-normal 0 0 0;
+    li {
+      height: $height-normal;
+      line-height: $height-normal;
+      list-style: none;
+      cursor: pointer;
+      font: {
+        size: $font-bg;
+        weight: 400;
+      };
+      width: 33.33%;
+      display: inline-block;
+      @include compatible(transition, all .2s);
+      &:hover {
+        color: $color-main;
+        @include compatible(transform, scale(1.3, 1.3));
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .home-title {
+    min-width: 300px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .home-title {
+    min-width: 60%;
   }
 }

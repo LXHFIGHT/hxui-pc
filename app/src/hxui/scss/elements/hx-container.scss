@@ -1,0 +1,28 @@
+@import "./../variable";
+
+/**
+    全局使用的容器组件
+ */
+
+.hx-container {
+  display: block;
+  padding: 0;
+  @include centerHorizontal;
+}
+
+@media screen and (max-width: 640px) {
+  .hx-container {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .hx-container {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .hx-container {
+    max-width: 1024px;
+  }
+}
+

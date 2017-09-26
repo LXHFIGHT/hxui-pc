@@ -5,7 +5,7 @@
  *  The main angular.js(v 1.4) configuration of the project
  */
 
-var main = angular.module('mainApp', [ 'ui.router', 'MainController', 'MainFilter', 'MainService', 'MainValue', 'Config']);
+let main = angular.module('mainApp', [ 'ui.router', 'MainController', 'MainFilter', 'MainService', 'MainValue', 'Config']);
 
 // 路由配置
 main.config(['$stateProvider','$urlRouterProvider','$httpProvider',  function($stateProvider, $urlRouterProvider, $httpProvider ){
@@ -21,6 +21,17 @@ main.config(['$stateProvider','$urlRouterProvider','$httpProvider',  function($s
                 }
             }
         })
+        // 插件库
+        .state('plugins', {
+            url: '/plugins',
+            views: {
+                '': {
+                    templateUrl: 'src/views/hxui/plugins/plugins.html',
+                    controller: 'PluginsCtrl'
+                }
+            }
+        })
+
         // 配置主页中各个模块位置
         .state('login',{
             url: '/login/:state',
@@ -110,7 +121,7 @@ main.run(['$rootScope', '$location', '$log', '$state','globalValue', 'HttpHelper
                 $log.log('from state: '+fromState.name+'\t'+"to state: "+toState.name);
             }
             // 判断是否是跳转到登录页面，只有跳转至非登录页面才会执行路由控制
-            if(toState.name !== 'login'){
+            if(toState.name !== 'login' && config.needLogin){
                 if (!StorageHelper.getValue('username')) {
                     toState.name !== 'enter' && popTipWarningQuick('请先登录');
                     event.preventDefault();// 取消默认跳转行为
