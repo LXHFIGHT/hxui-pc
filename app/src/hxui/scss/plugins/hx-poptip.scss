@@ -1,0 +1,49 @@
+@import './../variable';
+
+// 顶部信息弹出框样式
+.pad-poptip {
+  position: absolute;
+  padding: 0 $pm-md;
+  text-align: center;
+  font-size:16px;
+  top: -1 * $height-navbar;
+  margin: 0 auto;
+  line-height: $height-navbar;
+  height: $height-navbar;
+  min-width: 30%;
+  max-width: 60%;
+  z-index: 10000;
+  opacity: .0;
+  color: #f2f2f2;
+  @include centerHorizontal();
+  @include boxShadow(0 5px 30px -2px rgba(0,0,0,.5));
+  @include borderRadius($border-radius-md);
+  @include compatible(transition, top .4s);
+  &.success {
+    background-color: $color-green;
+  }
+  &.warn {
+    background-color: $color-orange;
+  }
+  &.error {
+    background-color: $color-red;
+  }
+  &.default {
+    background-color:#aaa;
+  }
+  &.show {
+    opacity: 1.0;
+    top: $pm-md;
+    @include boxShadow(0 5px 20px -10px rgba(0,0,0,.8));
+  }
+}
+
+@media screen and (max-width: 640px){
+  .pad-poptip {
+    width: 95%;
+    max-width: 95%;
+    &.show {
+      top: 8px;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-@import "./variable";
+@import "./../variable";
 
 /*--------------------------------------------------------------------------------------*/
 /*  hx-input 适用于全部文本输入框的自定义组件样式
@@ -74,109 +74,15 @@ textarea.hx-input:focus{  border: 1px solid darkgreen;    }
 
 
 /*  默认样式【无效状态】： input组件和textarea组件无效化的样式   */
-input[disabled]{
+input[disabled] {
   background-color: transparent; border: none!important;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
 }
-textarea[disabled]{
+textarea[disabled] {
   background-color: transparent;  border: 1px solid #ccc!important;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-}
-.hx-goback-button{
-  border: 2px solid darken($color-gray, 20%);
-  color: darken($color-gray, 20%);
-  background-color: transparent;
-  font-size: 24px;
-  margin-right: $pm-md;
-  @include borderRadius(50%);
-  height: $height-navbar - 2 * $pm-sm;
-  width: $height-navbar - 2 * $pm-sm;
-  &:hover{
-    border: 2px solid $color-red-light;
-    color: $color-red-light;
-  }
-}
-
-// 头像组件
-.hx-avatar {
-  height: $height-normal;
-  width: $height-normal;
-  @include borderRadius(50% 50%);
-}
-.hx-cover-img {
-  max-height: $height-upload-button;
-  max-width: $width-upload-button;
-  @include borderRadius($border-radius-md);
-}
-
-
-
-.hx-checkbox{
-  height: 25px!important;
-  width: 25px!important;
-  border: 3px solid $color-green;
-  background-color: transparent;
-  color: $color-white;
-  @include borderRadius($border-radius-md);
-  @include compatible(transition, all .4s);
-  &.selected {
-    background-color: $color-green;
-  }
-}
-
-// xpage.js 中组件需要样式
-.pad-poptip {
-  position: absolute;
-  padding: 0 $pm-md;
-  text-align: center;
-  font-size:16px;
-  top: -1 * $height-navbar;
-  margin: 0 auto;
-  line-height: $height-navbar;
-  height: $height-navbar;
-  min-width: 30%;
-  max-width: 60%;
-  z-index: 10000;
-  opacity: .0;
-  color: #f2f2f2;
-  @include centerHorizontal();
-  @include boxShadow(0 5px 30px -2px rgba(0,0,0,.5));
-  @include borderRadius($border-radius-md);
-  @include compatible(transition, all .4s);
-  &.success {
-    background-color: $color-green;
-  }
-  &.warn {
-    background-color: $color-orange;
-  }
-  &.error {
-    background-color: $color-red;
-  }
-  &.default {
-     background-color:#aaa;
-  }
-  &.show {
-    opacity: 1.0;
-    top: $pm-md;
-    @include boxShadow(0 5px 20px -10px rgba(0,0,0,.8));
-  }
-}
-
-// 选择日期控件样式：
-.datepicker {
-  z-index: 1000;
-}
-
-@media screen and (max-width: 640px){
-   .pad-poptip {
-     width: 95%;
-     max-width: 95%;
-     &.show {
-      top: 8px;
-     }
-   }
 }

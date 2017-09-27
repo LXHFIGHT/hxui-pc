@@ -37,7 +37,7 @@
 
 // 导航栏行高
 $height-navbar: 50px;
-$height-normal: 40px;
+$height-normal: 42px;
 $height-regular: 34px;
 $width-sidebar: 180px;
 
@@ -57,7 +57,7 @@ $color-main-dark: darken($color-main, 36%);
 $color-main-light: lighten($color-main, 3%);
 
 $color-white: #fdfdfd;
-$color-gray-light: #f8f8f8;
+$color-gray-light: #f6f6f6;
 $color-gray: #eee;
 $color-gray-deep: #bbb;
 $color-heavy:   #747474;
@@ -103,7 +103,13 @@ $color-blue: #2962ad;
 .bg-gray-light { background-color: $color-gray-light;        }
 
 // 是否隐藏
-.hx-invisible { visibility: hidden; }
+.invisible { visibility: hidden!important; }
+.hide, .hidden {
+  display: none!important;
+}
+
+
+
 
 // 三种居中
 .center-horizontal{
@@ -208,10 +214,21 @@ $shadow-md: 0 3px 6px rgba(0,0,0, .1);
 $shadow-md-dark: 0 3px 6px rgba(0,0,0, .3);
 $shadow-right-md: 3px 3px 6px rgba(0,0,0, .1);
 
-.hidden { display: none;  }
-.invisible { visibility: hidden; }
-
 // 浮动设置
 .right { float: right; }
 .left { float: left; }
 .clear { clear:both; }
+
+// 图片常规样式 包括头像和封面
+// 头像
+.avatar {
+  height: $height-normal;
+  width: $height-normal;
+  @include borderRadius(50% 50%);
+}
+// 封面
+.cover {
+  max-height: $height-upload-button;
+  max-width: $width-upload-button;
+  @include borderRadius($border-radius-md);
+}

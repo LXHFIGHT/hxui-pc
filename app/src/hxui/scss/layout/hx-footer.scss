@@ -1,0 +1,28 @@
+@import "./../variable";
+
+.hx-footer {
+  height: $height-navbar;
+  width: 100%;
+  padding: 0 $pm-md;
+  background-color:$color-gray-light;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid $color-gray;
+  button {
+    height: $height-navbar - 2 * $pm-sm;
+  }
+  &.no-color{
+    background-color: transparent;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .hx-pagination {
+    padding: 0 $pm-sm;
+    .fa-caret-left, .fa-caret-left+span, .fa-caret-right {
+      float: left;
+    }
+  }
+}

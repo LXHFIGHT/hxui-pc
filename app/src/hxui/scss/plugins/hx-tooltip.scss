@@ -1,0 +1,56 @@
+@import "./../variable";
+
+/* tooltip（悬浮提示框）用法：
+   第一步：需要添加的组件的类添加 hx-tooltip-bottom
+   第二步：添加aria-label属性，放入要显示的问题本内容
+   注意： 1. 注意父组件是否设置overflow: hidden
+         2. 适用于支持 :before和 :after CSS3样式的浏览器 （>IE8）
+         3. 如果组件使用了font-icon 会被覆盖  建议在组件内容添加一个span标签承载font-icon
+   Date: 2017-8-2
+ */
+.hx-tooltip-bottom {
+  position: relative;
+  &:hover {
+    &:before, &:after {
+      visibility: visible;
+    }
+  }
+  &:before, &:after {
+    visibility: hidden;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: 100%;
+    margin-top: 6px;
+    left: 50%;
+    @include compatible(transform, translateX(-50%));
+    border-bottom: 7px solid $color-dark;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    z-index: 9999;
+  }
+  &:after {
+    content: attr(aria-label);
+    position: absolute;
+    display: block;
+    font: {
+      size: $font-sm;
+      weight: 300;
+    }
+    top: 100%;
+    left: 50%;
+    z-index: 9998;
+    min-width: 150px;
+    border: none;
+    @include compatible(transform, translateX(-50%));
+    margin-top: 12px;
+    color: $color-gray-light;
+    background-color: $color-dark;
+    padding: $pm-sm/2 $pm-sm;
+    @include borderRadius(20px);
+    @include boxShadow(0 6px 12px -4px rgba(0,0,0,.4));
+  }
+}

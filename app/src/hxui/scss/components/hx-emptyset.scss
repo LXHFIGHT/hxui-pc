@@ -1,0 +1,19 @@
+@import './../variable';
+
+// 空内容容器模块样式
+.hx-emptyset {
+  height: 100%;
+  width: 100%;
+  display: block;
+  left: 0;
+  top: 0;
+  line-height: 200px;
+  text-align: center;
+  position: relative;
+  background-color: $color-gray-light;
+  color: $color-gray-deep;
+  font: {
+    size: 30px;
+    weight: 900;
+  }
+}

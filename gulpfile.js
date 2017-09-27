@@ -27,8 +27,7 @@ let htmlSrc = [
     cssSrc = 'app/src/views/**/*.scss',  // CSS源文件 SCSS文件
     cssDist = 'app/dist/css/',          // 编译后生成CSS文件存储位置
 
-    hxuiCssSrc = 'app/src/hxui/scss/**/*.scss',  // HXUI 库 SCSS 文件
-    hxuiCssDist = 'app/dist/hxui/css/',     // HXUI 库 CSS 目标文件存储位置
+
 
     imgSrc = 'app/src/img/**/*.*',      // 图片资源存放位置
     imgDist = 'app/dist/img/',         // 图片资源压缩后存放的位置
@@ -46,6 +45,9 @@ let htmlSrc = [
     ],                                  // JavaScript脚本文件 源文件所在位置
     jsDist = 'app/dist/js/',           // Javascript合并压缩有存放的位置
 
+    hxuiSrc = 'app/src/hxui/**/*.*',
+    hxuiCssSrc = 'app/src/hxui/scss/**/*.scss',  // HXUI 库 SCSS 文件
+    hxuiCssDist = 'app/dist/hxui/css/',     // HXUI 库 CSS 目标文件存储位置
     hxuiJsSrc  = 'app/src/hxui/es6/**/*.js', // HXUI 库 Javascript 文件
     hxuiJsDist = 'app/dist/hxui/js/';       // HXUI 库 JavaScript 存储位置
 
@@ -70,30 +72,6 @@ gulp.task('html', () => {
 /* 将SCSS编译成CSS后进行合并压缩 最后输出到dist/css/app.min.css中  */
 gulp.task('scss', () => {
     console.log('scss precessing...');
-
-    // HXUI 面向开发环境的scss自动化处理
-    gulp.src(hxuiCssSrc)
-        .pipe(plumber())
-        .pipe(sass())
-        .pipe(concat("hxui.css"))
-        .pipe(rename({  'suffix':'.dev'  }))
-        .pipe(gulp.dest(hxuiCssDist))
-        .pipe(connect.reload())
-        .pipe(notify({message: 'HXUI DEV CSS Files have been compressed'}));
-
-    // HXUI 面向生产环境的scss自动化处理
-    gulp.src(hxuiCssSrc)
-        .pipe(plumber())
-        .pipe(sass())
-        .pipe(concat("hxui.css"))
-        .pipe(rename({  'suffix':'.min'  }))
-        .pipe(cleanCSS({ debug: true }, (details) => {
-            console.log(`${details.name} is compressed from [ ${details.stats.originalSize}B ] to [ ${details.stats.minifiedSize}B ]'`);
-        }))
-        .pipe(gulp.dest(hxuiCssDist))
-        .pipe(connect.reload())
-        .pipe(notify({message: 'HXUI DEV CSS Files have been compressed'}));
-
     // 面向开发环境的scss自动化处理
     gulp.src(cssSrc)
         .pipe(plumber())
@@ -130,6 +108,62 @@ gulp.task('img', () => {
 /* 将Js文件合并压缩后输出到dist/js目录下 */
 gulp.task('js', () => {
     console.log('Javascript precessing...');
+    // 开发环境处理
+    gulp.src(jsSrc)
+        .pipe(plumber({}, true, function(err){
+            console.log('ERROR OCCURED:');
+            console.log(err);
+        }))
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(concat('main.js'))
+        .pipe(rename({  'suffix': '.dev'  }))
+        .pipe(connect.reload())
+        .pipe(gulp.dest(jsDist));
+
+    // 生产环境
+    gulp.src(jsSrc)
+        .pipe(plumber({}, true, (err) => {
+            console.log('ERROR OCCURED:');
+            console.log(err);
+        }))
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(concat('main.js'))
+        .pipe(rename({  'suffix': '.min'  }))
+        .pipe(uglify())
+        .pipe(gulp.dest(jsDist))
+        .pipe(connect.reload())
+        .pipe(notify({message: 'CUSTOM JS Files have been compressed'}));
+});
+
+gulp.task('hxui', () => {
+    console.log('HXUI task precessing...');
+
+    // HXUI 面向开发环境的scss自动化处理
+    gulp.src(hxuiCssSrc)
+        .pipe(plumber())
+        .pipe(sass())
+        .pipe(concat("hxui.css"))
+        .pipe(rename({  'suffix':'.dev'  }))
+        .pipe(gulp.dest(hxuiCssDist))
+        .pipe(connect.reload())
+        .pipe(notify({message: 'HXUI DEV CSS Files have been compressed'}));
+
+    // HXUI 面向生产环境的scss自动化处理
+    gulp.src(hxuiCssSrc)
+        .pipe(plumber())
+        .pipe(sass())
+        .pipe(concat("hxui.css"))
+        .pipe(rename({  'suffix':'.min'  }))
+        .pipe(cleanCSS({ debug: true }, (details) => {
+                console.log(`${details.name} is compressed from [ ${details.stats.originalSize}B ] to [ ${details.stats.minifiedSize}B ]'`);
+            }))
+        .pipe(gulp.dest(hxuiCssDist))
+        .pipe(connect.reload())
+        .pipe(notify({message: 'HXUI DEV CSS Files have been compressed'}));
 
     // 开发环境处理
     gulp.src(hxuiJsSrc)
@@ -159,37 +193,7 @@ gulp.task('js', () => {
         .pipe(uglify())
         .pipe(gulp.dest(hxuiJsDist))
         .pipe(connect.reload())
-        .pipe(notify({message: 'js Files have been compressed'}));
-
-    // 开发环境处理
-    gulp.src(jsSrc)
-        .pipe(plumber({}, true, function(err){
-            console.log('ERROR OCCURED:');
-            console.log(err);
-        }))
-        .pipe(babel({
-            presets: ['es2015']
-        }))
-        .pipe(concat('main.js'))
-        .pipe(rename({  'suffix': '.dev'  }))
-        .pipe(connect.reload())
-        .pipe(gulp.dest(jsDist));
-
-    // 生产环境
-    gulp.src(jsSrc)
-        .pipe(plumber({}, true, (err) => {
-            console.log('ERROR OCCURED:');
-            console.log(err);
-        }))
-        .pipe(babel({
-            presets: ['es2015']
-        }))
-        .pipe(concat('main.js'))
-        .pipe(rename({  'suffix': '.min'  }))
-        .pipe(uglify())
-        .pipe(gulp.dest(jsDist))
-        .pipe(connect.reload())
-        .pipe(notify({message: 'js Files have been compressed'}));
+        .pipe(notify({message: 'HXUI JS Files have been compressed'}));
 });
 
 gulp.task('watch', () => {
@@ -197,6 +201,7 @@ gulp.task('watch', () => {
     gulp.watch(cssSrc, ['scss']);
     gulp.watch(imgSrc, ['img']);
     gulp.watch(jsSrc,  ['js']);
+    gulp.watch(hxuiSrc,  ['hxui']);
 });
 
 // 根目录下执行 gulp 命令进行前端自动化处理

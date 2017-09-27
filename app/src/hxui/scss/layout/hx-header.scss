@@ -1,0 +1,83 @@
+@import "./../variable";
+
+.hx-header {
+  z-index: 1000;
+  position: relative;
+  height: $height-normal;
+  border-bottom: 1px solid $color-gray;
+  .title{
+    vertical-align: top;
+    display: inline-block;
+    font-size: $font-md;
+    height: $height-normal;
+    line-height: $height-normal;
+    color: $color-heavy;
+    strong {
+      color: $color-main;
+      font: {
+        size: $font-bg;
+        weight: 800;
+      }
+    }
+  }
+  .btn-left,
+  .btn-right {
+    height: $height-normal;
+    min-width: $height-normal;
+    background-color: transparent;
+    color: $color-main;
+    padding: 0 $pm-sm;
+    z-index: 100;
+  }
+  .btn-left {
+    float: left;
+  }
+  .btn-right {
+    float: right;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .hx-header {
+    .title {
+      margin-left: $pm-md;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .hx-header {
+    background-color: $color-main;
+    color: white;
+    .title {
+      z-index: 10;
+      display: inline-block;
+      padding: 0;
+      color: white;
+      height: $height-normal;
+      @include centerHorizontal;
+      font: {
+        weight: 500;
+        size: $font-md;
+      }
+      strong {
+        color: $color-white;
+        font: {
+          weight: 600;
+          size: $font-md + 3px;
+        }
+      }
+    }
+    .btn-left,
+    .btn-right {
+      color: $color-white;
+    }
+    .hx-goback-button {
+      left: $height-normal;
+      position: relative;
+      padding: 0;
+      top: -1px;
+      border: none;
+    }
+  }
+}

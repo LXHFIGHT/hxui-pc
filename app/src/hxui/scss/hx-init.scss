@@ -1,7 +1,8 @@
 /*
- *  x_page框架定义的默认标签样式
+ *  HXUI 框架定义的默认标签样式
  */
 @import "./variable";
+
 /*--------------------------------------------------------------------------------------*/
 /* 设置不使用默认的聚焦框
 /*--------------------------------------------------------------------------------------*/
@@ -29,15 +30,15 @@ div {
     -webkit-overflow-scrolling: touch;
 }
 
-input::-webkit-input-placeholder{ /*WebKit browsers*/
+input::-webkit-input-placeholder { /*WebKit browsers*/
     color: $color-gray-deep;
     font-weight: 300;
 }
-input::-moz-input-placeholder{ /*Mozilla Firefox*/
+input::-moz-input-placeholder { /*Mozilla Firefox*/
     color: $color-gray-deep;
     font-weight: 300;
 }
-input::-ms-input-placeholder{ /*Internet Explorer*/
+input::-ms-input-placeholder { /*Internet Explorer*/
     color: $color-gray-deep;
     font-weight: 300;
 }
@@ -45,6 +46,7 @@ input::-ms-input-placeholder{ /*Internet Explorer*/
 span {
     cursor: default;
 }
+
 /*--------------------------------------------------------------------------------------*/
 /*  a标签样式
 /*--------------------------------------------------------------------------------------*/
