@@ -37,4 +37,20 @@
     line-height: $height-normal;
     color: $color-heavy;
   }
+  label {
+    color: $color-dark;
+    font: {
+      weight: 600;
+    }
+  }
+  pre {
+    display: block;
+    background-color: $color-gray-light;
+    padding: $pm-sm 0;
+    @include borderRadius($border-radius-md);
+    line-height: $height-normal / 2;
+    .annotation {
+       color: $color-gray-deep!important;
+    }
+  }
 }
