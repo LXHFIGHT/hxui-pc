@@ -31,6 +31,16 @@ main.config(['$stateProvider','$urlRouterProvider','$httpProvider',  function($s
                 }
             }
         })
+        // 示例按钮
+        .state('demos', {
+            url: '/demos',
+            views: {
+                '': {
+                    templateUrl: 'src/views/hxui/demos/demos.html',
+                    controller: 'DemosCtrl'
+                }
+            }
+        })
 
         // 配置主页中各个模块位置
         .state('login',{

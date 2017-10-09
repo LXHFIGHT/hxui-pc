@@ -22,7 +22,7 @@
         size: $font-bg;
         weight: 400;
       };
-      width: 33.33%;
+      width: 25%;
       display: inline-block;
       @include compatible(transition, all .2s);
       &:hover {
@@ -40,12 +40,12 @@
 
 @media screen and (min-width: 640px) {
   .home-title {
-    min-width: 300px;
+    min-width: 400px;
   }
 }
 
 @media screen and (max-width: 640px) {
   .home-title {
-    min-width: 60%;
+    min-width: 90%;
   }
 }
