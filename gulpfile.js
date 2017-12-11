@@ -115,7 +115,7 @@ gulp.task('js', () => {
             console.log(err);
         }))
         .pipe(babel({
-            presets: ['es2015']
+            presets: ['env']
         }))
         .pipe(concat('main.js'))
         .pipe(rename({  'suffix': '.dev'  }))
