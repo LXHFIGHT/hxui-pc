@@ -156,6 +156,7 @@ $border-radius-lg: 12px;
 
 
 // padding margin 标准
+$pm-xs: 4px;
 $pm-sm: 8px;
 $pm-md: 16px;
 $pm-bg: 24px;
@@ -168,6 +169,10 @@ $pm-lg: 32px;
 .ml-null    {  margin-left: 0;      }
 .mr-null    {  margin-right: 0;     }
 .mb-null    {  margin-bottom: 0;    }
+.mt-xs    {  margin-top: $pm-xs;       }
+.ml-xs    {  margin-left: $pm-xs;      }
+.mr-xs    {  margin-right: $pm-xs;     }
+.mb-xs    {  margin-bottom: $pm-xs;    }
 .mt-sm      {  margin-top: $pm-sm;    }
 .ml-sm      {  margin-left: $pm-sm;   }
 .mr-sm      {  margin-right: $pm-sm;  }
@@ -192,6 +197,10 @@ $pm-lg: 32px;
 .pl-null    {  padding-left: 0;      }
 .pr-null    {  padding-right: 0;     }
 .pb-null    {  padding-bottom: 0;    }
+.pt-xs    {  padding-top: $pm-xs;       }
+.pl-xs    {  padding-left: $pm-xs;      }
+.pr-xs    {  padding-right: $pm-xs;     }
+.pb-xs    {  padding-bottom: $pm-xs;    }
 .pt-sm      {  padding-top: $pm-sm;    }
 .pl-sm      {  padding-left: $pm-sm;   }
 .pr-sm      {  padding-right: $pm-sm;  }

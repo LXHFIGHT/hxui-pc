@@ -24,14 +24,17 @@ sidebarModule.controller('SidebarCtrl', ['$scope', '$state', 'sidebarMenus', 'co
     $scope.selectedMenu = sidebarMenus[0];
 
     $scope.doClick = function($event, menu){
-        var $view = $($event.currentTarget);
-        if( !menu.selected ){
-            if ($scope.selectedMenu) {
+        if (menu.children) {
+            menu.selected = !menu.selected;
+            return;
+        }
+        if( !menu.selected){
+            if ($scope.selectedMenu && !$scope.selectedMenu.children) {
                 $scope.selectedMenu.selected = false;
             }
             menu.selected = !menu.selected;
             $scope.selectedMenu = menu;
-            $state.go(menu.state);
+            menu.state && $state.go(menu.state);
         }
     }
 }]);

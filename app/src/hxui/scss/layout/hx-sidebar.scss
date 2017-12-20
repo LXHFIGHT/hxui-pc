@@ -9,10 +9,12 @@
   width: $width-sidebar;
   overflow-x: hidden;
   background-color: $color-main-dark;
+
   .sidebar {
     height: 100%;
     display: block;
   }
+
   .project-info {
     padding: $pm-bg 0;
     text-align: center;
@@ -29,12 +31,43 @@
       font-size: $font-md;
     }
   }
+
   .sidebar-buttons {
     @include hcalc(calc(100% - 156px));
     display: block;
   }
+
   .group-btn-sidebar{
     width: 100%;
+    background-color: rgba(255,255,255, .1);
+    @include compatible(transition, .4s);
+    margin-bottom: 1px;
+    &:hover {
+      background-color: rgba(255,255,255, .2);
+    }
+    button.first-level {
+      &.selected.no-children {
+        background-color: rgba(255,255,255, .3);
+        color: white;
+        &:hover {
+          background-color: $color-main-light;
+        }
+      }
+      &.no-children:after {
+        content: '';
+      }
+      &:after {
+        content: '>';
+        color: rgba(255,255,255,.4);
+        float: right;
+        margin-right: $pm-sm;
+        display: inline-block;
+        @include compatible(transition, all .4s);
+      }
+      &.selected:after {
+        @include compatible(transform, rotate(90deg));
+      }
+    }
     button {
       font-size: 13px;
       width: 100%;
@@ -42,7 +75,7 @@
       padding-left: $pm-md;
       height: 42px;
       color: $color-gray-light;
-      background-color: rgba(255,255,255, .1);
+      background-color: transparent;
       @include compatible(transition, .4s);
       &.open:before{
         @include compatible(transform, rotate(90deg));
@@ -56,9 +89,6 @@
         @include compatible(transition, all .4s);
         @include compatible(transform-origin, 25% 55%);
       }
-      &:hover {
-        background-color: $color-main;
-      }
     }
     &.selected button{
       background-color: rgba(255,255,255, .3);
@@ -67,24 +97,28 @@
         background-color: $color-main-light;
       }
     }
-    .second-level {
-      @include compatible(transition, max-height .4s);
-      overflow-y: hidden;
-      max-height: 0;
-      &.show{
-        max-height: $height-navbar * 19;
+    .pad-children {
+      padding: $pm-xs $pm-xs 0 $pm-xs;
+      button {
+        @include borderRadius($border-radius-md);
+        margin-bottom: $pm-xs;
       }
-      button{
-        padding-left: 3 * $pm-md;
-        background-color: $color-gray-light;
-        border-bottom: 1px solid lighten($color-gray, 5%);
-        &.selected{
+      button {
+        &:hover {
+          background-color: rgba(255, 255, 255, .1);
+        }
+        &.selected {
+          background-color: rgba(255, 255, 255, .3);
+          color: white;
+
+        }
+        &.selected:hover {
           background-color: $color-main-light;
-          color: $color-gray-light;
         }
       }
     }
   }
+
   .footer-btn-sidebar {
     display: block;
     margin-top: $pm-bg;
@@ -114,6 +148,7 @@
 
     }
   }
+
   .version {
     display: block;
     height: 50px;

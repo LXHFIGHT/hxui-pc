@@ -17,10 +17,11 @@ module.value('config', {
         url: './dist/img/logo/logo.png',         // 项目 logo 所在位置
         show: true                                 // 是否展示项目logo
     },
-    needLogin: false,                               // 是否需要登录
     projectVersion: 'V 0.0.1 DEV',
     projectName: 'HXUI Admin',                      // 项目名
+    subProjectName: '',                             // 项目描述
     subject: '',                // 系统围绕的主业务名，  类似于 酒店，车检所之类的
+    needLogin: false,                               // 是否需要登录
     loginTitle: '登录管理后台',   // 登录页面标题
 });
 

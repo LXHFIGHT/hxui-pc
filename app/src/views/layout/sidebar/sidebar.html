@@ -2,23 +2,29 @@
     <div class="project-info">
         <img class="logo" ng-if="config.logo.show" ng-src="{{ config.logo.url }}" alt="">
         <span class="text-name" ng-bind="config.projectName"></span>
+        <span class="subtext-name" ng-bind="config.subProjectName"></span>
     </div>
     <div class="sidebar-buttons">
-        <div
-            class="group-btn-sidebar"
-            ng-repeat="menu in menus"
-            ng-class="{ true: 'selected', false: ''}[((!menu.children) && (menu.selected))]"
-        >
-            <button
-                    class="first-level fa fa-{{menu.icon}}"
+        <div class="group-btn-sidebar"
+             ng-repeat="menu in menus">
+            <button class="first-level {{ menu.selected ? 'selected' : ''}} {{ !menu.children && 'no-children' }}"
                     ng-if="authority.withRole(menu.role)"
                     ng-click="doClick($event, menu)"
-                    ng-bind="menu.name"
-            ></button>
+                    ng-bind="menu.name"></button>
+            <div class="pad-children" ng-if="menu.selected && menu.children">
+                <button class="fa fa-{{child.icon}}"
+                        ng-class="{ true: 'selected', false: ''}[child.selected]"
+                        ng-repeat="child in menu.children track by $index"
+                        ng-if="authority.withRole(child.role)"
+                        ng-click="doClick($event, child)"
+                        ng-bind="child.name"></button>
+            </div>
         </div>
 
         <div class="footer-btn-sidebar">
-            <!--<button class="fa fa-user" ng-click="toUserInfo()"></button>-->
+            <button class="fa fa-user"
+                    ng-if="authority.withRole(authority.ROLE_SUPER_ADMIN + '|' + authority.ROLE_INSPECTION_MANAGER)"
+                    ng-click="toUserInfo()"></button>
             <button class="fa fa-sign-out" ng-click="doLogout()"></button>
         </div>
 

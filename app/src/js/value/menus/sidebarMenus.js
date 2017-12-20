@@ -13,7 +13,30 @@ menus.value('sidebarMenus', [
         state: 'enter.list',
         icon: 'list',
         role: '*',
-        selected: true
+        selected: true,
+        children: [
+            {
+                name: '二级菜单1',
+                state: '',
+                icon: 'car',
+                role: '*',
+                selected:false
+            },
+            {
+                name: '二级菜单2',
+                state: '',
+                icon: 'calendar',
+                role: '*',
+                selected:false
+            },
+            {
+                name: '二级菜单3',
+                state: 'enter.orders',
+                icon: 'check-square-o',
+                role: '*',
+                selected: false
+            }
+        ]
     },
     {
         name: '系统设置',
@@ -21,5 +44,28 @@ menus.value('sidebarMenus', [
         icon: 'cog',
         role: '*',
         selected: false
+    },
+    {
+        name: '一级菜单',
+        state: 'enter.system',
+        icon: 'cogs',
+        role: '*',
+        selected: false,
+        children: [
+            {
+                name: '二级菜单5',
+                state: '',
+                icon: 'user',
+                role: '*',
+                selected:false
+            },
+            {
+                name: '二级菜单6',
+                state: '',
+                icon: 'users',
+                role: '*',
+                selected: false
+            }
+        ]
     }
 ]);
