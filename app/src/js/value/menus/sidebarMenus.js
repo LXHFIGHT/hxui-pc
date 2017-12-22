@@ -16,22 +16,22 @@ menus.value('sidebarMenus', [
         selected: true,
         children: [
             {
-                name: '二级菜单1',
-                state: '',
-                icon: 'car',
+                name: '带header列表',
+                state: 'enter.list-head',
+                icon: 'th',
                 role: '*',
                 selected:false
             },
             {
-                name: '二级菜单2',
-                state: '',
+                name: '带footer列表',
+                state: 'enter.list-footer',
                 icon: 'calendar',
                 role: '*',
                 selected:false
             },
             {
-                name: '二级菜单3',
-                state: 'enter.orders',
+                name: '完整布局列表',
+                state: 'enter.list-both',
                 icon: 'check-square-o',
                 role: '*',
                 selected: false

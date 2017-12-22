@@ -5,10 +5,10 @@
  *  The main angular.js(v 1.4) configuration of the project
  */
 
-let main = angular.module('mainApp', [ 'ui.router', 'MainController', 'MainFilter', 'MainService', 'MainValue', 'Config']);
+let main = angular.module('mainApp', ['ui.router', 'MainController', 'MainFilter', 'MainService', 'MainValue', 'Config']);
 
 // 路由配置
-main.config(['$stateProvider','$urlRouterProvider','$httpProvider',  function($stateProvider, $urlRouterProvider, $httpProvider ){
+main.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', ($stateProvider, $urlRouterProvider, $httpProvider ) => {
     $urlRouterProvider.when('', '/home');
     $urlRouterProvider.otherwise('/enter');
     $stateProvider
@@ -53,7 +53,7 @@ main.config(['$stateProvider','$urlRouterProvider','$httpProvider',  function($s
             }
         })
         // 配置主页中各个模块位置
-        .state('enter',{
+        .state('enter', {
             url: '/enter',
             views:{
                 '':{
@@ -68,7 +68,18 @@ main.config(['$stateProvider','$urlRouterProvider','$httpProvider',  function($s
 
                 }
             }
-        });
+        })
+        // 配置主页中各个模块位置
+        .state('enter.list-head', {
+            url: '/listHead',
+            views:{
+                'main@enter': {
+                    templateUrl: 'src/views/list/list-head/index.html',
+                    controller: 'ListHeadCtrl'
+                }
+            }
+        })
+    ;
 
     $httpProvider.defaults.transformRequest = function(obj){
         var str = [];
