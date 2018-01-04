@@ -13,13 +13,24 @@
             <h3>
                 一. 操作反馈
             </h3>
-            <h5>
-                1. 轻量消息提示 <strong>popTip</strong>
-            </h5>
-            <button class="hx-button gray"    ng-click="event.doPopInfo(0)">常规提示</button>
-            <button class="hx-button green"   ng-click="event.doPopInfo(1)">成功提示</button>
-            <button class="hx-button orange"  ng-click="event.doPopInfo(2)">警告提示</button>
-            <button class="hx-button red"     ng-click="event.doPopInfo(3)">错误提示</button>
+            <div class="detail">
+                <h5 >
+                    1. 轻量消息提示 <strong>popTip</strong>
+                </h5>
+                <button class="hx-button gray"    ng-click="event.doPopInfo(0)">常规提示</button>
+                <button class="hx-button green"   ng-click="event.doPopInfo(1)">成功提示</button>
+                <button class="hx-button orange"  ng-click="event.doPopInfo(2)">警告提示</button>
+                <button class="hx-button red"     ng-click="event.doPopInfo(3)">错误提示</button>
+            </div>
+            <div class="detail">
+                <h5 class="mb-md">
+                    2. 弹出加载中提示框使用 <strong>showLoading</strong> 方法， 隐藏则使用 <strong>hideLoading</strong> 方法
+                </h5>
+                <button class="hx-button green" ng-click="event.doShowLoading()">弹出加载框</button>
+                <button class="hx-button" ng-click="event.doShowLoading('登录中...', 1500)">加载文本为"登录中..."</button>
+                <button class="hx-button" ng-click="event.doShowLoading('3秒就撤...', 3000)">弹出3秒后消失</button>
+                <button class="hx-button gray" ng-click="event.doHideLoading()">取消加载</button>
+            </div>
         </section>
     </div>
 </section>

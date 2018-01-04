@@ -19,6 +19,7 @@
   h6, h5 {
     line-height: $height-navbar / 2;
     color: $color-heavy;
+    margin-bottom: $pm-md;
   }
   strong {
     padding: 2px $pm-sm;
@@ -52,5 +53,8 @@
     .annotation {
        color: $color-gray-deep!important;
     }
+  }
+  div.detail {
+    margin-bottom: $pm-bg;
   }
 }

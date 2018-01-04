@@ -17,6 +17,12 @@ DemosCtrl.controller('DemosCtrl', ['$scope', ($scope) => {
                 case 3: HXUI.popTipError('调用 HXUI.popTipError 弹出错误提示框'); break;
                 default: break;
             }
+        },
+        doShowLoading: (title, during) => {
+            HXUI.showLoading({ title, during });
+        },
+        doHideLoading: () => {
+            HXUI.hideLoading();
         }
     };
 
