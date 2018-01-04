@@ -31,12 +31,12 @@
                 $('.hx-loading-modal').addClass('show');
                 clearTimeout(timer);
             }, 30);
-            if (during && (typeof during === 'number')) {
-                const timer2 = setTimeout(() => {
-                    $('.hx-loading-modal').removeClass('show');
-                    clearTimeout(timer2);
-                }, during);
-            }
+        }
+        if (during && (typeof during === 'number')) {
+            const timer2 = setTimeout(() => {
+                $('.hx-loading-modal').removeClass('show');
+                clearTimeout(timer2);
+            }, during);
         }
     };
 
