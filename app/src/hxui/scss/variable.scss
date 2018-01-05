@@ -65,15 +65,16 @@ $color-dark:    #474747;
 
 $color-green:   #8ecc45;
 $color-green-excel: #1C7243;
-$color-green-light: rgba(179,231,148,.5);
 $color-yellow: rgba(255, 235, 90,  1);
 $color-golden: rgba(255, 205, 60,  1);
 $color-orange:  #ff8d0a;
-$color-red: #ff5a50    ;
-$color-red-light: #f99090;
+$color-red: #ff5a50;
 $color-pink: #ed5871;
-$color-blue-light: cornflowerblue;
-$color-blue: #2962ad;
+$color-blue: cornflowerblue;
+$color-green-light:   lighten($color-green, 38%);
+$color-orange-light: lighten($color-orange, 45%);
+$color-red-light: lighten($color-red, 34%);
+$color-blue-light: lighten($color-blue, 34%);
 
 .blur {
   -webkit-filter: blur(10px); /* Chrome, Opera */
@@ -97,8 +98,10 @@ $color-blue: #2962ad;
 .bg-golden     { background-color: rgba(255, 205, 60,  1);   }
 .bg-orange     { background-color:  #ff6c3f;                 }
 .bg-red        { background-color: #ff5a50;                  }
-.bg-red-light  { background-color: #f99090;                  }
-.bg-blue-light { background-color: cornflowerblue;           }
+.bg-red-light  { background-color: $color-red-light!important;         }
+.bg-blue-light { background-color: $color-blue-light!important;        }
+.bg-green-light { background-color: $color-green-light!important;      }
+.bg-orange-light { background-color: $color-orange-light!important;    }
 .bg-blue       { background-color: #2962ad;                  }
 .bg-gray-light { background-color: $color-gray-light;        }
 

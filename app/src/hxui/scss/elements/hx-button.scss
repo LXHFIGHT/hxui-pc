@@ -38,9 +38,9 @@
     }
   }
   &.blue {
-    background-color: $color-blue-light;
+    background-color: $color-blue;
     &:hover{
-      background-color: lighten($color-blue-light, 10%);
+      background-color: lighten($color-blue, 10%);
     }
   }
   &.green {

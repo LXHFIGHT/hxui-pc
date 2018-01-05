@@ -12,15 +12,14 @@ input[type='date'].hx-input,
 select.hx-input,
 textarea.hx-input{
   position: relative;
-  font-size: 15px!important;
-  line-height: 25px!important;
+  font-size: 14px;
+  line-height: $height-regular;
   resize: none;
-  padding: 4px !important;
+  padding: 0 $pm-sm;
   border: 1px solid #cccccc;
-  -webkit-transition: all   0.3s;
-  -moz-transition: all  0.3s;
-  -o-transition: all    0.3s;
-  transition: all .3s;
+  color: $color-dark;
+  @include compatible(transition, all .4s);
+  @include borderRadius($border-radius-md);
 }
 input[type='text'].blank,
 input[type='email'].blank,
@@ -30,7 +29,7 @@ input[type='password'].blank,
 input[type='date'].blank,
 select.blank,
 textarea.blank{
-  border: none!important;
+  border: none;
   @include compatible(transition, all .4s);
   &:hover{
     background-color: $color-gray-light!important;
@@ -45,7 +44,6 @@ select.hx-input{
 }
 .hx-input.required{
   border:1px solid #d43039!important;
-
 }
 .hx-input.required:focus{
   -webkit-box-shadow:  0 0 4px rgba(212,48,57,.8);
