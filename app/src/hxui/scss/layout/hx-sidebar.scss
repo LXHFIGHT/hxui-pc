@@ -160,6 +160,21 @@
   }
 }
 
+// 侧边栏自定义滚动条样式
+.hxui-sidebar::-webkit-scrollbar {
+  width: $pm-sm;
+  height: $pm-sm;
+}
+.hxui-sidebar::-webkit-scrollbar-track {
+  width: $pm-sm;
+  background-color: $color-main-dark;
+}
+.hxui-sidebar::-webkit-scrollbar-thumb {
+  border-radius: $pm-sm;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.4);
+  background-color: rgba(255, 255, 255, .4);
+}
+
 @media screen and (max-width: 640px) {
   .hx-sidebar {
     position: absolute!important;
