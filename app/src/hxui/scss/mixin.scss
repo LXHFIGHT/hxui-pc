@@ -20,6 +20,7 @@
   width: -webkit-$exp;
   width: $exp;
 }
+
 // 高度度计算 @include hcalc(calc(100% * 2 /3 - 6rem))
 @mixin hcalc($exp) {
   height: -moz-$exp;
@@ -94,4 +95,36 @@
   position: absolute;
   top: 0;
   left: 0;
+}
+
+@mixin hxButton($bgColor, $color: white, $height:34px) {
+  height: $height;
+  padding: 0 8px;
+  background-color: $bgColor;
+  font-size: 14px;
+  color: $color;
+  @include borderRadius(4px);
+  @include compatible(transition, all .4s);
+  &:hover {
+    filter: brightness(95%);
+  }
+  &:active {
+    filter: brightness(84%);
+  }
+}
+
+@mixin hxBlankButton($bgColor, $color: white, $height:34px) {
+  border: 1px solid $bgColor;
+  background-color: $color;
+  color: $bgColor;
+  @include compatible(transition, all .4s);
+  height: $height;
+  padding: 0 8px;
+  font-size: 14px;
+  @include borderRadius(4px);
+  @include compatible(transition, all .4s);
+  &:hover{
+    color: $color;
+    background-color: $bgColor;
+  }
 }

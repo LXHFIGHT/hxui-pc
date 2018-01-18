@@ -5,13 +5,15 @@
   position: relative;
   height: $height-normal;
   border-bottom: 1px solid $color-gray;
+  padding: 0 $pm-md;
+  $height-content: $height-normal - $pm-sm;
   .title{
-    vertical-align: top;
     display: inline-block;
     font-size: $font-md;
     height: $height-normal;
     line-height: $height-normal;
     color: $color-heavy;
+    margin-left: 0;
     strong {
       color: $color-main;
       font: {
@@ -20,40 +22,58 @@
       }
     }
   }
-  .btn-left,
   .btn-right {
-    height: $height-normal;
-    min-width: $height-normal;
-    background-color: transparent;
-    color: $color-main;
-    padding: 0 $pm-sm;
-    z-index: 100;
   }
-  .btn-left {
-    float: left;
-  }
-  .btn-right {
+  .hx-search {
     float: right;
+    display: inline-block;
+    height: $height-content;
+    top: $pm-sm/2 - 1px;
+    position: relative;
+    input {
+      height: 100%;
+      border: none;
+      border-bottom: 1px solid $color-gray-deep;
+      padding: 0 $height-content 0 $pm-md;
+      @include compatible(transition, border .4s);
+    }
+    button {
+      height: $height-content - 1px;
+      width: $height-content;
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: $font-md;
+      color: $color-gray-deep;
+      @include compatible(transition, all .4s);
+    }
+    &:hover {
+      input {
+        border-bottom: 1px solid $color-main;
+      }
+      button {
+        color: $color-main;
+      }
+    }
   }
 }
 
 @media screen and (min-width: 640px) {
   .hx-header {
-    .title {
-      margin-left: $pm-md;
-    }
+
   }
 }
 
 @media screen and (max-width: 640px) {
+  $color-header-word: white;  // 统一修改此处调整导航条文字或iconfont字体颜色
   .hx-header {
     background-color: $color-main;
-    color: white;
+    color: $color-header-word;
     .title {
       z-index: 10;
       display: inline-block;
       padding: 0;
-      color: white;
+      color: $color-header-word;
       height: $height-normal;
       @include centerHorizontal;
       font: {
@@ -61,7 +81,7 @@
         size: $font-md;
       }
       strong {
-        color: $color-white;
+        color: $color-header-word;
         font: {
           weight: 600;
           size: $font-md + 3px;
@@ -70,7 +90,15 @@
     }
     .btn-left,
     .btn-right {
-      color: $color-white;
+      color: $color-header-word;
+    }
+    .hx-search {
+      z-index: 1001;
+      float: right;
+      background-color: red;
+      button {
+        color: $color-header-word;
+      }
     }
     .hx-goback-button {
       left: $height-normal;

@@ -6,125 +6,46 @@
 
 // 实心按钮
 .hx-button {
-  @include borderRadius($border-radius-md);
-  height: $height-regular;
-  padding: 0 $pm-sm;
-  background-color: $color-main;
-  font-size: 14px;
-  color: $color-white;
-  @include compatible(transition, all .4s);
-  &:hover {
-    background-color: $color-main-light;
-  }
-  &:disabled {
-    background-color: $color-gray-deep!important;
-  }
-  &.gray  {
-    background-color: darken($color-gray, 14%);
+  @include hxButton($color-main);
+  &:disabled, &.disabled {
+    background-color: darken($color-gray, 5%)!important;
+    cursor: not-allowed;
+    color: $color-gray-deep;
     &:hover {
-      background-color: darken($color-gray, 18%);
+      filter: brightness(100%);
+      background-color: darken($color-gray, 5%)!important;
     }
   }
-  &.orange {
-    background-color: $color-orange;
-    &:hover{
-      background-color: lighten($color-orange, 10%);
-    }
-  }
-  &.red  {
-    background-color: $color-red;
-    &:hover{
-      background-color: lighten($color-red, 10%);
-    }
-  }
-  &.blue {
-    background-color: $color-blue;
-    &:hover{
-      background-color: lighten($color-blue, 10%);
-    }
-  }
-  &.green {
-    background-color: $color-green;
-    &:hover{
-      background-color: lighten($color-green, 10%);
-    }
-  }
-  &.excel {
-    background-color: $color-green-excel;
-    &:hover{
-      background-color: lighten($color-green-excel, 10%);
-    }
-  }
-  // 以文字形式展现的按钮
-  &.plant{
-    @include borderRadius($border-radius-md);
-    @include compatible(transition, all .4s);
-    border: none;
-    background-color: transparent;
-    min-height: $height-navbar - 2 * $pm-sm;
-    color: $color-heavy;
-    &:hover{
-      background-color: $color-gray-light;
-    }
-    &.red{
-      color: $color-red;
-      &:hover{
-        background-color: lighten($color-red, 30%);
-      }
-    }
-  }
+  &.gray    {  @include hxButton(darken($color-gray-deep, 14%));  }
+  &.orange  {  @include hxButton($color-orange);  }
+  &.red     {  @include hxButton($color-red);  }
+  &.blue    {  @include hxButton($color-blue);  }
+  &.green   {  @include hxButton($color-green);  }
+  &.excel   {  @include hxButton($color-green-excel);  }
+  &.pink   {  @include hxButton($color-pink);  }
+  &.yellow   {  @include hxButton($color-golden, $color-heavy);  }
 }
 
 // 空心按钮
-.hx-button.blank{
-  border: 1px solid $color-main;
-  background-color: $color-white;
-  color: $color-main;
-  @include compatible(transition, all .4s);
-  &:hover{
-    color: $color-white;
-    background-color: $color-main;
-  }
-  &.red{
-    border: 1px solid $color-red;
-    color: $color-red;
-    &:hover{
-      color: $color-white;
-      background-color: $color-red;
+.hx-blank-button{
+  @include hxBlankButton($color-main);
+  &:disabled, &.disabled {
+    background-color: darken($color-gray, 5%)!important;
+    cursor: not-allowed;
+    border: 1px solid darken($color-gray, 5%)!important;
+    color: $color-gray-deep!important;
+    &:hover {
+      background-color: darken($color-gray, 5%)!important;
     }
   }
-  &.gray{
-    border: 1px solid #aaa;
-    color: #aaa;
-    &:hover{
-      color: $color-white;
-      background-color: #aaa;
-    }
-  }
-  &.green{
-    border: 1px solid $color-green;
-    color: $color-green;
-    &:hover{
-      color: $color-white;
-      background-color: $color-green;
-    }
-  }
-  &.golden{
-    border: 1px solid $color-golden;
-    color: $color-golden;
-    &:hover{
-      color: $color-white;
-      background-color: $color-golden;
-    }
-  }
-  &.orange{
-    border: 1px solid $color-orange;
-    color: $color-orange;
-    &:hover{
-      color: $color-white;
-      background-color: $color-orange;
-    }
-  }
+  &.gray    {  @include hxBlankButton(darken($color-gray-deep, 14%));  }
+  &.orange  {  @include hxBlankButton($color-orange);  }
+  &.red     {  @include hxBlankButton($color-red);  }
+  &.blue    {  @include hxBlankButton($color-blue);  }
+  &.green   {  @include hxBlankButton($color-green);  }
+  &.excel   {  @include hxBlankButton($color-green-excel);  }
+  &.pink    {  @include hxBlankButton($color-pink);  }
+  &.yellow  {  @include hxBlankButton($color-golden);  }
 }
 
 // 按钮尺寸
