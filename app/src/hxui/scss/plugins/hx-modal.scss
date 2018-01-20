@@ -6,7 +6,7 @@
    .hx-image-modal 为图片预览模态框
    两者均需要添加 show 伪类进行展示
   */
-.hx-modal, .hx-image-modal {
+.hx-modal {
   position: absolute;
   z-index: 1000;
   top: 0;
@@ -17,12 +17,10 @@
   visibility: hidden;
   opacity: .0;
   @include compatible(transition, all .4s);
-
   &.show{
     visibility: visible;
     opacity: 1.0;
   }
-
   // 模态框内容版
   .content{
     top: 15%;
@@ -104,58 +102,11 @@
   }
 }
 
-
-/*
-   图片预览组件模态框 及其 组件
-  */
-.hx-image-modal {
-  text-align: center;
-  // 图片样式
-  img {
-    max-height: 100%;
-    max-width: 100%;
-    @include centerInParent;
-  }
-  // 退出预览按钮样式
-  button.btn-quit-preview {
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    @include compatible(transform, translateX(-50%));
-    @include compatible(transition, all .2s);
-    height: $height-normal;
-    background-color: $color-white;
-    @include borderRadius(20px 20px);
-    @include boxShadow(0 5px 15px rgba(0,0,0,.4));
-    width: 160px;
-    &:hover {
-      background-color: $color-main;
-      color: white;
-    }
-  }
-  // 上下切换按钮样式
-  button.btn-to-last, button.btn-to-next {
-    @include centerVertical;
-    color: $color-white;
-    font-size: 44px;
-    height: 100%;
-    padding: 0 $pm-bg;
-    background-color: transparent;
-    @include compatible(transition, all .4s);
-    text-shadow: 0 3px 8px rgba(0,0,0, .3);
-    &:hover {
-      background-color: rgba(255,255,255,.3);
-    }
-  }
-  .btn-to-last {  left: 0    }
-  .btn-to-next {  right: 0;  }
-}
-
 /* ----------------------------------------------------
     移动端样式适配
  ------------------------------------------------------ */
 @media screen and (max-width: 640px) {
-  .hx-modal, .hx-image-modal {
+  .hx-modal {
     z-index: 1300;
     .pad-content {
       width: 95%;
@@ -173,12 +124,6 @@
       .map {
         margin-top: $pm-sm;
       }
-    }
-  }
-  .hx-image-modal button.btn-to-last,
-  .hx-image-modal button.btn-to-next {
-    &:hover {
-      background-color: rgba(255, 255, 255, .0);
     }
   }
 }

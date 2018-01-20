@@ -26,6 +26,16 @@ DemosCtrl.controller('DemosCtrl', ['$scope', ($scope) => {
         },
         doMarkInput: (type) => {
             HXUI.markInput({ type });
+        },
+        doImagePreview: () => {
+            let urls = [
+                'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-1.jpeg',
+                'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-2.png',
+                'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-3.jpeg',
+                'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-4.jpeg'
+            ];
+            const currentUrl = 'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-3.jpeg';
+            HXUI.imagePreviewer({ urls, currentUrl });
         }
     };
 
