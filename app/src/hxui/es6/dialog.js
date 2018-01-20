@@ -15,7 +15,7 @@
      */
     const showLoading = (options) => {
         const title = options ? ( options.title || '加载中...' ) : '加载中...';
-        const during = options ? options.during : null;
+        const during = options ? (options.during || 5000) : 5000;
         const $view = $('.hx-loading-modal');
         if ($view.length !== 0) {
             $view.addClass('show');
@@ -32,12 +32,10 @@
                 clearTimeout(timer);
             }, 30);
         }
-        if (during && (typeof during === 'number')) {
-            const timer2 = setTimeout(() => {
-                $('.hx-loading-modal').removeClass('show');
-                clearTimeout(timer2);
-            }, during);
-        }
+        const timer2 = setTimeout(() => {
+            $('.hx-loading-modal').removeClass('show');
+            clearTimeout(timer2);
+        }, during);
     };
 
     const hideLoading =  () => {

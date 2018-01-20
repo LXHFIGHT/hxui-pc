@@ -98,12 +98,10 @@
                         $('.modal-image-preview').attr('src', urls[index]);
                     }
                 });
-
                 $('.btn-rotate-left').unbind().bind('click', function () {
                     currentDegree = (currentDegree - 90);
                     document.getElementsByClassName('modal-image-preview')[0].style.transform = 'translate(-50%, -50%) ' + 'rotate(' + currentDegree + 'deg)';
                 });
-
                 $('.btn-rotate-right').unbind().bind('click', function () {
                     currentDegree = (currentDegree + 90);
                     document.getElementsByClassName('modal-image-preview')[0].style.transform = 'translate(-50%, -50%) ' + 'rotate(' + currentDegree + 'deg)';
