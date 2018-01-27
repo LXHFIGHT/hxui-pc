@@ -39,9 +39,27 @@ DemosCtrl.controller('DemosCtrl', ['$scope', ($scope) => {
         }
     };
 
-    $scope._init = {
 
-    }
+    $scope._init = {
+        initRoute: () => {
+            HXUI.showRouteMap({
+                query: 'map',
+                startLabel: '起始点',
+                endLabel: '结束点',
+                startTime: '05.10 12:30',
+                endTime: '05.10 13:00',
+                routes: [
+                    { lng: 113.23, lat: 23.33 },
+                    { lng: 114.45, lat: 23.40 },
+                    { lng: 113.87, lat: 23.52 }
+                ]
+            })
+        }
+    };
+
+    $scope.init = function(){
+        $scope._init.initRoute();
+    }();
 
 }]);
 
