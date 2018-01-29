@@ -16,8 +16,8 @@
         let startTime = options.startTime;    // 开始时间
         let endTime = options.endTime;        // 结束时间
         let isComplete = options.isComplete;        // 结束时间
-        let iconStartUrl = '../img/icon/icon-route-start.png',
-            iconEndUrl = '../img/icon/icon-route-end.png';
+        let iconStartUrl = '/dist/hxui/img/icon/icon-route-start.png',
+            iconEndUrl = '/dist/hxui/img/icon/icon-route-end.png';
         if (!window.BMap) {
             console.warn(`引用HXUI.showRouteMap方法需要引入百度地图JavsScript API，请在入口网页文件（index.html）引入: <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={YOUR_APP_KEY}"></script> `);
             return null;
@@ -30,7 +30,7 @@
         map.enableScrollWheelZoom(true);
         map.clearOverlays();
         let _markPoint = function (item) {
-            let iconCaretUrl = '../img/icon/icon-caret-down.png';
+            let iconCaretUrl = '/dist/hxui/img/icon/icon-caret-down.png';
             let {lat, lng, iconUrl} = item;
             if (lat && lng) {
                 let point = new BMap.Point(lng, lat);

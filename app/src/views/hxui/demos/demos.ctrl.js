@@ -48,10 +48,11 @@ DemosCtrl.controller('DemosCtrl', ['$scope', ($scope) => {
                 endLabel: '结束点',
                 startTime: '05.10 12:30',
                 endTime: '05.10 13:00',
+                isComplete: true,
                 routes: [
                     { lng: 113.23, lat: 23.33 },
-                    { lng: 114.45, lat: 23.40 },
-                    { lng: 113.87, lat: 23.52 }
+                    { lng: 113.35, lat: 23.35 },
+                    { lng: 113.28, lat: 23.40 }
                 ]
             })
         }
