@@ -64,6 +64,18 @@
                     </div>
                 </div>
             </div>
+            <div class="detail">
+                <h5 class="mb-md">
+                    6. 地图位置选择器可以使用 <strong>addressChooser</strong> 方法
+                </h5>
+                <div class="mb-sm" style="max-width: 320px">
+                    <span type="text"
+                          class="text-address-info {{ location && 'color-main' }}"
+                          ng-bind="location"></span>
+                    <button class="hx-button green width-full mt-md"
+                            ng-click="event.doChooseAddress()">点此选择位置</button>
+                </div>
+            </div>
 
         </section>
     </div>

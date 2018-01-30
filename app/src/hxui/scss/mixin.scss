@@ -128,3 +128,24 @@
     background-color: $bgColor;
   }
 }
+
+@mixin timesIcon($bgColor: #eee) {
+  position: relative;
+  &:before, &:after {
+    content: "";
+    background-color: $bgColor;
+    height: 60%;
+    margin: 0 auto;
+    display: inline-block;
+    width: 1px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  &:before {
+    @include compatible(transform, (translate(-50%, -50%) rotate(45deg)));
+  }
+  &:after {
+    @include compatible(transform, (translate(-50%, -50%) rotate(-45deg)));
+  }
+}

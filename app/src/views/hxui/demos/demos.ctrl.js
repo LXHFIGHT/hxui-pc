@@ -8,6 +8,7 @@
 let DemosCtrl = angular.module('HXUIController');
 
 DemosCtrl.controller('DemosCtrl', ['$scope', ($scope) => {
+    $scope.location = '';
     $scope.event = {
         doPopInfo: (type) => {
             switch (type) {
@@ -36,6 +37,15 @@ DemosCtrl.controller('DemosCtrl', ['$scope', ($scope) => {
             ];
             const currentUrl = 'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-3.jpeg';
             HXUI.imagePreviewer({ urls, currentUrl });
+        },
+        doChooseAddress: () => {
+            HXUI.addressSelector({
+                choose: (position) => {
+                    let { lng, lat, address, city, title } = position;
+                    $scope.location = `${city} ${title} ${address}, （经度：${lng}, 纬度：${lat}）`;
+                    $scope.$apply();
+                }
+            });
         }
     };
 

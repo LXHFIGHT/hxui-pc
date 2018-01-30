@@ -51,7 +51,7 @@ let htmlSrc = [
     hxuiJsSrc  = 'app/src/hxui/es6/**/*.js', // HXUI 库 Javascript 文件
     hxuiJsDist = 'app/dist/hxui/js/',       // HXUI 库 JavaScript 存储位置
     hxuiImgSrc = 'app/src/hxui/img/**/*.*',       // HXUI 库 JavaScript 存储位置
-    hxuiImgDist = 'app/dist/hxui/img/',       // HXUI 库 JavaScript 存储位置
+    hxuiImgDist = 'app/dist/hxui/img/';       // HXUI 库 JavaScript 存储位置
 
 /* 建立服务器并监控静态文件进行自动刷新 */
 gulp.task('server', () => {

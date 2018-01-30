@@ -1,7 +1,7 @@
 @import "./../variable";
 
 .hx-header {
-  z-index: 1000;
+  z-index: 10;
   position: relative;
   height: $height-normal;
   border-bottom: 1px solid $color-gray;

@@ -2,7 +2,7 @@
 
 // 为一个组件添加一个光标划入才显示的蒙层，
 // 需要展示的文案写在组件的 aria-label 标签中
-&.hx-mask {
+.hx-mask {
   position: relative;
   overflow: hidden;
   &:after {

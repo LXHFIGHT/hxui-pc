@@ -1,2 +1,12 @@
 @import "../../../hxui/scss/variable";
 
+
+.text-address-info {
+  display: block;
+  height: 200px;
+  line-height: $height-regular;
+  padding: $pm-md;
+  width: 100%;
+  background-color: $color-gray-light;
+  color: $color-heavy;
+}
