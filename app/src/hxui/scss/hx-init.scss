@@ -50,14 +50,17 @@ span {
 /*--------------------------------------------------------------------------------------*/
 /*  a标签样式
 /*--------------------------------------------------------------------------------------*/
-a{
-    color: $color-main;
+a {
+    color: $color-heavy;
     text-decoration: none;
     cursor: pointer;
 }
-a:hover {   color: $color-main-light;  text-decoration: none!important;    }
-a:active{   color: purple;  text-decoration: none;                      }
-a:link  {   text-decoration: none;  color: purple;                      }
+a:hover {
+    color: $color-main;
+    text-decoration: none!important;
+}
+a:active {   text-decoration: none;                      }
+a:link   {   text-decoration: none;  color: purple;      }
 
 select{
     padding: 0 10px;

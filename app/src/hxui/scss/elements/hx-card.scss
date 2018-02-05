@@ -13,11 +13,15 @@
     display: block;
     text-align: left!important;
     padding: 0 $pm-sm;
-    label, span {
+    label, span, a {
       font-size: $font-md;
       line-height: $font-md * 2.5;
       height: $font-md * 2.5;
       @include nowrap;
+      color: $color-heavy;
+    }
+    a:hover {
+      color: $color-main;
     }
     label {
       color: $color-gray-deep;
