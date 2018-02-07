@@ -4,10 +4,12 @@
 .hx-emptyset {
   height: 100%;
   width: 100%;
-  display: block;
+  min-height: 150px;
+  display: flex;
   left: 0;
   top: 0;
-  line-height: 200px;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   position: relative;
   background-color: $color-gray-light;
