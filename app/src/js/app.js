@@ -151,10 +151,32 @@ main.run(['$rootScope', '$location', '$log', '$state','globalValue', 'HttpHelper
             }
         });
 
+        /**
+         * 用于判断当前页面路由state，选中侧边栏相关的按钮
+         * @param name
+         * @private
+         */
+        const _autoSelectOption = (name) => {
+            for (let item of sidebarMenus) {
+                if (item.children && Object.prototype.toString.call(item.children) === '[object Array]') {
+                    for (const subItem of item.children) {
+                        if(name === subItem.state) {
+                            subItem.selected = true;
+                            item.selected = true;
+                            continue;
+                        }
+                        subItem.selected = false;
+                    }
+                }
+            }
+        };
+
         // 路由跳转成功控制
         $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
-            $rootScope.stateStack.push(toState.name);
+            const { name } = toState;
+            $rootScope.stateStack.push(name);
             $rootScope.stateParamsStack.push(toParams);
+            _autoSelectOption(name)
         });
     }]);
 
