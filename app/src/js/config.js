@@ -10,19 +10,19 @@ var module = angular.module('Config', []);
 // the main configuration content
 module.value('config', {
     isDebug: true,
-
-    serverPrefix: 'http://localhost:3000',          // 提供数据服务器位置
-
+    serverPrefix: 'http://localhost:3000',  // 提供数据服务器位置
     logo: {
-        url: './dist/img/logo/logo.png',         // 项目 logo 所在位置
-        show: true                                 // 是否展示项目logo
+        url: './dist/img/logo/logo.png',    // 项目 logo 所在位置
+        show: true                          // 是否展示项目logo
     },
     projectVersion: 'V 0.0.1 DEV',
-    projectName: 'HXUI Admin',                      // 项目名
-    subProjectName: '',                             // 项目描述
-    subject: '',                // 系统围绕的主业务名，  类似于 酒店，车检所之类的
-    needLogin: false,                               // 是否需要登录
-    loginTitle: '登录管理后台',   // 登录页面标题
+    projectName: 'HXUI Admin',              // 项目名
+    subProjectName: '',                     // 项目描述
+    subject: '',                            // 系统围绕的主业务名，  类似于 酒店，车检所之类的
+    needLogin: false,                       // 是否需要登录
+    loginTitle: '登录管理后台',               // 登录页面标题
+    loginBg: './dist/img/bg/bg-login.jpg',  // 登录页面背景
+    copyright: '豪享UI'                      // 企业信息
 });
 
 module.factory('globalValue',[function(){

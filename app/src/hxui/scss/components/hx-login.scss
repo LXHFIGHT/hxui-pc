@@ -10,6 +10,7 @@
   padding: $pm-bg;
   visibility: hidden;
   border: 1px solid $color-gray;
+  background-color: rgba(255,255,255,.75) !important;
   @include compatible(transition, all .4s);
   @include borderRadius($border-radius-md);
   @include boxShadow(0 $pm-sm*2 $pm-md*2  -13px rgba(0,0,0,.3));
@@ -42,6 +43,7 @@
     height: $height-navbar - 2 * $pm-sm;
     padding: 0 $pm-sm;
     width: 100%;
+    background-color: transparent;
     @include compatible(transition, all .4s);
     &:focus {
       border: 1px solid lighten($color-main-light, 10%);
@@ -72,7 +74,7 @@
 @media screen and (max-width: 640px) {
   .pad-login, .pad-register {
     width: 95%;
-    padding: $pm-sm $pm-md;
+    padding: $pm-md;
     border: none;
 
     .tip {
@@ -90,11 +92,9 @@
       width: $height-navbar;
     }
     .row {
-      //&.main-tip {
-      //  margin-bottom: 0;
-      //}
-      padding: 0 0 $pm-md 0;
+      padding: 0;
       input {
+        background-color: transparent;
         @include borderRadius(0px);
         border: none;
         font-size: 14px;

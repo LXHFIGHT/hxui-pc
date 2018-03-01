@@ -1,55 +1,62 @@
-<div class="pad-login center-parent"
-     ng-class="{true: 'show', false:''}[isLoginMode]">
-    <div class="row">
-        <img class="logo-company" ng-src="{{ logoUrl }}" alt="">
-    </div>
-    <div class="row main-tip" ng-bind="config.loginTitle"></div>
-    <span class="tip">用户账号</span>
-    <div class="row">
-        <input type="text" class="input-username" placeholder="" ng-model="userInfo.username">
-    </div>
-    <span class="tip">用户密码</span>
-    <div class="row">
-        <input type="password" class="input-username" placeholder="" ng-model="userInfo.password" ng-keyup="keyForLogin($event)">
-    </div>
-    <div class="row">
-        <button class="hx-button btn-main" type="button" ng-click="doLogin()" >登录</button>
-        <button class="hx-button btn-sub" type="button" ng-click="toggleMode(false)" ng-bind="'我要注册' + config.subject"></button>
-    </div>
-</div>
+<div class="hx-block"
+     style="background-image: url({{ config.loginBg }}); ">
 
-<div class="pad-register center-parent"
-    ng-class="{true: '', false:'show'}[isLoginMode]">
-    <div class="row">
-        <img class="logo-company" ng-src="{{ logoUrl }}" alt="">
+    <div class="pad-login center-parent"
+         ng-class="{true: 'show', false:''}[isLoginMode]">
+        <div class="row">
+            <img class="logo-company" ng-src="{{ logoUrl }}" alt="">
+        </div>
+        <div class="row main-tip" ng-bind="config.loginTitle"></div>
+        <span class="tip">用户账号</span>
+        <div class="row">
+            <input type="text" class="input-username" placeholder="" ng-model="userInfo.username">
+        </div>
+        <span class="tip">用户密码</span>
+        <div class="row">
+            <input type="password" class="input-username" placeholder="" ng-model="userInfo.password" ng-keyup="keyForLogin($event)">
+        </div>
+        <div class="row">
+            <button class="hx-button btn-main" type="button" ng-click="doLogin()" >登录</button>
+            <button class="hx-button btn-sub" type="button" ng-click="toggleMode(false)" ng-bind="'我要注册' + config.subject"></button>
+        </div>
     </div>
-    <div class="row main-tip" ng-bind="'注册' + config.subject + '账号'"></div>
-    <span class="tip">用户名</span>
-    <div class="row">
-        <input type="text" class="input-username" placeholder="" ng-model="register.username">
+
+    <div class="pad-register center-parent"
+        ng-class="{true: '', false:'show'}[isLoginMode]">
+        <div class="row">
+            <img class="logo-company" ng-src="{{ logoUrl }}" alt="">
+        </div>
+        <div class="row main-tip" ng-bind="'注册' + config.subject + '账号'"></div>
+        <span class="tip">用户名</span>
+        <div class="row">
+            <input type="text" class="input-username" placeholder="" ng-model="register.username">
+        </div>
+        <span class="tip">电子邮箱</span>
+        <div class="row">
+            <input type="email" class="input-username" placeholder="" ng-model="register.email">
+        </div>
+        <span class="tip">密码</span>
+        <div class="row">
+            <input type="password"
+                   class="input-username"
+                   placeholder=""
+                   ng-model="register.password"
+                   ng-keyup="keyForRegister($event)">
+        </div>
+        <span class="tip">密码确认</span>
+        <div class="row">
+            <input type="password"
+                   class="input-username input-password-confirm"
+                   placeholder=""
+                   ng-model="register.passwordConfirm"
+                   ng-keyup="keyForRegister($event)">
+        </div>
+        <div class="row">
+            <button class="hx-button btn-main" type="button" ng-click="doRegister()" ng-bind="'注册' + config.subject"></button>
+            <button class="hx-button btn-sub" type="button" ng-click="toggleMode(true)">登录</button>
+        </div>
     </div>
-    <span class="tip">电子邮箱</span>
-    <div class="row">
-        <input type="email" class="input-username" placeholder="" ng-model="register.email">
-    </div>
-    <span class="tip">密码</span>
-    <div class="row">
-        <input type="password"
-               class="input-username"
-               placeholder=""
-               ng-model="register.password"
-               ng-keyup="keyForRegister($event)">
-    </div>
-    <span class="tip">密码确认</span>
-    <div class="row">
-        <input type="password"
-               class="input-username input-password-confirm"
-               placeholder=""
-               ng-model="register.passwordConfirm"
-               ng-keyup="keyForRegister($event)">
-    </div>
-    <div class="row">
-        <button class="hx-button btn-main" type="button" ng-click="doRegister()" ng-bind="'注册' + config.subject"></button>
-        <button class="hx-button btn-sub" type="button" ng-click="toggleMode(true)">登录</button>
-    </div>
+
+    <div class="hx-copyright" ng-bind="config.copyright"></div>
+
 </div>
