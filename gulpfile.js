@@ -131,7 +131,7 @@ gulp.task('js', () => {
             console.log(err);
         }))
         .pipe(babel({
-            presets: ['es2015']
+            presets: ['env']
         }))
         .pipe(concat('main.js'))
         .pipe(rename({  'suffix': '.min'  }))
@@ -174,7 +174,7 @@ gulp.task('hxui', () => {
             console.log(err);
         }))
         .pipe(babel({
-            presets: ['es2015']
+            presets: ['env']
         }))
         .pipe(concat('hxui.js'))
         .pipe(rename({  'suffix': '.dev'  }))
@@ -188,7 +188,7 @@ gulp.task('hxui', () => {
             console.log(err);
         }))
         .pipe(babel({
-            presets: ['es2015']
+            presets: ['env']
         }))
         .pipe(concat('hxui.js'))
         .pipe(rename({  'suffix': '.min'  }))

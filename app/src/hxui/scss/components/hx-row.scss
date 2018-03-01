@@ -101,7 +101,7 @@
       @include compatible(transition, all .4s);
       border: 1px solid $color-gray;
       line-height: $height-regular;
-      height: $height-regular;
+
       padding: 0 $pm-sm;
       background-color: white;
       font-size: $font-md;
@@ -116,6 +116,13 @@
         border: none !important;
         background-color: $color-gray-light;
       }
+    }
+    input, select {
+      height: $height-regular;
+    }
+
+    textarea {
+      height: 2 * $height-navbar;
     }
 
     // 不可编辑文本组件样式
