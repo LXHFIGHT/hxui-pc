@@ -3,15 +3,15 @@
 .hx-header {
   z-index: 10;
   position: relative;
-  height: $height-normal;
+  height: $height-navbar;
   border-bottom: 1px solid $color-gray;
-  padding: 0 $pm-md;
-  $height-content: $height-normal - $pm-sm;
+  padding: $pm-sm $pm-md;
+  $height-content: $height-navbar - $pm-md;
   .title{
     display: inline-block;
     font-size: $font-md;
-    height: $height-normal;
-    line-height: $height-normal;
+    height: $height-content;
+    line-height: $height-content;
     color: $color-heavy;
     margin-left: 0;
     strong {

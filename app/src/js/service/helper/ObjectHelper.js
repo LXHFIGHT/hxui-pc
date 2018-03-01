@@ -115,12 +115,25 @@ ObjectHelper.factory('ObjectHelper', [function(){
             return true;
         },
 
+        /**
+         * 调整之后将适应二级分类模式的侧边栏
+         * @param array
+         * @param name
+         * @param param
+         */
         doSelect: (array, name, param = 'selected') => {
             if (Object.prototype.toString.call(array) === '[object Array]'){
                 for(let item of array) {
-                    (name.indexOf(item.name) !== -1) ?
-                        item[param] = true :
-                        item[param] = false;
+                    if(item.children && Object.prototype.toString.call(item.children) === '[object Array]') {
+                        for (const subItem of item.children) {
+                            if(name.indexOf(subItem.name) !== -1) {
+                                subItem[param] = true;
+                                item.selected = true;
+                                continue;
+                            }
+                            subItem[param] = false;
+                        }
+                    }
                 }
             } else {
                 console.log('doSelect方法第一个参数类型需要为数组对象');
