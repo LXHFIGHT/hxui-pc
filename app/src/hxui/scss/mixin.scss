@@ -101,7 +101,10 @@
   height: $height;
   padding: 0 8px;
   background-color: $bgColor;
-  font-size: 14px;
+  font: {
+    weight: 300;
+    size: 13px;
+  }
   color: $color;
   @include borderRadius(4px);
   @include compatible(transition, all .4s);

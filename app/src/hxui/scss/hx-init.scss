@@ -96,7 +96,9 @@ input.error, textarea.error{
     transition: all .4s;
 }
 
-
+.hx-invisible {
+    visibility: hidden;
+}
 
 .hx-no-wrap {
     text-overflow: ellipsis;
