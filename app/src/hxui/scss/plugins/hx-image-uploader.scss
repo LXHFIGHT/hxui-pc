@@ -43,11 +43,10 @@
     display: block;
     position: absolute;
     bottom: -100%;
-    left: 0;
     height: $height-normal;
     transition: bottom .4s;
     text-align: right;
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .6);
     button {
       height: $height-normal;
       width: $height-normal;
@@ -73,6 +72,21 @@
     .icon {
       font-size: 25px;
       padding-left: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .hx-image-uploader {
+    .functions {
+      bottom: $pm-sm/2;
+      right: $pm-sm/2;
+      width: auto;
+      display: inline-block;
+      @include borderRadius($border-radius-md);
+    }
+    .btn-upload {
+      background-color: white;
     }
   }
 }
