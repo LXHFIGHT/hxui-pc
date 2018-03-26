@@ -153,8 +153,16 @@
   }
 }
 
+// 文本居于一行  超过范围变成 "XXXXX..."
 @mixin nowrap {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+
+// CSS过滤器集合：
+// 模糊效果， 默认模糊度 10px
+@mixin filter-blur($degree: 10px) {
+  -webkit-filter: blur($degree); /* Chrome, Opera */
+  filter: blur($degree);
 }

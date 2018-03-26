@@ -45,11 +45,11 @@
     z-index: 9998;
     min-width: 150px;
     border: none;
-    @include compatible(transform, translateX(-50%));
     margin-top: 12px;
     color: $color-gray-light;
     background-color: $color-dark;
     padding: $pm-sm/2 $pm-sm;
+    @include compatible(transform, translateX(-50%));
     @include borderRadius(20px);
     @include boxShadow(0 6px 12px -4px rgba(0,0,0,.4));
   }
