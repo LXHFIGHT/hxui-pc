@@ -346,1305 +346,6 @@ input.error, textarea.error {
   .col-bg-12 {
     width: 100%; } }
 
-/**
- * hx-block
- */
-.hx-block {
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  position: relative;
-  top: 0;
-  left: 0;
-  background-position: center;
-  background-size: cover;
-  overflow: hidden; }
-  .hx-block .btn-show-sidebar {
-    display: none; }
-
-@media screen and (max-width: 640px) {
-  .hx-block .btn-show-sidebar {
-    display: block;
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    padding: 0;
-    height: 34px;
-    width: 34px;
-    z-index: 1200;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -o-border-radius: 3px;
-    -ms-border-radius: 3px;
-    color: #bbb;
-    background-color: transparent; } }
-
-@charset "UTF-8";
-/**
- *  hx详情模块样式
- *  通过组合 hx-row 构建管理后台具有交互性的表单页面
- */
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; } }
-
-.hx-detail-block {
-  border: 1px solid #eee;
-  position: relative;
-  padding: 42px 16px 16px;
-  margin-bottom: 16px; }
-  .hx-detail-block header {
-    top: 0;
-    left: 0;
-    width: 100%;
-    font-size: 14px;
-    line-height: 42px;
-    height: 42px;
-    padding: 0 16px;
-    color: #747474;
-    background-color: #f6f6f6;
-    position: absolute;
-    border-bottom: 1px solid #eee; }
-    .hx-detail-block header small {
-      font-size: 14px;
-      color: #bbb;
-      margin-left: 8px; }
-    .hx-detail-block header button {
-      min-height: 34px;
-      margin-left: 8px; }
-
-.hx-pad-left {
-  float: left;
-  width: 50%;
-  padding-right: 8px; }
-
-.hx-pad-right {
-  float: right;
-  width: 50%;
-  padding-left: 8px; }
-
-@media screen and (max-width: 640px) {
-  .hx-detail-block {
-    padding-left: 8px;
-    padding-right: 0;
-    padding-bottom: 0;
-    -webkit-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1); }
-    .hx-detail-block header:first-child {
-      padding-left: 8px; }
-    .hx-detail-block .hx-row:nth-last-child(1) {
-      border: none; }
-  .hx-pad-left, .hx-pad-right {
-    padding: 0; } }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; } }
-
-.hx-emptyset {
-  height: 100%;
-  width: 100%;
-  min-height: 150px;
-  display: flex;
-  left: 0;
-  top: 0;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  background-color: #f6f6f6;
-  color: #bbb;
-  font-size: 30px;
-  font-weight: 900; }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; } }
-
-.pad-login,
-.pad-register {
-  top: 70% !important;
-  opacity: .0;
-  width: 360px;
-  padding: 24px;
-  visibility: hidden;
-  border: 1px solid #eee;
-  background-color: rgba(255, 255, 255, 0.75) !important;
-  transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -o-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -webkit-box-shadow: 0 16px 32px -13px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 16px 32px -13px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 16px 32px -13px rgba(0, 0, 0, 0.3); }
-  .pad-login .row,
-  .pad-register .row {
-    padding: 8px 0;
-    text-align: center; }
-    .pad-login .row.main-tip,
-    .pad-register .row.main-tip {
-      font-size: 20px;
-      margin-bottom: 20px;
-      color: #747474; }
-  .pad-login .tip,
-  .pad-register .tip {
-    color: #747474;
-    font-size: 10px;
-    font-weight: 800; }
-  .pad-login .logo-company,
-  .pad-register .logo-company {
-    height: 100px;
-    width: 100px;
-    border: 1px solid #eee;
-    border-radius: 50% 50%;
-    -webkit-border-radius: 50% 50%;
-    -moz-border-radius: 50% 50%;
-    -o-border-radius: 50% 50%;
-    -ms-border-radius: 50% 50%; }
-  .pad-login input,
-  .pad-register input {
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -o-border-radius: 3px;
-    -ms-border-radius: 3px;
-    border: 1px solid #eee;
-    line-height: 34px;
-    height: 34px;
-    padding: 0 8px;
-    width: 100%;
-    background-color: transparent;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .pad-login input:focus,
-    .pad-register input:focus {
-      border: 1px solid #31cbff; }
-  .pad-login .btn-main,
-  .pad-register .btn-main {
-    margin-top: 16px;
-    width: 100%;
-    height: 34px;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -o-border-radius: 3px;
-    -ms-border-radius: 3px; }
-  .pad-login .btn-sub,
-  .pad-register .btn-sub {
-    margin-top: 16px;
-    width: 100%;
-    height: 34px;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -o-border-radius: 3px;
-    -ms-border-radius: 3px;
-    background-color: transparent;
-    color: #00B2EE;
-    cursor: pointer !important; }
-  .pad-login.show,
-  .pad-register.show {
-    visibility: visible;
-    top: 50% !important;
-    opacity: 1.0; }
-
-@media screen and (max-width: 640px) {
-  .pad-login, .pad-register {
-    width: 95%;
-    padding: 16px;
-    border: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none; }
-    .pad-login .tip, .pad-register .tip {
-      font-size: 14px;
-      padding-left: 8px;
-      line-height: 28px; }
-    .pad-login .btn-sub, .pad-login .btn-main, .pad-register .btn-sub, .pad-register .btn-main {
-      margin-top: 8px;
-      height: 42px; }
-    .pad-login .logo-company, .pad-register .logo-company {
-      height: 50px;
-      width: 50px; }
-    .pad-login .row, .pad-register .row {
-      padding: 0; }
-      .pad-login .row input, .pad-register .row input {
-        background-color: transparent;
-        border-radius: 0px;
-        -webkit-border-radius: 0px;
-        -moz-border-radius: 0px;
-        -o-border-radius: 0px;
-        -ms-border-radius: 0px;
-        border: none;
-        font-size: 14px;
-        border-bottom: 1px solid #eee;
-        height: 42px; }
-        .pad-login .row input:focus, .pad-register .row input:focus {
-          border-bottom: 1px solid #00B2EE; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .pad-login, .pad-register {
-    width: 360px;
-    padding: 16px; } }
-
-@media screen and (min-width: 1024px) {
-  .pad-login, .pad-register {
-    width: 360px;
-    padding: 24px; } }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; } }
-
-/*  导航栏样式 将ID设置为 hx-pagination
-    2.0版 分页组件,
-    在原有带有分页组件和上一页下一页按钮的基础上：
-    - 去除了页数选择按钮集合，以及首页和末页按钮，
-    + 添加了展示当前页的span元素，跳转页数文本输入框和跳转按钮
-    适用于使用了Common分页插件样式的页面
-    Date: 2016-09-21
-    Update Date: 2019-09-27
- */
-.hx-pagination {
-  text-align: right;
-  height: 34px;
-  padding: 0;
-  font-size: 0;
-  position: relative; }
-  .hx-pagination select {
-    padding: 0 10px;
-    float: left;
-    width: 140px;
-    height: 34px;
-    font-size: 14px;
-    color: #505050;
-    border: none;
-    user-appearance: none;
-    -webkit-user-appearance: none;
-    -moz-user-appearance: none;
-    -o-user-appearance: none;
-    -ms-user-appearance: none;
-    border-radius: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -o-border-radius: 0;
-    -ms-border-radius: 0;
-    background-color: white; }
-  .hx-pagination a, .hx-pagination span {
-    background: #fff;
-    line-height: 34px;
-    height: 34px;
-    text-decoration: none !important;
-    text-align: center;
-    font-size: 16px;
-    color: #505050;
-    display: inline-block; }
-  .hx-pagination a {
-    margin-right: 0 !important;
-    min-width: 30px;
-    padding: 0 8px;
-    position: relative;
-    color: #a2a2a2; }
-    .hx-pagination a:hover {
-      color: #747474;
-      background-color: #ececec; }
-    .hx-pagination a:active {
-      color: #fdfdfd;
-      background-color: #00B2EE; }
-    .hx-pagination a.btn-jump {
-      margin-left: 0; }
-  .hx-pagination span {
-    width: 80px;
-    text-align: center;
-    padding: 0 8px;
-    border: none; }
-  .hx-pagination input[type=text] {
-    position: relative;
-    font-size: 14px;
-    min-width: 50px !important;
-    height: 34px;
-    width: 60px;
-    padding: 0 10px !important;
-    margin-left: 20px;
-    border: none;
-    vertical-align: top; }
-
-@media screen and (max-width: 640px) {
-  .hx-pagination select {
-    display: none; } }
-
-@charset "UTF-8";
-/*
-  hx表单行模块: 标签为label元素 和 编辑区域内容为.pad-edit的 div 元素
-  hx-row 包含自身多种扩展样式 以及 其pad-edit中定义了多种元素的默认样式
-  * 自身样式：
-    .null     无内边距
-    .center   内部组件居中
-   Date: 2017-08-02
- */
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; } }
-
-.hx-row {
-  width: 100%;
-  padding: 8px 16px;
-  line-height: 34px;
-  color: #474747; }
-  .hx-row.null {
-    padding: 0 !important; }
-  .hx-row.center {
-    text-align: center; }
-  .hx-row label, .hx-row .pad-edit {
-    min-height: 34px;
-    display: inline-block;
-    font-size: 14px;
-    vertical-align: top; }
-  .hx-row label {
-    line-height: 34px;
-    width: 120px;
-    color: #747474; }
-    .hx-row label.title {
-      font-size: 14px;
-      font-weight: 800; }
-    .hx-row label .tip {
-      color: #00B2EE;
-      font-size: 10px;
-      line-height: 34px; }
-  .hx-row .map {
-    display: inline-block;
-    height: 280px;
-    width: -moz- calc(45% - 58px);
-    width: -webkit- calc(45% - 58px);
-    width: calc(45% - 58px);
-    background-color: #f6f6f6;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -o-border-radius: 3px;
-    -ms-border-radius: 3px; }
-  .hx-row div.pad-rich-editor {
-    display: inline-block;
-    position: relative;
-    padding: 0;
-    width: 100%;
-    vertical-align: top;
-    width: -moz- calc(100% - 130px);
-    width: -webkit- calc(100% - 130px);
-    width: calc(100% - 130px); }
-    .hx-row div.pad-rich-editor .rich-editor {
-      height: 389px;
-      border: 1px solid #eee;
-      padding: 16px;
-      border-radius: 3px;
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
-      -o-border-radius: 3px;
-      -ms-border-radius: 3px;
-      overflow-x: hidden;
-      overflow-y: auto; }
-      .hx-row div.pad-rich-editor .rich-editor p {
-        margin: 0; }
-    .hx-row div.pad-rich-editor .btn-to-edit {
-      position: absolute;
-      top: 8px;
-      right: 8px; }
-  .hx-row div.pad-edit {
-    display: inline-block;
-    position: relative;
-    padding: 0;
-    width: 100%;
-    vertical-align: top;
-    width: -moz- calc(100% - 130px);
-    width: -webkit- calc(100% - 130px);
-    width: calc(100% - 130px); }
-    .hx-row div.pad-edit.short {
-      width: 200px; }
-    .hx-row div.pad-edit input, .hx-row div.pad-edit textarea, .hx-row div.pad-edit select {
-      width: 100%;
-      display: inline-block;
-      transition: all 0.4s;
-      -webkit-transition: all 0.4s;
-      -moz-transition: all 0.4s;
-      -o-transition: all 0.4s;
-      -ms-transition: all 0.4s;
-      border: 1px solid #eee;
-      line-height: 34px;
-      padding: 0 8px;
-      background-color: white;
-      font-size: 14px;
-      resize: none; }
-      .hx-row div.pad-edit input.short, .hx-row div.pad-edit textarea.short, .hx-row div.pad-edit select.short {
-        width: 45%; }
-      .hx-row div.pad-edit input:focus, .hx-row div.pad-edit textarea:focus, .hx-row div.pad-edit select:focus {
-        border: 1px solid #00B2EE; }
-      .hx-row div.pad-edit input:disabled, .hx-row div.pad-edit textarea:disabled, .hx-row div.pad-edit select:disabled {
-        border: none !important;
-        background-color: #f6f6f6; }
-    .hx-row div.pad-edit input, .hx-row div.pad-edit select {
-      height: 34px; }
-    .hx-row div.pad-edit textarea {
-      height: 100px; }
-    .hx-row div.pad-edit .text {
-      padding-left: 8px;
-      font-size: 14px;
-      width: 100%;
-      height: 34px;
-      display: block;
-      border-radius: 3px;
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
-      -o-border-radius: 3px;
-      -ms-border-radius: 3px; }
-      .hx-row div.pad-edit .text.border {
-        border: 1px solid #eee; }
-      .hx-row div.pad-edit .text.disabled {
-        border: 1px solid #f6f6f6;
-        background-color: #f6f6f6; }
-      .hx-row div.pad-edit .text.tip {
-        font-size: 10px;
-        font-weight: 300;
-        color: #bbb;
-        line-height: 10px;
-        height: 10px;
-        margin-top: 8px; }
-    .hx-row div.pad-edit input [type='file'] {
-      position: absolute;
-      visibility: hidden; }
-    .hx-row div.pad-edit .pad-dropdown {
-      position: absolute;
-      top: 42px;
-      left: 0;
-      width: 100%;
-      padding: 16px;
-      z-index: 123;
-      display: inline-block;
-      background-color: white;
-      opacity: .0;
-      visibility: hidden;
-      -webkit-box-shadow: 0 5px 20px -6px rgba(0, 0, 0, 0.3);
-      -moz-box-shadow: 0 5px 20px -6px rgba(0, 0, 0, 0.3);
-      box-shadow: 0 5px 20px -6px rgba(0, 0, 0, 0.3);
-      transition: all 0.4s;
-      -webkit-transition: all 0.4s;
-      -moz-transition: all 0.4s;
-      -o-transition: all 0.4s;
-      -ms-transition: all 0.4s; }
-      .hx-row div.pad-edit .pad-dropdown.show {
-        visibility: visible;
-        opacity: 1.0; }
-    .hx-row div.pad-edit .pad-tags {
-      width: 100%;
-      padding: 0;
-      display: block;
-      min-height: 25px; }
-      .hx-row div.pad-edit .pad-tags .tag {
-        padding: 0 0 0 16px;
-        height: 25px;
-        line-height: 25px;
-        background-color: #00B2EE;
-        display: inline-block;
-        font-size: 10px;
-        font-weight: 300;
-        color: white;
-        margin: 0 4px 8px 0;
-        border-radius: 25px 25px;
-        -webkit-border-radius: 25px 25px;
-        -moz-border-radius: 25px 25px;
-        -o-border-radius: 25px 25px;
-        -ms-border-radius: 25px 25px; }
-        .hx-row div.pad-edit .pad-tags .tag span {
-          width: auto;
-          display: inline-block;
-          height: 25px;
-          line-height: 25px;
-          margin-right: 8px;
-          font-size: 10px; }
-        .hx-row div.pad-edit .pad-tags .tag .btn-remove {
-          color: #fdfdfd;
-          width: 25px;
-          height: 25px;
-          display: inline-block;
-          font-size: 18px;
-          font-weight: 100;
-          float: right;
-          background-color: transparent; }
-          .hx-row div.pad-edit .pad-tags .tag .btn-remove:hover {
-            color: #ff5a50; }
-    .hx-row div.pad-edit .for-image {
-      height: 120px;
-      display: inline-block;
-      overflow: hidden;
-      position: relative; }
-      .hx-row div.pad-edit .for-image img {
-        margin-right: 0; }
-      .hx-row div.pad-edit .for-image .dot {
-        position: absolute;
-        right: 8px;
-        top: 4px;
-        cursor: default;
-        display: block;
-        height: 24px;
-        line-height: 24px;
-        padding: 0 4px;
-        font-size: 10px;
-        border-radius: 3px;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        -o-border-radius: 3px;
-        -ms-border-radius: 3px;
-        background-color: #bbb;
-        color: #fdfdfd; }
-        .hx-row div.pad-edit .for-image .dot:hover {
-          background-color: #b6b6b6; }
-        .hx-row div.pad-edit .for-image .dot.clear {
-          background-color: #00B2EE;
-          color: white; }
-          .hx-row div.pad-edit .for-image .dot.clear:hover {
-            background-color: #00aae4; }
-      .hx-row div.pad-edit .for-image .empty-image {
-        height: 120px;
-        width: 160px;
-        line-height: 120px;
-        text-align: center;
-        background-color: #f6f6f6;
-        color: #bbb;
-        border-radius: 3px;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        -o-border-radius: 3px;
-        -ms-border-radius: 3px;
-        font-size: 18px;
-        padding: 0; }
-      .hx-row div.pad-edit .for-image.preview:after {
-        content: '查看大图';
-        color: white;
-        background-color: rgba(0, 0, 0, 0.6);
-        visibility: hidden;
-        opacity: .0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        font-weight: 200;
-        line-height: 120px;
-        text-align: center;
-        border-radius: 3px;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        -o-border-radius: 3px;
-        -ms-border-radius: 3px;
-        transition: all 0.4s;
-        -webkit-transition: all 0.4s;
-        -moz-transition: all 0.4s;
-        -o-transition: all 0.4s;
-        -ms-transition: all 0.4s; }
-      .hx-row div.pad-edit .for-image.preview:hover:after {
-        opacity: 1.0;
-        visibility: visible; }
-    .hx-row div.pad-edit img {
-      height: 120px;
-      margin: 0 4px 0 0;
-      border: 1px solid #eee;
-      border-radius: 3px;
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
-      -o-border-radius: 3px;
-      -ms-border-radius: 3px;
-      transition: all 0.4s;
-      -webkit-transition: all 0.4s;
-      -moz-transition: all 0.4s;
-      -o-transition: all 0.4s;
-      -ms-transition: all 0.4s; }
-    .hx-row div.pad-edit .btn-upload-image {
-      padding: 0;
-      vertical-align: top;
-      height: 120px;
-      width: 160px;
-      border: 2px dashed #bbb;
-      color: #bbb;
-      font-size: 18px;
-      line-height: 120px;
-      text-align: center;
-      background-color: transparent; }
-      .hx-row div.pad-edit .btn-upload-image:hover {
-        color: #747474;
-        border: 2px dashed #747474; }
-
-@media screen and (max-width: 640px) {
-  .hx-row {
-    border-bottom: 1px solid #eee;
-    padding: 4px 8px 4px 0 !important;
-    margin: 0 !important; }
-    .hx-row label {
-      width: 100px; }
-    .hx-row .pad-edit {
-      width: -moz- calc(100% - 110px);
-      width: -webkit- calc(100% - 110px);
-      width: calc(100% - 110px);
-      padding-left: 4px !important; }
-      .hx-row .pad-edit input, .hx-row .pad-edit select, .hx-row .pad-edit textarea {
-        border: none !important; }
-        .hx-row .pad-edit input:hover, .hx-row .pad-edit select:hover, .hx-row .pad-edit textarea:hover {
-          border: none; }
-      .hx-row .pad-edit input, .hx-row .pad-edit textarea {
-        padding-left: 4px !important; }
-      .hx-row .pad-edit select {
-        padding-left: 0 !important; }
-      .hx-row .pad-edit.for-switch {
-        width: 150px !important; }
-      .hx-row .pad-edit.one-line {
-        width: 100% !important;
-        padding-left: 0 !important;
-        padding-right: 8px !important; }
-      .hx-row .pad-edit .for-image {
-        height: auto !important;
-        display: block !important; }
-        .hx-row .pad-edit .for-image .preview {
-          height: auto !important; }
-        .hx-row .pad-edit .for-image img {
-          width: 100% !important;
-          height: auto !important; }
-        .hx-row .pad-edit .for-image + button {
-          margin-bottom: 8px; }
-      .hx-row .pad-edit button.btn-upload-image {
-        height: 75px;
-        line-height: 75px;
-        width: 100%; }
-      .hx-row .pad-edit .degree {
-        color: #bbb;
-        position: absolute;
-        right: 0;
-        top: 0;
-        display: inline-block;
-        width: auto; }
-    .hx-row .pad-rich-editor {
-      width: 100% !important; }
-      .hx-row .pad-rich-editor .rich-editor {
-        border: none !important; }
-    .hx-row #map-preview {
-      margin-left: 0;
-      margin-bottom: 8px;
-      width: 100%; } }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; } }
-
-@media screen and (max-width: 640px) {
-  .hx-search {
-    position: absolute;
-    left: 0;
-    top: 42px;
-    opacity: .0;
-    visibility: hidden;
-    -webkit-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.4); }
-    .hx-search.show {
-      opacity: 1.0;
-      visibility: visible; }
-    .hx-search .hx-row {
-      border: none; }
-      .hx-search .hx-row .pad-edit {
-        width: 100% !important;
-        margin-right: 0 !important; }
-      .hx-search .hx-row label {
-        width: 100px;
-        padding-left: 8px; }
-      .hx-search .hx-row .search {
-        margin: 0;
-        width: 100%; }
-        .hx-search .hx-row .search .pad-datepicker {
-          width: 100% !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .hx-search {
-    padding-bottom: 0; }
-    .hx-search .hx-row {
-      margin-bottom: 8px; } }
-
-@media screen and (min-width: 1024px) {
-  .hx-search {
-    padding-bottom: 0; }
-    .hx-search .hx-row {
-      margin-bottom: 8px; } }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; } }
-
 .hx-article h1 {
   line-height: 50px;
   border-bottom: 1px solid #eee;
@@ -3545,308 +2246,178 @@ table.hx-table {
   .col-bg-12 {
     width: 100%; } }
 
-.hx-content {
-  height: -moz- calc(100% - 100px);
-  height: -webkit- calc(100% - 100px);
-  height: calc(100% - 100px);
+/**
+ * hx-block
+ */
+.hx-block {
+  height: 100%;
   width: 100%;
-  overflow-y: auto; }
-  .hx-content.no-footer, .hx-content.no-header {
-    height: -moz- calc(100% - 50px);
-    height: -webkit- calc(100% - 50px);
-    height: calc(100% - 50px); }
-  .hx-content.bg {
-    padding: 50px; }
-
-@media screen and (max-width: 640px) {
-  .hx-content {
-    overflow-x: auto;
-    padding: 0 !important; }
-    .hx-content .hx-pad-left, .hx-content .hx-pad-right {
-      width: 100% !important; } }
-
-@media screen and (min-width: 640px) {
-  .hx-content {
-    padding: 16px !important; } }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; } }
-
-.hx-footer {
-  height: 50px;
-  width: 100%;
-  padding: 8px 16px;
-  background-color: #f6f6f6;
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  border-top: 1px solid #eee; }
-  .hx-footer button {
-    height: 34px; }
-  .hx-footer.no-color {
-    background-color: transparent; }
-
-@media screen and (max-width: 640px) {
-  .hx-pagination {
-    padding: 0 8px; }
-    .hx-pagination .fa-caret-left, .hx-pagination .fa-caret-left + span, .hx-pagination .fa-caret-right {
-      float: left; } }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; } }
-
-.hx-header {
-  z-index: 10;
+  padding: 0;
+  margin: 0;
   position: relative;
-  height: 50px;
-  border-bottom: 1px solid #eee;
-  padding: 8px 16px; }
-  .hx-header .title {
-    display: inline-block;
+  top: 0;
+  left: 0;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden; }
+  .hx-block .btn-show-sidebar {
+    display: none; }
+
+@media screen and (max-width: 640px) {
+  .hx-block .btn-show-sidebar {
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 0;
+    height: 34px;
+    width: 34px;
+    z-index: 1200;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    color: #bbb;
+    background-color: transparent; } }
+
+@charset "UTF-8";
+/**
+ *  hx详情模块样式
+ *  通过组合 hx-row 构建管理后台具有交互性的表单页面
+ */
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; } }
+
+.hx-detail-block {
+  border: 1px solid #eee;
+  position: relative;
+  padding: 42px 16px 16px;
+  margin-bottom: 16px; }
+  .hx-detail-block header {
+    top: 0;
+    left: 0;
+    width: 100%;
     font-size: 14px;
-    height: 34px;
-    line-height: 34px;
+    line-height: 42px;
+    height: 42px;
+    padding: 0 16px;
     color: #747474;
-    margin-left: 0; }
-    .hx-header .title strong {
-      color: #00B2EE;
-      font-size: 18px;
-      font-weight: 800; }
-  .hx-header .hx-search {
-    float: right;
-    display: inline-block;
-    height: 34px;
-    top: 3px;
-    position: relative; }
-    .hx-header .hx-search input {
-      height: 100%;
-      border: none;
-      border-bottom: 1px solid #bbb;
-      padding: 0 34px 0 16px;
-      transition: border 0.4s;
-      -webkit-transition: border 0.4s;
-      -moz-transition: border 0.4s;
-      -o-transition: border 0.4s;
-      -ms-transition: border 0.4s; }
-    .hx-header .hx-search button {
-      height: 33px;
-      width: 34px;
-      position: absolute;
-      right: 0;
-      top: 0;
+    background-color: #f6f6f6;
+    position: absolute;
+    border-bottom: 1px solid #eee; }
+    .hx-detail-block header small {
       font-size: 14px;
       color: #bbb;
-      transition: all 0.4s;
-      -webkit-transition: all 0.4s;
-      -moz-transition: all 0.4s;
-      -o-transition: all 0.4s;
-      -ms-transition: all 0.4s; }
-    .hx-header .hx-search:hover input {
-      border-bottom: 1px solid #00B2EE; }
-    .hx-header .hx-search:hover button {
-      color: #00B2EE; }
+      margin-left: 8px; }
+    .hx-detail-block header button {
+      min-height: 34px;
+      margin-left: 8px; }
+
+.hx-pad-left {
+  float: left;
+  width: 50%;
+  padding-right: 8px; }
+
+.hx-pad-right {
+  float: right;
+  width: 50%;
+  padding-left: 8px; }
 
 @media screen and (max-width: 640px) {
-  .hx-header {
-    background-color: #00B2EE;
-    color: white; }
-    .hx-header .title {
-      z-index: 10;
-      display: inline-block;
-      padding: 0;
-      color: white;
-      height: 42px;
-      left: 50%;
-      position: absolute;
-      transform: translateX(-50%);
-      -webkit-transform: translateX(-50%);
-      -moz-transform: translateX(-50%);
-      -o-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-      font-weight: 500;
-      font-size: 14px; }
-      .hx-header .title strong {
-        color: white;
-        font-weight: 600;
-        font-size: 17px; }
-    .hx-header .btn-left,
-    .hx-header .btn-right {
-      color: white; }
-    .hx-header .hx-search {
-      z-index: 1001;
-      float: right;
-      background-color: red; }
-      .hx-header .hx-search button {
-        color: white; }
-    .hx-header .hx-goback-button {
-      left: 42px;
-      position: relative;
-      padding: 0;
-      top: -1px;
-      border: none; } }
+  .hx-detail-block {
+    padding-left: 8px;
+    padding-right: 0;
+    padding-bottom: 0;
+    -webkit-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1); }
+    .hx-detail-block header:first-child {
+      padding-left: 8px; }
+    .hx-detail-block .hx-row:nth-last-child(1) {
+      border: none; }
+  .hx-pad-left, .hx-pad-right {
+    padding: 0; } }
 
 @charset "UTF-8";
 /* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
@@ -3932,20 +2503,21 @@ table.hx-table {
   .col-bg-12 {
     width: 100%; } }
 
-.hx-main {
+.hx-emptyset {
   height: 100%;
-  border-top: 3px solid #00bdfd;
-  display: inline-block;
-  float: left;
+  width: 100%;
+  min-height: 150px;
+  display: flex;
+  left: 0;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   position: relative;
-  width: -moz- calc(100% - 180px);
-  width: -webkit- calc(100% - 180px);
-  width: calc(100% - 180px); }
-
-@media screen and (max-width: 640px) {
-  .hx-main {
-    width: 100% !important;
-    left: 0; } }
+  background-color: #f6f6f6;
+  color: #bbb;
+  font-size: 30px;
+  font-weight: 900; }
 
 @charset "UTF-8";
 /* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
@@ -4031,144 +2603,660 @@ table.hx-table {
   .col-bg-12 {
     width: 100%; } }
 
-.hx-sidebar {
-  height: 100%;
-  display: inline-block;
-  float: left;
-  position: relative;
-  width: 180px;
-  overflow-x: hidden;
-  background-color: #002936; }
-  .hx-sidebar .sidebar {
-    height: 100%;
-    display: block; }
-  .hx-sidebar .project-info {
-    padding: 24px 0;
+.pad-login,
+.pad-register {
+  top: 70% !important;
+  opacity: .0;
+  width: 360px;
+  padding: 24px;
+  visibility: hidden;
+  border: 1px solid #eee;
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -webkit-box-shadow: 0 16px 32px -13px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 16px 32px -13px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 16px 32px -13px rgba(0, 0, 0, 0.3); }
+  .pad-login .row,
+  .pad-register .row {
+    padding: 8px 0;
     text-align: center; }
-    .hx-sidebar .project-info img.logo {
-      margin-bottom: 8px;
-      height: 75px;
-      width: 75px;
-      border-radius: 50% 50%;
-      -webkit-border-radius: 50% 50%;
-      -moz-border-radius: 50% 50%;
-      -o-border-radius: 50% 50%;
-      -ms-border-radius: 50% 50%; }
-    .hx-sidebar .project-info span.text-name {
-      display: block;
-      width: 100%;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 14px; }
-  .hx-sidebar .sidebar-buttons {
-    height: -moz- calc(100% - 156px);
-    height: -webkit- calc(100% - 156px);
-    height: calc(100% - 156px);
-    display: block; }
-  .hx-sidebar .group-btn-sidebar {
+    .pad-login .row.main-tip,
+    .pad-register .row.main-tip {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #747474; }
+  .pad-login .tip,
+  .pad-register .tip {
+    color: #747474;
+    font-size: 10px;
+    font-weight: 800; }
+  .pad-login .logo-company,
+  .pad-register .logo-company {
+    height: 100px;
+    width: 100px;
+    border: 1px solid #eee;
+    border-radius: 50% 50%;
+    -webkit-border-radius: 50% 50%;
+    -moz-border-radius: 50% 50%;
+    -o-border-radius: 50% 50%;
+    -ms-border-radius: 50% 50%; }
+  .pad-login input,
+  .pad-register input {
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border: 1px solid #eee;
+    line-height: 34px;
+    height: 34px;
+    padding: 0 8px;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: 0.4s;
-    -webkit-transition: 0.4s;
-    -moz-transition: 0.4s;
-    -o-transition: 0.4s;
-    -ms-transition: 0.4s;
-    margin-bottom: 1px; }
-    .hx-sidebar .group-btn-sidebar:hover {
-      background-color: rgba(255, 255, 255, 0.2); }
-    .hx-sidebar .group-btn-sidebar button.first-level.selected.no-children {
-      background-color: rgba(255, 255, 255, 0.3);
-      color: white; }
-      .hx-sidebar .group-btn-sidebar button.first-level.selected.no-children:hover {
-        background-color: #00bdfd; }
-    .hx-sidebar .group-btn-sidebar button.first-level.no-children:after {
-      content: ''; }
-    .hx-sidebar .group-btn-sidebar button.first-level:after {
-      content: '>';
-      color: rgba(255, 255, 255, 0.4);
-      float: right;
-      margin-right: 8px;
+    background-color: transparent;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .pad-login input:focus,
+    .pad-register input:focus {
+      border: 1px solid #31cbff; }
+  .pad-login .btn-main,
+  .pad-register .btn-main {
+    margin-top: 16px;
+    width: 100%;
+    height: 34px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px; }
+  .pad-login .btn-sub,
+  .pad-register .btn-sub {
+    margin-top: 16px;
+    width: 100%;
+    height: 34px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    background-color: transparent;
+    color: #00B2EE;
+    cursor: pointer !important; }
+  .pad-login.show,
+  .pad-register.show {
+    visibility: visible;
+    top: 50% !important;
+    opacity: 1.0; }
+
+@media screen and (max-width: 640px) {
+  .pad-login, .pad-register {
+    width: 95%;
+    padding: 16px;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none; }
+    .pad-login .tip, .pad-register .tip {
+      font-size: 14px;
+      padding-left: 8px;
+      line-height: 28px; }
+    .pad-login .btn-sub, .pad-login .btn-main, .pad-register .btn-sub, .pad-register .btn-main {
+      margin-top: 8px;
+      height: 42px; }
+    .pad-login .logo-company, .pad-register .logo-company {
+      height: 50px;
+      width: 50px; }
+    .pad-login .row, .pad-register .row {
+      padding: 0; }
+      .pad-login .row input, .pad-register .row input {
+        background-color: transparent;
+        border-radius: 0px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        -o-border-radius: 0px;
+        -ms-border-radius: 0px;
+        border: none;
+        font-size: 14px;
+        border-bottom: 1px solid #eee;
+        height: 42px; }
+        .pad-login .row input:focus, .pad-register .row input:focus {
+          border-bottom: 1px solid #00B2EE; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .pad-login, .pad-register {
+    width: 360px;
+    padding: 16px; } }
+
+@media screen and (min-width: 1024px) {
+  .pad-login, .pad-register {
+    width: 360px;
+    padding: 24px; } }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; } }
+
+/*  导航栏样式 将ID设置为 hx-pagination
+    2.0版 分页组件,
+    在原有带有分页组件和上一页下一页按钮的基础上：
+    - 去除了页数选择按钮集合，以及首页和末页按钮，
+    + 添加了展示当前页的span元素，跳转页数文本输入框和跳转按钮
+    适用于使用了Common分页插件样式的页面
+    Date: 2016-09-21
+    Update Date: 2019-09-27
+ */
+.hx-pagination {
+  text-align: right;
+  height: 34px;
+  padding: 0;
+  font-size: 0;
+  position: relative; }
+  .hx-pagination select {
+    padding: 0 10px;
+    float: left;
+    width: 140px;
+    height: 34px;
+    font-size: 14px;
+    color: #505050;
+    border: none;
+    user-appearance: none;
+    -webkit-user-appearance: none;
+    -moz-user-appearance: none;
+    -o-user-appearance: none;
+    -ms-user-appearance: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -o-border-radius: 0;
+    -ms-border-radius: 0;
+    background-color: white; }
+  .hx-pagination a, .hx-pagination span {
+    background: #fff;
+    line-height: 34px;
+    height: 34px;
+    text-decoration: none !important;
+    text-align: center;
+    font-size: 16px;
+    color: #505050;
+    display: inline-block; }
+  .hx-pagination a {
+    margin-right: 0 !important;
+    min-width: 30px;
+    padding: 0 8px;
+    position: relative;
+    color: #a2a2a2; }
+    .hx-pagination a:hover {
+      color: #747474;
+      background-color: #ececec; }
+    .hx-pagination a:active {
+      color: #fdfdfd;
+      background-color: #00B2EE; }
+    .hx-pagination a.btn-jump {
+      margin-left: 0; }
+  .hx-pagination span {
+    width: 80px;
+    text-align: center;
+    padding: 0 8px;
+    border: none; }
+  .hx-pagination input[type=text] {
+    position: relative;
+    font-size: 14px;
+    min-width: 50px !important;
+    height: 34px;
+    width: 60px;
+    padding: 0 10px !important;
+    margin-left: 20px;
+    border: none;
+    vertical-align: top; }
+
+@media screen and (max-width: 640px) {
+  .hx-pagination select {
+    display: none; } }
+
+@charset "UTF-8";
+/*
+  hx表单行模块: 标签为label元素 和 编辑区域内容为.pad-edit的 div 元素
+  hx-row 包含自身多种扩展样式 以及 其pad-edit中定义了多种元素的默认样式
+  * 自身样式：
+    .null     无内边距
+    .center   内部组件居中
+   Date: 2017-08-02
+ */
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; } }
+
+.hx-row {
+  width: 100%;
+  padding: 8px 16px;
+  line-height: 34px;
+  color: #474747; }
+  .hx-row.null {
+    padding: 0 !important; }
+  .hx-row.center {
+    text-align: center; }
+  .hx-row label, .hx-row .pad-edit {
+    min-height: 34px;
+    display: inline-block;
+    font-size: 14px;
+    vertical-align: top; }
+  .hx-row label {
+    line-height: 34px;
+    width: 120px;
+    color: #747474; }
+    .hx-row label.title {
+      font-size: 14px;
+      font-weight: 800; }
+    .hx-row label .tip {
+      color: #00B2EE;
+      font-size: 10px;
+      line-height: 34px; }
+  .hx-row .map {
+    display: inline-block;
+    height: 280px;
+    width: -moz- calc(45% - 58px);
+    width: -webkit- calc(45% - 58px);
+    width: calc(45% - 58px);
+    background-color: #f6f6f6;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px; }
+  .hx-row div.pad-rich-editor {
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    width: 100%;
+    vertical-align: top;
+    width: -moz- calc(100% - 130px);
+    width: -webkit- calc(100% - 130px);
+    width: calc(100% - 130px); }
+    .hx-row div.pad-rich-editor .rich-editor {
+      height: 389px;
+      border: 1px solid #eee;
+      padding: 16px;
+      border-radius: 3px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -o-border-radius: 3px;
+      -ms-border-radius: 3px;
+      overflow-x: hidden;
+      overflow-y: auto; }
+      .hx-row div.pad-rich-editor .rich-editor p {
+        margin: 0; }
+    .hx-row div.pad-rich-editor .btn-to-edit {
+      position: absolute;
+      top: 8px;
+      right: 8px; }
+  .hx-row div.pad-edit {
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    width: 100%;
+    vertical-align: top;
+    width: -moz- calc(100% - 130px);
+    width: -webkit- calc(100% - 130px);
+    width: calc(100% - 130px); }
+    .hx-row div.pad-edit.short {
+      width: 200px; }
+    .hx-row div.pad-edit input, .hx-row div.pad-edit textarea, .hx-row div.pad-edit select {
+      width: 100%;
       display: inline-block;
       transition: all 0.4s;
       -webkit-transition: all 0.4s;
       -moz-transition: all 0.4s;
       -o-transition: all 0.4s;
-      -ms-transition: all 0.4s; }
-    .hx-sidebar .group-btn-sidebar button.first-level.selected:after {
-      transform: rotate(90deg);
-      -webkit-transform: rotate(90deg);
-      -moz-transform: rotate(90deg);
-      -o-transform: rotate(90deg);
-      -ms-transform: rotate(90deg); }
-    .hx-sidebar .group-btn-sidebar button {
-      font-size: 13px;
+      -ms-transition: all 0.4s;
+      border: 1px solid #eee;
+      line-height: 34px;
+      padding: 0 8px;
+      background-color: white;
+      font-size: 14px;
+      resize: none; }
+      .hx-row div.pad-edit input.short, .hx-row div.pad-edit textarea.short, .hx-row div.pad-edit select.short {
+        width: 45%; }
+      .hx-row div.pad-edit input:focus, .hx-row div.pad-edit textarea:focus, .hx-row div.pad-edit select:focus {
+        border: 1px solid #00B2EE; }
+      .hx-row div.pad-edit input:disabled, .hx-row div.pad-edit textarea:disabled, .hx-row div.pad-edit select:disabled {
+        border: none !important;
+        background-color: #f6f6f6; }
+    .hx-row div.pad-edit input, .hx-row div.pad-edit select {
+      height: 34px; }
+    .hx-row div.pad-edit textarea {
+      height: 100px; }
+    .hx-row div.pad-edit .text {
+      padding-left: 8px;
+      font-size: 14px;
       width: 100%;
-      text-align: left;
-      padding-left: 16px;
-      height: 42px;
-      color: #f6f6f6;
-      background-color: transparent;
-      transition: 0.4s;
-      -webkit-transition: 0.4s;
-      -moz-transition: 0.4s;
-      -o-transition: 0.4s;
-      -ms-transition: 0.4s; }
-      .hx-sidebar .group-btn-sidebar button.open:before {
-        transform: rotate(90deg);
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        -ms-transform: rotate(90deg); }
-      .hx-sidebar .group-btn-sidebar button:before {
-        text-align: center;
-        width: 16px;
+      height: 34px;
+      display: block;
+      border-radius: 3px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -o-border-radius: 3px;
+      -ms-border-radius: 3px; }
+      .hx-row div.pad-edit .text.border {
+        border: 1px solid #eee; }
+      .hx-row div.pad-edit .text.disabled {
+        border: 1px solid #f6f6f6;
+        background-color: #f6f6f6; }
+      .hx-row div.pad-edit .text.tip {
+        font-size: 10px;
+        font-weight: 300;
+        color: #bbb;
+        line-height: 10px;
+        height: 10px;
+        margin-top: 8px; }
+    .hx-row div.pad-edit input [type='file'] {
+      position: absolute;
+      visibility: hidden; }
+    .hx-row div.pad-edit .pad-dropdown {
+      position: absolute;
+      top: 42px;
+      left: 0;
+      width: 100%;
+      padding: 16px;
+      z-index: 123;
+      display: inline-block;
+      background-color: white;
+      opacity: .0;
+      visibility: hidden;
+      -webkit-box-shadow: 0 5px 20px -6px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0 5px 20px -6px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 5px 20px -6px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s;
+      -webkit-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      -ms-transition: all 0.4s; }
+      .hx-row div.pad-edit .pad-dropdown.show {
+        visibility: visible;
+        opacity: 1.0; }
+    .hx-row div.pad-edit .pad-tags {
+      width: 100%;
+      padding: 0;
+      display: block;
+      min-height: 25px; }
+      .hx-row div.pad-edit .pad-tags .tag {
+        padding: 0 0 0 16px;
+        height: 25px;
+        line-height: 25px;
+        background-color: #00B2EE;
         display: inline-block;
-        vertical-align: top;
-        margin-right: 16px;
-        transition: all 0.4s;
-        -webkit-transition: all 0.4s;
-        -moz-transition: all 0.4s;
-        -o-transition: all 0.4s;
-        -ms-transition: all 0.4s;
-        transform-origin: 25% 55%;
-        -webkit-transform-origin: 25% 55%;
-        -moz-transform-origin: 25% 55%;
-        -o-transform-origin: 25% 55%;
-        -ms-transform-origin: 25% 55%; }
-    .hx-sidebar .group-btn-sidebar.selected button {
-      background-color: rgba(255, 255, 255, 0.3);
-      color: white; }
-      .hx-sidebar .group-btn-sidebar.selected button:hover {
-        background-color: #00bdfd; }
-    .hx-sidebar .group-btn-sidebar .pad-children {
-      padding: 4px 4px 0 4px; }
-      .hx-sidebar .group-btn-sidebar .pad-children button {
+        font-size: 10px;
+        font-weight: 300;
+        color: white;
+        margin: 0 4px 8px 0;
+        border-radius: 25px 25px;
+        -webkit-border-radius: 25px 25px;
+        -moz-border-radius: 25px 25px;
+        -o-border-radius: 25px 25px;
+        -ms-border-radius: 25px 25px; }
+        .hx-row div.pad-edit .pad-tags .tag span {
+          width: auto;
+          display: inline-block;
+          height: 25px;
+          line-height: 25px;
+          margin-right: 8px;
+          font-size: 10px; }
+        .hx-row div.pad-edit .pad-tags .tag .btn-remove {
+          color: #fdfdfd;
+          width: 25px;
+          height: 25px;
+          display: inline-block;
+          font-size: 18px;
+          font-weight: 100;
+          float: right;
+          background-color: transparent; }
+          .hx-row div.pad-edit .pad-tags .tag .btn-remove:hover {
+            color: #ff5a50; }
+    .hx-row div.pad-edit .for-image {
+      height: 120px;
+      display: inline-block;
+      overflow: hidden;
+      position: relative; }
+      .hx-row div.pad-edit .for-image img {
+        margin-right: 0; }
+      .hx-row div.pad-edit .for-image .dot {
+        position: absolute;
+        right: 8px;
+        top: 4px;
+        cursor: default;
+        display: block;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 4px;
+        font-size: 10px;
         border-radius: 3px;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         -o-border-radius: 3px;
         -ms-border-radius: 3px;
-        margin-bottom: 4px; }
-      .hx-sidebar .group-btn-sidebar .pad-children button:hover {
-        background-color: rgba(255, 255, 255, 0.1); }
-      .hx-sidebar .group-btn-sidebar .pad-children button.selected {
-        background-color: rgba(255, 255, 255, 0.3);
-        color: white; }
-      .hx-sidebar .group-btn-sidebar .pad-children button.selected:hover {
-        background-color: #00bdfd; }
-  .hx-sidebar .footer-btn-sidebar {
-    display: block;
-    margin-top: 24px;
-    width: 100%;
-    line-height: 50px;
-    text-align: center; }
-    .hx-sidebar .footer-btn-sidebar button {
-      height: 34px;
-      min-width: 34px;
-      font-size: 14px;
-      overflow: hidden;
-      padding: 0 8px;
-      background-color: transparent;
-      color: rgba(255, 255, 255, 0.5);
+        background-color: #bbb;
+        color: #fdfdfd; }
+        .hx-row div.pad-edit .for-image .dot:hover {
+          background-color: #b6b6b6; }
+        .hx-row div.pad-edit .for-image .dot.clear {
+          background-color: #00B2EE;
+          color: white; }
+          .hx-row div.pad-edit .for-image .dot.clear:hover {
+            background-color: #00aae4; }
+      .hx-row div.pad-edit .for-image .empty-image {
+        height: 120px;
+        width: 160px;
+        line-height: 120px;
+        text-align: center;
+        background-color: #f6f6f6;
+        color: #bbb;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -o-border-radius: 3px;
+        -ms-border-radius: 3px;
+        font-size: 18px;
+        padding: 0; }
+      .hx-row div.pad-edit .for-image.preview:after {
+        content: '查看大图';
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+        visibility: hidden;
+        opacity: .0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        font-weight: 200;
+        line-height: 120px;
+        text-align: center;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -o-border-radius: 3px;
+        -ms-border-radius: 3px;
+        transition: all 0.4s;
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -ms-transition: all 0.4s; }
+      .hx-row div.pad-edit .for-image.preview:hover:after {
+        opacity: 1.0;
+        visibility: visible; }
+    .hx-row div.pad-edit img {
+      height: 120px;
+      margin: 0 4px 0 0;
+      border: 1px solid #eee;
       border-radius: 3px;
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
@@ -4179,67 +3267,199 @@ table.hx-table {
       -moz-transition: all 0.4s;
       -o-transition: all 0.4s;
       -ms-transition: all 0.4s; }
-      .hx-sidebar .footer-btn-sidebar button:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-        color: white; }
-        .hx-sidebar .footer-btn-sidebar button:hover.fa-sign-out:after {
-          content: " 退出登录"; }
-        .hx-sidebar .footer-btn-sidebar button:hover.fa-user:after {
-          content: " 账户设置"; }
-  .hx-sidebar .version {
-    display: block;
-    height: 50px;
-    width: 100%;
-    line-height: 50px;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.3);
-    font-size: 10px; }
-
-.hxui-sidebar::-webkit-scrollbar {
-  width: 8px;
-  height: 8px; }
-
-.hxui-sidebar::-webkit-scrollbar-track {
-  width: 8px;
-  background-color: #002936; }
-
-.hxui-sidebar::-webkit-scrollbar-thumb {
-  border-radius: 8px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
-  background-color: rgba(255, 255, 255, 0.4); }
+    .hx-row div.pad-edit .btn-upload-image {
+      padding: 0;
+      vertical-align: top;
+      height: 120px;
+      width: 160px;
+      border: 2px dashed #bbb;
+      color: #bbb;
+      font-size: 18px;
+      line-height: 120px;
+      text-align: center;
+      background-color: transparent; }
+      .hx-row div.pad-edit .btn-upload-image:hover {
+        color: #747474;
+        border: 2px dashed #747474; }
 
 @media screen and (max-width: 640px) {
-  .hx-sidebar {
-    position: absolute !important;
-    left: -100%;
-    z-index: 1200;
-    overflow-y: hidden;
-    overflow-x: auto;
-    transition: left 0.4s;
-    -webkit-transition: left 0.4s;
-    -moz-transition: left 0.4s;
-    -o-transition: left 0.4s;
-    -ms-transition: left 0.4s; }
-    .hx-sidebar.show {
-      left: 0; }
-    .hx-sidebar .project-info {
-      padding: 12px; }
-      .hx-sidebar .project-info .logo {
-        height: 34px !important;
-        width: 34px !important; }
-    .hx-sidebar .sidebar-buttons {
-      height: -moz- calc(100% - 91px);
-      height: -webkit- calc(100% - 91px);
-      height: calc(100% - 91px);
-      display: block;
-      overflow-y: auto;
-      overflow-x: hidden; }
-      .hx-sidebar .sidebar-buttons .footer-btn-sidebar {
-        height: 42px;
-        margin-top: 8px; }
-      .hx-sidebar .sidebar-buttons .version {
-        height: 42px;
-        margin-bottom: 16px; } }
+  .hx-row {
+    border-bottom: 1px solid #eee;
+    padding: 4px 8px 4px 0 !important;
+    margin: 0 !important; }
+    .hx-row label {
+      width: 100px; }
+    .hx-row .pad-edit {
+      width: -moz- calc(100% - 110px);
+      width: -webkit- calc(100% - 110px);
+      width: calc(100% - 110px);
+      padding-left: 4px !important; }
+      .hx-row .pad-edit input, .hx-row .pad-edit select, .hx-row .pad-edit textarea {
+        border: none !important; }
+        .hx-row .pad-edit input:hover, .hx-row .pad-edit select:hover, .hx-row .pad-edit textarea:hover {
+          border: none; }
+      .hx-row .pad-edit input, .hx-row .pad-edit textarea {
+        padding-left: 4px !important; }
+      .hx-row .pad-edit select {
+        padding-left: 0 !important; }
+      .hx-row .pad-edit.for-switch {
+        width: 150px !important; }
+      .hx-row .pad-edit.one-line {
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 8px !important; }
+      .hx-row .pad-edit .for-image {
+        height: auto !important;
+        display: block !important; }
+        .hx-row .pad-edit .for-image .preview {
+          height: auto !important; }
+        .hx-row .pad-edit .for-image img {
+          width: 100% !important;
+          height: auto !important; }
+        .hx-row .pad-edit .for-image + button {
+          margin-bottom: 8px; }
+      .hx-row .pad-edit button.btn-upload-image {
+        height: 75px;
+        line-height: 75px;
+        width: 100%; }
+      .hx-row .pad-edit .degree {
+        color: #bbb;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: inline-block;
+        width: auto; }
+    .hx-row .pad-rich-editor {
+      width: 100% !important; }
+      .hx-row .pad-rich-editor .rich-editor {
+        border: none !important; }
+    .hx-row #map-preview {
+      margin-left: 0;
+      margin-bottom: 8px;
+      width: 100%; } }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; } }
+
+@media screen and (max-width: 640px) {
+  .hx-search {
+    position: absolute;
+    left: 0;
+    top: 42px;
+    opacity: .0;
+    visibility: hidden;
+    -webkit-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.4); }
+    .hx-search.show {
+      opacity: 1.0;
+      visibility: visible; }
+    .hx-search .hx-row {
+      border: none; }
+      .hx-search .hx-row .pad-edit {
+        width: 100% !important;
+        margin-right: 0 !important; }
+      .hx-search .hx-row label {
+        width: 100px;
+        padding-left: 8px; }
+      .hx-search .hx-row .search {
+        margin: 0;
+        width: 100%; }
+        .hx-search .hx-row .search .pad-datepicker {
+          width: 100% !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .hx-search {
+    padding-bottom: 0; }
+    .hx-search .hx-row {
+      margin-bottom: 8px; } }
+
+@media screen and (min-width: 1024px) {
+  .hx-search {
+    padding-bottom: 0; }
+    .hx-search .hx-row {
+      margin-bottom: 8px; } }
 
 @charset "UTF-8";
 /* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
@@ -5142,9 +4362,9 @@ td[id|=tangram-suggestion] {
     -ms-border-bottom-left-radius: 6px; }
 
 @media screen and (max-width: 640px) {
-  .hxui-image-modal {
+  .hx-image-modal {
     width: 100% !important; }
-    .hxui-image-modal .pad-functions {
+    .hx-image-modal .pad-functions {
       bottom: 0;
       width: 100%;
       padding: 8px 16px;
@@ -5153,14 +4373,16 @@ td[id|=tangram-suggestion] {
       -moz-border-radius: 0;
       -o-border-radius: 0;
       -ms-border-radius: 0; }
-      .hxui-image-modal .pad-functions button, .hxui-image-modal .pad-functions a {
+      .hx-image-modal .pad-functions button, .hx-image-modal .pad-functions a {
         padding: 8px;
         border-radius: 0;
         -webkit-border-radius: 0;
         -moz-border-radius: 0;
         -o-border-radius: 0;
         -ms-border-radius: 0;
-        font-size: 22px; } }
+        font-size: 22px; }
+    .hx-image-modal .btn-to-last, .hx-image-modal .btn-to-next {
+      height: 100%; } }
 
 @charset "UTF-8";
 /* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
@@ -5749,14 +4971,7 @@ td[id|=tangram-suggestion] {
     width: 100%; } }
 
 .pad-poptip {
-  position: absolute;
-  padding: 0 16px;
-  text-align: center;
-  font-size: 16px;
-  top: -50px;
   margin: 0 auto;
-  line-height: 50px;
-  height: 50px;
   min-width: 30%;
   max-width: 60%;
   z-index: 10000;
@@ -5769,19 +4984,11 @@ td[id|=tangram-suggestion] {
   -moz-transform: translateX(-50%);
   -o-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
-  -webkit-box-shadow: 0 5px 30px -2px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 5px 30px -2px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 5px 30px -2px rgba(0, 0, 0, 0.5);
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -o-border-radius: 3px;
-  -ms-border-radius: 3px;
-  transition: top 0.4s;
-  -webkit-transition: top 0.4s;
-  -moz-transition: top 0.4s;
-  -o-transition: top 0.4s;
-  -ms-transition: top 0.4s; }
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -ms-transition: all 0.4s; }
   .pad-poptip.success {
     background-color: #8ecc45; }
   .pad-poptip.warn {
@@ -5790,19 +4997,57 @@ td[id|=tangram-suggestion] {
     background-color: #ff5a50; }
   .pad-poptip.default {
     background-color: #aaa; }
-  .pad-poptip.show {
-    opacity: 1.0;
-    top: 16px;
-    -webkit-box-shadow: 0 5px 20px -10px rgba(0, 0, 0, 0.8);
-    -moz-box-shadow: 0 5px 20px -10px rgba(0, 0, 0, 0.8);
-    box-shadow: 0 5px 20px -10px rgba(0, 0, 0, 0.8); }
+
+@media screen and (min-width: 640px) {
+  .pad-poptip {
+    text-align: center;
+    top: -50px;
+    font-size: 16px;
+    line-height: 50px;
+    height: 50px;
+    padding: 0 16px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -webkit-box-shadow: 0 5px 30px -2px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 5px 30px -2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 30px -2px rgba(0, 0, 0, 0.5); }
+    .pad-poptip.show {
+      opacity: 1.0;
+      top: 16px;
+      -webkit-box-shadow: 0 5px 20px -10px rgba(0, 0, 0, 0.8);
+      -moz-box-shadow: 0 5px 20px -10px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 5px 20px -10px rgba(0, 0, 0, 0.8); } }
 
 @media screen and (max-width: 640px) {
   .pad-poptip {
-    width: 95%;
-    max-width: 95%; }
+    width: 70%;
+    bottom: 0;
+    text-align: justify;
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    font-size: 10px;
+    padding: 8px;
+    line-height: 20px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -o-border-radius: 6px;
+    -ms-border-radius: 6px; }
     .pad-poptip.show {
-      top: 8px; } }
+      opacity: 1.0;
+      bottom: 32px; }
+    .pad-poptip.success {
+      border-left: 6px solid #8ecc45; }
+    .pad-poptip.warn {
+      border-left: 6px solid #ff8d0a; }
+    .pad-poptip.error {
+      border-left: 6px solid #ff5a50; }
+    .pad-poptip.default {
+      border-left: 6px solid #aaa; } }
 
 @charset "UTF-8";
 /* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
@@ -5947,3 +5192,783 @@ td[id|=tangram-suggestion] {
     -webkit-box-shadow: 0 6px 12px -4px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 0 6px 12px -4px rgba(0, 0, 0, 0.4);
     box-shadow: 0 6px 12px -4px rgba(0, 0, 0, 0.4); }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; } }
+
+.hx-content {
+  height: -moz- calc(100% - 100px);
+  height: -webkit- calc(100% - 100px);
+  height: calc(100% - 100px);
+  width: 100%;
+  overflow-y: auto; }
+  .hx-content.no-footer, .hx-content.no-header {
+    height: -moz- calc(100% - 50px);
+    height: -webkit- calc(100% - 50px);
+    height: calc(100% - 50px); }
+  .hx-content.bg {
+    padding: 50px; }
+
+@media screen and (max-width: 640px) {
+  .hx-content {
+    overflow-x: auto;
+    padding: 0 !important; }
+    .hx-content .hx-pad-left, .hx-content .hx-pad-right {
+      width: 100% !important; } }
+
+@media screen and (min-width: 640px) {
+  .hx-content {
+    padding: 16px !important; } }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; } }
+
+.hx-footer {
+  height: 50px;
+  width: 100%;
+  padding: 8px 16px;
+  background-color: #f6f6f6;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid #eee; }
+  .hx-footer button {
+    height: 34px; }
+  .hx-footer.no-color {
+    background-color: transparent; }
+
+@media screen and (max-width: 640px) {
+  .hx-pagination {
+    padding: 0 8px; }
+    .hx-pagination .fa-caret-left, .hx-pagination .fa-caret-left + span, .hx-pagination .fa-caret-right {
+      float: left; } }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; } }
+
+.hx-header {
+  z-index: 10;
+  position: relative;
+  height: 50px;
+  border-bottom: 1px solid #eee;
+  padding: 8px 16px; }
+  .hx-header .title {
+    display: inline-block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 34px;
+    color: #747474;
+    margin-left: 0; }
+    .hx-header .title strong {
+      color: #00B2EE;
+      font-size: 18px;
+      font-weight: 800; }
+  .hx-header .hx-search {
+    float: right;
+    display: inline-block;
+    height: 34px;
+    top: 3px;
+    position: relative; }
+    .hx-header .hx-search input {
+      height: 100%;
+      border: none;
+      border-bottom: 1px solid #bbb;
+      padding: 0 34px 0 16px;
+      transition: border 0.4s;
+      -webkit-transition: border 0.4s;
+      -moz-transition: border 0.4s;
+      -o-transition: border 0.4s;
+      -ms-transition: border 0.4s; }
+    .hx-header .hx-search button {
+      height: 33px;
+      width: 34px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 14px;
+      color: #bbb;
+      transition: all 0.4s;
+      -webkit-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      -ms-transition: all 0.4s; }
+    .hx-header .hx-search:hover input {
+      border-bottom: 1px solid #00B2EE; }
+    .hx-header .hx-search:hover button {
+      color: #00B2EE; }
+
+@media screen and (max-width: 640px) {
+  .hx-header {
+    background-color: #00B2EE;
+    color: white; }
+    .hx-header .title {
+      z-index: 10;
+      display: inline-block;
+      padding: 0;
+      color: white;
+      height: 42px;
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -o-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      font-weight: 500;
+      font-size: 14px; }
+      .hx-header .title strong {
+        color: white;
+        font-weight: 600;
+        font-size: 17px; }
+    .hx-header .btn-left,
+    .hx-header .btn-right {
+      color: white; }
+    .hx-header .hx-search {
+      z-index: 1001;
+      float: right;
+      background-color: red; }
+      .hx-header .hx-search button {
+        color: white; }
+    .hx-header .hx-goback-button {
+      left: 42px;
+      position: relative;
+      padding: 0;
+      top: -1px;
+      border: none; } }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; } }
+
+.hx-main {
+  height: 100%;
+  border-top: 3px solid #00bdfd;
+  display: inline-block;
+  float: left;
+  position: relative;
+  width: -moz- calc(100% - 180px);
+  width: -webkit- calc(100% - 180px);
+  width: calc(100% - 180px); }
+
+@media screen and (max-width: 640px) {
+  .hx-main {
+    width: 100% !important;
+    left: 0; } }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; } }
+
+.hx-sidebar {
+  height: 100%;
+  display: inline-block;
+  float: left;
+  position: relative;
+  width: 180px;
+  overflow-x: hidden;
+  background-color: #002936; }
+  .hx-sidebar .sidebar {
+    height: 100%;
+    display: block; }
+  .hx-sidebar .project-info {
+    padding: 24px 0;
+    text-align: center; }
+    .hx-sidebar .project-info img.logo {
+      margin-bottom: 8px;
+      height: 75px;
+      width: 75px;
+      border-radius: 50% 50%;
+      -webkit-border-radius: 50% 50%;
+      -moz-border-radius: 50% 50%;
+      -o-border-radius: 50% 50%;
+      -ms-border-radius: 50% 50%; }
+    .hx-sidebar .project-info span.text-name {
+      display: block;
+      width: 100%;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 14px; }
+  .hx-sidebar .sidebar-buttons {
+    height: -moz- calc(100% - 156px);
+    height: -webkit- calc(100% - 156px);
+    height: calc(100% - 156px);
+    display: block; }
+  .hx-sidebar .group-btn-sidebar {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -o-transition: 0.4s;
+    -ms-transition: 0.4s;
+    margin-bottom: 1px; }
+    .hx-sidebar .group-btn-sidebar:hover {
+      background-color: rgba(255, 255, 255, 0.2); }
+    .hx-sidebar .group-btn-sidebar button.first-level.selected.no-children {
+      background-color: rgba(255, 255, 255, 0.3);
+      color: white; }
+      .hx-sidebar .group-btn-sidebar button.first-level.selected.no-children:hover {
+        background-color: #00bdfd; }
+    .hx-sidebar .group-btn-sidebar button.first-level.no-children:after {
+      content: ''; }
+    .hx-sidebar .group-btn-sidebar button.first-level:after {
+      content: '>';
+      color: rgba(255, 255, 255, 0.4);
+      float: right;
+      margin-right: 8px;
+      display: inline-block;
+      transition: all 0.4s;
+      -webkit-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      -ms-transition: all 0.4s; }
+    .hx-sidebar .group-btn-sidebar button.first-level.selected:after {
+      transform: rotate(90deg);
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      -ms-transform: rotate(90deg); }
+    .hx-sidebar .group-btn-sidebar button {
+      font-size: 13px;
+      width: 100%;
+      text-align: left;
+      padding-left: 16px;
+      height: 42px;
+      color: #f6f6f6;
+      background-color: transparent;
+      transition: 0.4s;
+      -webkit-transition: 0.4s;
+      -moz-transition: 0.4s;
+      -o-transition: 0.4s;
+      -ms-transition: 0.4s; }
+      .hx-sidebar .group-btn-sidebar button.open:before {
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg); }
+      .hx-sidebar .group-btn-sidebar button:before {
+        text-align: center;
+        width: 16px;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 16px;
+        transition: all 0.4s;
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        transform-origin: 25% 55%;
+        -webkit-transform-origin: 25% 55%;
+        -moz-transform-origin: 25% 55%;
+        -o-transform-origin: 25% 55%;
+        -ms-transform-origin: 25% 55%; }
+    .hx-sidebar .group-btn-sidebar.selected button {
+      background-color: rgba(255, 255, 255, 0.3);
+      color: white; }
+      .hx-sidebar .group-btn-sidebar.selected button:hover {
+        background-color: #00bdfd; }
+    .hx-sidebar .group-btn-sidebar .pad-children {
+      padding: 4px 4px 0 4px; }
+      .hx-sidebar .group-btn-sidebar .pad-children button {
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -o-border-radius: 3px;
+        -ms-border-radius: 3px;
+        margin-bottom: 4px; }
+      .hx-sidebar .group-btn-sidebar .pad-children button:hover {
+        background-color: rgba(255, 255, 255, 0.1); }
+      .hx-sidebar .group-btn-sidebar .pad-children button.selected {
+        background-color: rgba(255, 255, 255, 0.3);
+        color: white; }
+      .hx-sidebar .group-btn-sidebar .pad-children button.selected:hover {
+        background-color: #00bdfd; }
+  .hx-sidebar .footer-btn-sidebar {
+    display: block;
+    margin-top: 24px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center; }
+    .hx-sidebar .footer-btn-sidebar button {
+      height: 34px;
+      min-width: 34px;
+      font-size: 14px;
+      overflow: hidden;
+      padding: 0 8px;
+      background-color: transparent;
+      color: rgba(255, 255, 255, 0.5);
+      border-radius: 3px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -o-border-radius: 3px;
+      -ms-border-radius: 3px;
+      transition: all 0.4s;
+      -webkit-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      -ms-transition: all 0.4s; }
+      .hx-sidebar .footer-btn-sidebar button:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white; }
+        .hx-sidebar .footer-btn-sidebar button:hover.fa-sign-out:after {
+          content: " 退出登录"; }
+        .hx-sidebar .footer-btn-sidebar button:hover.fa-user:after {
+          content: " 账户设置"; }
+  .hx-sidebar .version {
+    display: block;
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 10px; }
+
+.hxui-sidebar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px; }
+
+.hxui-sidebar::-webkit-scrollbar-track {
+  width: 8px;
+  background-color: #002936; }
+
+.hxui-sidebar::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.4); }
+
+@media screen and (max-width: 640px) {
+  .hx-sidebar {
+    position: absolute !important;
+    left: -100%;
+    z-index: 1200;
+    overflow-y: hidden;
+    overflow-x: auto;
+    transition: left 0.4s;
+    -webkit-transition: left 0.4s;
+    -moz-transition: left 0.4s;
+    -o-transition: left 0.4s;
+    -ms-transition: left 0.4s; }
+    .hx-sidebar.show {
+      left: 0; }
+    .hx-sidebar .project-info {
+      padding: 12px; }
+      .hx-sidebar .project-info .logo {
+        height: 34px !important;
+        width: 34px !important; }
+    .hx-sidebar .sidebar-buttons {
+      height: -moz- calc(100% - 91px);
+      height: -webkit- calc(100% - 91px);
+      height: calc(100% - 91px);
+      display: block;
+      overflow-y: auto;
+      overflow-x: hidden; }
+      .hx-sidebar .sidebar-buttons .footer-btn-sidebar {
+        height: 42px;
+        margin-top: 8px; }
+      .hx-sidebar .sidebar-buttons .version {
+        height: 42px;
+        margin-bottom: 16px; } }

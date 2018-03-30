@@ -456,36 +456,6 @@
     window.HXUI = window.HXUI || {};
 
     /**
-     * 展示加载框
-     * @param options
-     * @param options.elem  需要高亮的组件
-     * @param options.type  高亮颜色
-     */
-    var markInput = function markInput(options) {
-        var elem = options ? options.elem || 'input' : 'input, textarea';
-        var type = options ? options.type || 'blue' : 'blue';
-        var $view = $(elem);
-        $view.addClass('hx-mark-anim').addClass(type);
-        var timer = setTimeout(function () {
-            $view.removeClass('hx-mark-anim').removeClass(type);
-            clearTimeout(timer);
-        }, 2000);
-    };
-
-    window.HXUI = Object.assign(window.HXUI, { markInput: markInput });
-})(jQuery, window);
-'use strict';
-
-/**
- * Created by lxhfight on 2018/1/4.
- * Email:   lxhfight1@gmail.com
- * Description: this is a loading modal
- *
- */
-(function ($, window) {
-    window.HXUI = window.HXUI || {};
-
-    /**
      * 查看预览大图方法
      * @param options
      * @param options.currentUrl 【必填】需要展示的图片URL
@@ -721,10 +691,10 @@
      * 轻量级的弹出框提示
      * @param msg   消息内容
      * @param level 等级 1：通知， 2: 警告， 3：错误
-     * @param second 提示时长
+     * @param during 提示时长
      */
     var timeout = null;
-    var _showTipLight = function _showTipLight(msg, level, second) {
+    var _showTipLight = function _showTipLight(msg, level, during) {
         clearTimeout(timeout);
         var className = 'default';
         if (level === 1) {
@@ -741,11 +711,11 @@
             $(node).appendTo('body');
             setTimeout(function () {
                 $('.pad-poptip').addClass('show');
-            }, 100);
+            }, 1000 / 60);
         }
         timeout = setTimeout(function () {
             $('.pad-poptip').removeClass('show');
-        }, second);
+        }, during);
     };
 
     //  通知级别的弹出提示

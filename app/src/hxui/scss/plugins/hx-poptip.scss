@@ -2,23 +2,14 @@
 
 // 顶部信息弹出框样式
 .pad-poptip {
-  position: absolute;
-  padding: 0 $pm-md;
-  text-align: center;
-  font-size:16px;
-  top: -1 * $height-navbar;
   margin: 0 auto;
-  line-height: $height-navbar;
-  height: $height-navbar;
   min-width: 30%;
   max-width: 60%;
   z-index: 10000;
   opacity: .0;
   color: #f2f2f2;
   @include centerHorizontal();
-  @include boxShadow(0 5px 30px -2px rgba(0,0,0,.5));
-  @include borderRadius($border-radius-md);
-  @include compatible(transition, top .4s);
+  @include compatible(transition, all .4s);
   &.success {
     background-color: $color-green;
   }
@@ -31,19 +22,53 @@
   &.default {
     background-color:#aaa;
   }
-  &.show {
-    opacity: 1.0;
-    top: $pm-md;
-    @include boxShadow(0 5px 20px -10px rgba(0,0,0,.8));
+}
+
+@media screen and (min-width: 640px) {
+  .pad-poptip {
+    text-align: center;
+    top: -1 * $height-navbar;
+    font-size: 16px;
+    line-height: $height-navbar;
+    height: $height-navbar;
+    padding: 0 $pm-md;
+    @include borderRadius($border-radius-md);
+    @include boxShadow(0 5px 30px -2px rgba(0,0,0,.5));
+    &.show {
+      opacity: 1.0;
+      top: $pm-md;
+      @include boxShadow(0 5px 20px -10px rgba(0,0,0,.8));
+    }
   }
 }
 
 @media screen and (max-width: 640px){
   .pad-poptip {
-    width: 95%;
-    max-width: 95%;
+    width: 70%;
+    bottom: 0;
+    text-align: justify;
+    background-color: rgba(0,0,0,.75)!important;
+    color: rgba(255, 255, 255, .9);
+    position: fixed;
+    font-size: $font-sm;
+    padding: $pm-sm;
+    line-height: $font-sm * 2;
+    @include borderRadius($border-radius-bg);
     &.show {
-      top: 8px;
+      opacity: 1.0;
+      bottom: $pm-lg;
+    }
+    &.success {
+      border-left: 6px solid $color-green;
+    }
+    &.warn {
+      border-left: 6px solid $color-orange;
+    }
+    &.error {
+      border-left: 6px solid $color-red;
+    }
+    &.default {
+      border-left: 6px solid #aaa;
     }
   }
 }

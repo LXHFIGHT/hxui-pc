@@ -116,7 +116,7 @@
 }
 
 @media screen and (max-width: 640px){
-  .hxui-image-modal {
+  .hx-image-modal {
     width: 100%!important;
     .pad-functions {
       bottom: 0;
@@ -128,6 +128,9 @@
         @include borderRadius(0);
         font-size: $font-lg;
       }
+    }
+    .btn-to-last, .btn-to-next {
+      height: 100%;
     }
   }
 }

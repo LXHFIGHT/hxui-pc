@@ -11,10 +11,10 @@
      * 轻量级的弹出框提示
      * @param msg   消息内容
      * @param level 等级 1：通知， 2: 警告， 3：错误
-     * @param second 提示时长
+     * @param during 提示时长
      */
     let timeout = null;
-    let _showTipLight = (msg, level, second) => {
+    let _showTipLight = (msg, level, during) => {
         clearTimeout(timeout);
         let className = 'default';
         if(level === 1){
@@ -33,11 +33,11 @@
             $(node).appendTo('body');
             setTimeout(function(){
                 $('.pad-poptip').addClass('show');
-            }, 100);
+            }, 1000/60);
         }
         timeout = setTimeout(function() {
             $('.pad-poptip').removeClass('show');
-        }, second);
+        }, during);
     };
 
     //  通知级别的弹出提示
