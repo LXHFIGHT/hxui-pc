@@ -9,12 +9,10 @@
   width: $width-sidebar;
   overflow-x: hidden;
   background-color: $color-main-dark;
-
   .sidebar {
     height: 100%;
     display: block;
   }
-
   .project-info {
     padding: $pm-bg 0;
     text-align: center;
@@ -31,12 +29,10 @@
       font-size: $font-md;
     }
   }
-
   .sidebar-buttons {
     @include hcalc(calc(100% - 156px));
     display: block;
   }
-
   .group-btn-sidebar{
     width: 100%;
     background-color: rgba(255,255,255, .1);
@@ -118,7 +114,6 @@
       }
     }
   }
-
   .footer-btn-sidebar {
     display: block;
     margin-top: $pm-bg;
