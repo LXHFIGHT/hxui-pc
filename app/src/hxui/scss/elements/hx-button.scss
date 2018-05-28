@@ -6,7 +6,8 @@
 
 // 实心按钮
 .hx-button {
-  @include hxButton($color-main);
+  @include hxButton(#eee);
+  color: $color-heavy;
   &:disabled, &.disabled {
     background-color: darken($color-gray, 5%)!important;
     cursor: not-allowed;

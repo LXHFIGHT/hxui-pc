@@ -8,7 +8,71 @@
     <button class="btn-right fa fa-search"></button>
 </nav>
 <section class="hx-content no-footer null">
-    <div class="hx-sidebar">
+    <div class="hx-container hx-article">
+        <section>
+            <h3>
+                一. 操作反馈
+            </h3>
+            <div class="detail">
+                <h5 >
+                    1. 轻量消息提示 <strong>popTip</strong>
+                </h5>
+                <button class="hx-button"    ng-click="event.doPopInfo(0)">常规提示</button>
+                <button class="hx-button"   ng-click="event.doPopInfo(1)">成功提示</button>
+                <button class="hx-button"  ng-click="event.doPopInfo(2)">警告提示</button>
+                <button class="hx-button"     ng-click="event.doPopInfo(3)">错误提示</button>
+            </div>
+            <div class="detail">
+                <h5 class="mb-md">
+                    2. 弹出加载中提示框使用 <strong>showLoading</strong> 方法， 隐藏则使用 <strong>hideLoading</strong> 方法
+                </h5>
+                <button class="hx-button" ng-click="event.doShowLoading()">弹出加载框</button>
+                <button class="hx-button" ng-click="event.doShowLoading('登录中...', 1500)">加载文本为"登录中..."</button>
+                <button class="hx-button" ng-click="event.doShowLoading('3秒就撤...', 3000)">弹出3秒后消失</button>
+                <button class="hx-button" ng-click="event.doHideLoading()">取消加载</button>
+            </div>
+            <div class="detail">
+                <h5 class="mb-md">
+                    3. 弹出提示框 <strong>showTip</strong> 方法， 默认在1.5秒后消失
+                </h5>
+                <button class="hx-button" ng-click="event.doShowTip({ title: '已确认' })">弹出"已确认"</button>
+                <button class="hx-button" ng-click="event.doShowTip({ title: '出错了', type: 'error' })">弹出"出错了"</button>
+                <button class="hx-button" ng-click="event.doShowTip()">弹出3秒后消失</button>
+                <button class="hx-button" ng-click="event.doHideLoading()">取消加载</button>
+            </div>
+            <div class="detail">
+                <h5 class="mb-md">
+                    4. 预览图片使用 <strong>imagePreviewer</strong> 方法
+                </h5>
+                <div class="mb-sm">
+                    <button class="hx-button " ng-click="event.doImagePreview()">开始预览图片</button>
+                </div>
+            </div>
+            <div class="detail">
+                <h5 class="mb-md">
+                    5. 在百度地图上绘制路线 <strong>showRouteMap</strong> 方法
+                </h5>
+                <div class="mb-sm">
+                    <div id="map"
+                         class="bg-gray-light"
+                         style="height: 300px; min-width: 300px; width: 50%; display: block">
+                    </div>
+                </div>
+            </div>
+            <div class="detail">
+                <h5 class="mb-md">
+                    6. 地图位置选择器可以使用 <strong>addressChooser</strong> 方法
+                </h5>
+                <div class="mb-sm" style="max-width: 320px">
+                    <span type="text"
+                          class="text-address-info {{ location && 'color-main' }}"
+                          ng-bind="location"></span>
+                    <button class="hx-button green width-full mt-md"
+                            ng-click="event.doChooseAddress()">点此选择位置</button>
+                </div>
+            </div>
 
+
+        </section>
     </div>
 </section>

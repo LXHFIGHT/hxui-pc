@@ -9,7 +9,7 @@ let gulp = require('gulp'),
     concat = require('gulp-concat'),
     rename = require('gulp-rename'),
     imagemin = require('gulp-imagemin'),
-    sass = require('gulp-sass-china'),
+    sass = require('gulp-sass'),
     notify = require('gulp-notify'),
     plumber = require('gulp-plumber'),
     connect = require('gulp-connect'),
@@ -26,8 +26,6 @@ let htmlSrc = [
 
     cssSrc = 'app/src/views/**/*.scss',  // CSS源文件 SCSS文件
     cssDist = 'app/dist/css/',          // 编译后生成CSS文件存储位置
-
-
 
     imgSrc = 'app/src/img/**/*.*',      // 图片资源存放位置
     imgDist = 'app/dist/img/',         // 图片资源压缩后存放的位置

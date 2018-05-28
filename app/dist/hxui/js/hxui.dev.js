@@ -410,7 +410,8 @@
  */
 (function ($, window) {
     window.HXUI = window.HXUI || {};
-
+    var loadingModalQuery = '.hx-small-modal.loading';
+    var tipsModalQuery = '.hx-small-modal.tips';
     /**
      * 展示加载框
      * @param options
@@ -420,29 +421,58 @@
     var showLoading = function showLoading(options) {
         var title = options ? options.title || '加载中...' : '加载中...';
         var during = options ? options.during || 5000 : 5000;
-        var $view = $('.hx-loading-modal');
+        var $view = $(loadingModalQuery);
         if ($view.length !== 0) {
             $view.addClass('show');
-            $view.find('.txt-loading').text(title);
+            $view.find('.text-small-modal').text(title);
         } else {
-            var node = '<div class=\'hx-loading-modal\'>\n                   <section class=\'hx-loading\'></section>\n                   <span class=\'txt-loading\'>' + title + '</span>\n                </div>';
+            var node = '<div class=\'hx-small-modal loading\'>\n                   <section class=\'hx-loading\'></section>\n                   <span class=\'text-small-modal\'>' + title + '</span>\n                </div>';
             $(node).appendTo('body');
             var timer = setTimeout(function () {
-                $('.hx-loading-modal').addClass('show');
+                $(loadingModalQuery).addClass('show');
                 clearTimeout(timer);
-            }, 30);
+            }, 0);
         }
         var timer2 = setTimeout(function () {
-            $('.hx-loading-modal').removeClass('show');
+            $(loadingModalQuery).removeClass('show');
             clearTimeout(timer2);
         }, during);
     };
 
     var hideLoading = function hideLoading() {
-        $('.hx-loading-modal').removeClass('show');
+        $(loadingModalQuery).removeClass('show');
     };
 
-    window.HXUI = Object.assign(window.HXUI, { showLoading: showLoading, hideLoading: hideLoading });
+    /**
+     * 展示加载框
+     * @param options
+     * @param options.title  自定义加载文案
+     * @param options.during  展示时长  单位为： 毫秒
+     */
+    var showTip = function showTip(options) {
+        var title = options ? options.title || '加载中...' : '加载中...';
+        var during = options ? options.during || 150000 : 150000;
+        var type = options ? options.type || 'success' : 'success';
+        var $view = $(tipsModalQuery);
+        if ($view.length !== 0) {
+            $view.addClass('show');
+            $view.find(tipsModalQuery).text(title);
+            $view.find('#hx-icon')[0].setAttribute('class', 'hx-icon ' + type);
+        } else {
+            var node = '<div class=\'hx-small-modal tips\'>\n                   <section id="hx-icon" class=\'hx-icon ' + type + '\'></section>\n                   <span class=\'text-small-modal\'>' + title + '</span>\n                </div>';
+            $(node).appendTo('body');
+            var timer = setTimeout(function () {
+                $(tipsModalQuery).addClass('show');
+                clearTimeout(timer);
+            }, 0);
+        }
+        var timer2 = setTimeout(function () {
+            $(tipsModalQuery).removeClass('show');
+            clearTimeout(timer2);
+        }, during);
+    };
+
+    window.HXUI = Object.assign(window.HXUI, { showLoading: showLoading, hideLoading: hideLoading, showTip: showTip });
 })(jQuery, window);
 'use strict';
 

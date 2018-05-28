@@ -1,11 +1,11 @@
 @import "./../variable";
 // 加载组件
-.hx-loading-modal {
+.hx-small-modal {
   @include centerInParent;
   z-index: 1400;
   background-color: rgba(0, 0, 0, .6);
   margin-top: -20px;
-  @include borderRadius($border-radius-bg);
+  @include borderRadius($border-radius-lg);
   @include compatible(transition, all .4s);
   height: $height-navbar * 2.4;
   width: $height-navbar * 2.4;
@@ -16,7 +16,7 @@
     visibility: visible;
     opacity: 1.0;
   }
-  .txt-loading {
+  .text-small-modal {
     text-align: center;
     width: 100%;
     display: block;
@@ -25,6 +25,9 @@
   }
   .hx-loading {
     margin: 0 auto $pm-sm;
+  }
+  .hx-icon {
+    margin: 0 auto 5px;
   }
 }
 .hx-loading {
@@ -52,6 +55,45 @@
     top: 0;
     @include compatible(transform, scale(1.0, 1.0));
     @include compatible(animation, bigRound 1.5s infinite ease-in);
+  }
+}
+
+.hx-icon {
+  height: $height-navbar * 1.2;
+  width: $height-navbar * 1.2;
+  display: block;
+  position: relative;
+  &:before, &:after {
+    height: 10px;
+    width: 100%;
+    content: "";
+    background-color: rgba(255,255,255,.4);
+    display: block;
+    @include borderRadius(10px);
+    @include centerVertical;
+  }
+  &.success:before {
+    @include compatible(transform, rotate(-50deg));
+    width: 70%;
+    margin-left: 24%;
+    margin-top: -7%;
+  }
+  &.success:after {
+    margin-top: 5%;
+    margin-left: 11%;
+    width: 40%;
+    @include compatible(transform, rotate(40deg));
+  }
+  &.error:before,
+  &.error:after {
+    @include centerInParent;
+    width: 80%;
+  }
+  &.error:before {
+    @include compatible(transform, rotate(-45deg));
+  }
+  &.error:after {
+    @include compatible(transform, rotate(45deg));
   }
 }
 @keyframes bigRound {

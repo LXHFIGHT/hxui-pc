@@ -25,6 +25,9 @@ DemosCtrl.controller('DemosCtrl', ['$scope', ($scope) => {
         doHideLoading: () => {
             HXUI.hideLoading();
         },
+        doShowTip: (options) => {
+            HXUI.showTip(options);
+        },
         doMarkInput: (type) => {
             HXUI.markInput({ type });
         },

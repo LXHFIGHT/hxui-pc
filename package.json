@@ -22,11 +22,13 @@
     "gulp-open": "^2.0.0",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
+    "gulp-sass": "^4.0.1",
     "gulp-sass-china": "^2.3.1",
     "gulp-uglify": "^2.0.1"
   },
   "scripts": {
-    "dev": "gulp"
+    "dev": "gulp",
+    "start": "gulp"
   },
   "repository": {
     "type": "git",

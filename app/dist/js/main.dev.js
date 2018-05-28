@@ -1243,6 +1243,131 @@ factoriesModule.factory('authority', ['$rootScope', 'StorageHelper', function ($
 'use strict';
 
 /**
+ * Created by LXHFIGHT on 2017/3/1 16:10.
+ * Email: lxhfight51@outlook.com
+ * Description:
+ *
+ */
+
+var LoginCtrl = angular.module('CommonController');
+
+LoginCtrl.controller('LoginCtrl', ['$scope', '$state', '$stateParams', 'HttpHelper', 'StorageHelper', 'config', function ($scope, $state, $stateParams, HttpHelper, StorageHelper, config) {
+    $scope.isLoginMode = true;
+
+    $scope.logoUrl = config.logo.url;
+
+    $scope.state = $stateParams.state || 'enter.users'; //需要跳转的页面
+
+    $scope.toggleMode = function (mode) {
+        $scope.isLoginMode = mode;
+    };
+
+    // 登录用户信息
+    $scope.userInfo = {
+        username: '',
+        password: ''
+    };
+
+    $scope.keyForLogin = function ($event) {
+        $event.keyCode === 13 && $scope.doLogin();
+    };
+
+    // 登录操作
+    $scope.doLogin = function () {
+        if ($scope.userInfo.username && $scope.userInfo.password) {
+            // 如果是debug模式下 输入 admin 账号和 admin123 密码进行登录
+            if (config.isDebug && $scope.userInfo.username === 'admin' && $scope.userInfo.password === 'admin123') {
+                popTipInfoQuick('登录成功');
+                StorageHelper.setValue('username', 'superadmin');
+                $state.go($scope.state);
+            } else {
+                // let user = {
+                //     username: $scope.userInfo.username,
+                //     password: md5($scope.userInfo.password)
+                // };
+                // HttpHelper.doPost('/common/login', user).success(function(data){
+                //     if (!data.result) {
+                //         popTipInfoQuick('登录成功');
+                //         StorageHelper.setValue('username', $scope.userInfo.username);
+                //         $state.go($scope.state);
+                //     } else {
+                //         popTipError(data.msg);
+                //     }
+                // })
+            }
+        } else {
+            popTipWarningQuick('请完善登录信息');
+        }
+    };
+
+    $scope.keyForRegister = function ($event) {
+        if ($event.keyCode === 13) {
+            $scope.doRegister();
+        } else {
+            var _$scope$register = $scope.register,
+                password = _$scope$register.password,
+                passwordConfirm = _$scope$register.passwordConfirm;
+
+            if (passwordConfirm !== password) {
+                $('.input-password-confirm').addClass('error');
+            } else {
+                $('.input-password-confirm').removeClass('error');
+            }
+        }
+    };
+
+    $scope.doRegister = function () {
+        var _$scope$register2 = $scope.register,
+            username = _$scope$register2.username,
+            password = _$scope$register2.password,
+            passwordConfirm = _$scope$register2.passwordConfirm,
+            email = _$scope$register2.email;
+
+        if (ObjectHelper.hasNone($scope.register)) {
+            popTipWarningQuick('请完善所有信息');
+            return;
+        } else if (password !== passwordConfirm) {
+            popTipWarningQuick('账号密码和密码确认不匹配');
+            return;
+        }
+        // else if (!ObjectHelper.isEmail(email)) {
+        //     popTipWarningQuick('电子邮箱格式不正确');
+        //     return;
+        // }
+        else {
+                // 发起注册操作
+                HttpHelper.doPost('user/signup', { username: username, password: password, email: email }).success(function (data) {
+                    if (data.code === 200) {
+                        popTipInfoQuick('注册车检所成功，自动登录');
+                        var _data$data = data.data,
+                            token = _data$data.token,
+                            role = _data$data.role;
+
+                        StorageHelper.setValue('token', token);
+                        StorageHelper.setValue('role', role);
+                        $state.go('enter.inspection');
+                        $scope._initProjectName(role);
+                    } else {
+                        popTipWarningQuick(data.message);
+                    }
+                });
+            }
+    };
+}]);
+'use strict';
+
+/**
+ * Created by LXHFIGHT on 2017/2/20 10:28.
+ * Email: lxhfight51@outlook.com
+ * Description:
+ *
+ */
+
+var _module = angular.module('SystemController');
+_module.controller('SystemCtrl', ['$scope', function ($scope) {}]);
+'use strict';
+
+/**
  * Created by lxhfight on 2017/9/25.
  * Email:
  * Description:
@@ -1273,6 +1398,9 @@ DemosCtrl.controller('DemosCtrl', ['$scope', function ($scope) {
         },
         doHideLoading: function doHideLoading() {
             HXUI.hideLoading();
+        },
+        doShowTip: function doShowTip(options) {
+            HXUI.showTip(options);
         },
         doMarkInput: function doMarkInput(type) {
             HXUI.markInput({ type: type });
@@ -1375,21 +1503,6 @@ HomeCtrl.controller('HomeCtrl', ['$scope', function ($scope) {
     $scope.init = function () {
         $scope._init.wave();
     }();
-}]);
-'use strict';
-
-/**
- * Created by lxhfight on 2017/9/25.
- * Email:
- * Description:
- *      This is the front-page of hxui.lxhfight.com
- */
-
-var PluginsCtrl = angular.module('HXUIController');
-
-PluginsCtrl.controller('PluginsCtrl', ['$scope', function ($scope) {
-
-  $scope._init = {};
 }]);
 'use strict';
 
@@ -1532,6 +1645,21 @@ _module.controller('ListCtrl', ['$scope', 'HttpHelper', function ($scope, HttpHe
 'use strict';
 
 /**
+ * Created by lxhfight on 2017/9/25.
+ * Email:
+ * Description:
+ *      This is the front-page of hxui.lxhfight.com
+ */
+
+var PluginsCtrl = angular.module('HXUIController');
+
+PluginsCtrl.controller('PluginsCtrl', ['$scope', function ($scope) {
+
+  $scope._init = {};
+}]);
+'use strict';
+
+/**
  * Created by LXHFIGHT on 2017/2/20 9:08.
  * Email: lxhfight51@outlook.com
  * Description:
@@ -1571,128 +1699,3 @@ _module.controller('ListHeadCtrl', ['$scope', 'HttpHelper', function ($scope, Ht
         }
     };
 }]);
-'use strict';
-
-/**
- * Created by LXHFIGHT on 2017/3/1 16:10.
- * Email: lxhfight51@outlook.com
- * Description:
- *
- */
-
-var LoginCtrl = angular.module('CommonController');
-
-LoginCtrl.controller('LoginCtrl', ['$scope', '$state', '$stateParams', 'HttpHelper', 'StorageHelper', 'config', function ($scope, $state, $stateParams, HttpHelper, StorageHelper, config) {
-    $scope.isLoginMode = true;
-
-    $scope.logoUrl = config.logo.url;
-
-    $scope.state = $stateParams.state || 'enter.users'; //需要跳转的页面
-
-    $scope.toggleMode = function (mode) {
-        $scope.isLoginMode = mode;
-    };
-
-    // 登录用户信息
-    $scope.userInfo = {
-        username: '',
-        password: ''
-    };
-
-    $scope.keyForLogin = function ($event) {
-        $event.keyCode === 13 && $scope.doLogin();
-    };
-
-    // 登录操作
-    $scope.doLogin = function () {
-        if ($scope.userInfo.username && $scope.userInfo.password) {
-            // 如果是debug模式下 输入 admin 账号和 admin123 密码进行登录
-            if (config.isDebug && $scope.userInfo.username === 'admin' && $scope.userInfo.password === 'admin123') {
-                popTipInfoQuick('登录成功');
-                StorageHelper.setValue('username', 'superadmin');
-                $state.go($scope.state);
-            } else {
-                // let user = {
-                //     username: $scope.userInfo.username,
-                //     password: md5($scope.userInfo.password)
-                // };
-                // HttpHelper.doPost('/common/login', user).success(function(data){
-                //     if (!data.result) {
-                //         popTipInfoQuick('登录成功');
-                //         StorageHelper.setValue('username', $scope.userInfo.username);
-                //         $state.go($scope.state);
-                //     } else {
-                //         popTipError(data.msg);
-                //     }
-                // })
-            }
-        } else {
-            popTipWarningQuick('请完善登录信息');
-        }
-    };
-
-    $scope.keyForRegister = function ($event) {
-        if ($event.keyCode === 13) {
-            $scope.doRegister();
-        } else {
-            var _$scope$register = $scope.register,
-                password = _$scope$register.password,
-                passwordConfirm = _$scope$register.passwordConfirm;
-
-            if (passwordConfirm !== password) {
-                $('.input-password-confirm').addClass('error');
-            } else {
-                $('.input-password-confirm').removeClass('error');
-            }
-        }
-    };
-
-    $scope.doRegister = function () {
-        var _$scope$register2 = $scope.register,
-            username = _$scope$register2.username,
-            password = _$scope$register2.password,
-            passwordConfirm = _$scope$register2.passwordConfirm,
-            email = _$scope$register2.email;
-
-        if (ObjectHelper.hasNone($scope.register)) {
-            popTipWarningQuick('请完善所有信息');
-            return;
-        } else if (password !== passwordConfirm) {
-            popTipWarningQuick('账号密码和密码确认不匹配');
-            return;
-        }
-        // else if (!ObjectHelper.isEmail(email)) {
-        //     popTipWarningQuick('电子邮箱格式不正确');
-        //     return;
-        // }
-        else {
-                // 发起注册操作
-                HttpHelper.doPost('user/signup', { username: username, password: password, email: email }).success(function (data) {
-                    if (data.code === 200) {
-                        popTipInfoQuick('注册车检所成功，自动登录');
-                        var _data$data = data.data,
-                            token = _data$data.token,
-                            role = _data$data.role;
-
-                        StorageHelper.setValue('token', token);
-                        StorageHelper.setValue('role', role);
-                        $state.go('enter.inspection');
-                        $scope._initProjectName(role);
-                    } else {
-                        popTipWarningQuick(data.message);
-                    }
-                });
-            }
-    };
-}]);
-'use strict';
-
-/**
- * Created by LXHFIGHT on 2017/2/20 10:28.
- * Email: lxhfight51@outlook.com
- * Description:
- *
- */
-
-var _module = angular.module('SystemController');
-_module.controller('SystemCtrl', ['$scope', function ($scope) {}]);
