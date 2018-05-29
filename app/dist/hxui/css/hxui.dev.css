@@ -4509,10 +4509,9 @@ td[id|=tangram-suggestion] {
 
 .hx-modal.choose-address-modal {
   position: absolute; }
-  .hx-modal.choose-address-modal .pad-content {
+  .hx-modal.choose-address-modal .pad-address-content {
     height: 70%;
-    width: 50%;
-    min-width: 400px;
+    width: 30%;
     display: block;
     top: 50%;
     left: 50%;
@@ -4528,12 +4527,8 @@ td[id|=tangram-suggestion] {
   width: 100%;
   position: fixed;
   top: 100%;
-  left: 0;
   display: block;
-  background-color: #f6f6f6;
-  transition: top .4s ease-in-out; }
-  .choose-address-modal.show {
-    top: 0; }
+  background-color: #f6f6f6; }
   .choose-address-modal .pad-address-selector {
     height: 50px;
     padding: 6px 16px;
@@ -4680,6 +4675,31 @@ td[id|=tangram-suggestion] {
         display: none; }
         .choose-address-modal .pad-poi .item-poi .icon-select.show {
           display: inline-block; }
+
+@media screen and (min-width: 640px) {
+  .hx-modal.choose-address-modal {
+    min-width: 350px; } }
+
+@media screen and (max-width: 640px) {
+  .hx-modal.choose-address-modal {
+    height: 100%;
+    top: 100%; }
+    .hx-modal.choose-address-modal .pad-address-content {
+      height: 100%;
+      width: 100%;
+      display: block;
+      padding-top: 0; }
+      .hx-modal.choose-address-modal .pad-address-content .btn-close-modal {
+        top: 0 !important;
+        right: 0 !important; }
+    .hx-modal.choose-address-modal.show {
+      top: 0; }
+    .hx-modal.choose-address-modal .map {
+      margin-top: 0 !important; }
+    .hx-modal.choose-address-modal .pad-poi {
+      height: -moz- calc(50% - 17px);
+      height: -webkit- calc(50% - 17px);
+      height: calc(50% - 17px); } }
 
 @charset "UTF-8";
 /* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
@@ -5876,7 +5896,7 @@ td[id|=tangram-suggestion] {
  ------------------------------------------------------ */
 @media screen and (max-width: 640px) {
   .hx-modal {
-    z-index: 1300; }
+    z-index: 20; }
     .hx-modal .pad-content {
       width: 95%;
       padding: 8px;

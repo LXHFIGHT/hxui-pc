@@ -89,7 +89,7 @@ main.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function (
     $httpProvider.defaults.headers.post = { 'Content-Type': 'application/x-www-form-urlencoded' };
 }]);
 
-main.run(['$rootScope', '$location', '$log', '$state', 'globalValue', 'HttpHelper', 'config', 'StorageHelper', 'authority', function ($rootScope, $location, $log, $state, globalValue, HttpHelper, config, StorageHelper, authority) {
+main.run(['$rootScope', '$location', '$log', '$state', 'globalValue', 'HttpHelper', 'config', 'StorageHelper', 'authority', 'sidebarMenus', function ($rootScope, $location, $log, $state, globalValue, HttpHelper, config, StorageHelper, authority, sidebarMenus) {
     $rootScope.stateStack = [];
     $rootScope.stateParamsStack = [];
 
@@ -1112,68 +1112,6 @@ var _module = angular.module('MainFilter', []);
 'use strict';
 
 /**
- * Created by LXHFIGHT on 2017/2/20 1:07.
- * Email: lxhfight51@outlook.com
- * Description:
- *
- */
-
-var menus = angular.module('menus');
-
-menus.value('sidebarMenus', [{
-    name: '列表页面',
-    state: 'enter.list',
-    icon: 'list',
-    role: '*',
-    selected: true,
-    children: [{
-        name: '带header列表',
-        state: 'enter.list-head',
-        icon: 'th',
-        role: '*',
-        selected: false
-    }, {
-        name: '带footer列表',
-        state: 'enter.list-footer',
-        icon: 'calendar',
-        role: '*',
-        selected: false
-    }, {
-        name: '完整布局列表',
-        state: 'enter.list-both',
-        icon: 'check-square-o',
-        role: '*',
-        selected: false
-    }]
-}, {
-    name: '系统设置',
-    state: 'enter.system',
-    icon: 'cog',
-    role: '*',
-    selected: false
-}, {
-    name: '一级菜单',
-    state: 'enter.system',
-    icon: 'cogs',
-    role: '*',
-    selected: false,
-    children: [{
-        name: '二级菜单5',
-        state: '',
-        icon: 'user',
-        role: '*',
-        selected: false
-    }, {
-        name: '二级菜单6',
-        state: '',
-        icon: 'users',
-        role: '*',
-        selected: false
-    }]
-}]);
-'use strict';
-
-/**
  * Created by lxhfight on 2017/7/17.
  * Email:
  * Description:
@@ -1239,6 +1177,68 @@ factoriesModule.factory('authority', ['$rootScope', 'StorageHelper', function ($
             return false;
         }
     };
+}]);
+'use strict';
+
+/**
+ * Created by LXHFIGHT on 2017/2/20 1:07.
+ * Email: lxhfight51@outlook.com
+ * Description:
+ *
+ */
+
+var menus = angular.module('menus');
+
+menus.value('sidebarMenus', [{
+    name: '列表页面',
+    state: 'enter.list',
+    icon: 'list',
+    role: '*',
+    selected: true,
+    children: [{
+        name: '带header列表',
+        state: 'enter.list-head',
+        icon: 'th',
+        role: '*',
+        selected: false
+    }, {
+        name: '带footer列表',
+        state: 'enter.list-footer',
+        icon: 'calendar',
+        role: '*',
+        selected: false
+    }, {
+        name: '完整布局列表',
+        state: 'enter.list-both',
+        icon: 'check-square-o',
+        role: '*',
+        selected: false
+    }]
+}, {
+    name: '系统设置',
+    state: 'enter.system',
+    icon: 'cog',
+    role: '*',
+    selected: false
+}, {
+    name: '一级菜单',
+    state: 'enter.system',
+    icon: 'cogs',
+    role: '*',
+    selected: false,
+    children: [{
+        name: '二级菜单5',
+        state: '',
+        icon: 'user',
+        role: '*',
+        selected: false
+    }, {
+        name: '二级菜单6',
+        state: '',
+        icon: 'users',
+        role: '*',
+        selected: false
+    }]
 }]);
 'use strict';
 
@@ -1365,85 +1365,6 @@ LoginCtrl.controller('LoginCtrl', ['$scope', '$state', '$stateParams', 'HttpHelp
 
 var _module = angular.module('SystemController');
 _module.controller('SystemCtrl', ['$scope', function ($scope) {}]);
-'use strict';
-
-/**
- * Created by lxhfight on 2017/9/25.
- * Email:
- * Description:
- *      This is the front-page of hxui.lxhfight.com
- */
-
-var DemosCtrl = angular.module('HXUIController');
-
-DemosCtrl.controller('DemosCtrl', ['$scope', function ($scope) {
-    $scope.location = '';
-    $scope.event = {
-        doPopInfo: function doPopInfo(type) {
-            switch (type) {
-                case 0:
-                    HXUI.popTipNormal('调用 HXUI.popTipNormal 弹出常规提示框');break;
-                case 1:
-                    HXUI.popTipInfo('调用 HXUI.popTipInfo 弹出成功提示框');break;
-                case 2:
-                    HXUI.popTipWarning('调用 HXUI.popTipWarning 弹出警告提示框');break;
-                case 3:
-                    HXUI.popTipError('调用 HXUI.popTipError 弹出错误提示框');break;
-                default:
-                    break;
-            }
-        },
-        doShowLoading: function doShowLoading(title, during) {
-            HXUI.showLoading({ title: title, during: during });
-        },
-        doHideLoading: function doHideLoading() {
-            HXUI.hideLoading();
-        },
-        doShowTip: function doShowTip(options) {
-            HXUI.showTip(options);
-        },
-        doMarkInput: function doMarkInput(type) {
-            HXUI.markInput({ type: type });
-        },
-        doImagePreview: function doImagePreview() {
-            var urls = ['http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-1.jpeg', 'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-2.png', 'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-3.jpeg', 'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-4.jpeg'];
-            var currentUrl = 'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-3.jpeg';
-            HXUI.imagePreviewer({ urls: urls, currentUrl: currentUrl });
-        },
-        doChooseAddress: function doChooseAddress() {
-            HXUI.addressSelector({
-                choose: function choose(position) {
-                    var lng = position.lng,
-                        lat = position.lat,
-                        address = position.address,
-                        city = position.city,
-                        title = position.title;
-
-                    $scope.location = city + ' ' + title + ' ' + address + ', \uFF08\u7ECF\u5EA6\uFF1A' + lng + ', \u7EAC\u5EA6\uFF1A' + lat + '\uFF09';
-                    $scope.$apply();
-                }
-            });
-        }
-    };
-
-    $scope._init = {
-        initRoute: function initRoute() {
-            HXUI.showRouteMap({
-                query: 'map',
-                startLabel: '起始点',
-                endLabel: '结束点',
-                startTime: '05.10 12:30',
-                endTime: '05.10 13:00',
-                isComplete: true,
-                routes: [{ lng: 113.23, lat: 23.33 }, { lng: 113.35, lat: 23.35 }, { lng: 113.28, lat: 23.40 }]
-            });
-        }
-    };
-
-    $scope.init = function () {
-        $scope._init.initRoute();
-    }();
-}]);
 'use strict';
 
 /**
@@ -1656,6 +1577,85 @@ var PluginsCtrl = angular.module('HXUIController');
 PluginsCtrl.controller('PluginsCtrl', ['$scope', function ($scope) {
 
   $scope._init = {};
+}]);
+'use strict';
+
+/**
+ * Created by lxhfight on 2017/9/25.
+ * Email:
+ * Description:
+ *      This is the front-page of hxui.lxhfight.com
+ */
+
+var DemosCtrl = angular.module('HXUIController');
+
+DemosCtrl.controller('DemosCtrl', ['$scope', function ($scope) {
+    $scope.location = '';
+    $scope.event = {
+        doPopInfo: function doPopInfo(type) {
+            switch (type) {
+                case 0:
+                    HXUI.popTipNormal('调用 HXUI.popTipNormal 弹出常规提示框');break;
+                case 1:
+                    HXUI.popTipInfo('调用 HXUI.popTipInfo 弹出成功提示框');break;
+                case 2:
+                    HXUI.popTipWarning('调用 HXUI.popTipWarning 弹出警告提示框');break;
+                case 3:
+                    HXUI.popTipError('调用 HXUI.popTipError 弹出错误提示框');break;
+                default:
+                    break;
+            }
+        },
+        doShowLoading: function doShowLoading(title, during) {
+            HXUI.showLoading({ title: title, during: during });
+        },
+        doHideLoading: function doHideLoading() {
+            HXUI.hideLoading();
+        },
+        doShowTip: function doShowTip(options) {
+            HXUI.showTip(options);
+        },
+        doMarkInput: function doMarkInput(type) {
+            HXUI.markInput({ type: type });
+        },
+        doImagePreview: function doImagePreview() {
+            var urls = ['http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-1.jpeg', 'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-2.png', 'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-3.jpeg', 'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-4.jpeg'];
+            var currentUrl = 'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-3.jpeg';
+            HXUI.imagePreviewer({ urls: urls, currentUrl: currentUrl });
+        },
+        doChooseAddress: function doChooseAddress() {
+            HXUI.addressSelector({
+                choose: function choose(position) {
+                    var lng = position.lng,
+                        lat = position.lat,
+                        address = position.address,
+                        city = position.city,
+                        title = position.title;
+
+                    $scope.location = city + ' ' + title + ' ' + address + ', \uFF08\u7ECF\u5EA6\uFF1A' + lng + ', \u7EAC\u5EA6\uFF1A' + lat + '\uFF09';
+                    $scope.$apply();
+                }
+            });
+        }
+    };
+
+    $scope._init = {
+        initRoute: function initRoute() {
+            HXUI.showRouteMap({
+                query: 'map',
+                startLabel: '起始点',
+                endLabel: '结束点',
+                startTime: '05.10 12:30',
+                endTime: '05.10 13:00',
+                isComplete: true,
+                routes: [{ lng: 113.23, lat: 23.33 }, { lng: 113.35, lat: 23.35 }, { lng: 113.28, lat: 23.40 }]
+            });
+        }
+    };
+
+    $scope.init = function () {
+        $scope._init.initRoute();
+    }();
 }]);
 'use strict';
 

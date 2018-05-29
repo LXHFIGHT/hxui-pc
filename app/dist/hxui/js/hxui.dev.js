@@ -43,7 +43,7 @@
                 poi = data;
             }
         });
-        var node = '<div class="hx-modal choose-address-modal">\n                        <div class="pad-content">\n                            <div class="pad-address-selector">\n                                <input type="text" \n                                       ref="address" \n                                       id="suggestion" \n                                       placeholder="\u641C\u7D22\u5730\u70B9"/>\n                                <button class="btn-close-modal"></button>       \n                            </div>\n                            <div class="pad-map">\n                                <div class="map" id="baidu-map" />\n                                <img class="icon-pinpoint" \n                                     src="/dist/hxui/img/icon/icon-pinpoint.png" alt=""/>\n                                <button class="btn-pinpoint">\n                                    <img src="/dist/hxui/img/icon/icon-current-location.png" alt=""/>\n                                </button>\n                            </div>\n                            <div class="pad-poi">\n                                <span class="emptyset">\u6B63\u5728\u52A0\u8F7D\u5730\u56FE\u4E2D...</span>                               \n                            </div>\n                        </div>\n                      </div>';
+        var node = '<div class="hx-modal choose-address-modal">\n                        <div class="pad-address-content">\n                            <div class="pad-address-selector">\n                                <input type="text" \n                                       ref="address" \n                                       id="suggestion" \n                                       placeholder="\u641C\u7D22\u5730\u70B9"/>\n                                <button class="btn-close-modal"></button>       \n                            </div>\n                            <div class="pad-map">\n                                <div class="map" id="baidu-map" />\n                                <img class="icon-pinpoint" \n                                     src="/dist/hxui/img/icon/icon-pinpoint.png" alt=""/>\n                                <button class="btn-pinpoint">\n                                    <img src="/dist/hxui/img/icon/icon-current-location.png" alt=""/>\n                                </button>\n                            </div>\n                            <div class="pad-poi">\n                                <span class="emptyset">\u6B63\u5728\u52A0\u8F7D\u5730\u56FE\u4E2D...</span>                               \n                            </div>\n                        </div>\n                      </div>';
         $(node).appendTo('body');
         var _initMap = function _initMap() {
             map = new BMap.Map("baidu-map"); // 创建Map实例
@@ -119,7 +119,6 @@
             });
         };
         var _closeModal = function _closeModal() {
-            typeof hide === 'function' && hide();
             var $modal = $('.choose-address-modal');
             $modal.removeClass('show');
             map = null;
@@ -129,7 +128,8 @@
             var timer = setTimeout(function () {
                 $modal.remove();
                 clearTimeout(timer);
-            }, 400);
+            }, 10000);
+            typeof hide === 'function' && hide();
         };
         var init = setTimeout(function () {
             var $modal = $('.choose-address-modal');

@@ -91,8 +91,8 @@ main.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', ($statePro
     $httpProvider.defaults.headers.post = {'Content-Type': 'application/x-www-form-urlencoded'}
 }]);
 
-main.run(['$rootScope', '$location', '$log', '$state','globalValue', 'HttpHelper', 'config', 'StorageHelper', 'authority',
-    ($rootScope, $location,  $log, $state, globalValue, HttpHelper, config, StorageHelper, authority) => {
+main.run(['$rootScope', '$location', '$log', '$state','globalValue', 'HttpHelper', 'config', 'StorageHelper', 'authority', 'sidebarMenus',
+    ($rootScope, $location,  $log, $state, globalValue, HttpHelper, config, StorageHelper, authority, sidebarMenus) => {
         $rootScope.stateStack = [];
         $rootScope.stateParamsStack = [];
 

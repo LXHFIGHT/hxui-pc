@@ -40,7 +40,7 @@
             }
         });
         const node = `<div class="hx-modal choose-address-modal">
-                        <div class="pad-content">
+                        <div class="pad-address-content">
                             <div class="pad-address-selector">
                                 <input type="text" 
                                        ref="address" 
@@ -131,7 +131,6 @@
             });
         };
         const _closeModal = () => {
-            typeof hide === 'function' && hide();
             let $modal = $('.choose-address-modal');
             $modal.removeClass('show');
             map = null;
@@ -141,7 +140,8 @@
             let timer = setTimeout(() => {
                 $modal.remove();
                 clearTimeout(timer);
-            }, 400);
+            }, 10000);
+            typeof hide === 'function' && hide();
         };
         const init = setTimeout(() => {
             const $modal = $('.choose-address-modal');

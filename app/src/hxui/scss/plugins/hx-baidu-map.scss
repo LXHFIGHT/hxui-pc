@@ -29,12 +29,12 @@ td[id|=tangram-suggestion] {
   padding: $pm-sm!important;
 }
 
+
 .hx-modal.choose-address-modal {
   position: absolute;
-  .pad-content {
+  .pad-address-content {
     height: 70%;
-    width: 50%;
-    min-width: 400px;
+    width: 30%;
     display: block;
     @include centerInParent;
   }
@@ -45,13 +45,8 @@ td[id|=tangram-suggestion] {
   width: 100%;
   position: fixed;
   top: 100%;
-  left: 0;
   display: block;
   background-color: $color-gray-light;
-  transition: top .4s ease-in-out;
-  &.show {
-    top: 0;
-  }
   .pad-address-selector {
     height: $height-navbar;
     padding: 6px $pm-md;
@@ -78,7 +73,6 @@ td[id|=tangram-suggestion] {
       background-color: $color-main;
     }
   }
-
   .pad-map {
     @include hcalc(calc(50% - 25px));
     background-color: $color-gray-light;
@@ -112,8 +106,6 @@ td[id|=tangram-suggestion] {
       }
     }
   }
-
-
   .pad-poi {
     @include hcalc(calc(50% - 25px));
     background-color: white;
@@ -159,6 +151,35 @@ td[id|=tangram-suggestion] {
       }
     }
   }
+}
 
-
+@media screen  and (min-width: 640px) {
+  .hx-modal.choose-address-modal {
+    min-width: 350px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .hx-modal.choose-address-modal {
+    height: 100%;
+    top: 100%;
+    .pad-address-content {
+      height: 100%;
+      width: 100%;
+      display: block;
+      padding-top: 0;
+      .btn-close-modal {
+        top: 0!important;
+        right: 0!important;
+      }
+    }
+    &.show {
+      top: 0;
+    }
+    .map {
+      margin-top: 0!important;
+    }
+    .pad-poi {
+      @include hcalc(calc(50% - 17px));
+    }
+  }
 }
