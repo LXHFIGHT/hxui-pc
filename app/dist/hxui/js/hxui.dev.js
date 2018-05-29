@@ -451,7 +451,7 @@
      */
     var showTip = function showTip(options) {
         var title = options ? options.title || '加载中...' : '加载中...';
-        var during = options ? options.during || 150000 : 150000;
+        var during = options ? options.during || 1500 : 1500;
         var type = options ? options.type || 'success' : 'success';
         var $view = $(tipsModalQuery);
         if ($view.length !== 0) {

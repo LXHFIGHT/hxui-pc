@@ -90,10 +90,10 @@
     width: 80%;
   }
   &.error:before {
-    @include compatible(transform, rotate(-45deg));
+    @include compatible(transform, translate(-50%, -50%) rotate(-45deg));
   }
   &.error:after {
-    @include compatible(transform, rotate(45deg));
+    @include compatible(transform, translate(-50%, -50%) rotate(45deg));
   }
 }
 @keyframes bigRound {

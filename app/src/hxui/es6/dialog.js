@@ -51,7 +51,7 @@
      */
     const showTip = (options) => {
         const title = options ? ( options.title || '加载中...' ) : '加载中...';
-        const during = options ? (options.during || 150000) : 150000;
+        const during = options ? (options.during || 1500) : 1500;
         const type = options ? (options.type || 'success') : 'success';
         const $view = $(tipsModalQuery);
         if ($view.length !== 0) {
