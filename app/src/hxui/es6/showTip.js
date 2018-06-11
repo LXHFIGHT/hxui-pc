@@ -20,9 +20,11 @@
         const during = options ? (options.during || 1500) : 1500;
         const type = options ? (options.type || 'success') : 'success';
         const $view = $(tipsModalQuery);
-        console.log('$view is ', $view.length);
         if ($view.length !== 0) {
             $view.remove();
+            const { shopTipTimer, shopTipTimer2 } = window.HXUI;
+            clearTimeout(shopTipTimer);
+            clearTimeout(shopTipTimer2);
         }
         const node =
             `<div class='hx-small-modal tips'>
@@ -30,13 +32,11 @@
                <span class='text-small-modal'>${title}</span>
             </div>`;
         $(node).appendTo('body');
-        const timer = setTimeout(() => {
+        window.HXUI.shopTipTimer = setTimeout(() => {
             $(tipsModalQuery).addClass('show');
-            clearTimeout(timer);
         }, 10);
-        const timer2 = setTimeout(() => {
+        window.HXUI.shopTipTimer2 = setTimeout(() => {
             $(tipsModalQuery).removeClass('show');
-            clearTimeout(timer2);
         }, during);
     };
 

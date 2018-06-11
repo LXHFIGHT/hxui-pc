@@ -6,10 +6,9 @@
   min-width: 30%;
   max-width: 60%;
   z-index: 10000;
-  opacity: .0;
   color: #f2f2f2;
   @include centerHorizontal();
-  @include compatible(transition, all .4s);
+  @include compatible(transition, transform .2s);
   &.success {
     background-color: $color-green;
   }
@@ -27,48 +26,59 @@
 @media screen and (min-width: 640px) {
   .pad-poptip {
     text-align: center;
-    top: -1 * $height-navbar;
     font-size: 16px;
     line-height: $height-navbar;
     height: $height-navbar;
     padding: 0 $pm-md;
+    top: 0;
+    @include compatible(transform, translate(-50%, -100%));
     @include borderRadius($border-radius-md);
-    @include boxShadow(0 5px 30px -2px rgba(0,0,0,.5));
     &.show {
-      opacity: 1.0;
-      top: $pm-md;
-      @include boxShadow(0 5px 20px -10px rgba(0,0,0,.8));
+      @include compatible(transform, translate(-50%, 0));
     }
   }
 }
 
 @media screen and (max-width: 640px){
   .pad-poptip {
-    width: 70%;
+    width: 100%;
     bottom: 0;
-    text-align: justify;
+    text-align: center;
     background-color: rgba(0,0,0,.75)!important;
     color: rgba(255, 255, 255, .9);
     position: fixed;
     font-size: $font-sm;
-    padding: $pm-sm;
+    padding: $pm-md $pm-md $pm-bg;
+    max-width: 100%;
     line-height: $font-sm * 2;
-    @include borderRadius($border-radius-bg);
+    @include compatible(transform, translate(-50%, 100%));
     &.show {
-      opacity: 1.0;
-      bottom: $pm-lg;
+      @include compatible(transform, translate(-50%, 0));
     }
-    &.success {
-      border-left: 6px solid $color-green;
+    &.success:before,
+    &.warn:before,
+    &.error:before,
+    &.default:before {
+      content: '';
+      width: 30%;
+      position: absolute;
+      bottom: $pm-sm;
+      height: 4px;
+      display: block;
+      @include centerHorizontal;
+      @include borderRadius(4px 4px);
     }
-    &.warn {
-      border-left: 6px solid $color-orange;
+    &.success:before {
+      background-color: $color-green;
     }
-    &.error {
-      border-left: 6px solid $color-red;
+    &.warn:before {
+      background-color: $color-orange;
     }
-    &.default {
-      border-left: 6px solid #aaa;
+    &.error:before {
+      background-color: $color-red;
+    }
+    &.default:before {
+      background-color: #aaa;
     }
   }
 }
