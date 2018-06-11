@@ -17,6 +17,17 @@
   .btn-show-sidebar {
     display: none;
   }
+  >.right,
+  >.left {
+    display: inline-block;
+    width: 50%;
+  }
+  >.left {
+    float: left;
+  }
+  >.right {
+    float: right;
+  }
 }
 
 @media screen and (max-width: 640px) {

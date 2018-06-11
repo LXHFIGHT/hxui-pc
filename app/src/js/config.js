@@ -22,7 +22,7 @@ module.value('config', {
     needLogin: false,                       // 是否需要登录
     loginTitle: '登录管理后台',               // 登录页面标题
     loginBg: './dist/img/bg/bg-login.jpg',  // 登录页面背景
-    copyright: '豪享UI'                      // 企业信息
+    copyright: 'Candy UI'                      // 企业信息
 });
 
 module.factory('globalValue',[function(){

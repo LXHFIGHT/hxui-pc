@@ -77,6 +77,14 @@ main.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function (
                 controller: 'ListHeadCtrl'
             }
         }
+    }).state('enter.config', {
+        url: '/config',
+        views: {
+            'main@enter': {
+                templateUrl: 'src/views/config/config.html',
+                controller: 'ConfigCtrl'
+            }
+        }
     });
 
     $httpProvider.defaults.transformRequest = function (obj) {
@@ -148,6 +156,7 @@ main.run(['$rootScope', '$location', '$log', '$state', 'globalValue', 'HttpHelpe
      * @private
      */
     var _autoSelectOption = function _autoSelectOption(name) {
+        console.log('The name is : ', name);
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;
         var _iteratorError = undefined;
@@ -165,6 +174,7 @@ main.run(['$rootScope', '$location', '$log', '$state', 'globalValue', 'HttpHelpe
                         for (var _iterator2 = item.children[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
                             var subItem = _step2.value;
 
+                            console.log('MENUS: ', subItem.state);
                             if (name === subItem.state) {
                                 subItem.selected = true;
                                 item.selected = true;
@@ -185,6 +195,10 @@ main.run(['$rootScope', '$location', '$log', '$state', 'globalValue', 'HttpHelpe
                                 throw _iteratorError2;
                             }
                         }
+                    }
+                } else {
+                    if (item.state === name) {
+                        item.selected = true;
                     }
                 }
             }
@@ -239,7 +253,7 @@ _module.value('config', {
     needLogin: false, // 是否需要登录
     loginTitle: '登录管理后台', // 登录页面标题
     loginBg: './dist/img/bg/bg-login.jpg', // 登录页面背景
-    copyright: '豪享UI' // 企业信息
+    copyright: 'Candy UI' // 企业信息
 });
 
 _module.factory('globalValue', [function () {
@@ -261,13 +275,13 @@ _module.factory('globalValue', [function () {
  *  the main controller module
  */
 
-var controller = angular.module('MainController', ['HXUIController', 'LayoutController', 'ListController', 'CommonController', 'SystemController']);
+var controller = angular.module('MainController', ['HXUIController', 'LayoutController', 'ListController', 'CommonController', 'ConfigController']);
 
 var HXUIController = angular.module('HXUIController', []);
 var layout = angular.module('LayoutController', []);
 var list = angular.module('ListController', []);
 var common = angular.module('CommonController', []);
-var system = angular.module('SystemController', []);
+var config = angular.module('ConfigController', []);
 'use strict';
 
 /**
@@ -1216,7 +1230,7 @@ menus.value('sidebarMenus', [{
     }]
 }, {
     name: '系统设置',
-    state: 'enter.system',
+    state: 'enter.config',
     icon: 'cog',
     role: '*',
     selected: false
@@ -1240,6 +1254,17 @@ menus.value('sidebarMenus', [{
         selected: false
     }]
 }]);
+'use strict';
+
+/**
+ * Created by LXHFIGHT on 2017/2/20 10:28.
+ * Email: lxhfight51@outlook.com
+ * Description:
+ *
+ */
+
+var ConfigCtrl = angular.module('ConfigController');
+ConfigCtrl.controller('ConfigCtrl', ['$scope', function ($scope) {}]);
 'use strict';
 
 /**
@@ -1357,77 +1382,6 @@ LoginCtrl.controller('LoginCtrl', ['$scope', '$state', '$stateParams', 'HttpHelp
 'use strict';
 
 /**
- * Created by LXHFIGHT on 2017/2/20 10:28.
- * Email: lxhfight51@outlook.com
- * Description:
- *
- */
-
-var _module = angular.module('SystemController');
-_module.controller('SystemCtrl', ['$scope', function ($scope) {}]);
-'use strict';
-
-/**
- * Created by lxhfight on 2017/9/25.
- * Email:
- * Description:
- *      This is the front-page of hxui.lxhfight.com
- */
-
-var HomeCtrl = angular.module('HXUIController');
-
-HomeCtrl.controller('HomeCtrl', ['$scope', function ($scope) {
-    $scope._init = {
-        wave: function wave() {
-            var canvas = document.getElementById('canvas');
-            var ctx = canvas.getContext('2d');
-            canvas.width = canvas.parentNode.offsetWidth;
-            canvas.height = document.body.clientHeight;
-            //如果浏览器支持requestAnimFrame则使用requestAnimFrame否则使用setTimeout
-            window.requestAnimFrame = function () {
-                return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
-                    window.setTimeout(callback, 1000 / 60);
-                };
-            }();
-            // 波浪大小
-            var boHeight = canvas.height / 20;
-            var posHeight = canvas.height / 1.1;
-            //初始角度为0
-            var step = 0;
-            //定义三条不同波浪的颜色
-            var lines = ["rgba(0,222,255, 0.2)", "rgba(157,192,249, 0.2)", "rgba(0,168,255, 0.2)"];
-            function loop() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                step++;
-                //画3个不同颜色的矩形
-                for (var j = lines.length - 1; j >= 0; j--) {
-                    ctx.fillStyle = lines[j];
-                    //每个矩形的角度都不同，每个之间相差45度
-                    var angle = (step + j * 50) * Math.PI / 180;
-                    var deltaHeight = Math.sin(angle) * boHeight;
-                    var deltaHeightRight = Math.cos(angle) * boHeight;
-                    ctx.beginPath();
-                    ctx.moveTo(0, posHeight + deltaHeight);
-                    ctx.bezierCurveTo(canvas.width / 2, posHeight + deltaHeight - boHeight, canvas.width / 2, posHeight + deltaHeightRight - boHeight, canvas.width, posHeight + deltaHeightRight);
-                    ctx.lineTo(canvas.width, canvas.height);
-                    ctx.lineTo(0, canvas.height);
-                    ctx.lineTo(0, posHeight + deltaHeight);
-                    ctx.closePath();
-                    ctx.fill();
-                }
-                requestAnimFrame(loop);
-            }
-            loop();
-        }
-    };
-
-    $scope.init = function () {
-        $scope._init.wave();
-    }();
-}]);
-'use strict';
-
-/**
  * Created by lxhfight on 2017/9/25.
  * Email:
  * Description:
@@ -1524,6 +1478,66 @@ sidebarModule.controller('SidebarCtrl', ['$scope', '$state', 'sidebarMenus', 'co
 'use strict';
 
 /**
+ * Created by lxhfight on 2017/9/25.
+ * Email:
+ * Description:
+ *      This is the front-page of hxui.lxhfight.com
+ */
+
+var HomeCtrl = angular.module('HXUIController');
+
+HomeCtrl.controller('HomeCtrl', ['$scope', function ($scope) {
+    $scope._init = {
+        wave: function wave() {
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+            canvas.width = canvas.parentNode.offsetWidth;
+            canvas.height = document.body.clientHeight;
+            //如果浏览器支持requestAnimFrame则使用requestAnimFrame否则使用setTimeout
+            window.requestAnimFrame = function () {
+                return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
+                    window.setTimeout(callback, 1000 / 60);
+                };
+            }();
+            // 波浪大小
+            var boHeight = canvas.height / 20;
+            var posHeight = canvas.height / 1.1;
+            //初始角度为0
+            var step = 0;
+            //定义三条不同波浪的颜色
+            var lines = ["rgba(0,222,255, 0.2)", "rgba(157,192,249, 0.2)", "rgba(0,168,255, 0.2)"];
+            function loop() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                step++;
+                //画3个不同颜色的矩形
+                for (var j = lines.length - 1; j >= 0; j--) {
+                    ctx.fillStyle = lines[j];
+                    //每个矩形的角度都不同，每个之间相差45度
+                    var angle = (step + j * 50) * Math.PI / 180;
+                    var deltaHeight = Math.sin(angle) * boHeight;
+                    var deltaHeightRight = Math.cos(angle) * boHeight;
+                    ctx.beginPath();
+                    ctx.moveTo(0, posHeight + deltaHeight);
+                    ctx.bezierCurveTo(canvas.width / 2, posHeight + deltaHeight - boHeight, canvas.width / 2, posHeight + deltaHeightRight - boHeight, canvas.width, posHeight + deltaHeightRight);
+                    ctx.lineTo(canvas.width, canvas.height);
+                    ctx.lineTo(0, canvas.height);
+                    ctx.lineTo(0, posHeight + deltaHeight);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+                requestAnimFrame(loop);
+            }
+            loop();
+        }
+    };
+
+    $scope.init = function () {
+        $scope._init.wave();
+    }();
+}]);
+'use strict';
+
+/**
  * Created by LXHFIGHT on 2017/2/20 9:08.
  * Email: lxhfight51@outlook.com
  * Description:
@@ -1562,21 +1576,6 @@ _module.controller('ListCtrl', ['$scope', 'HttpHelper', function ($scope, HttpHe
             popTipWarningQuick('跳转页面超过范围');
         }
     };
-}]);
-'use strict';
-
-/**
- * Created by lxhfight on 2017/9/25.
- * Email:
- * Description:
- *      This is the front-page of hxui.lxhfight.com
- */
-
-var PluginsCtrl = angular.module('HXUIController');
-
-PluginsCtrl.controller('PluginsCtrl', ['$scope', function ($scope) {
-
-  $scope._init = {};
 }]);
 'use strict';
 
@@ -1656,6 +1655,21 @@ DemosCtrl.controller('DemosCtrl', ['$scope', function ($scope) {
     $scope.init = function () {
         $scope._init.initRoute();
     }();
+}]);
+'use strict';
+
+/**
+ * Created by lxhfight on 2017/9/25.
+ * Email:
+ * Description:
+ *      This is the front-page of hxui.lxhfight.com
+ */
+
+var PluginsCtrl = angular.module('HXUIController');
+
+PluginsCtrl.controller('PluginsCtrl', ['$scope', function ($scope) {
+
+  $scope._init = {};
 }]);
 'use strict';
 

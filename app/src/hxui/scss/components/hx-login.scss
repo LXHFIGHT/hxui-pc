@@ -53,6 +53,8 @@
     margin-top: $pm-md;
     width: 100%;
     height: $height-navbar - 2 * $pm-sm;
+    background-color: $color-main;
+    color: white;
     @include borderRadius($border-radius-md);
   }
   .btn-sub {

@@ -40,7 +40,7 @@ menus.value('sidebarMenus', [
     },
     {
         name: '系统设置',
-        state: 'enter.system',
+        state: 'enter.config',
         icon: 'cog',
         role: '*',
         selected: false

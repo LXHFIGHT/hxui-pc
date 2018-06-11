@@ -8,8 +8,8 @@
 .hx-detail-block {
   border: 1px solid $color-gray;
   position: relative;
-  padding: ($height-normal) $pm-md $pm-md;
   margin-bottom: $pm-md;
+  @include boxShadow(0 10px 15px -10px rgba(0,0,0,.1));
   header {
     top: 0;
     left: 0;
@@ -46,11 +46,22 @@
   padding-left: $pm-sm;
 }
 
+@media screen and (min-width: 640px) {
+  .hx-detail-block {
+    padding: ($height-normal+$pm-md) $pm-md $pm-md;
+    @include compatible(transform, scale(1, 1));
+    @include borderRadius($border-radius-bg);
+    @include boxShadow(0 10px 15px -10px rgba(0,0,0,.1));
+    @include compatible(transition, transform .4s);
+    &:hover {
+      @include compatible(transform, scale(1.02, 1.02));
+    }
+  }
+}
+
 @media screen and (max-width: 640px) {
   .hx-detail-block {
-    padding-left: $pm-sm;
-    padding-right: 0;
-    padding-bottom: 0;
+    padding: $height-normal 0 0 $pm-sm;
     @include boxShadow(0 10px 15px -10px rgba(0,0,0,.1));
     header:first-child {
       padding-left: $pm-sm;

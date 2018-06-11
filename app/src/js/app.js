@@ -79,6 +79,15 @@ main.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', ($statePro
                 }
             }
         })
+        .state('enter.config', {
+            url: '/config',
+            views: {
+                'main@enter': {
+                    templateUrl: 'src/views/config/config.html',
+                    controller: 'ConfigCtrl'
+                }
+            }
+        })
     ;
 
     $httpProvider.defaults.transformRequest = function(obj){
@@ -157,15 +166,21 @@ main.run(['$rootScope', '$location', '$log', '$state','globalValue', 'HttpHelper
          * @private
          */
         const _autoSelectOption = (name) => {
+            console.log('The name is : ', name);
             for (let item of sidebarMenus) {
                 if (item.children && Object.prototype.toString.call(item.children) === '[object Array]') {
                     for (const subItem of item.children) {
+                        console.log('MENUS: ', subItem.state);
                         if(name === subItem.state) {
                             subItem.selected = true;
                             item.selected = true;
                             continue;
                         }
                         subItem.selected = false;
+                    }
+                } else {
+                    if (item.state === name) {
+                        item.selected = true;
                     }
                 }
             }

@@ -10,11 +10,11 @@ let controller = angular.module('MainController', [
     'LayoutController',
     'ListController',
     'CommonController',
-    'SystemController'
+    'ConfigController'
 ]);
 
 let HXUIController = angular.module('HXUIController', []);
 let layout = angular.module('LayoutController', []);
 let list   = angular.module('ListController', []);
 let common = angular.module('CommonController', []);
-let system = angular.module('SystemController', []);
+let config = angular.module('ConfigController', []);

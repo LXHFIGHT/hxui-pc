@@ -17,6 +17,7 @@
       background-color: darken($color-gray, 5%)!important;
     }
   }
+  &.main    {  @include hxButton($color-main);  }
   &.gray    {  @include hxButton(darken($color-gray-deep, 14%));  }
   &.orange  {  @include hxButton($color-orange);  }
   &.red     {  @include hxButton($color-red);  }

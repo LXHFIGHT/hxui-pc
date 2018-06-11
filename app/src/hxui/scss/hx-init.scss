@@ -62,6 +62,19 @@ input {
     appearance: none;
 }
 
+input::-webkit-input-placeholder{ /*WebKit browsers*/
+    color: $color-gray-deep;
+    font-weight: 300;
+}
+input::-moz-input-placeholder{ /*Mozilla Firefox*/
+    color: $color-gray-deep;
+    font-weight: 300;
+}
+input::-ms-input-placeholder{ /*Internet Explorer*/
+    color: $color-gray-deep;
+    font-weight: 300;
+}
+
 /*--------------------------------------------------------------------------------------*/
 /*  button标签样式默认
 /*--------------------------------------------------------------------------------------*/
