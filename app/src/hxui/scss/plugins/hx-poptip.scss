@@ -6,7 +6,7 @@
   min-width: 30%;
   max-width: 60%;
   z-index: 10000;
-  color: #f2f2f2;
+  color: rgba(255, 255, 255, .9);
   @include centerHorizontal();
   @include compatible(transition, transform .2s);
   &.success {

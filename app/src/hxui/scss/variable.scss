@@ -67,10 +67,10 @@ $width-sm: 640px;
 $width-sm-min: 100%;
 
 // 通用的字体标准
-$font-sm: 10px;
+$font-sm: 12px;
 $font-md: 14px;
-$font-bg: 18px;
-$font-lg: 22px;
+$font-bg: 16px;
+$font-lg: 20px;
 
 // 行高标准
 $line-height-sm: 22px;
@@ -105,6 +105,7 @@ $shadow-right-md: 3px 3px 6px rgba(0,0,0, .1);
   .col-sm-6 { width: 50%;       }
   .col-sm-8 { width: 66.66%;    }
   .col-sm-12 { width: 100%;     }
+  .hide-sm { display: none!important; }
 }
 
 @media screen and (min-width: 640px) and (max-width: 1024px) {
@@ -115,6 +116,7 @@ $shadow-right-md: 3px 3px 6px rgba(0,0,0, .1);
   .col-md-6 { width: 50%;       }
   .col-md-8 { width: 66.66%;    }
   .col-md-12 { width: 100%;     }
+  .hide-md { display: none!important; }
 }
 
 @media screen and (min-width: 1024px) {
@@ -125,4 +127,5 @@ $shadow-right-md: 3px 3px 6px rgba(0,0,0, .1);
   .col-bg-6 { width: 50%;       }
   .col-bg-8 { width: 66.66%;    }
   .col-bg-12 { width: 100%;     }
+  .hide-bg { display: none!important; }
 }

@@ -26,10 +26,24 @@ DemosCtrl.controller('DemosCtrl', ['$scope', ($scope) => {
             HXUI.hideLoading();
         },
         doShowTip: (options) => {
-            HXUI.showTip(options);
+            HXUI.toast(options);
         },
         doMarkInput: (type) => {
             HXUI.markInput({ type });
+        },
+        doConfirm: () => {
+            HXUI.confirm({
+                title: 'HXUI确认框',
+                content: '请问你觉得这个框怎么样呢？',
+                confirmText: '挺不错的',
+                cancelText: '不喜欢',
+                confirmFunc() {
+                    HXUI.popTipInfoQuick('很高兴得到你的认可');
+                },
+                cancelFunc() {
+                    HXUI.popTipInfoQuick('好的我们继续改进');
+                }
+            })
         },
         doImagePreview: () => {
             let urls = [

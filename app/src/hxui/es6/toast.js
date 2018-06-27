@@ -15,7 +15,7 @@
      * @param options.type   提示消息类型：目前支持 'success'（默认） 和 'error'
      * @param options.during  展示时长  单位为： 毫秒
      */
-    const showTip = (options) => {
+    const toast = (options) => {
         const title = options ? ( options.title || '加载中...' ) : '加载中...';
         const during = options ? (options.during || 1500) : 1500;
         const type = options ? (options.type || 'success') : 'success';
@@ -40,5 +40,5 @@
         }, during);
     };
 
-    window.HXUI = Object.assign(window.HXUI, { showTip });
+    window.HXUI = Object.assign(window.HXUI, { toast });
 }(jQuery, window));

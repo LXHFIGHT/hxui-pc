@@ -58,3 +58,9 @@
   height: $height-normal;
 }
 
+
+@media screen and (max-width: 640px) {
+  .hx-button {
+    margin-bottom: $pm-sm;
+  }
+}

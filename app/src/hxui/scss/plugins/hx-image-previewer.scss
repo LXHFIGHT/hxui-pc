@@ -3,6 +3,7 @@
 // 图片预览组件模态框
 .hx-image-modal {
   text-align: center;
+  background-color: rgba(0,0,0,.85)!important;
   .navbar {
     width: 100%;
     height: $height-navbar;
@@ -55,8 +56,8 @@
     }
   }
   img {
-    max-height: 100%;
-    max-width: 100%;
+    max-height: 80%;
+    max-width: 80%;
     z-index: 80;
     @include centerInParent;
     @include compatible(transition, transform .4s);

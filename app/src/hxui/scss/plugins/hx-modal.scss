@@ -13,13 +13,21 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0,0,0, .8);
   visibility: hidden;
   opacity: .0;
   @include compatible(transition, all .4s);
   &.show{
     visibility: visible;
     opacity: 1.0;
+  }
+  .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: block;
+    background-color: rgba(0,0,0, .65);
   }
   // 模态框内容版
   .content{
@@ -30,14 +38,25 @@
     padding: $pm-md;
     @include centerHorizontal;
     @include borderRadius($border-radius-md);
+    @include boxShadow(0 24px $pm-bg -16px rgba(0,0,0,.4));
 
     // 模态框头部
     header {
       line-height: $height-normal;
       height: $height-normal;
-      border-left: 3px solid $color-main;
       padding-left: $pm-md;
       margin-bottom: $pm-md;
+      position: relative;
+      &:before {
+        content: '';
+        height: $height-normal/2;
+        width: 3px;
+        position: absolute;
+        top: $height-normal/4;
+        left: 0;
+        display: inline-block;
+        background-color: $color-main;
+      }
     }
 
     // 右上角关闭模态框按钮
@@ -64,8 +83,7 @@
     footer {
       text-align: center;
       margin-top: $pm-md;
-      background-color: $color-gray-light;
-      padding: $pm-md;
+      padding: $pm-sm $pm-md;
       @include borderRadius($border-radius-md);
       button {
         min-width: 100px;
@@ -108,10 +126,10 @@
 @media screen and (max-width: 640px) {
   .hx-modal {
     z-index: 20;
-    .pad-content {
+    .pad-content, .content {
       width: 95%;
       padding: $pm-sm;
-      top:  $pm-md;
+      @include centerInParent;
       .btn-close-modal {
         right: $pm-sm;
         top: $pm-sm;
@@ -120,6 +138,10 @@
         font-size: $font-md;
         height: $height-regular;
         line-height: $height-regular;
+        &:before {
+          height: $height-regular/2;
+          top: $height-regular/4;
+        }
       }
       .map {
         margin-top: $pm-sm;
