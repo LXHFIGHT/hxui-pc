@@ -218,7 +218,7 @@ gulp.task('watchDev', () => {
 
 // 根目录下执行 gulp 命令进行前端自动化处理
 gulp.task('default', ['server', 'watchDev']);
-gulp.task('build', ['html', 'scssMin', 'jsMin', 'img', 'hxui']);
+gulp.task('build', ['html', 'scssMin', 'jsMin', 'img', 'hxuiMin']);
 
 
 
