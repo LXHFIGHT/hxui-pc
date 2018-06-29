@@ -1,5 +1,73 @@
 'use strict';
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/**
+ * Created by lxhfight on 2018/6/29.
+ * Email:
+ * Description:
+ *    弹出式选项框方法
+ */
+
+(function ($, window) {
+    window.HXUI = window.HXUI || {};
+    var modalQuery = '.hx-modal.actionsheet';
+    /**
+     * 展示加载框
+     * @param options
+     * @param options.title  选项框标题， 默认"请选择"
+     * @param options.items   选项数组
+     *                        其中每一项以 {key:'', value:''}（如： {key: 'foo', value: 'bar'}） 形式
+     *                        或者当不需要区分key，value时，可以只提供基本数据类型，如12，'foo'
+     * @param options.onSelect 当点击其中任一选项时
+     */
+    var actionSheet = function actionSheet(options) {
+        var items = options.items || [];
+        var $view = $(modalQuery);
+        var _quit = function _quit() {
+            var _window$HXUI = window.HXUI,
+                showActionSheetTimer = _window$HXUI.showActionSheetTimer,
+                showActionSheetTimer2 = _window$HXUI.showActionSheetTimer2;
+
+            showActionSheetTimer && clearTimeout(showActionSheetTimer);
+            showActionSheetTimer2 && clearTimeout(showActionSheetTimer2);
+            $(modalQuery).removeClass('show');
+            window.HXUI.showActionSheetTimer2 = setTimeout(function () {
+                $(modalQuery).remove();
+            }, 400);
+        };
+        var onSelect = typeof options.onSelect === 'function' ? options.onSelect : function () {
+            console.log('请提供onSelect（选择任一选项后的事件）作为HXUI.actionSheet 方法的参数');_quit();
+        };
+        var _generateItemNodes = items.map(function (v) {
+            if ((typeof v === 'undefined' ? 'undefined' : _typeof(v)) === 'object') {
+                return '<li class="item" data-value="' + v.value + '">' + v.key + '</li>';
+            } else {
+                return '<li class="item" data-value="' + v + '">' + v + '</li>';
+            }
+        });
+        if ($view.length !== 0) {
+            _quit();
+        }
+        var node = '<div class=\'hx-modal actionsheet\'>\n                <div class="mask"></div>\n                <div class="content">\n                    <ul class="hx-actionsheet">\n                        ' + _generateItemNodes.join('') + '\n                    </ul>\n                    <ul class="hx-actionsheet">\n                        <li class="item-quit">\u53D6\u6D88\u9009\u62E9</li>\n                    </ul>\n                </div>\n            </div>';
+        $(node).appendTo('body');
+        window.HXUI.showActionSheetTimer = setTimeout(function () {
+            $(modalQuery).addClass('show');
+        }, 10);
+        $(modalQuery).on('click', '.item', function (e) {
+            var item = {
+                key: e.target.innerText,
+                value: e.target.dataset.value
+            };
+            onSelect(item);
+            _quit();
+        }).on('click', '.mask, .item-quit', _quit);
+    };
+
+    window.HXUI = Object.assign(window.HXUI, { actionSheet: actionSheet });
+})(jQuery, window);
+'use strict';
+
 /**
  * Created by lxhfight on 2018/1/29.
  * Email:
@@ -403,7 +471,7 @@
 'use strict';
 
 /**
- * Created by lxhfight on 2018/6/11.
+ * Created by lxhfight on 2018/6/21.
  * Email:
  * Description:
  *    弹出确认提示框的方法
@@ -416,11 +484,11 @@
      * 展示加载框
      * @param options
      * @param options.title  弹出框标题， 默认"提示"
-     * @param options.content   提示消息类型：目前支持 'success'（默认） 和 'error'
-     * @param options.confirmFunc
-     * @param options.confirmText
-     * @param options.cancelFunc
-     * @param options.cancelText
+     * @param options.content   弹出框主体消息
+     * @param options.onConfirm 当点击确认按钮触发事件
+     * @param options.confirmText  确认按钮文本， 默认为"确认"
+     * @param options.onCancel  当点击取消按钮触发事件
+     * @param options.cancelText  取消按钮文本， 默认为"取消"
      */
     var confirm = function confirm(options) {
         var $view = $(confirmModalQuery);
@@ -429,7 +497,6 @@
         var confirmText = options.confirmText || '确认';
         var cancelText = options.cancelText || '取消';
         var _quitConfirm = function _quitConfirm() {
-            console.log('quiting...');
             var _window$HXUI = window.HXUI,
                 showConfirmTimer = _window$HXUI.showConfirmTimer,
                 showConfirmTimer2 = _window$HXUI.showConfirmTimer2;
@@ -441,13 +508,13 @@
                 $(confirmModalQuery).remove();
             }, 400);
         };
-        var confirmFunc = typeof options.confirmFunc === 'function' ? function () {
-            options.confirmFunc();_quitConfirm();
+        var onConfirm = typeof options.onConfirm === 'function' ? function () {
+            options.onConfirm();_quitConfirm();
         } : function () {
             console.log('请提供confirmFunc（点击确认后的事件）作为HXUI.confirm方法的参数');_quitConfirm();
         };
-        var cancelFunc = typeof options.cancelFunc === 'function' ? function () {
-            options.cancelFunc();_quitConfirm();
+        var onCancel = typeof options.onCancel === 'function' ? function () {
+            options.onCancel();_quitConfirm();
         } : _quitConfirm;
         if ($view.length !== 0) {
             $view.remove();
@@ -460,7 +527,7 @@
         }
         var node = '<div class=\'hx-modal confirm\'>\n                <div class="mask"></div>\n                <div class="content">\n                    <header>' + title + '</header>\n                    <div class="hx-content">\n                        ' + content + '\n                    </div>\n                    <footer>\n                        <button class="hx-button main btn-confirm">\n                            ' + confirmText + '\n                        </button>\n                        <button class="hx-button btn-cancel">\n                            ' + cancelText + '\n                        </button>\n                    </footer>\n                </div>\n            </div>';
         $(node).appendTo('body');
-        $(confirmModalQuery).on('click', '.btn-confirm', confirmFunc).on('click', '.btn-cancel', cancelFunc).on('click', '.mask', _quitConfirm);
+        $(confirmModalQuery).on('click', '.btn-confirm', onConfirm).on('click', '.btn-cancel', onCancel).on('click', '.mask', _quitConfirm);
         window.HXUI.showConfirmTimer = setTimeout(function () {
             $(confirmModalQuery).addClass('show');
         }, 10);

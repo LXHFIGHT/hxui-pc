@@ -33,7 +33,7 @@
             </div>
             <div class="detail">
                 <h5 class="mb-md">
-                    3. 弹出轻量级提示框， 可以使用<strong>showTip</strong> 方法
+                    3. 弹出轻量级提示框， 可以使用 <strong>showTip</strong> 方法
                 </h5>
                 <button class="hx-button" ng-click="event.doShowTip({ title: '已确认' })">弹出"已确认"</button>
                 <button class="hx-button" ng-click="event.doShowTip({ title: '出错了', type: 'error' })">弹出"出错了"</button>
@@ -54,6 +54,16 @@
                 </h5>
                 <div class="mb-sm">
                     <button class="hx-button " ng-click="event.doImagePreview()">开始预览图片</button>
+                </div>
+            </div>
+            <div class="detail">
+                <h5 class="mb-md">
+                    2. 弹出框式选项栏 <strong>actionSheet</strong> 方法
+                </h5>
+                <div class="mb-sm">
+                    <button class="hx-button"
+                            ng-bind="actionSheetText"
+                            ng-click="event.showActionSheet()"></button>
                 </div>
             </div>
             <h3>
@@ -82,8 +92,6 @@
                             ng-click="event.doChooseAddress()">点此选择位置</button>
                 </div>
             </div>
-
-
         </section>
     </div>
 </section>

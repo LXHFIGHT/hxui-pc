@@ -19,7 +19,7 @@ $color-main: #00B2EE;
 $color-main-dark: darken($color-main, 36%);
 $color-main-light: lighten($color-main, 3%);
 
-$color-white: #fdfdfd;
+$color-white: rgba(255,255,255, .93);
 $color-gray-light: #f6f6f6;
 $color-gray: #eee;
 $color-gray-deep: #bbb;

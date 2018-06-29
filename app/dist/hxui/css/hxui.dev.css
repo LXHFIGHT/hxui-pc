@@ -379,6 +379,1381 @@ input.error, textarea.error {
   .hide-bg {
     display: none !important; } }
 
+/**
+ * hx-block
+ */
+.hx-block {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden; }
+  .hx-block .btn-show-sidebar {
+    display: none; }
+  .hx-block > .right,
+  .hx-block > .left {
+    display: inline-block;
+    width: 50%; }
+  .hx-block > .left {
+    float: left; }
+  .hx-block > .right {
+    float: right; }
+
+@media screen and (max-width: 640px) {
+  .hx-block .btn-show-sidebar {
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 0;
+    height: 34px;
+    width: 34px;
+    z-index: 1200;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    color: #bbb;
+    background-color: transparent; } }
+
+@charset "UTF-8";
+/**
+ *  hx详情模块样式
+ *  通过组合 hx-row 构建管理后台具有交互性的表单页面
+ */
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+.hx-detail-block {
+  border: 1px solid #eee;
+  position: relative;
+  margin-bottom: 16px;
+  -webkit-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1); }
+  .hx-detail-block header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 14px;
+    line-height: 42px;
+    height: 42px;
+    padding: 0 16px;
+    color: #747474;
+    background-color: #f6f6f6;
+    position: absolute;
+    border-bottom: 1px solid #eee; }
+    .hx-detail-block header small {
+      font-size: 14px;
+      color: #bbb;
+      margin-left: 8px; }
+    .hx-detail-block header button {
+      min-height: 34px;
+      margin-left: 8px; }
+
+.hx-pad-left {
+  float: left;
+  width: 50%;
+  padding-right: 8px; }
+
+.hx-pad-right {
+  float: right;
+  width: 50%;
+  padding-left: 8px; }
+
+@media screen and (min-width: 640px) {
+  .hx-detail-block {
+    padding: 58px 16px 16px;
+    transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    -o-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -o-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -webkit-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s;
+    -webkit-transition: transform 0.4s;
+    -moz-transition: transform 0.4s;
+    -o-transition: transform 0.4s;
+    -ms-transition: transform 0.4s; }
+    .hx-detail-block:hover {
+      transform: scale(1.02, 1.02);
+      -webkit-transform: scale(1.02, 1.02);
+      -moz-transform: scale(1.02, 1.02);
+      -o-transform: scale(1.02, 1.02);
+      -ms-transform: scale(1.02, 1.02); } }
+
+@media screen and (max-width: 640px) {
+  .hx-detail-block {
+    padding: 42px 0 0 8px;
+    -webkit-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1); }
+    .hx-detail-block header:first-child {
+      padding-left: 8px; }
+    .hx-detail-block .hx-row:nth-last-child(1) {
+      border: none; }
+  .hx-pad-left, .hx-pad-right {
+    padding: 0; } }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+.hx-emptyset {
+  height: 100%;
+  width: 100%;
+  min-height: 150px;
+  display: flex;
+  left: 0;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background-color: #f6f6f6;
+  color: #bbb;
+  font-size: 30px;
+  font-weight: 900; }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+.pad-login,
+.pad-register {
+  top: 70% !important;
+  opacity: .0;
+  width: 360px;
+  padding: 24px;
+  visibility: hidden;
+  border: 1px solid #eee;
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -webkit-box-shadow: 0 16px 32px -13px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 16px 32px -13px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 16px 32px -13px rgba(0, 0, 0, 0.3); }
+  .pad-login .row,
+  .pad-register .row {
+    padding: 8px 0;
+    text-align: center; }
+    .pad-login .row.main-tip,
+    .pad-register .row.main-tip {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #747474; }
+  .pad-login .tip,
+  .pad-register .tip {
+    color: #747474;
+    font-size: 12px;
+    font-weight: 800; }
+  .pad-login .logo-company,
+  .pad-register .logo-company {
+    height: 100px;
+    width: 100px;
+    border: 1px solid #eee;
+    border-radius: 50% 50%;
+    -webkit-border-radius: 50% 50%;
+    -moz-border-radius: 50% 50%;
+    -o-border-radius: 50% 50%;
+    -ms-border-radius: 50% 50%; }
+  .pad-login input,
+  .pad-register input {
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border: 1px solid #eee;
+    line-height: 34px;
+    height: 34px;
+    padding: 0 8px;
+    width: 100%;
+    background-color: transparent;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .pad-login input:focus,
+    .pad-register input:focus {
+      border: 1px solid #31cbff; }
+  .pad-login .btn-main,
+  .pad-register .btn-main {
+    margin-top: 16px;
+    width: 100%;
+    height: 34px;
+    background-color: #00B2EE;
+    color: white;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px; }
+  .pad-login .btn-sub,
+  .pad-register .btn-sub {
+    margin-top: 16px;
+    width: 100%;
+    height: 34px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    background-color: transparent;
+    color: #00B2EE;
+    cursor: pointer !important; }
+  .pad-login.show,
+  .pad-register.show {
+    visibility: visible;
+    top: 50% !important;
+    opacity: 1.0; }
+
+@media screen and (max-width: 640px) {
+  .pad-login, .pad-register {
+    width: 95%;
+    padding: 16px;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none; }
+    .pad-login .tip, .pad-register .tip {
+      font-size: 14px;
+      padding-left: 8px;
+      line-height: 28px; }
+    .pad-login .btn-sub, .pad-login .btn-main, .pad-register .btn-sub, .pad-register .btn-main {
+      margin-top: 8px;
+      height: 42px; }
+    .pad-login .logo-company, .pad-register .logo-company {
+      height: 50px;
+      width: 50px; }
+    .pad-login .row, .pad-register .row {
+      padding: 0; }
+      .pad-login .row input, .pad-register .row input {
+        background-color: transparent;
+        border-radius: 0px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        -o-border-radius: 0px;
+        -ms-border-radius: 0px;
+        border: none;
+        font-size: 14px;
+        border-bottom: 1px solid #eee;
+        height: 42px; }
+        .pad-login .row input:focus, .pad-register .row input:focus {
+          border-bottom: 1px solid #00B2EE; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .pad-login, .pad-register {
+    width: 360px;
+    padding: 16px; } }
+
+@media screen and (min-width: 1024px) {
+  .pad-login, .pad-register {
+    width: 360px;
+    padding: 24px; } }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+/*  导航栏样式 将ID设置为 hx-pagination
+    2.0版 分页组件,
+    在原有带有分页组件和上一页下一页按钮的基础上：
+    - 去除了页数选择按钮集合，以及首页和末页按钮，
+    + 添加了展示当前页的span元素，跳转页数文本输入框和跳转按钮
+    适用于使用了Common分页插件样式的页面
+    Date: 2016-09-21
+    Update Date: 2019-09-27
+ */
+.hx-pagination {
+  text-align: right;
+  height: 34px;
+  padding: 0;
+  font-size: 0;
+  position: relative; }
+  .hx-pagination select {
+    padding: 0 10px;
+    float: left;
+    width: 140px;
+    height: 34px;
+    font-size: 14px;
+    color: #505050;
+    border: none;
+    user-appearance: none;
+    -webkit-user-appearance: none;
+    -moz-user-appearance: none;
+    -o-user-appearance: none;
+    -ms-user-appearance: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -o-border-radius: 0;
+    -ms-border-radius: 0;
+    background-color: white; }
+  .hx-pagination a, .hx-pagination span {
+    background: #fff;
+    line-height: 34px;
+    height: 34px;
+    text-decoration: none !important;
+    text-align: center;
+    font-size: 16px;
+    color: #505050;
+    display: inline-block; }
+  .hx-pagination a {
+    margin-right: 0 !important;
+    min-width: 30px;
+    padding: 0 8px;
+    position: relative;
+    color: #a2a2a2; }
+    .hx-pagination a:hover {
+      color: #747474;
+      background-color: #ececec; }
+    .hx-pagination a:active {
+      color: rgba(255, 255, 255, 0.93);
+      background-color: #00B2EE; }
+    .hx-pagination a.btn-jump {
+      margin-left: 0; }
+  .hx-pagination span {
+    width: 80px;
+    text-align: center;
+    padding: 0 8px;
+    border: none; }
+  .hx-pagination input[type=text] {
+    position: relative;
+    font-size: 14px;
+    min-width: 50px !important;
+    height: 34px;
+    width: 60px;
+    padding: 0 10px !important;
+    margin-left: 20px;
+    border: none;
+    vertical-align: top; }
+
+@media screen and (max-width: 640px) {
+  .hx-pagination select {
+    display: none; } }
+
+@charset "UTF-8";
+/*
+  hx表单行模块: 标签为label元素 和 编辑区域内容为.pad-edit的 div 元素
+  hx-row 包含自身多种扩展样式 以及 其pad-edit中定义了多种元素的默认样式
+  * 自身样式：
+    .null     无内边距
+    .center   内部组件居中
+   Date: 2017-08-02
+ */
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+.hx-row {
+  width: 100%;
+  padding: 8px 16px;
+  line-height: 34px;
+  color: #474747; }
+  .hx-row.null {
+    padding: 0 !important; }
+  .hx-row.center {
+    text-align: center; }
+  .hx-row label, .hx-row .content {
+    min-height: 34px;
+    display: inline-block;
+    font-size: 14px;
+    vertical-align: top; }
+  .hx-row label {
+    line-height: 34px;
+    width: 120px;
+    color: #747474; }
+    .hx-row label.title {
+      font-size: 14px;
+      font-weight: 800; }
+    .hx-row label .tip {
+      color: #00B2EE;
+      font-size: 12px;
+      line-height: 34px; }
+  .hx-row .map {
+    display: inline-block;
+    height: 280px;
+    width: -moz- calc(45% - 58px);
+    width: -webkit- calc(45% - 58px);
+    width: calc(45% - 58px);
+    background-color: #f6f6f6;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px; }
+  .hx-row div.rich-content {
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    width: 100%;
+    vertical-align: top;
+    width: -moz- calc(100% - 130px);
+    width: -webkit- calc(100% - 130px);
+    width: calc(100% - 130px); }
+    .hx-row div.rich-content .rich-editor {
+      height: 389px;
+      border: 1px solid #eee;
+      padding: 16px;
+      border-radius: 3px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -o-border-radius: 3px;
+      -ms-border-radius: 3px;
+      overflow-x: hidden;
+      overflow-y: auto; }
+      .hx-row div.rich-content .rich-editor p {
+        margin: 0; }
+    .hx-row div.rich-content .btn-to-edit {
+      position: absolute;
+      top: 8px;
+      right: 8px; }
+  .hx-row div.content {
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    width: 100%;
+    vertical-align: top;
+    width: -moz- calc(100% - 130px);
+    width: -webkit- calc(100% - 130px);
+    width: calc(100% - 130px); }
+    .hx-row div.content.short {
+      width: 200px; }
+    .hx-row div.content input, .hx-row div.content textarea, .hx-row div.content select {
+      width: 100%;
+      display: inline-block;
+      transition: all 0.4s;
+      -webkit-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      -ms-transition: all 0.4s;
+      border: 1px solid #eee;
+      line-height: 34px;
+      padding: 0 8px;
+      background-color: white;
+      font-size: 14px;
+      resize: none; }
+      .hx-row div.content input.short, .hx-row div.content textarea.short, .hx-row div.content select.short {
+        width: 45%; }
+      .hx-row div.content input:focus, .hx-row div.content textarea:focus, .hx-row div.content select:focus {
+        border: 1px solid #00B2EE; }
+      .hx-row div.content input:disabled, .hx-row div.content textarea:disabled, .hx-row div.content select:disabled {
+        border: none !important;
+        background-color: #f6f6f6; }
+    .hx-row div.content input, .hx-row div.content select {
+      height: 34px; }
+    .hx-row div.content textarea {
+      height: 100px; }
+    .hx-row div.content .text {
+      padding-left: 8px;
+      font-size: 14px;
+      width: 100%;
+      height: 34px;
+      display: block;
+      border-radius: 3px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -o-border-radius: 3px;
+      -ms-border-radius: 3px; }
+      .hx-row div.content .text.border {
+        border: 1px solid #eee; }
+      .hx-row div.content .text.disabled {
+        border: 1px solid #f6f6f6;
+        background-color: #f6f6f6; }
+      .hx-row div.content .text.tip {
+        font-size: 12px;
+        font-weight: 300;
+        color: #bbb;
+        line-height: 12px;
+        height: 12px;
+        margin-top: 8px; }
+    .hx-row div.content input [type='file'] {
+      position: absolute;
+      visibility: hidden; }
+    .hx-row div.content .pad-dropdown {
+      position: absolute;
+      top: 42px;
+      left: 0;
+      width: 100%;
+      padding: 16px;
+      z-index: 123;
+      display: inline-block;
+      background-color: white;
+      opacity: .0;
+      visibility: hidden;
+      -webkit-box-shadow: 0 5px 20px -6px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0 5px 20px -6px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 5px 20px -6px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s;
+      -webkit-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      -ms-transition: all 0.4s; }
+      .hx-row div.content .pad-dropdown.show {
+        visibility: visible;
+        opacity: 1.0; }
+    .hx-row div.content .pad-tags {
+      width: 100%;
+      padding: 0;
+      display: block;
+      min-height: 25px; }
+      .hx-row div.content .pad-tags .tag {
+        padding: 0 0 0 16px;
+        height: 25px;
+        line-height: 25px;
+        background-color: #00B2EE;
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 300;
+        color: white;
+        margin: 0 4px 8px 0;
+        border-radius: 25px 25px;
+        -webkit-border-radius: 25px 25px;
+        -moz-border-radius: 25px 25px;
+        -o-border-radius: 25px 25px;
+        -ms-border-radius: 25px 25px; }
+        .hx-row div.content .pad-tags .tag span {
+          width: auto;
+          display: inline-block;
+          height: 25px;
+          line-height: 25px;
+          margin-right: 8px;
+          font-size: 12px; }
+        .hx-row div.content .pad-tags .tag .btn-remove {
+          color: rgba(255, 255, 255, 0.93);
+          width: 25px;
+          height: 25px;
+          display: inline-block;
+          font-size: 16px;
+          font-weight: 100;
+          float: right;
+          background-color: transparent; }
+          .hx-row div.content .pad-tags .tag .btn-remove:hover {
+            color: #ff5a50; }
+    .hx-row div.content .for-image {
+      height: 120px;
+      display: inline-block;
+      overflow: hidden;
+      position: relative; }
+      .hx-row div.content .for-image img {
+        margin-right: 0; }
+      .hx-row div.content .for-image .dot {
+        position: absolute;
+        right: 8px;
+        top: 4px;
+        cursor: default;
+        display: block;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 4px;
+        font-size: 10px;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -o-border-radius: 3px;
+        -ms-border-radius: 3px;
+        background-color: #bbb;
+        color: rgba(255, 255, 255, 0.93); }
+        .hx-row div.content .for-image .dot:hover {
+          background-color: #b6b6b6; }
+        .hx-row div.content .for-image .dot.clear {
+          background-color: #00B2EE;
+          color: white; }
+          .hx-row div.content .for-image .dot.clear:hover {
+            background-color: #00aae4; }
+      .hx-row div.content .for-image .empty-image {
+        height: 120px;
+        width: 160px;
+        line-height: 120px;
+        text-align: center;
+        background-color: #f6f6f6;
+        color: #bbb;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -o-border-radius: 3px;
+        -ms-border-radius: 3px;
+        font-size: 16px;
+        padding: 0; }
+      .hx-row div.content .for-image.preview:after {
+        content: '查看大图';
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+        visibility: hidden;
+        opacity: .0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        font-weight: 200;
+        line-height: 120px;
+        text-align: center;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -o-border-radius: 3px;
+        -ms-border-radius: 3px;
+        transition: all 0.4s;
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -ms-transition: all 0.4s; }
+      .hx-row div.content .for-image.preview:hover:after {
+        opacity: 1.0;
+        visibility: visible; }
+    .hx-row div.content img {
+      height: 120px;
+      margin: 0 4px 0 0;
+      border: 1px solid #eee;
+      border-radius: 3px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -o-border-radius: 3px;
+      -ms-border-radius: 3px;
+      transition: all 0.4s;
+      -webkit-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      -ms-transition: all 0.4s; }
+    .hx-row div.content .btn-upload-image {
+      padding: 0;
+      vertical-align: top;
+      height: 120px;
+      width: 160px;
+      border: 2px dashed #bbb;
+      color: #bbb;
+      font-size: 16px;
+      line-height: 120px;
+      text-align: center;
+      background-color: transparent; }
+      .hx-row div.content .btn-upload-image:hover {
+        color: #747474;
+        border: 2px dashed #747474; }
+
+@media screen and (max-width: 640px) {
+  .hx-row {
+    border-bottom: 1px solid #eee;
+    padding: 4px 8px 4px 0 !important;
+    margin: 0 !important; }
+    .hx-row label {
+      width: 100px; }
+    .hx-row .content {
+      width: -moz- calc(100% - 110px);
+      width: -webkit- calc(100% - 110px);
+      width: calc(100% - 110px);
+      padding-left: 4px !important; }
+      .hx-row .content input, .hx-row .content select, .hx-row .content textarea {
+        border: none !important; }
+        .hx-row .content input:hover, .hx-row .content select:hover, .hx-row .content textarea:hover {
+          border: none; }
+      .hx-row .content input, .hx-row .content textarea {
+        padding-left: 4px !important; }
+      .hx-row .content select {
+        padding-left: 0 !important; }
+      .hx-row .content.for-switch {
+        width: 150px !important; }
+      .hx-row .content.one-line {
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 8px !important; }
+      .hx-row .content .for-image {
+        height: auto !important;
+        display: block !important; }
+        .hx-row .content .for-image .preview {
+          height: auto !important; }
+        .hx-row .content .for-image img {
+          width: 100% !important;
+          height: auto !important; }
+        .hx-row .content .for-image + button {
+          margin-bottom: 8px; }
+      .hx-row .content button.btn-upload-image {
+        height: 75px;
+        line-height: 75px;
+        width: 100%; }
+      .hx-row .content .degree {
+        color: #bbb;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: inline-block;
+        width: auto; }
+    .hx-row #map-preview {
+      margin-left: 0;
+      margin-bottom: 8px;
+      width: 100%; } }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+@media screen and (max-width: 640px) {
+  .hx-search {
+    position: absolute;
+    left: 0;
+    top: 42px;
+    opacity: .0;
+    visibility: hidden;
+    -webkit-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.4); }
+    .hx-search.show {
+      opacity: 1.0;
+      visibility: visible; }
+    .hx-search .hx-row {
+      border: none; }
+      .hx-search .hx-row .pad-edit {
+        width: 100% !important;
+        margin-right: 0 !important; }
+      .hx-search .hx-row label {
+        width: 100px;
+        padding-left: 8px; }
+      .hx-search .hx-row .search {
+        margin: 0;
+        width: 100%; }
+        .hx-search .hx-row .search .pad-datepicker {
+          width: 100% !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .hx-search {
+    padding-bottom: 0; }
+    .hx-search .hx-row {
+      margin-bottom: 8px; } }
+
+@media screen and (min-width: 1024px) {
+  .hx-search {
+    padding-bottom: 0; }
+    .hx-search .hx-row {
+      margin-bottom: 8px; } }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
 .hx-article h1 {
   line-height: 50px;
   border-bottom: 1px solid #eee;
@@ -1936,6 +3311,96 @@ textarea[disabled] {
   .hide-bg {
     display: none !important; } }
 
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
 /*--------------------------------------------------------------------------------------*/
 /*  hx-switch HXUI开关组件 通过 on 和 off 类展示开关状态区别
 /*--------------------------------------------------------------------------------------*/
@@ -2444,1385 +3909,6 @@ table.hx-table {
 @media screen and (min-width: 640px) {
   .hx-toggle-sidebar {
     display: none; } }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-/**
- * hx-block
- */
-.hx-block {
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  position: relative;
-  top: 0;
-  left: 0;
-  background-position: center;
-  background-size: cover;
-  overflow: hidden; }
-  .hx-block .btn-show-sidebar {
-    display: none; }
-  .hx-block > .right,
-  .hx-block > .left {
-    display: inline-block;
-    width: 50%; }
-  .hx-block > .left {
-    float: left; }
-  .hx-block > .right {
-    float: right; }
-
-@media screen and (max-width: 640px) {
-  .hx-block .btn-show-sidebar {
-    display: block;
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    padding: 0;
-    height: 34px;
-    width: 34px;
-    z-index: 1200;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -o-border-radius: 3px;
-    -ms-border-radius: 3px;
-    color: #bbb;
-    background-color: transparent; } }
-
-@charset "UTF-8";
-/**
- *  hx详情模块样式
- *  通过组合 hx-row 构建管理后台具有交互性的表单页面
- */
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-.hx-detail-block {
-  border: 1px solid #eee;
-  position: relative;
-  margin-bottom: 16px;
-  -webkit-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1); }
-  .hx-detail-block header {
-    top: 0;
-    left: 0;
-    width: 100%;
-    font-size: 14px;
-    line-height: 42px;
-    height: 42px;
-    padding: 0 16px;
-    color: #747474;
-    background-color: #f6f6f6;
-    position: absolute;
-    border-bottom: 1px solid #eee; }
-    .hx-detail-block header small {
-      font-size: 14px;
-      color: #bbb;
-      margin-left: 8px; }
-    .hx-detail-block header button {
-      min-height: 34px;
-      margin-left: 8px; }
-
-.hx-pad-left {
-  float: left;
-  width: 50%;
-  padding-right: 8px; }
-
-.hx-pad-right {
-  float: right;
-  width: 50%;
-  padding-left: 8px; }
-
-@media screen and (min-width: 640px) {
-  .hx-detail-block {
-    padding: 58px 16px 16px;
-    transform: scale(1, 1);
-    -webkit-transform: scale(1, 1);
-    -moz-transform: scale(1, 1);
-    -o-transform: scale(1, 1);
-    -ms-transform: scale(1, 1);
-    border-radius: 6px;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -o-border-radius: 6px;
-    -ms-border-radius: 6px;
-    -webkit-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.4s;
-    -webkit-transition: transform 0.4s;
-    -moz-transition: transform 0.4s;
-    -o-transition: transform 0.4s;
-    -ms-transition: transform 0.4s; }
-    .hx-detail-block:hover {
-      transform: scale(1.02, 1.02);
-      -webkit-transform: scale(1.02, 1.02);
-      -moz-transform: scale(1.02, 1.02);
-      -o-transform: scale(1.02, 1.02);
-      -ms-transform: scale(1.02, 1.02); } }
-
-@media screen and (max-width: 640px) {
-  .hx-detail-block {
-    padding: 42px 0 0 8px;
-    -webkit-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1); }
-    .hx-detail-block header:first-child {
-      padding-left: 8px; }
-    .hx-detail-block .hx-row:nth-last-child(1) {
-      border: none; }
-  .hx-pad-left, .hx-pad-right {
-    padding: 0; } }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-.hx-emptyset {
-  height: 100%;
-  width: 100%;
-  min-height: 150px;
-  display: flex;
-  left: 0;
-  top: 0;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  background-color: #f6f6f6;
-  color: #bbb;
-  font-size: 30px;
-  font-weight: 900; }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-.pad-login,
-.pad-register {
-  top: 70% !important;
-  opacity: .0;
-  width: 360px;
-  padding: 24px;
-  visibility: hidden;
-  border: 1px solid #eee;
-  background-color: rgba(255, 255, 255, 0.75) !important;
-  transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -o-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -webkit-box-shadow: 0 16px 32px -13px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 16px 32px -13px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 16px 32px -13px rgba(0, 0, 0, 0.3); }
-  .pad-login .row,
-  .pad-register .row {
-    padding: 8px 0;
-    text-align: center; }
-    .pad-login .row.main-tip,
-    .pad-register .row.main-tip {
-      font-size: 20px;
-      margin-bottom: 20px;
-      color: #747474; }
-  .pad-login .tip,
-  .pad-register .tip {
-    color: #747474;
-    font-size: 12px;
-    font-weight: 800; }
-  .pad-login .logo-company,
-  .pad-register .logo-company {
-    height: 100px;
-    width: 100px;
-    border: 1px solid #eee;
-    border-radius: 50% 50%;
-    -webkit-border-radius: 50% 50%;
-    -moz-border-radius: 50% 50%;
-    -o-border-radius: 50% 50%;
-    -ms-border-radius: 50% 50%; }
-  .pad-login input,
-  .pad-register input {
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -o-border-radius: 3px;
-    -ms-border-radius: 3px;
-    border: 1px solid #eee;
-    line-height: 34px;
-    height: 34px;
-    padding: 0 8px;
-    width: 100%;
-    background-color: transparent;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .pad-login input:focus,
-    .pad-register input:focus {
-      border: 1px solid #31cbff; }
-  .pad-login .btn-main,
-  .pad-register .btn-main {
-    margin-top: 16px;
-    width: 100%;
-    height: 34px;
-    background-color: #00B2EE;
-    color: white;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -o-border-radius: 3px;
-    -ms-border-radius: 3px; }
-  .pad-login .btn-sub,
-  .pad-register .btn-sub {
-    margin-top: 16px;
-    width: 100%;
-    height: 34px;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -o-border-radius: 3px;
-    -ms-border-radius: 3px;
-    background-color: transparent;
-    color: #00B2EE;
-    cursor: pointer !important; }
-  .pad-login.show,
-  .pad-register.show {
-    visibility: visible;
-    top: 50% !important;
-    opacity: 1.0; }
-
-@media screen and (max-width: 640px) {
-  .pad-login, .pad-register {
-    width: 95%;
-    padding: 16px;
-    border: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none; }
-    .pad-login .tip, .pad-register .tip {
-      font-size: 14px;
-      padding-left: 8px;
-      line-height: 28px; }
-    .pad-login .btn-sub, .pad-login .btn-main, .pad-register .btn-sub, .pad-register .btn-main {
-      margin-top: 8px;
-      height: 42px; }
-    .pad-login .logo-company, .pad-register .logo-company {
-      height: 50px;
-      width: 50px; }
-    .pad-login .row, .pad-register .row {
-      padding: 0; }
-      .pad-login .row input, .pad-register .row input {
-        background-color: transparent;
-        border-radius: 0px;
-        -webkit-border-radius: 0px;
-        -moz-border-radius: 0px;
-        -o-border-radius: 0px;
-        -ms-border-radius: 0px;
-        border: none;
-        font-size: 14px;
-        border-bottom: 1px solid #eee;
-        height: 42px; }
-        .pad-login .row input:focus, .pad-register .row input:focus {
-          border-bottom: 1px solid #00B2EE; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .pad-login, .pad-register {
-    width: 360px;
-    padding: 16px; } }
-
-@media screen and (min-width: 1024px) {
-  .pad-login, .pad-register {
-    width: 360px;
-    padding: 24px; } }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-/*  导航栏样式 将ID设置为 hx-pagination
-    2.0版 分页组件,
-    在原有带有分页组件和上一页下一页按钮的基础上：
-    - 去除了页数选择按钮集合，以及首页和末页按钮，
-    + 添加了展示当前页的span元素，跳转页数文本输入框和跳转按钮
-    适用于使用了Common分页插件样式的页面
-    Date: 2016-09-21
-    Update Date: 2019-09-27
- */
-.hx-pagination {
-  text-align: right;
-  height: 34px;
-  padding: 0;
-  font-size: 0;
-  position: relative; }
-  .hx-pagination select {
-    padding: 0 10px;
-    float: left;
-    width: 140px;
-    height: 34px;
-    font-size: 14px;
-    color: #505050;
-    border: none;
-    user-appearance: none;
-    -webkit-user-appearance: none;
-    -moz-user-appearance: none;
-    -o-user-appearance: none;
-    -ms-user-appearance: none;
-    border-radius: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -o-border-radius: 0;
-    -ms-border-radius: 0;
-    background-color: white; }
-  .hx-pagination a, .hx-pagination span {
-    background: #fff;
-    line-height: 34px;
-    height: 34px;
-    text-decoration: none !important;
-    text-align: center;
-    font-size: 16px;
-    color: #505050;
-    display: inline-block; }
-  .hx-pagination a {
-    margin-right: 0 !important;
-    min-width: 30px;
-    padding: 0 8px;
-    position: relative;
-    color: #a2a2a2; }
-    .hx-pagination a:hover {
-      color: #747474;
-      background-color: #ececec; }
-    .hx-pagination a:active {
-      color: #fdfdfd;
-      background-color: #00B2EE; }
-    .hx-pagination a.btn-jump {
-      margin-left: 0; }
-  .hx-pagination span {
-    width: 80px;
-    text-align: center;
-    padding: 0 8px;
-    border: none; }
-  .hx-pagination input[type=text] {
-    position: relative;
-    font-size: 14px;
-    min-width: 50px !important;
-    height: 34px;
-    width: 60px;
-    padding: 0 10px !important;
-    margin-left: 20px;
-    border: none;
-    vertical-align: top; }
-
-@media screen and (max-width: 640px) {
-  .hx-pagination select {
-    display: none; } }
-
-@charset "UTF-8";
-/*
-  hx表单行模块: 标签为label元素 和 编辑区域内容为.pad-edit的 div 元素
-  hx-row 包含自身多种扩展样式 以及 其pad-edit中定义了多种元素的默认样式
-  * 自身样式：
-    .null     无内边距
-    .center   内部组件居中
-   Date: 2017-08-02
- */
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-.hx-row {
-  width: 100%;
-  padding: 8px 16px;
-  line-height: 34px;
-  color: #474747; }
-  .hx-row.null {
-    padding: 0 !important; }
-  .hx-row.center {
-    text-align: center; }
-  .hx-row label, .hx-row .pad-edit {
-    min-height: 34px;
-    display: inline-block;
-    font-size: 14px;
-    vertical-align: top; }
-  .hx-row label {
-    line-height: 34px;
-    width: 120px;
-    color: #747474; }
-    .hx-row label.title {
-      font-size: 14px;
-      font-weight: 800; }
-    .hx-row label .tip {
-      color: #00B2EE;
-      font-size: 12px;
-      line-height: 34px; }
-  .hx-row .map {
-    display: inline-block;
-    height: 280px;
-    width: -moz- calc(45% - 58px);
-    width: -webkit- calc(45% - 58px);
-    width: calc(45% - 58px);
-    background-color: #f6f6f6;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -o-border-radius: 3px;
-    -ms-border-radius: 3px; }
-  .hx-row div.pad-rich-editor {
-    display: inline-block;
-    position: relative;
-    padding: 0;
-    width: 100%;
-    vertical-align: top;
-    width: -moz- calc(100% - 130px);
-    width: -webkit- calc(100% - 130px);
-    width: calc(100% - 130px); }
-    .hx-row div.pad-rich-editor .rich-editor {
-      height: 389px;
-      border: 1px solid #eee;
-      padding: 16px;
-      border-radius: 3px;
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
-      -o-border-radius: 3px;
-      -ms-border-radius: 3px;
-      overflow-x: hidden;
-      overflow-y: auto; }
-      .hx-row div.pad-rich-editor .rich-editor p {
-        margin: 0; }
-    .hx-row div.pad-rich-editor .btn-to-edit {
-      position: absolute;
-      top: 8px;
-      right: 8px; }
-  .hx-row div.pad-edit {
-    display: inline-block;
-    position: relative;
-    padding: 0;
-    width: 100%;
-    vertical-align: top;
-    width: -moz- calc(100% - 130px);
-    width: -webkit- calc(100% - 130px);
-    width: calc(100% - 130px); }
-    .hx-row div.pad-edit.short {
-      width: 200px; }
-    .hx-row div.pad-edit input, .hx-row div.pad-edit textarea, .hx-row div.pad-edit select {
-      width: 100%;
-      display: inline-block;
-      transition: all 0.4s;
-      -webkit-transition: all 0.4s;
-      -moz-transition: all 0.4s;
-      -o-transition: all 0.4s;
-      -ms-transition: all 0.4s;
-      border: 1px solid #eee;
-      line-height: 34px;
-      padding: 0 8px;
-      background-color: white;
-      font-size: 14px;
-      resize: none; }
-      .hx-row div.pad-edit input.short, .hx-row div.pad-edit textarea.short, .hx-row div.pad-edit select.short {
-        width: 45%; }
-      .hx-row div.pad-edit input:focus, .hx-row div.pad-edit textarea:focus, .hx-row div.pad-edit select:focus {
-        border: 1px solid #00B2EE; }
-      .hx-row div.pad-edit input:disabled, .hx-row div.pad-edit textarea:disabled, .hx-row div.pad-edit select:disabled {
-        border: none !important;
-        background-color: #f6f6f6; }
-    .hx-row div.pad-edit input, .hx-row div.pad-edit select {
-      height: 34px; }
-    .hx-row div.pad-edit textarea {
-      height: 100px; }
-    .hx-row div.pad-edit .text {
-      padding-left: 8px;
-      font-size: 14px;
-      width: 100%;
-      height: 34px;
-      display: block;
-      border-radius: 3px;
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
-      -o-border-radius: 3px;
-      -ms-border-radius: 3px; }
-      .hx-row div.pad-edit .text.border {
-        border: 1px solid #eee; }
-      .hx-row div.pad-edit .text.disabled {
-        border: 1px solid #f6f6f6;
-        background-color: #f6f6f6; }
-      .hx-row div.pad-edit .text.tip {
-        font-size: 12px;
-        font-weight: 300;
-        color: #bbb;
-        line-height: 12px;
-        height: 12px;
-        margin-top: 8px; }
-    .hx-row div.pad-edit input [type='file'] {
-      position: absolute;
-      visibility: hidden; }
-    .hx-row div.pad-edit .pad-dropdown {
-      position: absolute;
-      top: 42px;
-      left: 0;
-      width: 100%;
-      padding: 16px;
-      z-index: 123;
-      display: inline-block;
-      background-color: white;
-      opacity: .0;
-      visibility: hidden;
-      -webkit-box-shadow: 0 5px 20px -6px rgba(0, 0, 0, 0.3);
-      -moz-box-shadow: 0 5px 20px -6px rgba(0, 0, 0, 0.3);
-      box-shadow: 0 5px 20px -6px rgba(0, 0, 0, 0.3);
-      transition: all 0.4s;
-      -webkit-transition: all 0.4s;
-      -moz-transition: all 0.4s;
-      -o-transition: all 0.4s;
-      -ms-transition: all 0.4s; }
-      .hx-row div.pad-edit .pad-dropdown.show {
-        visibility: visible;
-        opacity: 1.0; }
-    .hx-row div.pad-edit .pad-tags {
-      width: 100%;
-      padding: 0;
-      display: block;
-      min-height: 25px; }
-      .hx-row div.pad-edit .pad-tags .tag {
-        padding: 0 0 0 16px;
-        height: 25px;
-        line-height: 25px;
-        background-color: #00B2EE;
-        display: inline-block;
-        font-size: 12px;
-        font-weight: 300;
-        color: white;
-        margin: 0 4px 8px 0;
-        border-radius: 25px 25px;
-        -webkit-border-radius: 25px 25px;
-        -moz-border-radius: 25px 25px;
-        -o-border-radius: 25px 25px;
-        -ms-border-radius: 25px 25px; }
-        .hx-row div.pad-edit .pad-tags .tag span {
-          width: auto;
-          display: inline-block;
-          height: 25px;
-          line-height: 25px;
-          margin-right: 8px;
-          font-size: 12px; }
-        .hx-row div.pad-edit .pad-tags .tag .btn-remove {
-          color: #fdfdfd;
-          width: 25px;
-          height: 25px;
-          display: inline-block;
-          font-size: 16px;
-          font-weight: 100;
-          float: right;
-          background-color: transparent; }
-          .hx-row div.pad-edit .pad-tags .tag .btn-remove:hover {
-            color: #ff5a50; }
-    .hx-row div.pad-edit .for-image {
-      height: 120px;
-      display: inline-block;
-      overflow: hidden;
-      position: relative; }
-      .hx-row div.pad-edit .for-image img {
-        margin-right: 0; }
-      .hx-row div.pad-edit .for-image .dot {
-        position: absolute;
-        right: 8px;
-        top: 4px;
-        cursor: default;
-        display: block;
-        height: 24px;
-        line-height: 24px;
-        padding: 0 4px;
-        font-size: 10px;
-        border-radius: 3px;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        -o-border-radius: 3px;
-        -ms-border-radius: 3px;
-        background-color: #bbb;
-        color: #fdfdfd; }
-        .hx-row div.pad-edit .for-image .dot:hover {
-          background-color: #b6b6b6; }
-        .hx-row div.pad-edit .for-image .dot.clear {
-          background-color: #00B2EE;
-          color: white; }
-          .hx-row div.pad-edit .for-image .dot.clear:hover {
-            background-color: #00aae4; }
-      .hx-row div.pad-edit .for-image .empty-image {
-        height: 120px;
-        width: 160px;
-        line-height: 120px;
-        text-align: center;
-        background-color: #f6f6f6;
-        color: #bbb;
-        border-radius: 3px;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        -o-border-radius: 3px;
-        -ms-border-radius: 3px;
-        font-size: 16px;
-        padding: 0; }
-      .hx-row div.pad-edit .for-image.preview:after {
-        content: '查看大图';
-        color: white;
-        background-color: rgba(0, 0, 0, 0.6);
-        visibility: hidden;
-        opacity: .0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        font-weight: 200;
-        line-height: 120px;
-        text-align: center;
-        border-radius: 3px;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        -o-border-radius: 3px;
-        -ms-border-radius: 3px;
-        transition: all 0.4s;
-        -webkit-transition: all 0.4s;
-        -moz-transition: all 0.4s;
-        -o-transition: all 0.4s;
-        -ms-transition: all 0.4s; }
-      .hx-row div.pad-edit .for-image.preview:hover:after {
-        opacity: 1.0;
-        visibility: visible; }
-    .hx-row div.pad-edit img {
-      height: 120px;
-      margin: 0 4px 0 0;
-      border: 1px solid #eee;
-      border-radius: 3px;
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
-      -o-border-radius: 3px;
-      -ms-border-radius: 3px;
-      transition: all 0.4s;
-      -webkit-transition: all 0.4s;
-      -moz-transition: all 0.4s;
-      -o-transition: all 0.4s;
-      -ms-transition: all 0.4s; }
-    .hx-row div.pad-edit .btn-upload-image {
-      padding: 0;
-      vertical-align: top;
-      height: 120px;
-      width: 160px;
-      border: 2px dashed #bbb;
-      color: #bbb;
-      font-size: 16px;
-      line-height: 120px;
-      text-align: center;
-      background-color: transparent; }
-      .hx-row div.pad-edit .btn-upload-image:hover {
-        color: #747474;
-        border: 2px dashed #747474; }
-
-@media screen and (max-width: 640px) {
-  .hx-row {
-    border-bottom: 1px solid #eee;
-    padding: 4px 8px 4px 0 !important;
-    margin: 0 !important; }
-    .hx-row label {
-      width: 100px; }
-    .hx-row .pad-edit {
-      width: -moz- calc(100% - 110px);
-      width: -webkit- calc(100% - 110px);
-      width: calc(100% - 110px);
-      padding-left: 4px !important; }
-      .hx-row .pad-edit input, .hx-row .pad-edit select, .hx-row .pad-edit textarea {
-        border: none !important; }
-        .hx-row .pad-edit input:hover, .hx-row .pad-edit select:hover, .hx-row .pad-edit textarea:hover {
-          border: none; }
-      .hx-row .pad-edit input, .hx-row .pad-edit textarea {
-        padding-left: 4px !important; }
-      .hx-row .pad-edit select {
-        padding-left: 0 !important; }
-      .hx-row .pad-edit.for-switch {
-        width: 150px !important; }
-      .hx-row .pad-edit.one-line {
-        width: 100% !important;
-        padding-left: 0 !important;
-        padding-right: 8px !important; }
-      .hx-row .pad-edit .for-image {
-        height: auto !important;
-        display: block !important; }
-        .hx-row .pad-edit .for-image .preview {
-          height: auto !important; }
-        .hx-row .pad-edit .for-image img {
-          width: 100% !important;
-          height: auto !important; }
-        .hx-row .pad-edit .for-image + button {
-          margin-bottom: 8px; }
-      .hx-row .pad-edit button.btn-upload-image {
-        height: 75px;
-        line-height: 75px;
-        width: 100%; }
-      .hx-row .pad-edit .degree {
-        color: #bbb;
-        position: absolute;
-        right: 0;
-        top: 0;
-        display: inline-block;
-        width: auto; }
-    .hx-row .pad-rich-editor {
-      width: 100% !important; }
-      .hx-row .pad-rich-editor .rich-editor {
-        border: none !important; }
-    .hx-row #map-preview {
-      margin-left: 0;
-      margin-bottom: 8px;
-      width: 100%; } }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-@media screen and (max-width: 640px) {
-  .hx-search {
-    position: absolute;
-    left: 0;
-    top: 42px;
-    opacity: .0;
-    visibility: hidden;
-    -webkit-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.4); }
-    .hx-search.show {
-      opacity: 1.0;
-      visibility: visible; }
-    .hx-search .hx-row {
-      border: none; }
-      .hx-search .hx-row .pad-edit {
-        width: 100% !important;
-        margin-right: 0 !important; }
-      .hx-search .hx-row label {
-        width: 100px;
-        padding-left: 8px; }
-      .hx-search .hx-row .search {
-        margin: 0;
-        width: 100%; }
-        .hx-search .hx-row .search .pad-datepicker {
-          width: 100% !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .hx-search {
-    padding-bottom: 0; }
-    .hx-search .hx-row {
-      margin-bottom: 8px; } }
-
-@media screen and (min-width: 1024px) {
-  .hx-search {
-    padding-bottom: 0; }
-    .hx-search .hx-row {
-      margin-bottom: 8px; } }
 
 @charset "UTF-8";
 /* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
@@ -4724,6 +4810,135 @@ table.hx-table {
   .hide-bg {
     display: none !important; } }
 
+.hx-modal.actionsheet .hx-actionsheet {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  .hx-modal.actionsheet .hx-actionsheet li.item, .hx-modal.actionsheet .hx-actionsheet li.item-quit {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #747474;
+    height: 42px;
+    line-height: 42px;
+    text-align: center; }
+    .hx-modal.actionsheet .hx-actionsheet li.item + li.item, .hx-modal.actionsheet .hx-actionsheet li.item-quit + li.item {
+      border-top: 1px solid #eee; }
+    .hx-modal.actionsheet .hx-actionsheet li.item:hover, .hx-modal.actionsheet .hx-actionsheet li.item-quit:hover {
+      background-color: #eee; }
+
+@media screen and (min-width: 640px) {
+  .hx-modal.actionsheet .content {
+    width: 300px;
+    padding: 8px !important; }
+  .hx-modal.actionsheet .hx-actionsheet + .hx-actionsheet {
+    display: none; } }
+
+@media screen and (max-width: 640px) {
+  .hx-modal.actionsheet .content {
+    background-color: transparent !important;
+    padding: 0 !important; }
+  .hx-modal.actionsheet .hx-actionsheet {
+    background-color: rgba(255, 255, 255, 0.93);
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -o-border-radius: 6px;
+    -ms-border-radius: 6px; }
+    .hx-modal.actionsheet .hx-actionsheet + .hx-actionsheet {
+      margin-top: 16px; } }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
 .BMapLabel {
   height: 44px;
   color: rgba(255, 255, 255, 0.6) !important;
@@ -5048,41 +5263,7 @@ td[id|=tangram-suggestion] {
         margin-left: 8px; } }
 
 @media screen and (max-width: 640px) {
-  .hx-modal.confirm .content {
-    padding: 8px;
-    width: -moz- calc(100% - 16px);
-    width: -webkit- calc(100% - 16px);
-    width: calc(100% - 16px);
-    text-align: justify;
-    font-size: 14px;
-    top: auto;
-    bottom: 16px;
-    left: 50%;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s;
-    transform: translate(-50%, 100%);
-    -webkit-transform: translate(-50%, 100%);
-    -moz-transform: translate(-50%, 100%);
-    -o-transform: translate(-50%, 100%);
-    -ms-transform: translate(-50%, 100%); }
-    .hx-modal.confirm .content header {
-      color: #bbb; }
-    .hx-modal.confirm .content .hx-content {
-      padding: 16px;
-      text-align: center; }
-    .hx-modal.confirm .content footer {
-      margin-top: 32px;
-      text-align: center;
-      padding: 0; }
-  .hx-modal.confirm.show .content {
-    transform: translate(-50%, 0);
-    -webkit-transform: translate(-50%, 0);
-    -moz-transform: translate(-50%, 0);
-    -o-transform: translate(-50%, 0);
-    -ms-transform: translate(-50%, 0); } }
+  /* 自下而上弹出样式已迁移到 hx-modal.scss 中 */ }
 
 @charset "UTF-8";
 /* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
@@ -5637,11 +5818,11 @@ td[id|=tangram-suggestion] {
     -o-transition: background 0.4s;
     -ms-transition: background 0.4s; }
     .hx-image-modal .navbar .title {
-      color: #fdfdfd;
+      color: rgba(255, 255, 255, 0.93);
       line-height: 50px; }
     .hx-image-modal .navbar .btn-quit-preview {
       float: right;
-      color: #fdfdfd !important;
+      color: rgba(255, 255, 255, 0.93) !important;
       font-size: 44px;
       background-color: transparent;
       height: 100%;
@@ -5725,7 +5906,7 @@ td[id|=tangram-suggestion] {
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3); }
     .hx-image-modal .pad-functions button, .hx-image-modal .pad-functions a {
       background-color: transparent;
-      color: #fdfdfd;
+      color: rgba(255, 255, 255, 0.93);
       text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
       padding: 16px;
       display: inline-block;
@@ -5749,7 +5930,7 @@ td[id|=tangram-suggestion] {
     -moz-transform: translateY(-50%);
     -o-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
-    color: #fdfdfd;
+    color: rgba(255, 255, 255, 0.93);
     font-size: 44px;
     height: 140px;
     padding: 0 16px;
@@ -6096,7 +6277,7 @@ td[id|=tangram-suggestion] {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fdfdfd;
+    color: rgba(255, 255, 255, 0.93);
     font-size: 14px;
     opacity: 0.2;
     transform: scale(0, 0);
@@ -6357,7 +6538,43 @@ td[id|=tangram-suggestion] {
           height: 17px;
           top: 8.5px; }
       .hx-modal .pad-content .map, .hx-modal .content .map {
-        margin-top: 8px; } }
+        margin-top: 8px; }
+  .hx-modal.confirm .content, .hx-modal.actionsheet .content {
+    padding: 8px;
+    width: -moz- calc(100% - 16px);
+    width: -webkit- calc(100% - 16px);
+    width: calc(100% - 16px);
+    text-align: justify;
+    font-size: 14px;
+    top: auto;
+    bottom: 16px;
+    left: 50%;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    transform: translate(-50%, 50%);
+    -webkit-transform: translate(-50%, 50%);
+    -moz-transform: translate(-50%, 50%);
+    -o-transform: translate(-50%, 50%);
+    -ms-transform: translate(-50%, 50%);
+    position: fixed; }
+    .hx-modal.confirm .content header, .hx-modal.actionsheet .content header {
+      color: #bbb; }
+    .hx-modal.confirm .content .hx-content, .hx-modal.actionsheet .content .hx-content {
+      padding: 16px;
+      text-align: center; }
+    .hx-modal.confirm .content footer, .hx-modal.actionsheet .content footer {
+      margin-top: 32px;
+      text-align: center;
+      padding: 0; }
+  .hx-modal.confirm.show .content, .hx-modal.actionsheet.show .content {
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0); } }
 
 @charset "UTF-8";
 /* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */

@@ -148,4 +148,35 @@
       }
     }
   }
+  .hx-modal.confirm, .hx-modal.actionsheet  {
+    .content {
+      padding: $pm-sm;
+      @include wcalc(calc(100% - 16px));
+      text-align: justify;
+      font-size: $font-md;
+      top: auto;
+      bottom: $pm-md;
+      left: 50%;
+      @include compatible(transition, all .4s);
+      @include compatible(transform, translate(-50%, 50%));
+      position: fixed;
+      header {
+        color: $color-gray-deep;
+      }
+      .hx-content {
+        padding: $pm-md;
+        text-align: center;
+      }
+      footer {
+        margin-top: $pm-md * 2;
+        text-align: center;
+        padding: 0;
+      }
+    }
+    &.show {
+      .content {
+        @include compatible(transform, translate(-50%, 0));
+      }
+    }
+  }
 }

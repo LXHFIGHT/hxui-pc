@@ -21,7 +21,7 @@
   // 居中样式
   &.center { text-align: center; }
 
-  label, .pad-edit{
+  label, .content{
     min-height: $height-regular;
     display: inline-block;
     font-size: $font-md;
@@ -56,7 +56,7 @@
   }
 
   // 富文本模块
-  div.pad-rich-editor {
+  div.rich-content {
     display: inline-block;
     position: relative;
     padding: 0;
@@ -83,7 +83,7 @@
   }
 
   // 右侧区域
-  div.pad-edit {
+  div.content {
     display: inline-block;
     position: relative;
     padding: 0;
@@ -327,7 +327,7 @@
     padding: $pm-sm/2 $pm-sm $pm-sm/2 0!important;
     label { width: 100px; }
     margin: 0!important;
-    .pad-edit {
+    .content {
       @include wcalc(calc(100% - 110px));
       input, select, textarea {
         border: none!important;
@@ -377,12 +377,6 @@
         top: 0;
         display: inline-block;
         width: auto;
-      }
-    }
-    .pad-rich-editor {
-      width: 100%!important;
-      .rich-editor {
-        border: none!important;
       }
     }
     #map-preview {

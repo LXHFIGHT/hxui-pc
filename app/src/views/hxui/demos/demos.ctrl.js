@@ -9,6 +9,7 @@ let DemosCtrl = angular.module('HXUIController');
 
 DemosCtrl.controller('DemosCtrl', ['$scope', ($scope) => {
     $scope.location = '';
+    $scope.actionSheetText = '请选择收货地区';
     $scope.event = {
         doPopInfo: (type) => {
             switch (type) {
@@ -37,10 +38,10 @@ DemosCtrl.controller('DemosCtrl', ['$scope', ($scope) => {
                 content: '请问你觉得这个框怎么样呢？',
                 confirmText: '挺不错的',
                 cancelText: '不喜欢',
-                confirmFunc() {
+                onConfirm() {
                     HXUI.popTipInfoQuick('很高兴得到你的认可');
                 },
-                cancelFunc() {
+                onCancel() {
                     HXUI.popTipInfoQuick('好的我们继续改进');
                 }
             })
@@ -63,6 +64,18 @@ DemosCtrl.controller('DemosCtrl', ['$scope', ($scope) => {
                     $scope.$apply();
                 }
             });
+        },
+        showActionSheet() {
+            HXUI.actionSheet({
+                items: [
+                    '中国大陆', '中国台湾', '中国香港', '中国澳门'
+                ],
+                onSelect: (data) => {
+                    HXUI.popTipInfoQuick(`已选择${data.value}`);
+                    $scope.actionSheetText = data.value;
+                    $scope.$apply();
+                }
+            })
         }
     };
 
