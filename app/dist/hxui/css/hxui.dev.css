@@ -4983,7 +4983,7 @@ td[id|=tangram-suggestion] {
   position: fixed;
   top: 100%;
   display: block;
-  background-color: #f6f6f6; }
+  background-color: transparent; }
   .choose-address-modal .pad-address-selector {
     height: 50px;
     padding: 6px 16px;

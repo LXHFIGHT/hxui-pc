@@ -40,6 +40,7 @@
             }
         });
         const node = `<div class="hx-modal choose-address-modal">
+                        <div class="mask"></div> 
                         <div class="pad-address-content">
                             <div class="pad-address-selector">
                                 <input type="text" 
