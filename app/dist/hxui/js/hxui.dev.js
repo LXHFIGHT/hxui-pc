@@ -266,7 +266,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      * @param options.date          当前日期
      * @param options.beginDate     起始日期
      * @param options.endDate       结束日期
-     * @param options.select  选择日期触发事件
+     * @param options.onSelect  选择日期触发事件
      */
     var calendar = function calendar(options) {
         /**
@@ -437,7 +437,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             $view.addClass('selected');
             var date = yearMonth + '.' + day;
             $('.hxui-modal.calendar').removeClass('show');
-            typeof options.select === 'function' && options.select(_formatDate(date));
+            typeof options.onSelect === 'function' && options.onSelect(_formatDate(date));
         };
 
         if ($('.hxui-modal.calendar').length !== 0) {

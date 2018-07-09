@@ -13,7 +13,7 @@
      * @param options.date          当前日期
      * @param options.beginDate     起始日期
      * @param options.endDate       结束日期
-     * @param options.select  选择日期触发事件
+     * @param options.onSelect  选择日期触发事件
      */
     let calendar = (options) => {
         /**
@@ -185,7 +185,7 @@
             $view.addClass('selected');
             let date = yearMonth + '.' + day;
             $('.hxui-modal.calendar').removeClass('show');
-            typeof options.select === 'function' && options.select(_formatDate(date));
+            typeof options.onSelect === 'function' && options.onSelect(_formatDate(date));
         };
 
         if ($('.hxui-modal.calendar').length !== 0) {
