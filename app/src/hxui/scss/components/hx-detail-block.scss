@@ -9,19 +9,27 @@
   border: 1px solid $color-gray;
   position: relative;
   margin-bottom: $pm-md;
+  background-color: white;
   @include boxShadow(0 10px 15px -10px rgba(0,0,0,.1));
   header {
     top: 0;
     left: 0;
     width: 100%;
     font-size: $font-md;
-    line-height: $height-normal;
-    height: $height-normal;
-    padding: 0 $pm-md;
+    line-height: $height-navbar;
+    height: $height-navbar;
+    padding: 0 $pm-lg;
     color: $color-heavy;
-    background-color: $color-gray-light;
     position: absolute;
-    border-bottom: 1px solid $color-gray;
+    &:before {
+      content: "";
+      height: $height-navbar/2;
+      width: 3px;
+      background-color: $color-main;
+      @include centerVertical;
+      display: block;
+      left: $pm-md;
+    }
     small {
       font-size: $font-md;
       color: $color-gray-deep;
@@ -52,9 +60,9 @@
     @include compatible(transform, scale(1, 1));
     @include borderRadius($border-radius-bg);
     @include boxShadow(0 10px 15px -10px rgba(0,0,0,.1));
-    @include compatible(transition, transform .4s);
+    @include compatible(transition, box-shadow .4s);
     &:hover {
-      @include compatible(transform, scale(1.02, 1.02));
+      @include boxShadow(0 5px 20px rgba(0,0,0,.1));
     }
   }
 }

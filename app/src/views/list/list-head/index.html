@@ -1,16 +1,11 @@
 <div class="hx-block">
     <div class="hx-header">
+        <button class="btn-back">
+            返回
+        </button>
         <span class="title">
             带header的列表
         </span>
-        <button class="btn-right hx-button fa fa-plus"></button>
-        <div class="hx-search">
-            <input type="text"
-                   ng-model="searchInfo.id"
-                   placeholder=""
-                   ng-keyup="searchById($event)">
-            <button class="fa fa-search" ng-click="requestList()"></button>
-        </div>
         <!--<div class="dropdown" style="float: right; display: inline-block; display: none">-->
             <!--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">-->
                 <!--{{ selectedKind }}-->

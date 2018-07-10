@@ -42,7 +42,7 @@
       width: $height-regular;
       z-index: 1200;
       @include borderRadius($border-radius-md);
-      color: $color-gray-deep;
+      color: $color-white;
       background-color: transparent;
     }
   }

@@ -7,6 +7,7 @@
   border-bottom: 1px solid $color-gray;
   padding: $pm-sm $pm-md;
   $height-content: $height-navbar - $pm-md;
+  @include boxShadow(0 0 24px rgba(0,0,0,.1));
   .title{
     display: inline-block;
     font-size: $font-md;
@@ -22,50 +23,27 @@
       }
     }
   }
-  .btn-right {
+  .btn-back {
+    background-color: transparent;
+    color: $color-gray-deep;
   }
-  .hx-search {
-    float: right;
-    display: inline-block;
-    height: $height-content;
-    top: $pm-sm/2 - 1px;
-    position: relative;
-    input {
-      height: 100%;
-      border: none;
-      border-bottom: 1px solid $color-gray-deep;
-      padding: 0 $height-content 0 $pm-md;
-      @include compatible(transition, border .4s);
-    }
-    button {
-      height: $height-content - 1px;
-      width: $height-content;
-      position: absolute;
-      right: 0;
-      top: 0;
-      font-size: $font-md;
-      color: $color-gray-deep;
-      @include compatible(transition, all .4s);
-    }
-    &:hover {
-      input {
-        border-bottom: 1px solid $color-main;
-      }
-      button {
+  .btn-right {
+
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .hx-header {
+    .btn-back {
+      &:hover {
         color: $color-main;
       }
     }
   }
 }
 
-@media screen and (min-width: 640px) {
-  .hx-header {
-
-  }
-}
-
 @media screen and (max-width: 640px) {
-  $color-header-word: white;  // 统一修改此处调整导航条文字或iconfont字体颜色
+  $color-header-word: $color-white;  // 统一修改此处调整导航条文字或iconfont字体颜色
   .hx-header {
     background-color: $color-main;
     color: $color-header-word;
@@ -78,7 +56,7 @@
       @include centerHorizontal;
       font: {
         weight: 500;
-        size: $font-md;
+        size: 16px;
       }
       strong {
         color: $color-header-word;
@@ -89,8 +67,13 @@
       }
     }
     .btn-left,
+    .btn-back,
     .btn-right {
       color: $color-header-word;
+      height: $height-regular;
+    }
+    .btn-left, .btn-back {
+      margin-left: $pm-bg;
     }
     .hx-search {
       z-index: 1001;

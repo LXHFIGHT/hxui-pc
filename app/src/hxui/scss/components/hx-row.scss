@@ -106,6 +106,9 @@
       background-color: white;
       font-size: $font-md;
       resize: none;
+      &:hover {
+        border: 1px solid $color-gray-deep;
+      }
       &.short {
         width: 45%;
       }
