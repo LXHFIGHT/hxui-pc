@@ -40,10 +40,19 @@
             </div>
             <div class="detail">
                 <h5 class="mb-md">
-                    4. 弹出确认框, 可以使用 <strong>showConfirm</strong> 方法
+                    4. 弹出确认框, 可以使用 <strong>showConfirem</strong> 方法
                 </h5>
                 <button class="hx-button"
                         ng-click="event.doConfirm()">附带确认和取消按钮</button>
+            </div>
+            <div class="detail">
+                <h5 class="mb-md">
+                    6. 通过添加 <strong>hx-tooltip</strong> 伪类给的HTML元素添加提示框，文本内容编辑在元素的 <strong>data-title</strong> 属性中
+                </h5>
+                <button class="hx-button hx-tooltip top" data-title="Hello world~">顶部提示一段话</button>
+                <button class="hx-button hx-tooltip right" data-title="Hello world~">右边提示一段话</button>
+                <button class="hx-button hx-tooltip bottom" data-title="Hello world~">底边提示一段话</button>
+                <button class="hx-button hx-tooltip left" data-title="Hello world~">左边提示一段话</button>
             </div>
             <h3>
                 二. 功能组件
