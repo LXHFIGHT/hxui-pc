@@ -47,7 +47,7 @@
     color: $color-gray-light;
     background-color: $color-dark;
     padding: 6px $pm-sm;
-    @include borderRadius(20px);
+    @include borderRadius($border-radius-bg);
     @include boxShadow(0 6px 12px -4px rgba(0,0,0,.4));
   }
   // 底部弹出提示框

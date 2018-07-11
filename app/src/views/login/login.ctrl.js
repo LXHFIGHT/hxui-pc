@@ -13,7 +13,7 @@ LoginCtrl.controller('LoginCtrl', ['$scope', '$state', '$stateParams', 'HttpHelp
 
     $scope.logoUrl = config.logo.url;
 
-    $scope.state = $stateParams.state || 'enter.users';  //需要跳转的页面
+    $scope.state = $stateParams.state || 'enter';  //需要跳转的页面
 
     $scope.toggleMode = (mode) => {
         $scope.isLoginMode = mode;

@@ -39,7 +39,7 @@ menus.value('sidebarMenus', [
         ]
     },
     {
-        name: '系统设置',
+        name: '表单组件',
         state: 'enter.config',
         icon: 'cog',
         role: '*',

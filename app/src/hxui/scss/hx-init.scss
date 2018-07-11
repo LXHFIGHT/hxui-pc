@@ -62,17 +62,62 @@ input {
     appearance: none;
 }
 
-input::-webkit-input-placeholder{ /*WebKit browsers*/
+textarea::-webkit-input-placeholder,
+input::-webkit-input-placeholder { /*WebKit browsers*/
     color: $color-gray-deep;
     font-weight: 300;
 }
-input::-moz-input-placeholder{ /*Mozilla Firefox*/
+textarea::-moz-input-placeholder,
+input::-moz-input-placeholder {  /*Mozilla Firefox*/
     color: $color-gray-deep;
     font-weight: 300;
 }
-input::-ms-input-placeholder{ /*Internet Explorer*/
+textarea::-ms-input-placeholder,
+input::-ms-input-placeholder {   /*Internet Explorer*/
     color: $color-gray-deep;
     font-weight: 300;
+}
+
+
+// 文本编辑组件、选择组件的默认样式
+input, textarea, select {
+    width: 100%;
+    display: inline-block;
+    @include compatible(transition, all .4s);
+    border: 1px solid $color-gray;
+    line-height: $height-regular;
+    padding: 0 $pm-sm;
+    background-color: white;
+    font-size: $font-md;
+    resize: none;
+    &:hover {
+        border: 1px solid $color-gray-deep;
+    }
+    &.short {
+        width: 45%;
+    }
+    &:focus {
+        border: 1px solid $color-main;
+    }
+    &:disabled {
+        border: none !important;
+        background-color: $color-gray-light;
+    }
+    // input标签样式表单验证出错的样式
+    &.error {
+        font-weight: 100!important;
+        border:1px solid $color-red!important;
+        color: $color-red;
+        background-color: lighten($color-red, 32%)!important;
+        @include compatible(transition, all .4s);
+    }
+}
+
+input, select {
+    height: $height-regular;
+}
+textarea {
+    height: 2 * $height-navbar;
 }
 
 /*--------------------------------------------------------------------------------------*/
@@ -86,16 +131,7 @@ button, input[type='submit'], input[type='button'], input[type='reset']{
     font-weight: 400;
 }
 
-/*--------------------------------------------------------------------------------------*/
-/* input标签样式表单验证出错的样式
-/*--------------------------------------------------------------------------------------*/
-input.error, textarea.error{
-    font-weight: 100!important;
-    border:1px solid $color-red!important;
-    color: $color-red;
-    background-color: lighten($color-red, 32%)!important;
-    @include compatible(transition, all .4s);
-}
+
 
 .hx-invisible {
     visibility: hidden;

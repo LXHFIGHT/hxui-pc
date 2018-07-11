@@ -94,40 +94,6 @@
     // 缩小规格
     &.short {  width: 200px;  }
 
-    // 文本编辑组件、选择组件的默认样式
-    input, textarea, select {
-      width: 100%;
-      display: inline-block;
-      @include compatible(transition, all .4s);
-      border: 1px solid $color-gray;
-      line-height: $height-regular;
-
-      padding: 0 $pm-sm;
-      background-color: white;
-      font-size: $font-md;
-      resize: none;
-      &:hover {
-        border: 1px solid $color-gray-deep;
-      }
-      &.short {
-        width: 45%;
-      }
-      &:focus {
-        border: 1px solid $color-main;
-      }
-      &:disabled {
-        border: none !important;
-        background-color: $color-gray-light;
-      }
-    }
-    input, select {
-      height: $height-regular;
-    }
-
-    textarea {
-      height: 2 * $height-navbar;
-    }
-
     // 不可编辑文本组件样式
     .text {
       padding-left: $pm-sm;
