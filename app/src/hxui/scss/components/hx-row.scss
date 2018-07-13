@@ -126,6 +126,10 @@
       visibility: hidden;
     }
 
+    textarea {
+      display: block;
+    }
+
     .pad-dropdown {
       position: absolute;
       top: $height-regular + $pm-sm;

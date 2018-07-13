@@ -1,6 +1,7 @@
 <nav class="hx-header">
     <!--<button class="btn-left fa fa-list"></button>-->
     <!--<button class="btn-left fa fa-angle-left"></button>-->
+    <button class="btn-back" ng-click="toState('home')">返回</button>
     <span class="title">
         HXUI Demos
     </span>
@@ -10,9 +11,9 @@
 <section class="hx-content no-footer null">
     <div class="hx-container hx-article">
         <section>
-            <h3>
+            <h1>
                 一. 操作反馈
-            </h3>
+            </h1>
             <div class="detail">
                 <h5 >
                     1. 轻量消息提示 <strong>popTip</strong>
@@ -54,9 +55,11 @@
                 <button class="hx-button hx-tooltip bottom" data-title="Hello world~">底边提示一段话</button>
                 <button class="hx-button hx-tooltip left" data-title="Hello world~">左边提示一段话</button>
             </div>
-            <h3>
+        </section>
+        <section>
+            <h1>
                 二. 功能组件
-            </h3>
+            </h1>
             <div class="detail">
                 <h5 class="mb-md">
                     1. 预览图片使用 <strong>imagePreviewer</strong> 方法
@@ -75,9 +78,11 @@
                             ng-click="event.showActionSheet()"></button>
                 </div>
             </div>
-            <h3>
+        </section>
+        <section>
+            <h1>
                 三. 便捷地图组件
-            </h3>
+            </h1>
             <div class="detail">
                 <h5 class="mb-md">
                     1. 在百度地图上绘制路线 <strong>showRouteMap</strong> 方法

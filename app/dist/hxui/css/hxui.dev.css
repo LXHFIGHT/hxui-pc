@@ -181,15 +181,25 @@ input, textarea, select {
   background-color: white;
   font-size: 14px;
   resize: none; }
+  input.blank, textarea.blank, select.blank {
+    border: 1px solid transparent;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    input.blank:hover, textarea.blank:hover, select.blank:hover {
+      border: 1px solid transparent;
+      background-color: #f6f6f6 !important; }
+    input.blank:focus, textarea.blank:focus, select.blank:focus {
+      border: 1px solid transparent;
+      background-color: #eee !important; }
   input:hover, textarea:hover, select:hover {
     border: 1px solid #bbb; }
   input.short, textarea.short, select.short {
     width: 45%; }
   input:focus, textarea:focus, select:focus {
     border: 1px solid #00B2EE; }
-  input:disabled, textarea:disabled, select:disabled {
-    border: none !important;
-    background-color: #f6f6f6; }
   input.error, textarea.error, select.error {
     font-weight: 100 !important;
     border: 1px solid #ff5a50 !important;
@@ -200,6 +210,11 @@ input, textarea, select {
     -moz-transition: all 0.4s;
     -o-transition: all 0.4s;
     -ms-transition: all 0.4s; }
+    input.error:focus, textarea.error:focus, select.error:focus {
+      border: 1px solid #dd4b30 !important; }
+  input:disabled, input.disabled, textarea:disabled, textarea.disabled, select:disabled, select.disabled {
+    border: 1px solid transparent !important;
+    background-color: #f6f6f6; }
 
 input, select {
   height: 34px; }
@@ -623,10 +638,24 @@ button, input[type='submit'], input[type='button'], input[type='reset'] {
 
 @media screen and (max-width: 640px) {
   .hx-detail-block {
-    padding: 42px 0 0 8px;
+    padding: 50px 0 0 8px;
     -webkit-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
     box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1); }
+    .hx-detail-block header:before {
+      content: "";
+      height: 25px;
+      width: 3px;
+      background-color: #00B2EE;
+      top: 50%;
+      position: absolute !important;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      display: block;
+      left: 0; }
     .hx-detail-block header:first-child {
       padding-left: 8px; }
     .hx-detail-block .hx-row:nth-last-child(1) {
@@ -1337,6 +1366,8 @@ button, input[type='submit'], input[type='button'], input[type='reset'] {
     .hx-row div.content input [type='file'] {
       position: absolute;
       visibility: hidden; }
+    .hx-row div.content textarea {
+      display: block; }
     .hx-row div.content .pad-dropdown {
       position: absolute;
       top: 42px;
@@ -3142,7 +3173,7 @@ textarea.hx-input {
   line-height: 34px;
   resize: none;
   padding: 0 8px;
-  border: 1px solid #cccccc;
+  border: 1px solid #eee;
   color: #474747;
   transition: all 0.4s;
   -webkit-transition: all 0.4s;
@@ -3155,39 +3186,6 @@ textarea.hx-input {
   -o-border-radius: 3px;
   -ms-border-radius: 3px; }
 
-input[type='text'].blank,
-input[type='email'].blank,
-input[type='number'].blank,
-input[type='url'].blank,
-input[type='password'].blank,
-input[type='date'].blank,
-select.blank,
-textarea.blank {
-  border: none;
-  transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -ms-transition: all 0.4s; }
-  input[type='text'].blank:hover,
-  input[type='email'].blank:hover,
-  input[type='number'].blank:hover,
-  input[type='url'].blank:hover,
-  input[type='password'].blank:hover,
-  input[type='date'].blank:hover,
-  select.blank:hover,
-  textarea.blank:hover {
-    background-color: #f6f6f6 !important; }
-  input[type='text'].blank:focus,
-  input[type='email'].blank:focus,
-  input[type='number'].blank:focus,
-  input[type='url'].blank:focus,
-  input[type='password'].blank:focus,
-  input[type='date'].blank:focus,
-  select.blank:focus,
-  textarea.blank:focus {
-    background-color: #eee !important; }
-
 select.hx-input {
   height: 34px;
   background-color: transparent; }
@@ -3199,41 +3197,6 @@ select.hx-input {
   -webkit-box-shadow: 0 0 4px rgba(212, 48, 57, 0.8);
   -moz-box-shadow: 0 0 4px rgba(212, 48, 57, 0.8);
   box-shadow: 0 0 4px rgba(212, 48, 57, 0.8); }
-
-/*  默认样式【聚焦状态】： input中 text，email，number, date样式*/
-input[type="text"].hx-input:focus,
-input[type="email"].hx-input:focus,
-input[type="number"].hx-input:focus,
-textarea.hx-input:focus,
-input[type='date'].hx-input:focus {
-  border: 1px solid #00B2EE; }
-
-/*  默认样式【聚焦状态】： input中 url样式        */
-input[type="url"].hx-input:focus, select.hx-input:focus {
-  border: 1px solid #00bdfd; }
-
-/*  默认样式【聚焦状态】： input中 password样式   */
-input[type="password"].hx-input:focus {
-  border: 1px solid red; }
-
-/*  默认样式【聚焦状态】 适用于textarea标签组件      */
-textarea.hx-input:focus {
-  border: 1px solid darkgreen; }
-
-/*  默认样式【无效状态】： input组件和textarea组件无效化的样式   */
-input[disabled] {
-  background-color: transparent;
-  border: none !important;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0; }
-
-textarea[disabled] {
-  background-color: transparent;
-  border: 1px solid #ccc !important;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0; }
 
 
 @charset "UTF-8";

@@ -1,4 +1,10 @@
-<div class="hx-content">
+<header class="hx-header">
+    <button class=""></button>
+    <span class="title">
+        表单组件
+    </span>
+</header>
+<div class="hx-content no-footer">
     <div class="hx-pad-left">
         <div class="hx-detail-block hx-tooltip bottom"
              data-title=".hx-detail-block绘制带标题的块样式">
@@ -8,15 +14,44 @@
             <div class="hx-row">
                 <label >文本输入框</label>
                 <div class="content">
-                    <input class="hx-input"
-                           type="text"
-                           placeholder="请输入文本">
+                    <input
+                            type="text"
+                           placeholder="请输入文本, 直接用input元素即可">
+                </div>
+            </div>
+            <div class="hx-row">
+                <label >无效文本输入框</label>
+                <div class="content">
+                    <input type="text"
+                           ng-disabled="true"
+                           placeholder="当设置了disbaled属性时的input样式">
                 </div>
             </div>
             <div class="hx-row">
                 <label >文本域输入</label>
                 <div class="content">
                     <textarea placeholder="请输入文本域"></textarea>
+                </div>
+            </div>
+            <div class="hx-row">
+                <label >无效文本域输入</label>
+                <div class="content">
+                    <textarea ng-disabled="true" placeholder="当设置了disbaled属性时的textarea样式"></textarea>
+                </div>
+            </div>
+            <div class="hx-row">
+                <label >透明文本输入框</label>
+                <div class="content">
+                    <input class="blank"
+                           type="text"
+                           placeholder="请输入文本，使用带有.blank的input元素">
+                </div>
+            </div>
+            <div class="hx-row">
+                <label >透明文本域输入</label>
+                <div class="content">
+                    <textarea class="blank"
+                              placeholder="请输入文本域，使用带有.blank的textarea元素"></textarea>
                 </div>
             </div>
         </div>

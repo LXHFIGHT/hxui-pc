@@ -69,8 +69,17 @@
 
 @media screen and (max-width: 640px) {
   .hx-detail-block {
-    padding: $height-normal 0 0 $pm-sm;
+    padding: $height-navbar 0 0 $pm-sm;
     @include boxShadow(0 10px 15px -10px rgba(0,0,0,.1));
+    header:before {
+      content: "";
+      height: $height-navbar/2;
+      width: 3px;
+      background-color: $color-main;
+      @include centerVertical;
+      display: block;
+      left: 0;
+    }
     header:first-child {
       padding-left: $pm-sm;
     }

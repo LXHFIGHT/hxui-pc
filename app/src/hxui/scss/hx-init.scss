@@ -90,6 +90,18 @@ input, textarea, select {
     background-color: white;
     font-size: $font-md;
     resize: none;
+    &.blank {
+        border: 1px solid transparent;
+        @include compatible(transition, all .4s);
+        &:hover{
+            border: 1px solid transparent;
+            background-color: $color-gray-light!important;
+        }
+        &:focus{
+            border: 1px solid transparent;
+            background-color: $color-gray!important;
+        }
+    }
     &:hover {
         border: 1px solid $color-gray-deep;
     }
@@ -99,17 +111,22 @@ input, textarea, select {
     &:focus {
         border: 1px solid $color-main;
     }
-    &:disabled {
-        border: none !important;
-        background-color: $color-gray-light;
-    }
+
     // input标签样式表单验证出错的样式
     &.error {
         font-weight: 100!important;
-        border:1px solid $color-red!important;
+        border: 1px solid $color-red!important;
         color: $color-red;
         background-color: lighten($color-red, 32%)!important;
         @include compatible(transition, all .4s);
+        &:focus {
+            border: 1px solid $color-red-deep!important;
+        }
+    }
+
+    &:disabled, &.disabled {
+        border: 1px solid transparent!important;
+        background-color: $color-gray-light;
     }
 }
 
