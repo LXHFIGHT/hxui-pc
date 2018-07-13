@@ -7,6 +7,10 @@
   -ms-#{$key}: $word;
 }
 
+@mixin transform($content) {
+  @include compatible(transform, $content);
+}
+
 /* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
 //@mixin calc($property, $expression) {
 //  #{$property}: -webkit-calc(#{$expression});

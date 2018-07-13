@@ -87,9 +87,7 @@
     display: inline-block;
     position: relative;
     padding: 0;
-    width: 100%;
     vertical-align: top;
-    @include wcalc(calc(100% - 130px));
 
     // 缩小规格
     &.short {  width: 200px;  }
@@ -121,6 +119,39 @@
       }
     }
 
+    // 提示信息
+    .degree,
+    .tips {
+      position: absolute;
+      right: $pm-md;
+      top: 0;
+      display: inline-block;
+      width: auto;
+    }
+
+    .degree {
+      color: $color-gray-deep;
+    }
+    // 错误提示信息
+    .tips {
+      $height-tips: 26px;
+      color: $color-white;
+      background-color: $color-red;
+      height: $height-tips;
+      font-size: 12px;
+      line-height: $height-tips + 1px;
+      padding: 0 $pm-sm;
+      @include borderRadius($height-navbar/2);
+      top: ($height-regular - $height-tips)/2;
+      visibility: hidden;
+      @include compatible(transition, all .4s);
+      @include transform(scale(.0, .0));
+      &.show {
+        visibility: visible;
+        @include transform(scale(1.0, 1.0));
+      }
+    }
+
     input [type='file'] {
       position: absolute;
       visibility: hidden;
@@ -128,6 +159,8 @@
 
     textarea {
       display: block;
+      line-height: 24px;
+      padding: 5px $pm-sm;
     }
 
     .pad-dropdown {
@@ -294,14 +327,25 @@
   }
 }
 
+@media screen and (min-width: 640px) {
+  .hx-row {
+    .content {
+      @include wcalc(calc(100% - 130px));
+    }
+  }
+}
+
 @media screen and (max-width: 640px) {
   .hx-row {
     border-bottom: 1px solid $color-gray;
     padding: $pm-sm/2 $pm-sm $pm-sm/2 0!important;
-    label { width: 100px; }
     margin: 0!important;
+    label {
+      width: 100px;
+    }
     .content {
       @include wcalc(calc(100% - 110px));
+      padding-left: $pm-sm/2!important;
       input, select, textarea {
         border: none!important;
         &:hover {
@@ -314,7 +358,6 @@
       select {
         padding-left: 0!important;
       }
-      padding-left: $pm-sm/2!important;
       &.for-switch {
         width: 150px !important;
       }
@@ -350,6 +393,10 @@
         top: 0;
         display: inline-block;
         width: auto;
+      }
+      .tips {
+        right: 0;
+        line-height: 25px;
       }
     }
     #map-preview {

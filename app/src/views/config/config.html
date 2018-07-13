@@ -1,5 +1,8 @@
 <header class="hx-header">
-    <button class=""></button>
+    <button ng-click="toState('home')"
+            class="btn-back">
+        返回
+    </button>
     <span class="title">
         表单组件
     </span>
@@ -14,9 +17,19 @@
             <div class="hx-row">
                 <label >文本输入框</label>
                 <div class="content">
-                    <input
-                            type="text"
+                    <input type="text"
                            placeholder="请输入文本, 直接用input元素即可">
+                </div>
+            </div>
+            <div class="hx-row">
+                <label >出错文本输入框</label>
+                <div class="content">
+                    <input type="text"
+                           class="error"
+                           placeholder="在input或textarea元素添加error伪类">
+                    <span class="tips show">
+                        该文本框为必填项
+                    </span>
                 </div>
             </div>
             <div class="hx-row">

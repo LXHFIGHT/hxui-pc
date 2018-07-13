@@ -1333,11 +1333,7 @@ button, input[type='submit'], input[type='button'], input[type='reset'] {
     display: inline-block;
     position: relative;
     padding: 0;
-    width: 100%;
-    vertical-align: top;
-    width: -moz- calc(100% - 130px);
-    width: -webkit- calc(100% - 130px);
-    width: calc(100% - 130px); }
+    vertical-align: top; }
     .hx-row div.content.short {
       width: 200px; }
     .hx-row div.content .text {
@@ -1363,11 +1359,53 @@ button, input[type='submit'], input[type='button'], input[type='reset'] {
         line-height: 12px;
         height: 12px;
         margin-top: 8px; }
+    .hx-row div.content .degree,
+    .hx-row div.content .tips {
+      position: absolute;
+      right: 16px;
+      top: 0;
+      display: inline-block;
+      width: auto; }
+    .hx-row div.content .degree {
+      color: #bbb; }
+    .hx-row div.content .tips {
+      color: rgba(255, 255, 255, 0.93);
+      background-color: #ff5a50;
+      height: 26px;
+      font-size: 12px;
+      line-height: 27px;
+      padding: 0 8px;
+      border-radius: 25px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      -o-border-radius: 25px;
+      -ms-border-radius: 25px;
+      top: 4px;
+      visibility: hidden;
+      transition: all 0.4s;
+      -webkit-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      -ms-transition: all 0.4s;
+      transform: scale(0, 0);
+      -webkit-transform: scale(0, 0);
+      -moz-transform: scale(0, 0);
+      -o-transform: scale(0, 0);
+      -ms-transform: scale(0, 0); }
+      .hx-row div.content .tips.show {
+        visibility: visible;
+        transform: scale(1, 1);
+        -webkit-transform: scale(1, 1);
+        -moz-transform: scale(1, 1);
+        -o-transform: scale(1, 1);
+        -ms-transform: scale(1, 1); }
     .hx-row div.content input [type='file'] {
       position: absolute;
       visibility: hidden; }
     .hx-row div.content textarea {
-      display: block; }
+      display: block;
+      line-height: 24px;
+      padding: 5px 8px; }
     .hx-row div.content .pad-dropdown {
       position: absolute;
       top: 42px;
@@ -1529,6 +1567,12 @@ button, input[type='submit'], input[type='button'], input[type='reset'] {
         color: #747474;
         border: 2px dashed #747474; }
 
+@media screen and (min-width: 640px) {
+  .hx-row .content {
+    width: -moz- calc(100% - 130px);
+    width: -webkit- calc(100% - 130px);
+    width: calc(100% - 130px); } }
+
 @media screen and (max-width: 640px) {
   .hx-row {
     border-bottom: 1px solid #eee;
@@ -1576,6 +1620,9 @@ button, input[type='submit'], input[type='button'], input[type='reset'] {
         top: 0;
         display: inline-block;
         width: auto; }
+      .hx-row .content .tips {
+        right: 0;
+        line-height: 25px; }
     .hx-row #map-preview {
       margin-left: 0;
       margin-bottom: 8px;
