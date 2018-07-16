@@ -11,6 +11,11 @@ DemosCtrl.controller('DemosCtrl', ['$scope', ($scope) => {
     $scope.location = '';
     $scope.actionSheetText = '请选择收货地区';
     $scope.event = {
+        doSelectCalendar() {
+            HXUI.calendar({
+                
+            });
+        },
         doPopInfo: (type) => {
             switch (type) {
                 case 0: HXUI.popTipNormal('调用 HXUI.popTipNormal 弹出常规提示框'); break;

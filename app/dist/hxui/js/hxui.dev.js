@@ -259,7 +259,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  */
 (function ($, window) {
     window.HXUI = window.HXUI || {};
-
     /**
      * 弹出选择日期框
      * @param options 所需要的参数
@@ -338,8 +337,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var _toLastMonth = function _toLastMonth() {
             var dateArr = date.split('-');
             var newDate = '';
-            console.log('日期：' + date);
-            console.log('切换上一个月份为：' + dateArr[1] + '  ' + month);
             if (parseInt(dateArr[1]) === 1) {
                 newDate = parseInt(dateArr[0]) - 1 + '-12-' + dateArr[2];
             } else {
@@ -417,6 +414,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             var day = dateArr[2] >= 10 ? dateArr[2] : '0' + dateArr[2];
             return dateArr[0] + '-' + month + '-' + day;
         };
+
+        // 关闭日历选择框
+        var _closeModal = function _closeModal() {
+            console.log('REMOVE CLASS: ');
+            $('.hx-modal.calendar').removeClass('show');
+            window.HXUI.calendarTimerII = setTimeout(function () {
+                $('.hx-modal.calendar').remove();
+                clearTimeout(window.HXUI.calendarTimerII);
+            }, 400);
+        };
+
         /**
          * 选中日期触发事件
          * @param evt 事件对象
@@ -425,6 +433,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var _clickFunc = function _clickFunc(evt) {
             var $view = $(evt.currentTarget);
             if ($view.hasClass('disabled')) {
+                return;
+            }
+            if ($view.hasClass('passed')) {
                 return;
             }
             var selectable = $view.data('selectable');
@@ -437,33 +448,25 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             $view.addClass('selected');
             var date = yearMonth + '.' + day;
             $('.hxui-modal.calendar').removeClass('show');
-            typeof options.onSelect === 'function' && options.onSelect(_formatDate(date));
+            _closeModal();
+            options.onSelect === 'function' && options.onSelect(_formatDate(date));
         };
 
-        if ($('.hxui-modal.calendar').length !== 0) {
-            $('.hxui-modal.calendar').addClass('show');
+        var node = '<div class=\'hx-modal calendar\'>\n                         <div class="mask"></div>\n                         <div class=\'calendar-content\'>\n                            <header>\n                                <button class=\'to-last-month\'></button>\n                                <span class=\'title\'></span>\n                                <button class=\'to-next-month\'></button>\n                            </header>\n                            <div class=\'table-dates\'> \n                                <ul class=\'header-date\'> \n                                    <li>\u65E5</li>\n                                    <li>\u4E00</li>\n                                    <li>\u4E8C</li>\n                                    <li>\u4E09</li>\n                                    <li>\u56DB</li>\n                                    <li>\u4E94</li>\n                                    <li>\u516D</li>\n                                    <div style=\'clear: both\'></div> \n                                </ul>\n                                <ul class=\'pad-dates\'>\n                                </ul>\n                             </div>\n                         </div>\n                     </div>';
+        $(node).appendTo('body');
+        $('body').off('click', '.hxui-modal.calendar', _showModal).on('click', '.hxui-modal.calendar', _showModal)
+        // 切换到下一个月
+        .off('click', '.calendar-content .to-next-month', _toNextMonth).on('click', '.calendar-content .to-next-month', _toNextMonth)
+        // 切换到上一个月
+        .off('click', '.calendar-content .to-last-month', _toLastMonth).on('click', '.calendar-content .to-last-month', _toLastMonth);
+
+        window.HXUI.calendarTimer = setTimeout(function () {
             _initPad(date);
-            $('.pad-dates li').unbind().bind('click', _clickFunc);
-            $('body').off('click', '.hxui-modal.calendar', _showModal).on('click', '.hxui-modal.calendar', _showModal)
-            // 切换到下一个月
-            .off('click', '.calendar-content .to-next-month', _toNextMonth).on('click', '.calendar-content .to-next-month', _toNextMonth)
-            // 切换到上一个月
-            .off('click', '.calendar-content .to-last-month', _toLastMonth).on('click', '.calendar-content .to-last-month', _toLastMonth);
-        } else {
-            var node = "<div class='hx-modal calendar'>" + "    <div class='calendar-content'>" + "       <header>" + "           <button class='to-last-month'></button>" + "           <span class='title'></span>" + "           <button class='to-next-month'></button>" + "       </header>" + "    <div class='table-dates'> " + "       <ul class='header-date'> " + "           <li>日</li>" + "           <li>一</li>" + "           <li>二</li>" + "           <li>三</li>" + "           <li>四</li>" + "           <li>五</li>" + "           <li>六</li>" + "           <div style='clear: both'></div> " + "       </ul>" + "       <ul class='pad-dates'>" + "       </ul>" + "    </div>" + "</div>";
-            $(node).appendTo('body');
-            $('body').off('click', '.hxui-modal.calendar', _showModal).on('click', '.hxui-modal.calendar', _showModal)
-            // 切换到下一个月
-            .off('click', '.calendar-content .to-next-month', _toNextMonth).on('click', '.calendar-content .to-next-month', _toNextMonth)
-            // 切换到上一个月
-            .off('click', '.calendar-content .to-last-month', _toLastMonth).on('click', '.calendar-content .to-last-month', _toLastMonth);
-            var timer = setTimeout(function () {
-                _initPad(date);
-                $('.hxui-modal.calendar').addClass('show');
-                $('.pad-dates li').unbind().bind('click', _clickFunc);
-                clearTimeout(timer);
-            }, 100);
-        }
+            $('.hx-modal.calendar').addClass('show');
+            $('.hx-modal.calendar .mask').click(_closeModal);
+            $('.pad-dates li').bind('click', _clickFunc);
+            clearTimeout(window.HXUI.calendarTimer);
+        }, 100);
     };
 
     window.HXUI = Object.assign(window.HXUI, { calendar: calendar });
