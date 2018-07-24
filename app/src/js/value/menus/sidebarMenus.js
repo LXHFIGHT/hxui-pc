@@ -9,14 +9,14 @@ var menus = angular.module('menus');
 
 menus.value('sidebarMenus', [
     {
-        name: '列表页面',
+        name: '信息页面',
         state: 'enter.list',
         icon: 'list',
         role: '*',
         selected: true,
         children: [
             {
-                name: '带header列表',
+                name: '展示组件',
                 state: 'enter.list-head',
                 icon: 'th',
                 role: '*',

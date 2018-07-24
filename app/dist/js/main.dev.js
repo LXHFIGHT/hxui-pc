@@ -1204,13 +1204,13 @@ factoriesModule.factory('authority', ['$rootScope', 'StorageHelper', function ($
 var menus = angular.module('menus');
 
 menus.value('sidebarMenus', [{
-    name: '列表页面',
+    name: '信息页面',
     state: 'enter.list',
     icon: 'list',
     role: '*',
     selected: true,
     children: [{
-        name: '带header列表',
+        name: '展示组件',
         state: 'enter.list-head',
         icon: 'th',
         role: '*',
@@ -1253,32 +1253,6 @@ menus.value('sidebarMenus', [{
         role: '*',
         selected: false
     }]
-}]);
-'use strict';
-
-/**
- * Created by LXHFIGHT on 2017/2/20 10:28.
- * Email: lxhfight51@outlook.com
- * Description:
- *
- */
-
-var ConfigCtrl = angular.module('ConfigController');
-ConfigCtrl.controller('ConfigCtrl', ['$scope', function ($scope) {
-    $scope.isSwitchOn = false;
-    $scope.radio = 1;
-    $scope.event = {
-        doToggleSwitch: function doToggleSwitch() {
-            $scope.isSwitchOn = !$scope.isSwitchOn;
-        },
-        toggleCheckbox: function toggleCheckbox(event) {
-            var $view = $(event.target);
-            $view.hasClass('selected') ? $view.removeClass('selected') : $view.addClass('selected');
-        },
-        toggleRadio: function toggleRadio(number) {
-            $scope.radio = number;
-        }
-    };
 }]);
 'use strict';
 
@@ -1397,62 +1371,28 @@ LoginCtrl.controller('LoginCtrl', ['$scope', '$state', '$stateParams', 'HttpHelp
 'use strict';
 
 /**
- * Created by lxhfight on 2017/9/25.
- * Email:
+ * Created by LXHFIGHT on 2017/2/20 10:28.
+ * Email: lxhfight51@outlook.com
  * Description:
- *      This is the front-page of hxui.lxhfight.com
+ *
  */
 
-var HomeCtrl = angular.module('HXUIController');
-
-HomeCtrl.controller('HomeCtrl', ['$scope', function ($scope) {
-    $scope._init = {
-        wave: function wave() {
-            var canvas = document.getElementById('canvas');
-            var ctx = canvas.getContext('2d');
-            canvas.width = canvas.parentNode.offsetWidth;
-            canvas.height = document.body.clientHeight;
-            //如果浏览器支持requestAnimFrame则使用requestAnimFrame否则使用setTimeout
-            window.requestAnimFrame = function () {
-                return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
-                    window.setTimeout(callback, 1000 / 60);
-                };
-            }();
-            // 波浪大小
-            var boHeight = canvas.height / 20;
-            var posHeight = canvas.height / 1.1;
-            //初始角度为0
-            var step = 0;
-            //定义三条不同波浪的颜色
-            var lines = ["rgba(0,222,255, 0.2)", "rgba(157,192,249, 0.2)", "rgba(0,168,255, 0.2)"];
-            function loop() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                step++;
-                //画3个不同颜色的矩形
-                for (var j = lines.length - 1; j >= 0; j--) {
-                    ctx.fillStyle = lines[j];
-                    //每个矩形的角度都不同，每个之间相差45度
-                    var angle = (step + j * 50) * Math.PI / 180;
-                    var deltaHeight = Math.sin(angle) * boHeight;
-                    var deltaHeightRight = Math.cos(angle) * boHeight;
-                    ctx.beginPath();
-                    ctx.moveTo(0, posHeight + deltaHeight);
-                    ctx.bezierCurveTo(canvas.width / 2, posHeight + deltaHeight - boHeight, canvas.width / 2, posHeight + deltaHeightRight - boHeight, canvas.width, posHeight + deltaHeightRight);
-                    ctx.lineTo(canvas.width, canvas.height);
-                    ctx.lineTo(0, canvas.height);
-                    ctx.lineTo(0, posHeight + deltaHeight);
-                    ctx.closePath();
-                    ctx.fill();
-                }
-                requestAnimFrame(loop);
-            }
-            loop();
+var ConfigCtrl = angular.module('ConfigController');
+ConfigCtrl.controller('ConfigCtrl', ['$scope', function ($scope) {
+    $scope.isSwitchOn = false;
+    $scope.radio = 1;
+    $scope.event = {
+        doToggleSwitch: function doToggleSwitch() {
+            $scope.isSwitchOn = !$scope.isSwitchOn;
+        },
+        toggleCheckbox: function toggleCheckbox(event) {
+            var $view = $(event.target);
+            $view.hasClass('selected') ? $view.removeClass('selected') : $view.addClass('selected');
+        },
+        toggleRadio: function toggleRadio(number) {
+            $scope.radio = number;
         }
     };
-
-    $scope.init = function () {
-        $scope._init.wave();
-    }();
 }]);
 'use strict';
 
@@ -1533,20 +1473,186 @@ sidebarModule.controller('SidebarCtrl', ['$scope', '$state', 'sidebarMenus', 'co
 
     $scope.menus = sidebarMenus;
 
-    $scope.selectedMenu = sidebarMenus[0];
-
-    $scope.doClick = function ($event, menu) {
-        if (menu.children) {
-            menu.selected = !menu.selected;
-            return;
-        }
-        if (!menu.selected) {
-            if ($scope.selectedMenu && !$scope.selectedMenu.children) {
-                $scope.selectedMenu.selected = false;
+    $scope.methods = {
+        doClick: function doClick($event, menu) {
+            if (menu.children) {
+                menu.selected = !menu.selected;
+                return;
             }
-            menu.selected = !menu.selected;
-            $scope.selectedMenu = menu;
-            menu.state && $state.go(menu.state);
+            if (!menu.selected) {
+                if ($scope.selectedMenu && !$scope.selectedMenu.children) {
+                    $scope.selectedMenu.selected = false;
+                }
+                menu.selected = !menu.selected;
+                $scope.selectedMenu = menu;
+                menu.state && $state.go(menu.state);
+            }
+        },
+        getCurrentMenu: function getCurrentMenu() {
+            var name = $state.current.name;
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = sidebarMenus[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var menu = _step.value;
+
+                    if (menu.state === name) {
+                        $scope.selectedMenu = menu;
+                        return;
+                    }
+                    if (!menu.children) {
+                        break;
+                    }
+                    var _iteratorNormalCompletion2 = true;
+                    var _didIteratorError2 = false;
+                    var _iteratorError2 = undefined;
+
+                    try {
+                        for (var _iterator2 = menu.children[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                            var child = _step2.value;
+
+                            if (child.state === name) {
+                                $scope.selectedMenu = child;
+                                return;
+                            }
+                        }
+                    } catch (err) {
+                        _didIteratorError2 = true;
+                        _iteratorError2 = err;
+                    } finally {
+                        try {
+                            if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                                _iterator2.return();
+                            }
+                        } finally {
+                            if (_didIteratorError2) {
+                                throw _iteratorError2;
+                            }
+                        }
+                    }
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
+            }
+        }
+    };
+
+    $scope.init = function () {
+        $scope.methods.getCurrentMenu();
+    }();
+}]);
+'use strict';
+
+/**
+ * Created by lxhfight on 2017/9/25.
+ * Email:
+ * Description:
+ *      This is the front-page of hxui.lxhfight.com
+ */
+
+var HomeCtrl = angular.module('HXUIController');
+
+HomeCtrl.controller('HomeCtrl', ['$scope', function ($scope) {
+    $scope._init = {
+        wave: function wave() {
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+            canvas.width = canvas.parentNode.offsetWidth;
+            canvas.height = document.body.clientHeight;
+            //如果浏览器支持requestAnimFrame则使用requestAnimFrame否则使用setTimeout
+            window.requestAnimFrame = function () {
+                return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
+                    window.setTimeout(callback, 1000 / 60);
+                };
+            }();
+            // 波浪大小
+            var boHeight = canvas.height / 20;
+            var posHeight = canvas.height / 1.1;
+            //初始角度为0
+            var step = 0;
+            //定义三条不同波浪的颜色
+            var lines = ["rgba(0,222,255, 0.2)", "rgba(157,192,249, 0.2)", "rgba(0,168,255, 0.2)"];
+            function loop() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                step++;
+                //画3个不同颜色的矩形
+                for (var j = lines.length - 1; j >= 0; j--) {
+                    ctx.fillStyle = lines[j];
+                    //每个矩形的角度都不同，每个之间相差45度
+                    var angle = (step + j * 50) * Math.PI / 180;
+                    var deltaHeight = Math.sin(angle) * boHeight;
+                    var deltaHeightRight = Math.cos(angle) * boHeight;
+                    ctx.beginPath();
+                    ctx.moveTo(0, posHeight + deltaHeight);
+                    ctx.bezierCurveTo(canvas.width / 2, posHeight + deltaHeight - boHeight, canvas.width / 2, posHeight + deltaHeightRight - boHeight, canvas.width, posHeight + deltaHeightRight);
+                    ctx.lineTo(canvas.width, canvas.height);
+                    ctx.lineTo(0, canvas.height);
+                    ctx.lineTo(0, posHeight + deltaHeight);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+                requestAnimFrame(loop);
+            }
+            loop();
+        }
+    };
+
+    $scope.init = function () {
+        $scope._init.wave();
+    }();
+}]);
+'use strict';
+
+/**
+ * Created by LXHFIGHT on 2017/2/20 9:08.
+ * Email: lxhfight51@outlook.com
+ * Description:
+ *
+ */
+var _module = angular.module('ListController');
+_module.controller('ListCtrl', ['$scope', 'HttpHelper', function ($scope, HttpHelper) {
+    $scope.searchInfo = {
+        page: 1,
+        pagesize: 20,
+        maxsize: 0
+    };
+
+    $scope.list = [];
+
+    // 获取用户列表方法
+    $scope.requestList = function () {
+        HttpHelper.doGet('/wallpaper/list', $scope.searchInfo).success(function (data) {
+            HttpHelper.responseHandler(data, function (res) {
+                // 请求成功时处理
+            }, function (err) {
+                // 请求失败时处理
+            });
+        });
+    };
+    // 分页必备方法 requestListByPage 上下翻页的方法 toPageOfList 跳转指定页面方法
+    $scope.requestListByPage = function (page) {
+        $scope.searchInfo.page = page;
+        $scope.requestList();
+    };
+    $scope.toPageOfList = function () {
+        if ($scope.searchInfo.maxsize >= $scope.searchInfo.jumpPage && $scope.searchInfo.jumpPage > 0) {
+            $scope.searchInfo.page = parseInt($scope.searchInfo.jumpPage);
+            $scope.requestList();
+        } else {
+            popTipWarningQuick('跳转页面超过范围');
         }
     };
 }]);
@@ -1667,7 +1773,7 @@ DemosCtrl.controller('DemosCtrl', ['$scope', function ($scope) {
  *
  */
 var _module = angular.module('ListController');
-_module.controller('ListCtrl', ['$scope', 'HttpHelper', function ($scope, HttpHelper) {
+_module.controller('ListHeadCtrl', ['$scope', 'HttpHelper', function ($scope, HttpHelper) {
     $scope.searchInfo = {
         page: 1,
         pagesize: 20,
@@ -1714,46 +1820,4 @@ var PluginsCtrl = angular.module('HXUIController');
 PluginsCtrl.controller('PluginsCtrl', ['$scope', function ($scope) {
 
   $scope._init = {};
-}]);
-'use strict';
-
-/**
- * Created by LXHFIGHT on 2017/2/20 9:08.
- * Email: lxhfight51@outlook.com
- * Description:
- *
- */
-var _module = angular.module('ListController');
-_module.controller('ListHeadCtrl', ['$scope', 'HttpHelper', function ($scope, HttpHelper) {
-    $scope.searchInfo = {
-        page: 1,
-        pagesize: 20,
-        maxsize: 0
-    };
-
-    $scope.list = [];
-
-    // 获取用户列表方法
-    $scope.requestList = function () {
-        HttpHelper.doGet('/wallpaper/list', $scope.searchInfo).success(function (data) {
-            HttpHelper.responseHandler(data, function (res) {
-                // 请求成功时处理
-            }, function (err) {
-                // 请求失败时处理
-            });
-        });
-    };
-    // 分页必备方法 requestListByPage 上下翻页的方法 toPageOfList 跳转指定页面方法
-    $scope.requestListByPage = function (page) {
-        $scope.searchInfo.page = page;
-        $scope.requestList();
-    };
-    $scope.toPageOfList = function () {
-        if ($scope.searchInfo.maxsize >= $scope.searchInfo.jumpPage && $scope.searchInfo.jumpPage > 0) {
-            $scope.searchInfo.page = parseInt($scope.searchInfo.jumpPage);
-            $scope.requestList();
-        } else {
-            popTipWarningQuick('跳转页面超过范围');
-        }
-    };
 }]);

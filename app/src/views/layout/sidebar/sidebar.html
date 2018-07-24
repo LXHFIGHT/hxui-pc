@@ -6,17 +6,17 @@
     </div>
     <div class="sidebar-buttons">
         <div class="group-btn-sidebar"
-             ng-repeat="menu in menus">
+             ng-repeat="menu in menus track by menu.state">
             <button class="first-level {{ menu.selected ? 'selected' : ''}} {{ !menu.children && 'no-children' }}"
                     ng-if="authority.withRole(menu.role)"
-                    ng-click="doClick($event, menu)"
+                    ng-click="methods.doClick($event, menu)"
                     ng-bind="menu.name"></button>
             <div class="pad-children" ng-if="menu.selected && menu.children">
                 <button class="fa fa-{{child.icon}}"
                         ng-class="{ true: 'selected', false: ''}[child.selected]"
-                        ng-repeat="child in menu.children track by $index"
+                        ng-repeat="child in menu.children track by child.state"
                         ng-if="authority.withRole(child.role)"
-                        ng-click="doClick($event, child)"
+                        ng-click="methods.doClick($event, child)"
                         ng-bind="child.name"></button>
             </div>
         </div>

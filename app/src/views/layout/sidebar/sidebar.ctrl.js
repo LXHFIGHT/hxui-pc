@@ -21,20 +21,42 @@ sidebarModule.controller('SidebarCtrl', ['$scope', '$state', 'sidebarMenus', 'co
 
     $scope.menus = sidebarMenus;
 
-    $scope.selectedMenu = sidebarMenus[0];
-
-    $scope.doClick = function($event, menu){
-        if (menu.children) {
-            menu.selected = !menu.selected;
-            return;
-        }
-        if( !menu.selected){
-            if ($scope.selectedMenu && !$scope.selectedMenu.children) {
-                $scope.selectedMenu.selected = false;
+    $scope.methods = {
+        doClick($event, menu) {
+            if (menu.children) {
+                menu.selected = !menu.selected;
+                return;
             }
-            menu.selected = !menu.selected;
-            $scope.selectedMenu = menu;
-            menu.state && $state.go(menu.state);
+            if (!menu.selected) {
+                if ($scope.selectedMenu && !$scope.selectedMenu.children) {
+                    $scope.selectedMenu.selected = false;
+                }
+                menu.selected = !menu.selected;
+                $scope.selectedMenu = menu;
+                menu.state && $state.go(menu.state);
+            }
+        },
+        getCurrentMenu() {
+            const { name } = $state.current;
+            for (let menu of sidebarMenus) {
+                if (menu.state === name) {
+                    $scope.selectedMenu = menu;
+                    return;
+                }
+                if (!menu.children) {
+                    break;
+                }
+                for (let child of menu.children) {
+                    if (child.state === name) {
+                        $scope.selectedMenu = child;
+                        return;
+                    }
+                }
+            }
         }
-    }
+    };
+
+    $scope.init = function() {
+        $scope.methods.getCurrentMenu();
+    }();
 }]);

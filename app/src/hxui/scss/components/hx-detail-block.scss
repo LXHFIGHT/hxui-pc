@@ -64,6 +64,14 @@
     &:hover {
       @include boxShadow(0 5px 20px rgba(0,0,0,.1));
     }
+    &.half {
+      display: inline-block;
+      @include wcalc(calc(50% - 8px));
+    }
+    &.one-third {
+      display: inline-block;
+      @include wcalc(calc(33.33% - 8px));
+    }
   }
 }
 

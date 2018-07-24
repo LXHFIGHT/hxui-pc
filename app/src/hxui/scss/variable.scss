@@ -17,7 +17,7 @@ $half: 50%;
 // 通用颜色标注
 $color-main: #00B2EE;
 $color-main-dark: darken($color-main, 36%);
-$color-main-light: lighten($color-main, 3%);
+$color-main-light: rgba($color-main, .1);
 
 $color-white: rgba(255,255,255, .93);
 $color-gray-light: #f6f6f6;
@@ -36,8 +36,10 @@ $color-red-deep: #dd4b30;
 $color-pink: #f688B4;
 $color-blue: cornflowerblue;
 $color-green-light:   lighten($color-green, 38%);
-$color-orange-light: lighten($color-orange, 45%);
-$color-red-light: lighten($color-red, 34%);
+$color-red-light: rgba(#dd4b30, .1);
+$color-green-light:   rgba(#8ecc45, .1);
+$color-golden-light: rgba(255, 205, 60,  .2);
+$color-orange-light: rgba($color-orange, .1);
 $color-blue-light: lighten($color-blue, 34%);
 
 // 三种居中

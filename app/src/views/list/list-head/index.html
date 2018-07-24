@@ -6,84 +6,42 @@
         <span class="title">
             带header的列表
         </span>
-        <!--<div class="dropdown" style="float: right; display: inline-block; display: none">-->
-            <!--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">-->
-                <!--{{ selectedKind }}-->
-                <!--<span class="caret"></span>-->
-            <!--</button>-->
-            <!--<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">-->
-                <!--<li ng-repeat="kind in kindList" role="presentation">-->
-                    <!--<a role="menuitem" tabindex="-1" href="#" ng-bind="kind.text" ng-click="selectKind(kind)"></a>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</div>-->
     </div>
     <div class="hx-content">
-        <div class="hx-emptyset" ng-if="list.length === 0">
-            暂无用户
-        </div>
-        <table ng-if="list.length !== 0">
-            <thead>
-                <tr>
-                    <td class="md" width="5">用户ID</td>
-                    <td class="md" width="8">缩略图</td>
-                    <td class="bg" width="23">壁纸名</td>
-                    <td class="sm" width="12">分辨率</td>
-                    <td class="sm" width="10">大小</td>
-                    <td class="md" width="18">标签</td>
-                    <td class="sm" width="6">下载</td>
-                    <td class="sm" width="6">收藏</td>
-                    <td class="md" width="6">设置</td>
-                    <td class="md" width="18">操作</td>
-                </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="item in list">
-                <td ng-bind="(searchInfo.page - 1) * searchInfo.pagesize + $index + 1"></td>
-                <td >
-                    <img class="canShowDetail" ng-src="{{cloudStoragePrefix + item.imgUrlSmall}}" style="height: 40px; " alt="">
-                </td>
-                <td ng-bind="item.name"></td>
-                <td ng-bind="item.resolution"></td>
-                <td ng-bind="item.size | size"></td>
-                <td ng-bind="item.tags | tags"></td>
-                <td ng-bind="item.download"></td>
-                <td ng-bind="item.like"></td>
-                <td ng-bind="item.setNum"></td>
-                <td>
-                    <button
-                            class="hx-button blank fa fa-search"
-                            ng-click="jumpToWallpaper(item.id)"
-                            title="查看详情">
-                    </button>
-                    <button
-                            ng-class="{true: 'fa-star', false:'fa-star-o'}[item.isShow == 5]"
-                            class="hx-button blank orange fa" ng-click="showMarkModal(item.originId, item.isShow)"
-                            title="{{ item.isShow === 5 ? '取消标记为开屏壁纸' : '标为开屏壁纸'}}">
-                    </button>
-                    <button
-                            class="hx-button blank red fa fa-trash"
-                            ng-click="deleteWallpaper(item.id)"
-                            title="删除壁纸">
-                    </button>
-                    <!--<button ng-show="item.isPublish === 0" class="hx-button blank gray fa fa-cloud-upload" ng-click="uploadToCloud(item.id)" title="发布壁纸"></button>-->
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="hx-footer">
-        <div class="hx-pagination">
-            <select name="sizePerPage"
-                    ng-model="searchInfo.pagesize"
-                    ng-options="m.value as m.text for m in pagesize"
-                    ng-change="requestList()">
-            </select>
-            <a class="fa fa-caret-left   {{searchInfo.page == 1 ? 'hxui-invisible' : ''}}" ng-click="requestListByPage(searchInfo.page - 1)"></a>
-            <span >{{searchInfo.page}} / {{searchInfo.maxsize}}</span>
-            <a class="fa fa-caret-right  {{ (searchInfo.page == searchInfo.maxsize || searchInfo.maxsize == 0) ? 'hxui-invisible' : ''}}" ng-click="requestListByPage(searchInfo.page + 1)"></a>
-            <input type="text" class="hxui-input" ng-model="searchInfo.jumpPage">
-            <a class="btn-jump" ng-click="toPageOfList()">跳转</a>
+        <div class="hx-detail-block half">
+            <header>
+                提示区域
+                <small >添加.hx-tips伪类即可使用</small>
+            </header>
+            <div class="hx-tips">
+                普通的提示信息
+                <br/>
+                <span class="content">
+                    棒棒糖，这是一种深受广大人民喜爱的糖果类食品，
+                    最初是一颗硬糖插在一根小棒上，后来研发出很多更好吃好玩的品种，
+                    不仅小孩子深爱棒棒糖，一些童心未泯的成年人也会吃。
+                    棒棒糖的类型有凝胶型糖果，硬糖型，牛奶型糖果，巧克力型还有牛奶加水果型。
+                </span>
+            </div>
+            <div class="hx-tips green">
+                友好的提示信息
+                <button class="btn-right">
+                    ×
+                </button>
+                <span class="content">
+                    如果需要在右方添加一个操作按钮，如"关闭提示信息"，可以添加一个button元素， 并标记伪类为：
+                    <span class="hx-highlight">.btn-right</span>
+                </span>
+            </div>
+            <div class="hx-tips orange">
+                警告的提示信息
+            </div>
+            <div class="hx-tips red">
+                错误的提示信息
+            </div>
+            <div class="hx-tips gray">
+                无效的提示信息
+            </div>
         </div>
     </div>
 </div>
