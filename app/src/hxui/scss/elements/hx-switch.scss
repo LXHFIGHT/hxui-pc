@@ -4,16 +4,16 @@
 /*  hx-switch HXUI开关组件 通过 on 和 off 类展示开关状态区别
 /*--------------------------------------------------------------------------------------*/
 
-$height-switch: 25px;
+$height-switch: 27px;
 $width-switch: 45px;
-$padding-switch: 2px;
+$padding-switch: 3px;
 
 // 开关样式
 .hx-switch {
   height: $height-switch;
   width: $width-switch;
   display: inline-block;
-  background-color: $color-gray;
+  background-color: $color-red;
   position: relative;
   @include borderRadius($height-regular/2 $height-regular/2);
   @include compatible(transition, background-color .2s);
@@ -29,7 +29,6 @@ $padding-switch: 2px;
     left: $padding-switch;
   }
   &.off {
-    background-color: $color-red;
     &:before {
       left: $padding-switch;
     }
@@ -37,7 +36,7 @@ $padding-switch: 2px;
   &.on {
     background-color: $color-green;
     &:before {
-      left: $width-switch - $height-regular + 11px;
+      left: $width-switch - $height-regular + 9px;
     }
   }
 }

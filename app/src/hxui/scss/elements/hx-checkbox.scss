@@ -1,0 +1,37 @@
+@import './../variable';
+$height-checkbox: $height-normal / 2;
+.hx-checkbox {
+  background-color: transparent;
+  padding: $pm-sm;
+  height: $height-checkbox + $pm-md;
+  line-height: $height-checkbox;
+  display: inline-block;
+  cursor: default;
+
+  &:before {
+    content: '';
+    height: $height-checkbox;
+    width: $height-checkbox;
+    @include borderRadius($border-radius-md);
+    vertical-align: middle;
+    background-color: $color-gray-light;
+    background-position: center;
+    background-size: 120% 120%;
+    display: inline-block;
+    margin-right: $pm-sm/2;
+    overflow: hidden;
+    border: 1px solid $color-gray;
+  }
+  &:hover {
+    background-color: $color-gray-light;
+    &:before {
+      background-color: $color-gray;
+    }
+  }
+  &.selected {
+    &:before {
+      background-image: url("./../img/icon/icon-checkbox.png");
+      border: 1px solid $color-green;
+    }
+  }
+}

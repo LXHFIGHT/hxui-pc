@@ -12,7 +12,7 @@
         <div class="hx-detail-block hx-tooltip bottom"
              data-title=".hx-detail-block绘制带标题的块样式">
             <header>
-                表单基本信息
+                文本框组件
             </header>
             <div class="hx-row">
                 <label >文本输入框</label>
@@ -64,12 +64,54 @@
                 <label >透明文本域输入</label>
                 <div class="content">
                     <textarea class="blank"
-                              placeholder="请输入文本域，使用带有.blank的textarea元素"></textarea>
+                              placeholder="请输入文本域，使用.blank的textarea元素"></textarea>
                 </div>
             </div>
         </div>
     </div>
-    <div class="pad-right">
-
+    <div class="hx-pad-right">
+        <div class="hx-detail-block">
+            <header>
+                选择框组件
+            </header>
+            <div class="hx-row">
+                <label>开关</label>
+                <div class="content">
+                    <div ng-click="event.doToggleSwitch()"
+                        class="hx-switch center-vertical {{ isSwitchOn ? 'on' : ''}}"></div>
+                </div>
+            </div>
+            <div class="hx-row">
+                <label >
+                    选择喜欢
+                </label>
+                <div class="content">
+                    <span ng-click="event.toggleCheckbox($event)" class="hx-checkbox selected">
+                        棉花糖
+                    </span>
+                    <span ng-click="event.toggleCheckbox($event)" class="hx-checkbox">
+                        棒棒糖
+                    </span>
+                    <span ng-click="event.toggleCheckbox($event)" class="hx-checkbox">
+                        白兔糖
+                    </span>
+                </div>
+            </div>
+            <div class="hx-row">
+                <label >
+                    选择糖果派系
+                </label>
+                <div class="content">
+                    <span ng-click="event.toggleRadio($event)"
+                          class="hx-radio selected">
+                        南派糖
+                    </span>
+                    <span ng-click="event.toggleRadio($event)"
+                          class="hx-radio">
+                        北派糖
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

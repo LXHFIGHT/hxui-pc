@@ -7,5 +7,16 @@
 
 let ConfigCtrl = angular.module('ConfigController');
 ConfigCtrl.controller('ConfigCtrl', ['$scope', function($scope){
-
+    $scope.isSwitchOn = false;
+    $scope.event = {
+        doToggleSwitch() {
+            $scope.isSwitchOn = !$scope.isSwitchOn;
+        },
+        toggleCheckbox(event) {
+            const $view = $(event.target);
+            $view.hasClass('selected')
+            ? $view.removeClass('selected')
+            : $view.addClass('selected');
+        }
+    };
 }]);
