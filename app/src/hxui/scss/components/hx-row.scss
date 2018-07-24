@@ -338,7 +338,7 @@
 @media screen and (max-width: 640px) {
   .hx-row {
     border-bottom: 1px solid $color-gray;
-    padding: $pm-sm/2 $pm-sm $pm-sm/2 0!important;
+    padding: $pm-sm/2 0!important;
     margin: 0!important;
     label {
       width: 100px;
@@ -395,7 +395,7 @@
         width: auto;
       }
       .tips {
-        right: 0;
+        right: 0!important;
         line-height: 25px;
       }
     }

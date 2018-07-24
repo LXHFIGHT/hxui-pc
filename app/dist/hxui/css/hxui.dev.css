@@ -648,7 +648,7 @@ button, input[type='submit'], input[type='button'], input[type='reset'] {
 
 @media screen and (max-width: 640px) {
   .hx-detail-block {
-    padding: 50px 0 0 8px;
+    padding: 50px 16px 0;
     -webkit-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1);
     box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.1); }
@@ -665,9 +665,9 @@ button, input[type='submit'], input[type='button'], input[type='reset'] {
       -o-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
       display: block;
-      left: 0; }
+      left: 16px; }
     .hx-detail-block header:first-child {
-      padding-left: 8px; }
+      padding-left: 24px; }
     .hx-detail-block .hx-row:nth-last-child(1) {
       border: none; }
   .hx-pad-left, .hx-pad-right {
@@ -1586,7 +1586,7 @@ button, input[type='submit'], input[type='button'], input[type='reset'] {
 @media screen and (max-width: 640px) {
   .hx-row {
     border-bottom: 1px solid #eee;
-    padding: 4px 8px 4px 0 !important;
+    padding: 4px 0 !important;
     margin: 0 !important; }
     .hx-row label {
       width: 100px; }
@@ -1631,7 +1631,7 @@ button, input[type='submit'], input[type='button'], input[type='reset'] {
         display: inline-block;
         width: auto; }
       .hx-row .content .tips {
-        right: 0;
+        right: 0 !important;
         line-height: 25px; }
     .hx-row #map-preview {
       margin-left: 0;
@@ -1766,2622 +1766,6 @@ button, input[type='submit'], input[type='button'], input[type='reset'] {
     padding-bottom: 0; }
     .hx-search .hx-row {
       margin-bottom: 8px; } }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-.hx-article h1 {
-  line-height: 50px;
-  border-bottom: 1px solid #eee;
-  margin: 0 0 16px 0; }
-
-.hx-article h2, .hx-article h3, .hx-article h4, .hx-article h5, .hx-article h6 {
-  margin: 0 0 16px 0; }
-
-.hx-article h2 {
-  line-height: 50px; }
-
-.hx-article h3, .hx-article h4 {
-  font-weight: 400;
-  line-height: 68px; }
-
-.hx-article h6, .hx-article h5 {
-  line-height: 25px;
-  color: #747474;
-  margin-bottom: 16px; }
-
-.hx-article strong {
-  padding: 2px 8px;
-  font-weight: 600;
-  color: #00B2EE;
-  background-color: #eee;
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -o-border-radius: 3px;
-  -ms-border-radius: 3px; }
-
-.hx-article section {
-  margin-bottom: 16px;
-  padding: 16px;
-  background-color: white;
-  -webkit-box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.1); }
-
-.hx-article header {
-  line-height: 42px;
-  color: #747474; }
-
-.hx-article label {
-  color: #474747;
-  font-weight: 600; }
-
-.hx-article pre {
-  display: block;
-  background-color: #f6f6f6;
-  padding: 8px 0;
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -o-border-radius: 3px;
-  -ms-border-radius: 3px;
-  line-height: 21px; }
-  .hx-article pre .annotation {
-    color: #bbb !important; }
-
-.hx-article div.detail {
-  margin-bottom: 24px; }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-/**
-    全局按钮样式
- */
-.hx-button {
-  height: 34px;
-  padding: 0 8px;
-  background-color: #eee;
-  font-weight: 300;
-  font-size: 13px;
-  color: white;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -o-border-radius: 4px;
-  -ms-border-radius: 4px;
-  transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  color: #747474; }
-  .hx-button:hover {
-    filter: brightness(95%); }
-  .hx-button:active {
-    filter: brightness(84%); }
-  .hx-button:disabled, .hx-button.disabled {
-    background-color: #e1e1e1 !important;
-    cursor: not-allowed;
-    color: #bbb; }
-    .hx-button:disabled:hover, .hx-button.disabled:hover {
-      filter: brightness(100%);
-      background-color: #e1e1e1 !important; }
-  .hx-button.main {
-    height: 34px;
-    padding: 0 8px;
-    background-color: #00B2EE;
-    font-weight: 300;
-    font-size: 13px;
-    color: white;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -o-border-radius: 4px;
-    -ms-border-radius: 4px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .hx-button.main:hover {
-      filter: brightness(95%); }
-    .hx-button.main:active {
-      filter: brightness(84%); }
-  .hx-button.gray {
-    height: 34px;
-    padding: 0 8px;
-    background-color: #979797;
-    font-weight: 300;
-    font-size: 13px;
-    color: white;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -o-border-radius: 4px;
-    -ms-border-radius: 4px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .hx-button.gray:hover {
-      filter: brightness(95%); }
-    .hx-button.gray:active {
-      filter: brightness(84%); }
-  .hx-button.orange {
-    height: 34px;
-    padding: 0 8px;
-    background-color: #ff8d0a;
-    font-weight: 300;
-    font-size: 13px;
-    color: white;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -o-border-radius: 4px;
-    -ms-border-radius: 4px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .hx-button.orange:hover {
-      filter: brightness(95%); }
-    .hx-button.orange:active {
-      filter: brightness(84%); }
-  .hx-button.red {
-    height: 34px;
-    padding: 0 8px;
-    background-color: #ff5a50;
-    font-weight: 300;
-    font-size: 13px;
-    color: white;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -o-border-radius: 4px;
-    -ms-border-radius: 4px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .hx-button.red:hover {
-      filter: brightness(95%); }
-    .hx-button.red:active {
-      filter: brightness(84%); }
-  .hx-button.blue {
-    height: 34px;
-    padding: 0 8px;
-    background-color: cornflowerblue;
-    font-weight: 300;
-    font-size: 13px;
-    color: white;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -o-border-radius: 4px;
-    -ms-border-radius: 4px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .hx-button.blue:hover {
-      filter: brightness(95%); }
-    .hx-button.blue:active {
-      filter: brightness(84%); }
-  .hx-button.green {
-    height: 34px;
-    padding: 0 8px;
-    background-color: #8ecc45;
-    font-weight: 300;
-    font-size: 13px;
-    color: white;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -o-border-radius: 4px;
-    -ms-border-radius: 4px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .hx-button.green:hover {
-      filter: brightness(95%); }
-    .hx-button.green:active {
-      filter: brightness(84%); }
-  .hx-button.excel {
-    height: 34px;
-    padding: 0 8px;
-    background-color: #1C7243;
-    font-weight: 300;
-    font-size: 13px;
-    color: white;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -o-border-radius: 4px;
-    -ms-border-radius: 4px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .hx-button.excel:hover {
-      filter: brightness(95%); }
-    .hx-button.excel:active {
-      filter: brightness(84%); }
-  .hx-button.pink {
-    height: 34px;
-    padding: 0 8px;
-    background-color: #f688B4;
-    font-weight: 300;
-    font-size: 13px;
-    color: white;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -o-border-radius: 4px;
-    -ms-border-radius: 4px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .hx-button.pink:hover {
-      filter: brightness(95%); }
-    .hx-button.pink:active {
-      filter: brightness(84%); }
-  .hx-button.yellow {
-    height: 34px;
-    padding: 0 8px;
-    background-color: #ffcd3c;
-    font-weight: 300;
-    font-size: 13px;
-    color: #747474;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -o-border-radius: 4px;
-    -ms-border-radius: 4px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .hx-button.yellow:hover {
-      filter: brightness(95%); }
-    .hx-button.yellow:active {
-      filter: brightness(84%); }
-
-.hx-blank-button {
-  border: 1px solid #00B2EE;
-  background-color: white;
-  color: #00B2EE;
-  transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  height: 34px;
-  padding: 0 8px;
-  font-size: 14px;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -o-border-radius: 4px;
-  -ms-border-radius: 4px;
-  transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -ms-transition: all 0.4s; }
-  .hx-blank-button:hover {
-    color: white;
-    background-color: #00B2EE; }
-  .hx-blank-button:disabled, .hx-blank-button.disabled {
-    background-color: #e1e1e1 !important;
-    cursor: not-allowed;
-    border: 1px solid #e1e1e1 !important;
-    color: #bbb !important; }
-    .hx-blank-button:disabled:hover, .hx-blank-button.disabled:hover {
-      background-color: #e1e1e1 !important; }
-  .hx-blank-button.gray {
-    border: 1px solid #979797;
-    background-color: white;
-    color: #979797;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s;
-    height: 34px;
-    padding: 0 8px;
-    font-size: 14px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -o-border-radius: 4px;
-    -ms-border-radius: 4px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .hx-blank-button.gray:hover {
-      color: white;
-      background-color: #979797; }
-  .hx-blank-button.orange {
-    border: 1px solid #ff8d0a;
-    background-color: white;
-    color: #ff8d0a;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s;
-    height: 34px;
-    padding: 0 8px;
-    font-size: 14px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -o-border-radius: 4px;
-    -ms-border-radius: 4px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .hx-blank-button.orange:hover {
-      color: white;
-      background-color: #ff8d0a; }
-  .hx-blank-button.red {
-    border: 1px solid #ff5a50;
-    background-color: white;
-    color: #ff5a50;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s;
-    height: 34px;
-    padding: 0 8px;
-    font-size: 14px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -o-border-radius: 4px;
-    -ms-border-radius: 4px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .hx-blank-button.red:hover {
-      color: white;
-      background-color: #ff5a50; }
-  .hx-blank-button.blue {
-    border: 1px solid cornflowerblue;
-    background-color: white;
-    color: cornflowerblue;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s;
-    height: 34px;
-    padding: 0 8px;
-    font-size: 14px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -o-border-radius: 4px;
-    -ms-border-radius: 4px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .hx-blank-button.blue:hover {
-      color: white;
-      background-color: cornflowerblue; }
-  .hx-blank-button.green {
-    border: 1px solid #8ecc45;
-    background-color: white;
-    color: #8ecc45;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s;
-    height: 34px;
-    padding: 0 8px;
-    font-size: 14px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -o-border-radius: 4px;
-    -ms-border-radius: 4px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .hx-blank-button.green:hover {
-      color: white;
-      background-color: #8ecc45; }
-  .hx-blank-button.excel {
-    border: 1px solid #1C7243;
-    background-color: white;
-    color: #1C7243;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s;
-    height: 34px;
-    padding: 0 8px;
-    font-size: 14px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -o-border-radius: 4px;
-    -ms-border-radius: 4px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .hx-blank-button.excel:hover {
-      color: white;
-      background-color: #1C7243; }
-  .hx-blank-button.pink {
-    border: 1px solid #f688B4;
-    background-color: white;
-    color: #f688B4;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s;
-    height: 34px;
-    padding: 0 8px;
-    font-size: 14px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -o-border-radius: 4px;
-    -ms-border-radius: 4px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .hx-blank-button.pink:hover {
-      color: white;
-      background-color: #f688B4; }
-  .hx-blank-button.yellow {
-    border: 1px solid #ffcd3c;
-    background-color: white;
-    color: #ffcd3c;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s;
-    height: 34px;
-    padding: 0 8px;
-    font-size: 14px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -o-border-radius: 4px;
-    -ms-border-radius: 4px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s; }
-    .hx-blank-button.yellow:hover {
-      color: white;
-      background-color: #ffcd3c; }
-
-.hx-button.sm {
-  height: 25px; }
-
-.hx-button.bg {
-  height: 42px; }
-
-@media screen and (max-width: 640px) {
-  .hx-button {
-    margin-bottom: 8px; } }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-/* hxui卡片樣式 */
-.hxui-card {
-  padding: 0;
-  width: 100%;
-  background-color: white;
-  margin-bottom: 8px;
-  border: 1px solid #eee;
-  -webkit-box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 0.2); }
-  .hxui-card .row {
-    position: relative;
-    display: block;
-    text-align: left !important;
-    padding: 0 8px; }
-    .hxui-card .row label, .hxui-card .row span, .hxui-card .row a {
-      font-size: 14px;
-      line-height: 35px;
-      height: 35px;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-      color: #747474; }
-    .hxui-card .row a:hover {
-      color: #00B2EE; }
-    .hxui-card .row label {
-      color: #bbb; }
-    .hxui-card .row:first-child {
-      line-height: 42px;
-      height: 42px; }
-      .hxui-card .row:first-child span {
-        line-height: 42px;
-        display: block;
-        width: 100%; }
-    .hxui-card .row.img {
-      height: 150px;
-      overflow: hidden;
-      background-color: #f6f6f6; }
-      .hxui-card .row.img img {
-        top: 50%;
-        left: 50%;
-        position: absolute !important;
-        transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        -o-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        width: 100%;
-        height: auto; }
-      .hxui-card .row.img span {
-        position: absolute;
-        right: 8px;
-        bottom: 8px;
-        color: white;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
-    .hxui-card .row.functions {
-      text-align: right !important;
-      padding: 8px;
-      border-top: 1px solid #eee; }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-.hx-checkbox, .hx-radio {
-  background-color: transparent;
-  padding: 7px;
-  height: 34px;
-  line-height: 20px;
-  display: inline-block;
-  cursor: default; }
-  .hx-checkbox[disabled], .hx-radio[disabled] {
-    color: #bbb;
-    cursor: not-allowed; }
-    .hx-checkbox[disabled]:before, .hx-radio[disabled]:before {
-      background-color: #eee; }
-    .hx-checkbox[disabled]:hover, .hx-radio[disabled]:hover {
-      background-color: transparent; }
-  .hx-checkbox:before, .hx-radio:before {
-    content: '';
-    height: 20px;
-    width: 20px;
-    float: left;
-    vertical-align: middle;
-    background-color: #f6f6f6;
-    background-position: center;
-    background-size: 90% 90%;
-    display: inline-block;
-    margin-right: 6px;
-    overflow: hidden;
-    border: 1px solid #eee; }
-  .hx-checkbox:hover, .hx-radio:hover {
-    background-color: #f6f6f6; }
-    .hx-checkbox:hover:before, .hx-radio:hover:before {
-      background-color: #eee; }
-
-.hx-checkbox:before {
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -o-border-radius: 3px;
-  -ms-border-radius: 3px; }
-
-.hx-radio:before {
-  background-clip: padding-box;
-  padding: 2px;
-  border-radius: 50% 50%;
-  -webkit-border-radius: 50% 50%;
-  -moz-border-radius: 50% 50%;
-  -o-border-radius: 50% 50%;
-  -ms-border-radius: 50% 50%; }
-
-.hx-checkbox.selected:before {
-  background-image: url("./../img/icon/icon-check.png");
-  border: 1px solid #00B2EE;
-  background-color: #00B2EE; }
-
-.hx-checkbox.selected.pink:before {
-  background-image: url("./../img/icon/icon-check.png");
-  border: 1px solid #f688B4;
-  background-color: #f688B4; }
-
-.hx-checkbox.selected.green:before {
-  background-image: url("./../img/icon/icon-check.png");
-  border: 1px solid #8ecc45;
-  background-color: #8ecc45; }
-
-.hx-checkbox.selected.red:before {
-  background-image: url("./../img/icon/icon-check.png");
-  border: 1px solid #ff5a50;
-  background-color: #ff5a50; }
-
-.hx-checkbox.selected.orange:before {
-  background-image: url("./../img/icon/icon-check.png");
-  border: 1px solid #ff8d0a;
-  background-color: #ff8d0a; }
-
-.hx-checkbox.selected.golden:before {
-  background-image: url("./../img/icon/icon-check.png");
-  border: 1px solid #ffcd3c;
-  background-color: #ffcd3c; }
-
-.hx-radio.selected:before {
-  background: linear-gradient(-45deg, #00B2EE, #009bcf);
-  background: -webkit-linear-gradient(-45deg, #00B2EE, #009bcf);
-  border: 1px solid #00B2EE; }
-
-.hx-radio.selected.pink:before {
-  background: linear-gradient(-45deg, #f688B4, #f46ca2);
-  background: -webkit-linear-gradient(-45deg, #f688B4, #f46ca2);
-  border: 1px solid #f688B4; }
-
-.hx-radio.selected.green:before {
-  background: linear-gradient(-45deg, #8ecc45, #7fbe34);
-  background: -webkit-linear-gradient(-45deg, #8ecc45, #7fbe34);
-  border: 1px solid #8ecc45; }
-
-.hx-radio.selected.red:before {
-  background: linear-gradient(-45deg, #ff5a50, #ff3d31);
-  background: -webkit-linear-gradient(-45deg, #ff5a50, #ff3d31);
-  border: 1px solid #ff5a50; }
-
-.hx-radio.selected.orange:before {
-  background: linear-gradient(-45deg, #ff8d0a, #ea7d00);
-  background: -webkit-linear-gradient(-45deg, #ff8d0a, #ea7d00);
-  border: 1px solid #ff8d0a; }
-
-.hx-radio.selected.golden:before {
-  background: linear-gradient(-45deg, #ffcd3c, #ffc51d);
-  background: -webkit-linear-gradient(-45deg, #ffcd3c, #ffc51d);
-  border: 1px solid #ffcd3c; }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-/**
-    全局使用的容器组件
- */
-.hx-container {
-  display: block;
-  padding: 0;
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  position: relative; }
-
-@media screen and (max-width: 640px) {
-  .hx-container {
-    width: 100%; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .hx-container {
-    width: 80%; } }
-
-@media screen and (min-width: 1025px) {
-  .hx-container {
-    max-width: 1024px; } }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-.hx-copyright {
-  font-size: 14px;
-  color: #bbb;
-  position: fixed;
-  bottom: 32px;
-  left: 50%;
-  display: block;
-  max-width: 50%;
-  text-align: center;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-@media screen and (max-width: 640px) {
-  .hx-copyright {
-    width: 100%;
-    padding: 0 16px;
-    bottom: 16px; } }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-/**
-  增加减少选择组件：
-  DOM结构：
-    <div class="hx-counter">
-      <button >-</button>
-      <input type="text" />
-      <button >+</button>
-    </div>
- */
-.hx-counter {
-  width: 50%;
-  min-width: 200px;
-  height: 34px;
-  overflow: hidden;
-  display: inline-block; }
-  .hx-counter button {
-    height: 34px;
-    width: 34px;
-    float: left;
-    background-color: white;
-    border: 1px solid #eee;
-    color: #747474;
-    font-size: 16px; }
-    .hx-counter button:hover:hover, .hx-counter button:active:hover {
-      background-color: #f6f6f6; }
-    .hx-counter button:hover:active, .hx-counter button:active:active {
-      background-color: #eee; }
-  .hx-counter input {
-    float: left;
-    height: 34px !important;
-    text-align: center;
-    border-radius: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -o-border-radius: 0;
-    -ms-border-radius: 0;
-    width: -moz- calc(100% - 76px);
-    width: -webkit- calc(100% - 76px);
-    width: calc(100% - 76px); }
-
-@media screen and (max-width: 640px) {
-  .hx-counter {
-    width: 50%;
-    min-width: 160px;
-    height: 42px;
-    overflow: hidden; }
-    .hx-counter button {
-      height: 26px;
-      width: 26px;
-      line-height: 1.0;
-      background-color: #00B2EE;
-      padding: 0;
-      color: white;
-      border-radius: 50%;
-      -webkit-border-radius: 50%;
-      -moz-border-radius: 50%;
-      -o-border-radius: 50%;
-      -ms-border-radius: 50%;
-      position: relative;
-      border: none;
-      top: 50%;
-      transform: translateY(-50%);
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
-      -ms-transform: translateY(-50%); }
-      .hx-counter button:hover, .hx-counter button:active {
-        background-color: #00b2ed !important; }
-    .hx-counter input {
-      height: 42px;
-      width: -moz- calc(100% - 52px);
-      width: -webkit- calc(100% - 52px);
-      width: calc(100% - 52px); } }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-.hx-goback-button {
-  border: 2px solid #bbbbbb;
-  color: #bbbbbb;
-  background-color: transparent;
-  font-size: 24px;
-  margin-right: 16px;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -o-border-radius: 50%;
-  -ms-border-radius: 50%;
-  height: 34px;
-  width: 34px; }
-  .hx-goback-button:hover {
-    border: 2px solid rgba(221, 75, 48, 0.1);
-    color: rgba(221, 75, 48, 0.1); }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-.hx-highlight {
-  padding: 0 4px;
-  background-color: rgba(255, 205, 60, 0.2);
-  border-radius: 6px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -o-border-radius: 6px;
-  -ms-border-radius: 6px; }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-/*--------------------------------------------------------------------------------------*/
-/*  hx-input 适用于全部文本输入框的自定义组件样式
-/*--------------------------------------------------------------------------------------*/
-input[type='text'].hx-input,
-input[type='email'].hx-input,
-input[type='number'].hx-input,
-input[type='url'].hx-input,
-input[type='password'].hx-input,
-input[type='date'].hx-input,
-select.hx-input,
-textarea.hx-input {
-  position: relative;
-  font-size: 14px;
-  line-height: 34px;
-  resize: none;
-  padding: 0 8px;
-  border: 1px solid #eee;
-  color: #474747;
-  transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -o-border-radius: 3px;
-  -ms-border-radius: 3px; }
-
-select.hx-input {
-  height: 34px;
-  background-color: transparent; }
-
-.hx-input.required {
-  border: 1px solid #d43039 !important; }
-
-.hx-input.required:focus {
-  -webkit-box-shadow: 0 0 4px rgba(212, 48, 57, 0.8);
-  -moz-box-shadow: 0 0 4px rgba(212, 48, 57, 0.8);
-  box-shadow: 0 0 4px rgba(212, 48, 57, 0.8); }
-
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-/*--------------------------------------------------------------------------------------*/
-/*  hx-switch HXUI开关组件 通过 on 和 off 类展示开关状态区别
-/*--------------------------------------------------------------------------------------*/
-.hx-switch {
-  height: 27px;
-  width: 45px;
-  display: inline-block;
-  background-color: #ff5a50;
-  position: relative;
-  border-radius: 17px 17px;
-  -webkit-border-radius: 17px 17px;
-  -moz-border-radius: 17px 17px;
-  -o-border-radius: 17px 17px;
-  -ms-border-radius: 17px 17px;
-  transition: background-color 0.2s;
-  -webkit-transition: background-color 0.2s;
-  -moz-transition: background-color 0.2s;
-  -o-transition: background-color 0.2s;
-  -ms-transition: background-color 0.2s; }
-  .hx-switch:before {
-    content: "";
-    transition: left 0.2s;
-    -webkit-transition: left 0.2s;
-    -moz-transition: left 0.2s;
-    -o-transition: left 0.2s;
-    -ms-transition: left 0.2s;
-    background-color: white;
-    height: 23px;
-    width: 23px;
-    top: 2px;
-    position: absolute;
-    border-radius: 50% 50%;
-    -webkit-border-radius: 50% 50%;
-    -moz-border-radius: 50% 50%;
-    -o-border-radius: 50% 50%;
-    -ms-border-radius: 50% 50%;
-    left: 3px; }
-  .hx-switch.off:before {
-    left: 3px; }
-  .hx-switch.on {
-    background-color: #8ecc45; }
-    .hx-switch.on:before {
-      left: 20px; }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-table.hx-table {
-  width: 100%;
-  font-size: 13px;
-  border-collapse: collapse; }
-  table.hx-table td {
-    min-height: 50px;
-    text-align: center;
-    padding: 8px 8px;
-    font-size: 13px;
-    word-break: break-all;
-    border: 1px solid #eee; }
-    table.hx-table td img.avatarUrl {
-      height: 34px;
-      width: 34px;
-      border-radius: 50% 50%;
-      -webkit-border-radius: 50% 50%;
-      -moz-border-radius: 50% 50%;
-      -o-border-radius: 50% 50%;
-      -ms-border-radius: 50% 50%;
-      background-color: #eee; }
-    table.hx-table td .link {
-      color: #009fd5; }
-      table.hx-table td .link:hover {
-        color: #ff5a50; }
-    table.hx-table td.empty {
-      height: 200px;
-      line-height: 200px;
-      font-size: 16px;
-      background-color: #f6f6f6;
-      color: #747474; }
-    table.hx-table td.td-img-cover {
-      font-size: 0; }
-      table.hx-table td.td-img-cover img {
-        height: 120px;
-        width: 160px;
-        border-radius: 3px;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        -o-border-radius: 3px;
-        -ms-border-radius: 3px; }
-    table.hx-table td.td-img-avatar {
-      font-size: 0; }
-      table.hx-table td.td-img-avatar img {
-        height: 42px;
-        width: 42px;
-        border-radius: 50% 50%;
-        -webkit-border-radius: 50% 50%;
-        -moz-border-radius: 50% 50%;
-        -o-border-radius: 50% 50%;
-        -ms-border-radius: 50% 50%; }
-    table.hx-table td.td-justify {
-      text-align: justify; }
-    table.hx-table td button {
-      padding: 0 8px;
-      height: 30px;
-      min-height: 30px;
-      font-weight: 300; }
-      table.hx-table td button.standard {
-        min-width: 90px;
-        margin-bottom: 4px; }
-      table.hx-table td button.smart {
-        overflow-x: hidden;
-        width: 29px;
-        white-space: nowrap;
-        transition: width 0.2s;
-        -webkit-transition: width 0.2s;
-        -moz-transition: width 0.2s;
-        -o-transition: width 0.2s;
-        -ms-transition: width 0.2s; }
-        table.hx-table td button.smart:before {
-          margin-right: 8px; }
-        table.hx-table td button.smart:hover {
-          width: 100px; }
-  table.hx-table thead {
-    color: #818181;
-    background-color: #fafafa;
-    border-bottom: 2px solid #eee; }
-    table.hx-table thead td {
-      height: 42px; }
-  table.hx-table tbody {
-    color: #8e8e8e; }
-    table.hx-table tbody tr {
-      height: 50px; }
-    table.hx-table tbody tr:nth-child(even) {
-      background-color: #f6f6f6; }
-    table.hx-table tbody.hovering tr:hover {
-      background-color: #f6f6f6; }
-
-@media screen and (max-width: 640px) {
-  .hx-table {
-    table-layout: auto; }
-    .hx-table td button {
-      min-width: 85px !important; }
-    .hx-table td.td-img-cover img {
-      height: 80px;
-      width: auto; }
-    .hx-table td.sm {
-      min-width: 60px; }
-    .hx-table td.md {
-      min-width: 120px; }
-    .hx-table td.bg {
-      min-width: 180px; }
-    .hx-table td.lg {
-      min-width: 240px; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .hx-table {
-    table-layout: auto; } }
-
-@media screen and (min-width: 1024px) {
-  .hx-table {
-    table-layout: fixed; } }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-/* 简易时间轴
-   样式效果为：
-   <div class="hx-timeline">
-      <section class="item"
-               ng-repeat="item in order.sf_order.route track by $index">
-          <span class="header" ng-bind="item.operation"></span>
-          <span class="remark">
-              {{ item.time }} {{ item.address ? '- ' + item.address : '' }}
-          </span>
-      </section>
-   </div>
- */
-.hx-timeline {
-  padding-left: 5px;
-  position: relative; }
-  .hx-timeline .item {
-    padding: 8px 8px 8px 16px;
-    border-left: 1px solid #eee;
-    position: relative; }
-    .hx-timeline .item:hover {
-      background-color: #f6f6f6; }
-    .hx-timeline .item:first-child:hover {
-      border-left: 1px solid #00B2EE; }
-    .hx-timeline .item:first-child:before {
-      background-color: #00B2EE; }
-    .hx-timeline .item:first-child .header {
-      color: #00B2EE;
-      position: relative; }
-    .hx-timeline .item:before {
-      content: "";
-      height: 10px;
-      width: 10px;
-      border-radius: 5px;
-      background-color: #e6e6e6;
-      display: inline-block;
-      position: absolute;
-      left: -5px;
-      top: 12px; }
-    .hx-timeline .item .header {
-      font-size: 14px;
-      background-color: transparent;
-      color: #747474;
-      display: block;
-      line-height: 20px; }
-    .hx-timeline .item .remark {
-      line-height: 20px;
-      color: #bbb;
-      font-size: 12px;
-      text-align: justify; }
-  .hx-timeline .emptyset {
-    line-height: 53px;
-    height: 53px;
-    text-align: center;
-    font-size: 14px;
-    color: #d2d2d2; }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-.hx-tips {
-  padding: 10px 16px;
-  line-height: 25px;
-  display: block;
-  margin-bottom: 16px;
-  position: relative;
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -o-border-radius: 3px;
-  -ms-border-radius: 3px;
-  background-color: rgba(0, 178, 238, 0.1);
-  color: #00B2EE;
-  border-left: 3px solid #00B2EE; }
-  .hx-tips .btn-right {
-    color: #00B2EE; }
-  .hx-tips.green {
-    background-color: rgba(142, 204, 69, 0.1);
-    color: #8ecc45;
-    border-left: 3px solid #8ecc45; }
-    .hx-tips.green .btn-right {
-      color: #8ecc45; }
-  .hx-tips.orange {
-    background-color: rgba(255, 141, 10, 0.1);
-    color: #ff8d0a;
-    border-left: 3px solid #ff8d0a; }
-    .hx-tips.orange .btn-right {
-      color: #ff8d0a; }
-  .hx-tips.red {
-    background-color: rgba(221, 75, 48, 0.1);
-    color: #ff5a50;
-    border-left: 3px solid #ff5a50; }
-    .hx-tips.red .btn-right {
-      color: #ff5a50; }
-  .hx-tips.gray {
-    background-color: #eee;
-    color: #747474;
-    border-left: 3px solid #747474; }
-    .hx-tips.gray .btn-right {
-      color: #747474; }
-  .hx-tips .btn-right {
-    background-color: transparent;
-    position: absolute;
-    right: 8px;
-    top: 5px;
-    height: 34px;
-    font-size: 20px; }
-  .hx-tips .content {
-    color: #747474;
-    text-align: justify;
-    margin: 8px 0;
-    display: block; }
-
-@charset "UTF-8";
-/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
-.center-horizontal,
-.center-parent,
-.center-vertical {
-  position: absolute; }
-
-.center-horizontal {
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  -ms-transform: translateX(-50%); }
-
-.center-parent {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-
-.center-vertical {
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%); }
-
-[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
-  float: left;
-  display: inline-block; }
-
-@media screen and (max-width: 640px) {
-  .col-sm-1 {
-    width: 8.33%; }
-  .col-sm-2 {
-    width: 16.66%; }
-  .col-sm-3 {
-    width: 25%; }
-  .col-sm-4 {
-    width: 33.33%; }
-  .col-sm-6 {
-    width: 50%; }
-  .col-sm-8 {
-    width: 66.66%; }
-  .col-sm-12 {
-    width: 100%; }
-  .hide-sm {
-    display: none !important; } }
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .col-md-1 {
-    width: 8.33%; }
-  .col-md-2 {
-    width: 16.66%; }
-  .col-md-3 {
-    width: 25%; }
-  .col-md-4 {
-    width: 33.33%; }
-  .col-md-6 {
-    width: 50%; }
-  .col-md-8 {
-    width: 66.66%; }
-  .col-md-12 {
-    width: 100%; }
-  .hide-md {
-    display: none !important; } }
-
-@media screen and (min-width: 1024px) {
-  .col-bg-1 {
-    width: 8.33%; }
-  .col-bg-2 {
-    width: 16.66%; }
-  .col-bg-3 {
-    width: 25%; }
-  .col-bg-4 {
-    width: 33.33%; }
-  .col-bg-6 {
-    width: 50%; }
-  .col-bg-8 {
-    width: 66.66%; }
-  .col-bg-12 {
-    width: 100%; }
-  .hide-bg {
-    display: none !important; } }
-
-@media screen and (max-width: 640px) {
-  .hx-toggle-sidebar {
-    display: block;
-    position: absolute;
-    top: 11px;
-    left: 8px;
-    padding: 0;
-    height: 34px;
-    width: 34px;
-    z-index: 1200;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -o-border-radius: 3px;
-    -ms-border-radius: 3px;
-    color: #00B2EE;
-    background-color: transparent; }
-    .hx-toggle-sidebar.show {
-      color: white; } }
-
-@media screen and (min-width: 640px) {
-  .hx-toggle-sidebar {
-    display: none; } }
 
 @charset "UTF-8";
 /* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
@@ -7606,3 +4990,2619 @@ td[id|=tangram-suggestion] {
     border-bottom: 7px solid transparent; }
   .hx-tooltip.left:after {
     left: calc(-100% - 24px); }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+.hx-article h1 {
+  line-height: 50px;
+  border-bottom: 1px solid #eee;
+  margin: 0 0 16px 0; }
+
+.hx-article h2, .hx-article h3, .hx-article h4, .hx-article h5, .hx-article h6 {
+  margin: 0 0 16px 0; }
+
+.hx-article h2 {
+  line-height: 50px; }
+
+.hx-article h3, .hx-article h4 {
+  font-weight: 400;
+  line-height: 68px; }
+
+.hx-article h6, .hx-article h5 {
+  line-height: 25px;
+  color: #747474;
+  margin-bottom: 16px; }
+
+.hx-article strong {
+  padding: 2px 8px;
+  font-weight: 600;
+  color: #00B2EE;
+  background-color: #eee;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px; }
+
+.hx-article section {
+  margin-bottom: 16px;
+  padding: 16px;
+  background-color: white;
+  -webkit-box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.1); }
+
+.hx-article header {
+  line-height: 42px;
+  color: #747474; }
+
+.hx-article label {
+  color: #474747;
+  font-weight: 600; }
+
+.hx-article pre {
+  display: block;
+  background-color: #f6f6f6;
+  padding: 8px 0;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  line-height: 21px; }
+  .hx-article pre .annotation {
+    color: #bbb !important; }
+
+.hx-article div.detail {
+  margin-bottom: 24px; }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+/**
+    全局按钮样式
+ */
+.hx-button {
+  height: 34px;
+  padding: 0 8px;
+  background-color: #eee;
+  font-weight: 300;
+  font-size: 13px;
+  color: white;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  color: #747474; }
+  .hx-button:hover {
+    filter: brightness(95%); }
+  .hx-button:active {
+    filter: brightness(84%); }
+  .hx-button:disabled, .hx-button.disabled {
+    background-color: #e1e1e1 !important;
+    cursor: not-allowed;
+    color: #bbb; }
+    .hx-button:disabled:hover, .hx-button.disabled:hover {
+      filter: brightness(100%);
+      background-color: #e1e1e1 !important; }
+  .hx-button.main {
+    height: 34px;
+    padding: 0 8px;
+    background-color: #00B2EE;
+    font-weight: 300;
+    font-size: 13px;
+    color: white;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .hx-button.main:hover {
+      filter: brightness(95%); }
+    .hx-button.main:active {
+      filter: brightness(84%); }
+  .hx-button.gray {
+    height: 34px;
+    padding: 0 8px;
+    background-color: #979797;
+    font-weight: 300;
+    font-size: 13px;
+    color: white;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .hx-button.gray:hover {
+      filter: brightness(95%); }
+    .hx-button.gray:active {
+      filter: brightness(84%); }
+  .hx-button.orange {
+    height: 34px;
+    padding: 0 8px;
+    background-color: #ff8d0a;
+    font-weight: 300;
+    font-size: 13px;
+    color: white;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .hx-button.orange:hover {
+      filter: brightness(95%); }
+    .hx-button.orange:active {
+      filter: brightness(84%); }
+  .hx-button.red {
+    height: 34px;
+    padding: 0 8px;
+    background-color: #ff5a50;
+    font-weight: 300;
+    font-size: 13px;
+    color: white;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .hx-button.red:hover {
+      filter: brightness(95%); }
+    .hx-button.red:active {
+      filter: brightness(84%); }
+  .hx-button.blue {
+    height: 34px;
+    padding: 0 8px;
+    background-color: cornflowerblue;
+    font-weight: 300;
+    font-size: 13px;
+    color: white;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .hx-button.blue:hover {
+      filter: brightness(95%); }
+    .hx-button.blue:active {
+      filter: brightness(84%); }
+  .hx-button.green {
+    height: 34px;
+    padding: 0 8px;
+    background-color: #8ecc45;
+    font-weight: 300;
+    font-size: 13px;
+    color: white;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .hx-button.green:hover {
+      filter: brightness(95%); }
+    .hx-button.green:active {
+      filter: brightness(84%); }
+  .hx-button.excel {
+    height: 34px;
+    padding: 0 8px;
+    background-color: #1C7243;
+    font-weight: 300;
+    font-size: 13px;
+    color: white;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .hx-button.excel:hover {
+      filter: brightness(95%); }
+    .hx-button.excel:active {
+      filter: brightness(84%); }
+  .hx-button.pink {
+    height: 34px;
+    padding: 0 8px;
+    background-color: #f688B4;
+    font-weight: 300;
+    font-size: 13px;
+    color: white;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .hx-button.pink:hover {
+      filter: brightness(95%); }
+    .hx-button.pink:active {
+      filter: brightness(84%); }
+  .hx-button.yellow {
+    height: 34px;
+    padding: 0 8px;
+    background-color: #ffcd3c;
+    font-weight: 300;
+    font-size: 13px;
+    color: #747474;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .hx-button.yellow:hover {
+      filter: brightness(95%); }
+    .hx-button.yellow:active {
+      filter: brightness(84%); }
+
+.hx-blank-button {
+  border: 1px solid #00B2EE;
+  background-color: white;
+  color: #00B2EE;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  height: 34px;
+  padding: 0 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -ms-transition: all 0.4s; }
+  .hx-blank-button:hover {
+    color: white;
+    background-color: #00B2EE; }
+  .hx-blank-button:disabled, .hx-blank-button.disabled {
+    background-color: #e1e1e1 !important;
+    cursor: not-allowed;
+    border: 1px solid #e1e1e1 !important;
+    color: #bbb !important; }
+    .hx-blank-button:disabled:hover, .hx-blank-button.disabled:hover {
+      background-color: #e1e1e1 !important; }
+  .hx-blank-button.gray {
+    border: 1px solid #979797;
+    background-color: white;
+    color: #979797;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    height: 34px;
+    padding: 0 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .hx-blank-button.gray:hover {
+      color: white;
+      background-color: #979797; }
+  .hx-blank-button.orange {
+    border: 1px solid #ff8d0a;
+    background-color: white;
+    color: #ff8d0a;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    height: 34px;
+    padding: 0 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .hx-blank-button.orange:hover {
+      color: white;
+      background-color: #ff8d0a; }
+  .hx-blank-button.red {
+    border: 1px solid #ff5a50;
+    background-color: white;
+    color: #ff5a50;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    height: 34px;
+    padding: 0 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .hx-blank-button.red:hover {
+      color: white;
+      background-color: #ff5a50; }
+  .hx-blank-button.blue {
+    border: 1px solid cornflowerblue;
+    background-color: white;
+    color: cornflowerblue;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    height: 34px;
+    padding: 0 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .hx-blank-button.blue:hover {
+      color: white;
+      background-color: cornflowerblue; }
+  .hx-blank-button.green {
+    border: 1px solid #8ecc45;
+    background-color: white;
+    color: #8ecc45;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    height: 34px;
+    padding: 0 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .hx-blank-button.green:hover {
+      color: white;
+      background-color: #8ecc45; }
+  .hx-blank-button.excel {
+    border: 1px solid #1C7243;
+    background-color: white;
+    color: #1C7243;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    height: 34px;
+    padding: 0 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .hx-blank-button.excel:hover {
+      color: white;
+      background-color: #1C7243; }
+  .hx-blank-button.pink {
+    border: 1px solid #f688B4;
+    background-color: white;
+    color: #f688B4;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    height: 34px;
+    padding: 0 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .hx-blank-button.pink:hover {
+      color: white;
+      background-color: #f688B4; }
+  .hx-blank-button.yellow {
+    border: 1px solid #ffcd3c;
+    background-color: white;
+    color: #ffcd3c;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    height: 34px;
+    padding: 0 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s; }
+    .hx-blank-button.yellow:hover {
+      color: white;
+      background-color: #ffcd3c; }
+
+.hx-button.sm {
+  height: 25px; }
+
+.hx-button.bg {
+  height: 42px; }
+
+@media screen and (max-width: 640px) {
+  .hx-button {
+    margin-bottom: 8px; } }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+/* hxui卡片樣式 */
+.hxui-card {
+  padding: 0;
+  width: 100%;
+  background-color: white;
+  margin-bottom: 8px;
+  border: 1px solid #eee;
+  -webkit-box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 0.2); }
+  .hxui-card .row {
+    position: relative;
+    display: block;
+    text-align: left !important;
+    padding: 0 8px; }
+    .hxui-card .row label, .hxui-card .row span, .hxui-card .row a {
+      font-size: 14px;
+      line-height: 35px;
+      height: 35px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      color: #747474; }
+    .hxui-card .row a:hover {
+      color: #00B2EE; }
+    .hxui-card .row label {
+      color: #bbb; }
+    .hxui-card .row:first-child {
+      line-height: 42px;
+      height: 42px; }
+      .hxui-card .row:first-child span {
+        line-height: 42px;
+        display: block;
+        width: 100%; }
+    .hxui-card .row.img {
+      height: 150px;
+      overflow: hidden;
+      background-color: #f6f6f6; }
+      .hxui-card .row.img img {
+        top: 50%;
+        left: 50%;
+        position: absolute !important;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        width: 100%;
+        height: auto; }
+      .hxui-card .row.img span {
+        position: absolute;
+        right: 8px;
+        bottom: 8px;
+        color: white;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+    .hxui-card .row.functions {
+      text-align: right !important;
+      padding: 8px;
+      border-top: 1px solid #eee; }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+.hx-checkbox, .hx-radio {
+  background-color: transparent;
+  padding: 7px;
+  height: 34px;
+  line-height: 20px;
+  display: inline-block;
+  cursor: default; }
+  .hx-checkbox[disabled], .hx-radio[disabled] {
+    color: #bbb;
+    cursor: not-allowed; }
+    .hx-checkbox[disabled]:before, .hx-radio[disabled]:before {
+      background-color: #eee; }
+    .hx-checkbox[disabled]:hover, .hx-radio[disabled]:hover {
+      background-color: transparent; }
+  .hx-checkbox:before, .hx-radio:before {
+    content: '';
+    height: 20px;
+    width: 20px;
+    float: left;
+    vertical-align: middle;
+    background-color: #f6f6f6;
+    background-position: center;
+    background-size: 90% 90%;
+    display: inline-block;
+    margin-right: 6px;
+    overflow: hidden;
+    border: 1px solid #eee; }
+  .hx-checkbox:hover, .hx-radio:hover {
+    background-color: #f6f6f6; }
+    .hx-checkbox:hover:before, .hx-radio:hover:before {
+      background-color: #eee; }
+
+.hx-checkbox:before {
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px; }
+
+.hx-radio:before {
+  background-clip: padding-box;
+  padding: 2px;
+  border-radius: 50% 50%;
+  -webkit-border-radius: 50% 50%;
+  -moz-border-radius: 50% 50%;
+  -o-border-radius: 50% 50%;
+  -ms-border-radius: 50% 50%; }
+
+.hx-checkbox.selected:before {
+  background-image: url("./../img/icon/icon-check.png");
+  border: 1px solid #00B2EE;
+  background-color: #00B2EE; }
+
+.hx-checkbox.selected.pink:before {
+  background-image: url("./../img/icon/icon-check.png");
+  border: 1px solid #f688B4;
+  background-color: #f688B4; }
+
+.hx-checkbox.selected.green:before {
+  background-image: url("./../img/icon/icon-check.png");
+  border: 1px solid #8ecc45;
+  background-color: #8ecc45; }
+
+.hx-checkbox.selected.red:before {
+  background-image: url("./../img/icon/icon-check.png");
+  border: 1px solid #ff5a50;
+  background-color: #ff5a50; }
+
+.hx-checkbox.selected.orange:before {
+  background-image: url("./../img/icon/icon-check.png");
+  border: 1px solid #ff8d0a;
+  background-color: #ff8d0a; }
+
+.hx-checkbox.selected.golden:before {
+  background-image: url("./../img/icon/icon-check.png");
+  border: 1px solid #ffcd3c;
+  background-color: #ffcd3c; }
+
+.hx-radio.selected:before {
+  background: linear-gradient(-45deg, #00B2EE, #009bcf);
+  background: -webkit-linear-gradient(-45deg, #00B2EE, #009bcf);
+  border: 1px solid #00B2EE; }
+
+.hx-radio.selected.pink:before {
+  background: linear-gradient(-45deg, #f688B4, #f46ca2);
+  background: -webkit-linear-gradient(-45deg, #f688B4, #f46ca2);
+  border: 1px solid #f688B4; }
+
+.hx-radio.selected.green:before {
+  background: linear-gradient(-45deg, #8ecc45, #7fbe34);
+  background: -webkit-linear-gradient(-45deg, #8ecc45, #7fbe34);
+  border: 1px solid #8ecc45; }
+
+.hx-radio.selected.red:before {
+  background: linear-gradient(-45deg, #ff5a50, #ff3d31);
+  background: -webkit-linear-gradient(-45deg, #ff5a50, #ff3d31);
+  border: 1px solid #ff5a50; }
+
+.hx-radio.selected.orange:before {
+  background: linear-gradient(-45deg, #ff8d0a, #ea7d00);
+  background: -webkit-linear-gradient(-45deg, #ff8d0a, #ea7d00);
+  border: 1px solid #ff8d0a; }
+
+.hx-radio.selected.golden:before {
+  background: linear-gradient(-45deg, #ffcd3c, #ffc51d);
+  background: -webkit-linear-gradient(-45deg, #ffcd3c, #ffc51d);
+  border: 1px solid #ffcd3c; }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+/**
+    全局使用的容器组件
+ */
+.hx-container {
+  display: block;
+  padding: 0;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  position: relative; }
+
+@media screen and (max-width: 640px) {
+  .hx-container {
+    width: 100%; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .hx-container {
+    width: 80%; } }
+
+@media screen and (min-width: 1025px) {
+  .hx-container {
+    max-width: 1024px; } }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+.hx-copyright {
+  font-size: 14px;
+  color: #bbb;
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  display: block;
+  max-width: 50%;
+  text-align: center;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+@media screen and (max-width: 640px) {
+  .hx-copyright {
+    width: 100%;
+    padding: 0 16px;
+    bottom: 16px; } }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+/**
+  增加减少选择组件：
+  DOM结构：
+    <div class="hx-counter">
+      <button >-</button>
+      <input type="text" />
+      <button >+</button>
+    </div>
+ */
+.hx-counter {
+  width: 50%;
+  min-width: 200px;
+  height: 34px;
+  overflow: hidden;
+  display: inline-block; }
+  .hx-counter button {
+    height: 34px;
+    width: 34px;
+    float: left;
+    background-color: white;
+    border: 1px solid #eee;
+    color: #747474;
+    font-size: 16px; }
+    .hx-counter button:hover:hover, .hx-counter button:active:hover {
+      background-color: #f6f6f6; }
+    .hx-counter button:hover:active, .hx-counter button:active:active {
+      background-color: #eee; }
+  .hx-counter input {
+    float: left;
+    height: 34px !important;
+    text-align: center;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -o-border-radius: 0;
+    -ms-border-radius: 0;
+    width: -moz- calc(100% - 76px);
+    width: -webkit- calc(100% - 76px);
+    width: calc(100% - 76px); }
+
+@media screen and (max-width: 640px) {
+  .hx-counter {
+    width: 50%;
+    min-width: 160px;
+    height: 42px;
+    overflow: hidden; }
+    .hx-counter button {
+      height: 26px;
+      width: 26px;
+      line-height: 1.0;
+      background-color: #00B2EE;
+      padding: 0;
+      color: white;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -o-border-radius: 50%;
+      -ms-border-radius: 50%;
+      position: relative;
+      border: none;
+      top: 50%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      -ms-transform: translateY(-50%); }
+      .hx-counter button:hover, .hx-counter button:active {
+        background-color: #00b2ed !important; }
+    .hx-counter input {
+      height: 42px;
+      width: -moz- calc(100% - 52px);
+      width: -webkit- calc(100% - 52px);
+      width: calc(100% - 52px); } }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+.hx-goback-button {
+  border: 2px solid #bbbbbb;
+  color: #bbbbbb;
+  background-color: transparent;
+  font-size: 24px;
+  margin-right: 16px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  height: 34px;
+  width: 34px; }
+  .hx-goback-button:hover {
+    border: 2px solid rgba(221, 75, 48, 0.1);
+    color: rgba(221, 75, 48, 0.1); }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+.hx-highlight {
+  padding: 0 4px;
+  background-color: rgba(255, 205, 60, 0.2);
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px; }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+/*--------------------------------------------------------------------------------------*/
+/*  hx-input 适用于全部文本输入框的自定义组件样式
+/*--------------------------------------------------------------------------------------*/
+input[type='text'].hx-input,
+input[type='email'].hx-input,
+input[type='number'].hx-input,
+input[type='url'].hx-input,
+input[type='password'].hx-input,
+input[type='date'].hx-input,
+select.hx-input,
+textarea.hx-input {
+  position: relative;
+  font-size: 14px;
+  line-height: 34px;
+  resize: none;
+  padding: 0 8px;
+  border: 1px solid #eee;
+  color: #474747;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px; }
+
+select.hx-input {
+  height: 34px;
+  background-color: transparent; }
+
+.hx-input.required {
+  border: 1px solid #d43039 !important; }
+
+.hx-input.required:focus {
+  -webkit-box-shadow: 0 0 4px rgba(212, 48, 57, 0.8);
+  -moz-box-shadow: 0 0 4px rgba(212, 48, 57, 0.8);
+  box-shadow: 0 0 4px rgba(212, 48, 57, 0.8); }
+
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+/*--------------------------------------------------------------------------------------*/
+/*  hx-switch HXUI开关组件 通过 on 和 off 类展示开关状态区别
+/*--------------------------------------------------------------------------------------*/
+.hx-switch {
+  height: 27px;
+  width: 45px;
+  display: inline-block;
+  background-color: #ff5a50;
+  position: relative;
+  border-radius: 17px 17px;
+  -webkit-border-radius: 17px 17px;
+  -moz-border-radius: 17px 17px;
+  -o-border-radius: 17px 17px;
+  -ms-border-radius: 17px 17px;
+  transition: background-color 0.2s;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+  -ms-transition: background-color 0.2s; }
+  .hx-switch:before {
+    content: "";
+    transition: left 0.2s;
+    -webkit-transition: left 0.2s;
+    -moz-transition: left 0.2s;
+    -o-transition: left 0.2s;
+    -ms-transition: left 0.2s;
+    background-color: white;
+    height: 23px;
+    width: 23px;
+    top: 2px;
+    position: absolute;
+    border-radius: 50% 50%;
+    -webkit-border-radius: 50% 50%;
+    -moz-border-radius: 50% 50%;
+    -o-border-radius: 50% 50%;
+    -ms-border-radius: 50% 50%;
+    left: 3px; }
+  .hx-switch.off:before {
+    left: 3px; }
+  .hx-switch.on {
+    background-color: #8ecc45; }
+    .hx-switch.on:before {
+      left: 20px; }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+table.hx-table {
+  width: 100%;
+  font-size: 13px;
+  border-collapse: collapse; }
+  table.hx-table td {
+    min-height: 50px;
+    text-align: center;
+    padding: 8px 8px;
+    font-size: 13px;
+    word-break: break-all;
+    border: 1px solid #eee; }
+    table.hx-table td img.avatarUrl {
+      height: 34px;
+      width: 34px;
+      border-radius: 50% 50%;
+      -webkit-border-radius: 50% 50%;
+      -moz-border-radius: 50% 50%;
+      -o-border-radius: 50% 50%;
+      -ms-border-radius: 50% 50%;
+      background-color: #eee; }
+    table.hx-table td .link {
+      color: #009fd5; }
+      table.hx-table td .link:hover {
+        color: #ff5a50; }
+    table.hx-table td.empty {
+      height: 200px;
+      line-height: 200px;
+      font-size: 16px;
+      background-color: #f6f6f6;
+      color: #747474; }
+    table.hx-table td.td-img-cover {
+      font-size: 0; }
+      table.hx-table td.td-img-cover img {
+        height: 120px;
+        width: 160px;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -o-border-radius: 3px;
+        -ms-border-radius: 3px; }
+    table.hx-table td.td-img-avatar {
+      font-size: 0; }
+      table.hx-table td.td-img-avatar img {
+        height: 42px;
+        width: 42px;
+        border-radius: 50% 50%;
+        -webkit-border-radius: 50% 50%;
+        -moz-border-radius: 50% 50%;
+        -o-border-radius: 50% 50%;
+        -ms-border-radius: 50% 50%; }
+    table.hx-table td.td-justify {
+      text-align: justify; }
+    table.hx-table td button {
+      padding: 0 8px;
+      height: 30px;
+      min-height: 30px;
+      font-weight: 300; }
+      table.hx-table td button.standard {
+        min-width: 90px;
+        margin-bottom: 4px; }
+      table.hx-table td button.smart {
+        overflow-x: hidden;
+        width: 29px;
+        white-space: nowrap;
+        transition: width 0.2s;
+        -webkit-transition: width 0.2s;
+        -moz-transition: width 0.2s;
+        -o-transition: width 0.2s;
+        -ms-transition: width 0.2s; }
+        table.hx-table td button.smart:before {
+          margin-right: 8px; }
+        table.hx-table td button.smart:hover {
+          width: 100px; }
+  table.hx-table thead {
+    color: #818181;
+    background-color: #fafafa;
+    border-bottom: 2px solid #eee; }
+    table.hx-table thead td {
+      height: 42px; }
+  table.hx-table tbody {
+    color: #8e8e8e; }
+    table.hx-table tbody tr {
+      height: 50px; }
+    table.hx-table tbody tr:nth-child(even) {
+      background-color: #f6f6f6; }
+    table.hx-table tbody.hovering tr:hover {
+      background-color: #f6f6f6; }
+
+@media screen and (max-width: 640px) {
+  .hx-table {
+    table-layout: auto; }
+    .hx-table td button {
+      min-width: 85px !important; }
+    .hx-table td.td-img-cover img {
+      height: 80px;
+      width: auto; }
+    .hx-table td.sm {
+      min-width: 60px; }
+    .hx-table td.md {
+      min-width: 120px; }
+    .hx-table td.bg {
+      min-width: 180px; }
+    .hx-table td.lg {
+      min-width: 240px; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .hx-table {
+    table-layout: auto; } }
+
+@media screen and (min-width: 1024px) {
+  .hx-table {
+    table-layout: fixed; } }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+/* 简易时间轴
+   样式效果为：
+   <div class="hx-timeline">
+      <section class="item"
+               ng-repeat="item in order.sf_order.route track by $index">
+          <span class="header" ng-bind="item.operation"></span>
+          <span class="remark">
+              {{ item.time }} {{ item.address ? '- ' + item.address : '' }}
+          </span>
+      </section>
+   </div>
+ */
+.hx-timeline {
+  padding-left: 5px;
+  position: relative; }
+  .hx-timeline .item {
+    padding: 8px 8px 8px 16px;
+    border-left: 1px solid #eee;
+    position: relative; }
+    .hx-timeline .item:hover {
+      background-color: #f6f6f6; }
+    .hx-timeline .item:first-child:hover {
+      border-left: 1px solid #00B2EE; }
+    .hx-timeline .item:first-child:before {
+      background-color: #00B2EE; }
+    .hx-timeline .item:first-child .header {
+      color: #00B2EE;
+      position: relative; }
+    .hx-timeline .item:before {
+      content: "";
+      height: 10px;
+      width: 10px;
+      border-radius: 5px;
+      background-color: #e6e6e6;
+      display: inline-block;
+      position: absolute;
+      left: -5px;
+      top: 12px; }
+    .hx-timeline .item .header {
+      font-size: 14px;
+      background-color: transparent;
+      color: #747474;
+      display: block;
+      line-height: 20px; }
+    .hx-timeline .item .remark {
+      line-height: 20px;
+      color: #bbb;
+      font-size: 12px;
+      text-align: justify; }
+  .hx-timeline .emptyset {
+    line-height: 53px;
+    height: 53px;
+    text-align: center;
+    font-size: 14px;
+    color: #d2d2d2; }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+.hx-tips {
+  padding: 10px 16px;
+  line-height: 25px;
+  display: block;
+  margin-bottom: 16px;
+  position: relative;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  background-color: rgba(0, 178, 238, 0.1);
+  color: #00B2EE;
+  border-left: 3px solid #00B2EE; }
+  .hx-tips .btn-right {
+    color: #00B2EE; }
+  .hx-tips.green {
+    background-color: rgba(142, 204, 69, 0.1);
+    color: #8ecc45;
+    border-left: 3px solid #8ecc45; }
+    .hx-tips.green .btn-right {
+      color: #8ecc45; }
+  .hx-tips.orange {
+    background-color: rgba(255, 141, 10, 0.1);
+    color: #ff8d0a;
+    border-left: 3px solid #ff8d0a; }
+    .hx-tips.orange .btn-right {
+      color: #ff8d0a; }
+  .hx-tips.red {
+    background-color: rgba(221, 75, 48, 0.1);
+    color: #ff5a50;
+    border-left: 3px solid #ff5a50; }
+    .hx-tips.red .btn-right {
+      color: #ff5a50; }
+  .hx-tips.gray {
+    background-color: #eee;
+    color: #747474;
+    border-left: 3px solid #747474; }
+    .hx-tips.gray .btn-right {
+      color: #747474; }
+  .hx-tips .btn-right {
+    background-color: transparent;
+    position: absolute;
+    right: 8px;
+    top: 5px;
+    height: 34px;
+    font-size: 20px; }
+  .hx-tips .content {
+    color: #747474;
+    text-align: justify;
+    margin: 8px 0;
+    display: block; }
+
+@charset "UTF-8";
+/* 混入CSS3代码 例如要width: 100% - 60px只需要 @include calc(width, "100% - 60px") */
+.center-horizontal,
+.center-parent,
+.center-vertical {
+  position: absolute; }
+
+.center-horizontal {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); }
+
+.center-parent {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.center-vertical {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); }
+
+[class^='col-sm-'], [class^='col-md-'], [class^='col-bg-'] {
+  float: left;
+  display: inline-block; }
+
+@media screen and (max-width: 640px) {
+  .col-sm-1 {
+    width: 8.33%; }
+  .col-sm-2 {
+    width: 16.66%; }
+  .col-sm-3 {
+    width: 25%; }
+  .col-sm-4 {
+    width: 33.33%; }
+  .col-sm-6 {
+    width: 50%; }
+  .col-sm-8 {
+    width: 66.66%; }
+  .col-sm-12 {
+    width: 100%; }
+  .hide-sm {
+    display: none !important; } }
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.33%; }
+  .col-md-2 {
+    width: 16.66%; }
+  .col-md-3 {
+    width: 25%; }
+  .col-md-4 {
+    width: 33.33%; }
+  .col-md-6 {
+    width: 50%; }
+  .col-md-8 {
+    width: 66.66%; }
+  .col-md-12 {
+    width: 100%; }
+  .hide-md {
+    display: none !important; } }
+
+@media screen and (min-width: 1024px) {
+  .col-bg-1 {
+    width: 8.33%; }
+  .col-bg-2 {
+    width: 16.66%; }
+  .col-bg-3 {
+    width: 25%; }
+  .col-bg-4 {
+    width: 33.33%; }
+  .col-bg-6 {
+    width: 50%; }
+  .col-bg-8 {
+    width: 66.66%; }
+  .col-bg-12 {
+    width: 100%; }
+  .hide-bg {
+    display: none !important; } }
+
+@media screen and (max-width: 640px) {
+  .hx-toggle-sidebar {
+    display: block;
+    position: absolute;
+    top: 11px;
+    left: 8px;
+    padding: 0;
+    height: 34px;
+    width: 34px;
+    z-index: 1200;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    color: #00B2EE;
+    background-color: transparent; }
+    .hx-toggle-sidebar.show {
+      color: white; } }
+
+@media screen and (min-width: 640px) {
+  .hx-toggle-sidebar {
+    display: none; } }
