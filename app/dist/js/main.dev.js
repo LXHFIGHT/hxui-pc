@@ -1257,369 +1257,6 @@ menus.value('sidebarMenus', [{
 'use strict';
 
 /**
- * Created by lxhfight on 2017/9/25.
- * Email:
- * Description:
- *      This is the front-page of hxui.lxhfight.com
- */
-
-var DemosCtrl = angular.module('HXUIController');
-
-DemosCtrl.controller('DemosCtrl', ['$scope', function ($scope) {
-    $scope.location = '';
-    $scope.actionSheetText = '请选择收货地区';
-    $scope.event = {
-        doSelectCalendar: function doSelectCalendar() {
-            HXUI.calendar({});
-        },
-
-        doPopInfo: function doPopInfo(type) {
-            switch (type) {
-                case 0:
-                    HXUI.popTipNormal('调用 HXUI.popTipNormal 弹出常规提示框');break;
-                case 1:
-                    HXUI.popTipInfo('调用 HXUI.popTipInfo 弹出成功提示框');break;
-                case 2:
-                    HXUI.popTipWarning('调用 HXUI.popTipWarning 弹出警告提示框');break;
-                case 3:
-                    HXUI.popTipError('调用 HXUI.popTipError 弹出错误提示框');break;
-                default:
-                    break;
-            }
-        },
-        doShowLoading: function doShowLoading(title, during) {
-            HXUI.showLoading({ title: title, during: during });
-        },
-        doHideLoading: function doHideLoading() {
-            HXUI.hideLoading();
-        },
-        doShowTip: function doShowTip(options) {
-            HXUI.toast(options);
-        },
-        doMarkInput: function doMarkInput(type) {
-            HXUI.markInput({ type: type });
-        },
-        doConfirm: function doConfirm() {
-            HXUI.confirm({
-                title: 'HXUI确认框',
-                content: '请问你觉得这个框怎么样呢？',
-                confirmText: '挺不错的',
-                cancelText: '不喜欢',
-                onConfirm: function onConfirm() {
-                    HXUI.popTipInfoQuick('很高兴得到你的认可');
-                },
-                onCancel: function onCancel() {
-                    HXUI.popTipInfoQuick('好的我们继续改进');
-                }
-            });
-        },
-        doImagePreview: function doImagePreview() {
-            var urls = ['http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-1.jpeg', 'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-2.png', 'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-3.jpeg', 'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-4.jpeg'];
-            var currentUrl = 'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-3.jpeg';
-            HXUI.imagePreviewer({ urls: urls, currentUrl: currentUrl });
-        },
-        doChooseAddress: function doChooseAddress() {
-            HXUI.addressSelector({
-                choose: function choose(position) {
-                    var lng = position.lng,
-                        lat = position.lat,
-                        address = position.address,
-                        city = position.city,
-                        title = position.title;
-
-                    $scope.location = city + ' ' + title + ' ' + address + ', \uFF08\u7ECF\u5EA6\uFF1A' + lng + ', \u7EAC\u5EA6\uFF1A' + lat + '\uFF09';
-                    $scope.$apply();
-                }
-            });
-        },
-        showActionSheet: function showActionSheet() {
-            HXUI.actionSheet({
-                items: ['中国大陆', '中国台湾', '中国香港', '中国澳门'],
-                onSelect: function onSelect(data) {
-                    HXUI.popTipInfoQuick('\u5DF2\u9009\u62E9' + data.value);
-                    $scope.actionSheetText = data.value;
-                    $scope.$apply();
-                }
-            });
-        }
-    };
-
-    $scope._init = {
-        initRoute: function initRoute() {
-            HXUI.showRouteMap({
-                query: 'map',
-                startLabel: '起始点',
-                endLabel: '结束点',
-                startTime: '05.10 12:30',
-                endTime: '05.10 13:00',
-                isComplete: true,
-                routes: [{ lng: 113.23, lat: 23.33 }, { lng: 113.35, lat: 23.35 }, { lng: 113.28, lat: 23.40 }]
-            });
-        }
-    };
-
-    $scope.init = function () {
-        $scope._init.initRoute();
-    }();
-}]);
-'use strict';
-
-/**
- * Created by lxhfight on 2017/9/25.
- * Email:
- * Description:
- *      This is the front-page of hxui.lxhfight.com
- */
-
-var HomeCtrl = angular.module('HXUIController');
-
-HomeCtrl.controller('HomeCtrl', ['$scope', function ($scope) {
-    $scope._init = {
-        wave: function wave() {
-            var canvas = document.getElementById('canvas');
-            var ctx = canvas.getContext('2d');
-            canvas.width = canvas.parentNode.offsetWidth;
-            canvas.height = document.body.clientHeight;
-            //如果浏览器支持requestAnimFrame则使用requestAnimFrame否则使用setTimeout
-            window.requestAnimFrame = function () {
-                return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
-                    window.setTimeout(callback, 1000 / 60);
-                };
-            }();
-            // 波浪大小
-            var boHeight = canvas.height / 20;
-            var posHeight = canvas.height / 1.1;
-            //初始角度为0
-            var step = 0;
-            //定义三条不同波浪的颜色
-            var lines = ["rgba(0,222,255, 0.2)", "rgba(157,192,249, 0.2)", "rgba(0,168,255, 0.2)"];
-            function loop() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                step++;
-                //画3个不同颜色的矩形
-                for (var j = lines.length - 1; j >= 0; j--) {
-                    ctx.fillStyle = lines[j];
-                    //每个矩形的角度都不同，每个之间相差45度
-                    var angle = (step + j * 50) * Math.PI / 180;
-                    var deltaHeight = Math.sin(angle) * boHeight;
-                    var deltaHeightRight = Math.cos(angle) * boHeight;
-                    ctx.beginPath();
-                    ctx.moveTo(0, posHeight + deltaHeight);
-                    ctx.bezierCurveTo(canvas.width / 2, posHeight + deltaHeight - boHeight, canvas.width / 2, posHeight + deltaHeightRight - boHeight, canvas.width, posHeight + deltaHeightRight);
-                    ctx.lineTo(canvas.width, canvas.height);
-                    ctx.lineTo(0, canvas.height);
-                    ctx.lineTo(0, posHeight + deltaHeight);
-                    ctx.closePath();
-                    ctx.fill();
-                }
-                requestAnimFrame(loop);
-            }
-            loop();
-        }
-    };
-
-    $scope.init = function () {
-        $scope._init.wave();
-    }();
-}]);
-'use strict';
-
-/**
- * Created by lxhfight on 2017/9/25.
- * Email:
- * Description:
- *      This is the front-page of hxui.lxhfight.com
- */
-
-var PluginsCtrl = angular.module('HXUIController');
-
-PluginsCtrl.controller('PluginsCtrl', ['$scope', function ($scope) {
-
-  $scope._init = {};
-}]);
-'use strict';
-
-/**
- * Created by lxhfight on 2017/9/25.
- * Email:
- * Description:
- *
- */
-
-var EnterCtrl = angular.module('LayoutController');
-
-EnterCtrl.controller('EnterCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
-    $scope.toggleSidebar = function () {
-        $rootScope.showSidebar = !$rootScope.showSidebar;
-    };
-}]);
-'use strict';
-
-/**
- * Created by LXHFIGHT on 2017/2/20 0:12.
- * Email: lxhfight51@outlook.com
- * Description:
- *      Index controller
- */
-
-var IndexCtrl = angular.module('LayoutController');
-
-IndexCtrl.controller('IndexCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
-    $scope.toggleSidebar = function () {
-        $rootScope.showSidebar = !$rootScope.showSidebar;
-    };
-
-    $scope._init = function () {
-        window.addEventListener('click', function (e) {
-            var $view = $(e.target);
-            var parents = $view.parents();
-            var isOnSidebar = false;
-            for (var i = 0; i < parents.length; i++) {
-                var item = parents[i].getAttribute('class') || '';
-                if (item.indexOf('hx-sidebar') !== -1 || item.indexOf('btn-show-sidebar') !== -1) {
-                    isOnSidebar = true;
-                    break;
-                }
-            }
-            var className = $view.attr('class') || '';
-            if (className.indexOf('hx-sidebar') !== -1 || className.indexOf('btn-show-sidebar') !== -1) {
-                isOnSidebar = true;
-            }
-            if (!isOnSidebar) {
-                $rootScope.showSidebar = false;
-                $rootScope.$apply();
-            }
-        });
-    }();
-}]);
-'use strict';
-
-/**
- * Created by LXHFIGHT on 2017/2/19 22:59.
- * Email: lxhfight51@outlook.com
- * Description:
- *  sidebar controller
- */
-
-var sidebarModule = angular.module('LayoutController');
-
-sidebarModule.controller('SidebarCtrl', ['$scope', '$state', 'sidebarMenus', 'config', 'StorageHelper', function ($scope, $state, sidebarMenus, config, StorageHelper) {
-    // sidebar ctrl
-    $scope.config = config;
-
-    $scope.doLogout = function () {
-        StorageHelper.clearValue('token');
-        StorageHelper.clearValue('role');
-        StorageHelper.clearValue('station_id');
-        $state.go('login', { state: '' });
-    };
-
-    $scope.menus = sidebarMenus;
-
-    $scope.selectedMenu = sidebarMenus[0];
-
-    $scope.doClick = function ($event, menu) {
-        if (menu.children) {
-            menu.selected = !menu.selected;
-            return;
-        }
-        if (!menu.selected) {
-            if ($scope.selectedMenu && !$scope.selectedMenu.children) {
-                $scope.selectedMenu.selected = false;
-            }
-            menu.selected = !menu.selected;
-            $scope.selectedMenu = menu;
-            menu.state && $state.go(menu.state);
-        }
-    };
-}]);
-'use strict';
-
-/**
- * Created by LXHFIGHT on 2017/2/20 9:08.
- * Email: lxhfight51@outlook.com
- * Description:
- *
- */
-var _module = angular.module('ListController');
-_module.controller('ListCtrl', ['$scope', 'HttpHelper', function ($scope, HttpHelper) {
-    $scope.searchInfo = {
-        page: 1,
-        pagesize: 20,
-        maxsize: 0
-    };
-
-    $scope.list = [];
-
-    // 获取用户列表方法
-    $scope.requestList = function () {
-        HttpHelper.doGet('/wallpaper/list', $scope.searchInfo).success(function (data) {
-            HttpHelper.responseHandler(data, function (res) {
-                // 请求成功时处理
-            }, function (err) {
-                // 请求失败时处理
-            });
-        });
-    };
-    // 分页必备方法 requestListByPage 上下翻页的方法 toPageOfList 跳转指定页面方法
-    $scope.requestListByPage = function (page) {
-        $scope.searchInfo.page = page;
-        $scope.requestList();
-    };
-    $scope.toPageOfList = function () {
-        if ($scope.searchInfo.maxsize >= $scope.searchInfo.jumpPage && $scope.searchInfo.jumpPage > 0) {
-            $scope.searchInfo.page = parseInt($scope.searchInfo.jumpPage);
-            $scope.requestList();
-        } else {
-            popTipWarningQuick('跳转页面超过范围');
-        }
-    };
-}]);
-'use strict';
-
-/**
- * Created by LXHFIGHT on 2017/2/20 9:08.
- * Email: lxhfight51@outlook.com
- * Description:
- *
- */
-var _module = angular.module('ListController');
-_module.controller('ListHeadCtrl', ['$scope', 'HttpHelper', function ($scope, HttpHelper) {
-    $scope.searchInfo = {
-        page: 1,
-        pagesize: 20,
-        maxsize: 0
-    };
-
-    $scope.list = [];
-
-    // 获取用户列表方法
-    $scope.requestList = function () {
-        HttpHelper.doGet('/wallpaper/list', $scope.searchInfo).success(function (data) {
-            HttpHelper.responseHandler(data, function (res) {
-                // 请求成功时处理
-            }, function (err) {
-                // 请求失败时处理
-            });
-        });
-    };
-    // 分页必备方法 requestListByPage 上下翻页的方法 toPageOfList 跳转指定页面方法
-    $scope.requestListByPage = function (page) {
-        $scope.searchInfo.page = page;
-        $scope.requestList();
-    };
-    $scope.toPageOfList = function () {
-        if ($scope.searchInfo.maxsize >= $scope.searchInfo.jumpPage && $scope.searchInfo.jumpPage > 0) {
-            $scope.searchInfo.page = parseInt($scope.searchInfo.jumpPage);
-            $scope.requestList();
-        } else {
-            popTipWarningQuick('跳转页面超过范围');
-        }
-    };
-}]);
-'use strict';
-
-/**
  * Created by LXHFIGHT on 2017/2/20 10:28.
  * Email: lxhfight51@outlook.com
  * Description:
@@ -1629,6 +1266,7 @@ _module.controller('ListHeadCtrl', ['$scope', 'HttpHelper', function ($scope, Ht
 var ConfigCtrl = angular.module('ConfigController');
 ConfigCtrl.controller('ConfigCtrl', ['$scope', function ($scope) {
     $scope.isSwitchOn = false;
+    $scope.radio = 1;
     $scope.event = {
         doToggleSwitch: function doToggleSwitch() {
             $scope.isSwitchOn = !$scope.isSwitchOn;
@@ -1636,6 +1274,9 @@ ConfigCtrl.controller('ConfigCtrl', ['$scope', function ($scope) {
         toggleCheckbox: function toggleCheckbox(event) {
             var $view = $(event.target);
             $view.hasClass('selected') ? $view.removeClass('selected') : $view.addClass('selected');
+        },
+        toggleRadio: function toggleRadio(number) {
+            $scope.radio = number;
         }
     };
 }]);
@@ -1751,5 +1392,368 @@ LoginCtrl.controller('LoginCtrl', ['$scope', '$state', '$stateParams', 'HttpHelp
                     }
                 });
             }
+    };
+}]);
+'use strict';
+
+/**
+ * Created by lxhfight on 2017/9/25.
+ * Email:
+ * Description:
+ *      This is the front-page of hxui.lxhfight.com
+ */
+
+var HomeCtrl = angular.module('HXUIController');
+
+HomeCtrl.controller('HomeCtrl', ['$scope', function ($scope) {
+    $scope._init = {
+        wave: function wave() {
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+            canvas.width = canvas.parentNode.offsetWidth;
+            canvas.height = document.body.clientHeight;
+            //如果浏览器支持requestAnimFrame则使用requestAnimFrame否则使用setTimeout
+            window.requestAnimFrame = function () {
+                return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
+                    window.setTimeout(callback, 1000 / 60);
+                };
+            }();
+            // 波浪大小
+            var boHeight = canvas.height / 20;
+            var posHeight = canvas.height / 1.1;
+            //初始角度为0
+            var step = 0;
+            //定义三条不同波浪的颜色
+            var lines = ["rgba(0,222,255, 0.2)", "rgba(157,192,249, 0.2)", "rgba(0,168,255, 0.2)"];
+            function loop() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                step++;
+                //画3个不同颜色的矩形
+                for (var j = lines.length - 1; j >= 0; j--) {
+                    ctx.fillStyle = lines[j];
+                    //每个矩形的角度都不同，每个之间相差45度
+                    var angle = (step + j * 50) * Math.PI / 180;
+                    var deltaHeight = Math.sin(angle) * boHeight;
+                    var deltaHeightRight = Math.cos(angle) * boHeight;
+                    ctx.beginPath();
+                    ctx.moveTo(0, posHeight + deltaHeight);
+                    ctx.bezierCurveTo(canvas.width / 2, posHeight + deltaHeight - boHeight, canvas.width / 2, posHeight + deltaHeightRight - boHeight, canvas.width, posHeight + deltaHeightRight);
+                    ctx.lineTo(canvas.width, canvas.height);
+                    ctx.lineTo(0, canvas.height);
+                    ctx.lineTo(0, posHeight + deltaHeight);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+                requestAnimFrame(loop);
+            }
+            loop();
+        }
+    };
+
+    $scope.init = function () {
+        $scope._init.wave();
+    }();
+}]);
+'use strict';
+
+/**
+ * Created by lxhfight on 2017/9/25.
+ * Email:
+ * Description:
+ *
+ */
+
+var EnterCtrl = angular.module('LayoutController');
+
+EnterCtrl.controller('EnterCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
+    $scope.toggleSidebar = function () {
+        $rootScope.showSidebar = !$rootScope.showSidebar;
+    };
+}]);
+'use strict';
+
+/**
+ * Created by LXHFIGHT on 2017/2/20 0:12.
+ * Email: lxhfight51@outlook.com
+ * Description:
+ *      Index controller
+ */
+
+var IndexCtrl = angular.module('LayoutController');
+
+IndexCtrl.controller('IndexCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
+    $scope.toggleSidebar = function () {
+        $rootScope.showSidebar = !$rootScope.showSidebar;
+    };
+
+    $scope._init = function () {
+        window.addEventListener('click', function (e) {
+            var $view = $(e.target);
+            var parents = $view.parents();
+            var isOnSidebar = false;
+            for (var i = 0; i < parents.length; i++) {
+                var item = parents[i].getAttribute('class') || '';
+                if (item.indexOf('hx-sidebar') !== -1 || item.indexOf('btn-show-sidebar') !== -1) {
+                    isOnSidebar = true;
+                    break;
+                }
+            }
+            var className = $view.attr('class') || '';
+            if (className.indexOf('hx-sidebar') !== -1 || className.indexOf('btn-show-sidebar') !== -1) {
+                isOnSidebar = true;
+            }
+            if (!isOnSidebar) {
+                $rootScope.showSidebar = false;
+                $rootScope.$apply();
+            }
+        });
+    }();
+}]);
+'use strict';
+
+/**
+ * Created by LXHFIGHT on 2017/2/19 22:59.
+ * Email: lxhfight51@outlook.com
+ * Description:
+ *  sidebar controller
+ */
+
+var sidebarModule = angular.module('LayoutController');
+
+sidebarModule.controller('SidebarCtrl', ['$scope', '$state', 'sidebarMenus', 'config', 'StorageHelper', function ($scope, $state, sidebarMenus, config, StorageHelper) {
+    // sidebar ctrl
+    $scope.config = config;
+
+    $scope.doLogout = function () {
+        StorageHelper.clearValue('token');
+        StorageHelper.clearValue('role');
+        StorageHelper.clearValue('station_id');
+        $state.go('login', { state: '' });
+    };
+
+    $scope.menus = sidebarMenus;
+
+    $scope.selectedMenu = sidebarMenus[0];
+
+    $scope.doClick = function ($event, menu) {
+        if (menu.children) {
+            menu.selected = !menu.selected;
+            return;
+        }
+        if (!menu.selected) {
+            if ($scope.selectedMenu && !$scope.selectedMenu.children) {
+                $scope.selectedMenu.selected = false;
+            }
+            menu.selected = !menu.selected;
+            $scope.selectedMenu = menu;
+            menu.state && $state.go(menu.state);
+        }
+    };
+}]);
+'use strict';
+
+/**
+ * Created by lxhfight on 2017/9/25.
+ * Email:
+ * Description:
+ *      This is the front-page of hxui.lxhfight.com
+ */
+
+var DemosCtrl = angular.module('HXUIController');
+
+DemosCtrl.controller('DemosCtrl', ['$scope', function ($scope) {
+    $scope.location = '';
+    $scope.actionSheetText = '请选择收货地区';
+    $scope.event = {
+        doSelectCalendar: function doSelectCalendar() {
+            HXUI.calendar({});
+        },
+
+        doPopInfo: function doPopInfo(type) {
+            switch (type) {
+                case 0:
+                    HXUI.popTipNormal('调用 HXUI.popTipNormal 弹出常规提示框');break;
+                case 1:
+                    HXUI.popTipInfo('调用 HXUI.popTipInfo 弹出成功提示框');break;
+                case 2:
+                    HXUI.popTipWarning('调用 HXUI.popTipWarning 弹出警告提示框');break;
+                case 3:
+                    HXUI.popTipError('调用 HXUI.popTipError 弹出错误提示框');break;
+                default:
+                    break;
+            }
+        },
+        doShowLoading: function doShowLoading(title, during) {
+            HXUI.showLoading({ title: title, during: during });
+        },
+        doHideLoading: function doHideLoading() {
+            HXUI.hideLoading();
+        },
+        doShowTip: function doShowTip(options) {
+            HXUI.toast(options);
+        },
+        doMarkInput: function doMarkInput(type) {
+            HXUI.markInput({ type: type });
+        },
+        doConfirm: function doConfirm() {
+            HXUI.confirm({
+                title: 'HXUI确认框',
+                content: '请问你觉得这个框怎么样呢？',
+                confirmText: '挺不错的',
+                cancelText: '不喜欢',
+                onConfirm: function onConfirm() {
+                    HXUI.popTipInfoQuick('很高兴得到你的认可');
+                },
+                onCancel: function onCancel() {
+                    HXUI.popTipInfoQuick('好的我们继续改进');
+                }
+            });
+        },
+        doImagePreview: function doImagePreview() {
+            var urls = ['http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-1.jpeg', 'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-2.png', 'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-3.jpeg', 'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-4.jpeg'];
+            var currentUrl = 'http://lxh-static.oss-cn-shenzhen.aliyuncs.com/img/example-3.jpeg';
+            HXUI.imagePreviewer({ urls: urls, currentUrl: currentUrl });
+        },
+        doChooseAddress: function doChooseAddress() {
+            HXUI.addressSelector({
+                choose: function choose(position) {
+                    var lng = position.lng,
+                        lat = position.lat,
+                        address = position.address,
+                        city = position.city,
+                        title = position.title;
+
+                    $scope.location = city + ' ' + title + ' ' + address + ', \uFF08\u7ECF\u5EA6\uFF1A' + lng + ', \u7EAC\u5EA6\uFF1A' + lat + '\uFF09';
+                    $scope.$apply();
+                }
+            });
+        },
+        showActionSheet: function showActionSheet() {
+            HXUI.actionSheet({
+                items: ['中国大陆', '中国台湾', '中国香港', '中国澳门'],
+                onSelect: function onSelect(data) {
+                    HXUI.popTipInfoQuick('\u5DF2\u9009\u62E9' + data.value);
+                    $scope.actionSheetText = data.value;
+                    $scope.$apply();
+                }
+            });
+        }
+    };
+
+    $scope._init = {
+        initRoute: function initRoute() {
+            HXUI.showRouteMap({
+                query: 'map',
+                startLabel: '起始点',
+                endLabel: '结束点',
+                startTime: '05.10 12:30',
+                endTime: '05.10 13:00',
+                isComplete: true,
+                routes: [{ lng: 113.23, lat: 23.33 }, { lng: 113.35, lat: 23.35 }, { lng: 113.28, lat: 23.40 }]
+            });
+        }
+    };
+
+    $scope.init = function () {
+        $scope._init.initRoute();
+    }();
+}]);
+'use strict';
+
+/**
+ * Created by LXHFIGHT on 2017/2/20 9:08.
+ * Email: lxhfight51@outlook.com
+ * Description:
+ *
+ */
+var _module = angular.module('ListController');
+_module.controller('ListCtrl', ['$scope', 'HttpHelper', function ($scope, HttpHelper) {
+    $scope.searchInfo = {
+        page: 1,
+        pagesize: 20,
+        maxsize: 0
+    };
+
+    $scope.list = [];
+
+    // 获取用户列表方法
+    $scope.requestList = function () {
+        HttpHelper.doGet('/wallpaper/list', $scope.searchInfo).success(function (data) {
+            HttpHelper.responseHandler(data, function (res) {
+                // 请求成功时处理
+            }, function (err) {
+                // 请求失败时处理
+            });
+        });
+    };
+    // 分页必备方法 requestListByPage 上下翻页的方法 toPageOfList 跳转指定页面方法
+    $scope.requestListByPage = function (page) {
+        $scope.searchInfo.page = page;
+        $scope.requestList();
+    };
+    $scope.toPageOfList = function () {
+        if ($scope.searchInfo.maxsize >= $scope.searchInfo.jumpPage && $scope.searchInfo.jumpPage > 0) {
+            $scope.searchInfo.page = parseInt($scope.searchInfo.jumpPage);
+            $scope.requestList();
+        } else {
+            popTipWarningQuick('跳转页面超过范围');
+        }
+    };
+}]);
+'use strict';
+
+/**
+ * Created by lxhfight on 2017/9/25.
+ * Email:
+ * Description:
+ *      This is the front-page of hxui.lxhfight.com
+ */
+
+var PluginsCtrl = angular.module('HXUIController');
+
+PluginsCtrl.controller('PluginsCtrl', ['$scope', function ($scope) {
+
+  $scope._init = {};
+}]);
+'use strict';
+
+/**
+ * Created by LXHFIGHT on 2017/2/20 9:08.
+ * Email: lxhfight51@outlook.com
+ * Description:
+ *
+ */
+var _module = angular.module('ListController');
+_module.controller('ListHeadCtrl', ['$scope', 'HttpHelper', function ($scope, HttpHelper) {
+    $scope.searchInfo = {
+        page: 1,
+        pagesize: 20,
+        maxsize: 0
+    };
+
+    $scope.list = [];
+
+    // 获取用户列表方法
+    $scope.requestList = function () {
+        HttpHelper.doGet('/wallpaper/list', $scope.searchInfo).success(function (data) {
+            HttpHelper.responseHandler(data, function (res) {
+                // 请求成功时处理
+            }, function (err) {
+                // 请求失败时处理
+            });
+        });
+    };
+    // 分页必备方法 requestListByPage 上下翻页的方法 toPageOfList 跳转指定页面方法
+    $scope.requestListByPage = function (page) {
+        $scope.searchInfo.page = page;
+        $scope.requestList();
+    };
+    $scope.toPageOfList = function () {
+        if ($scope.searchInfo.maxsize >= $scope.searchInfo.jumpPage && $scope.searchInfo.jumpPage > 0) {
+            $scope.searchInfo.page = parseInt($scope.searchInfo.jumpPage);
+            $scope.requestList();
+        } else {
+            popTipWarningQuick('跳转页面超过范围');
+        }
     };
 }]);

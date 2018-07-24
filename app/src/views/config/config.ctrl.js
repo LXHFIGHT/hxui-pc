@@ -8,6 +8,7 @@
 let ConfigCtrl = angular.module('ConfigController');
 ConfigCtrl.controller('ConfigCtrl', ['$scope', function($scope){
     $scope.isSwitchOn = false;
+    $scope.radio = 1;
     $scope.event = {
         doToggleSwitch() {
             $scope.isSwitchOn = !$scope.isSwitchOn;
@@ -17,6 +18,9 @@ ConfigCtrl.controller('ConfigCtrl', ['$scope', function($scope){
             $view.hasClass('selected')
             ? $view.removeClass('selected')
             : $view.addClass('selected');
+        },
+        toggleRadio(number) {
+            $scope.radio = number;
         }
     };
 }]);

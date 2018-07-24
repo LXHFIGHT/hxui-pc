@@ -33,7 +33,7 @@ $color-golden: rgba(255, 205, 60,  1);
 $color-orange:  #ff8d0a;
 $color-red: #ff5a50;
 $color-red-deep: #dd4b30;
-$color-pink: #ed5871;
+$color-pink: #f688B4;
 $color-blue: cornflowerblue;
 $color-green-light:   lighten($color-green, 38%);
 $color-orange-light: lighten($color-orange, 45%);
@@ -43,9 +43,7 @@ $color-blue-light: lighten($color-blue, 34%);
 // 三种居中
 .center-horizontal,
 .center-parent,
-.center-vertical {
-  position: absolute;
-}
+.center-vertical {  position: absolute;  }
 .center-horizontal {
   left: 50%;
   @include compatible(transform, translateX(-50%));

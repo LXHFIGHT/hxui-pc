@@ -86,15 +86,31 @@
                     选择喜欢
                 </label>
                 <div class="content">
-                    <span ng-click="event.toggleCheckbox($event)" class="hx-checkbox selected">
+                    <button ng-click="event.toggleCheckbox($event)"
+                          class="hx-checkbox selected">
                         棉花糖
-                    </span>
-                    <span ng-click="event.toggleCheckbox($event)" class="hx-checkbox">
+                    </button>
+                    <button ng-click="event.toggleCheckbox($event)"
+                          class="hx-checkbox green">
                         棒棒糖
-                    </span>
-                    <span ng-click="event.toggleCheckbox($event)" class="hx-checkbox">
+                    </button>
+                    <button ng-click="event.toggleCheckbox($event)"
+                          class="hx-checkbox red">
                         白兔糖
-                    </span>
+                    </button>
+                    <button ng-click="event.toggleCheckbox($event)"
+                          class="hx-checkbox orange">
+                        跳跳糖
+                    </button>
+                    <button ng-click="event.toggleCheckbox($event)"
+                          class="hx-checkbox golden">
+                        太妃糖
+                    </button>
+                    <button ng-click="event.toggleCheckbox($event)"
+                            disabled
+                            class="hx-checkbox ">
+                        不能选的糖
+                    </button>
                 </div>
             </div>
             <div class="hx-row">
@@ -102,14 +118,19 @@
                     选择糖果派系
                 </label>
                 <div class="content">
-                    <span ng-click="event.toggleRadio($event)"
-                          class="hx-radio selected">
+                    <button ng-click="event.toggleRadio(1)"
+                          class="hx-radio green {{ radio === 1 && 'selected' }}">
                         南派糖
-                    </span>
-                    <span ng-click="event.toggleRadio($event)"
-                          class="hx-radio">
+                    </button>
+                    <button ng-click="event.toggleRadio(2)"
+                          class="hx-radio green {{ radio === 2 && 'selected' }}">
                         北派糖
-                    </span>
+                    </button>
+                    <button ng-click="event.toggleRadio(3)"
+                            disabled
+                            class="hx-radio green">
+                        不能被选择的派系
+                    </button>
                 </div>
             </div>
         </div>
